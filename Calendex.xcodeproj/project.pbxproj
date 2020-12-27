@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D1259830730087ACF1 /* CalendexApp.swift */; };
+		CD3AA7D4259830730087ACF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D3259830730087ACF1 /* ContentView.swift */; };
+		CD3AA7D6259830750087ACF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3AA7D5259830750087ACF1 /* Assets.xcassets */; };
+		CD3AA7D9259830750087ACF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3AA7D8259830750087ACF1 /* Preview Assets.xcassets */; };
+		CD3AA7E4259830750087ACF1 /* CalendexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7E3259830750087ACF1 /* CalendexTests.swift */; };
+		CD3AA7EF259830750087ACF1 /* CalendexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7EE259830750087ACF1 /* CalendexUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD3AA7E0259830750087ACF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD3AA7C6259830730087ACF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD3AA7CD259830730087ACF1;
+			remoteInfo = Calendex;
+		};
+		CD3AA7EB259830750087ACF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD3AA7C6259830730087ACF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD3AA7CD259830730087ACF1;
+			remoteInfo = Calendex;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CD3AA7CE259830730087ACF1 /* Calendex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD3AA7D1259830730087ACF1 /* CalendexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendexApp.swift; sourceTree = "<group>"; };
+		CD3AA7D3259830730087ACF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CD3AA7D5259830750087ACF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD3AA7D8259830750087ACF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CD3AA7DA259830750087ACF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD3AA7DF259830750087ACF1 /* CalendexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD3AA7E3259830750087ACF1 /* CalendexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendexTests.swift; sourceTree = "<group>"; };
+		CD3AA7E5259830750087ACF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD3AA7EA259830750087ACF1 /* CalendexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD3AA7EE259830750087ACF1 /* CalendexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendexUITests.swift; sourceTree = "<group>"; };
+		CD3AA7F0259830750087ACF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD3AA7CB259830730087ACF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD3AA7DC259830750087ACF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD3AA7E7259830750087ACF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD3AA7C5259830730087ACF1 = {
+			isa = PBXGroup;
+			children = (
+				CD3AA7D0259830730087ACF1 /* Calendex */,
+				CD3AA7E2259830750087ACF1 /* CalendexTests */,
+				CD3AA7ED259830750087ACF1 /* CalendexUITests */,
+				CD3AA7CF259830730087ACF1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD3AA7CF259830730087ACF1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD3AA7CE259830730087ACF1 /* Calendex.app */,
+				CD3AA7DF259830750087ACF1 /* CalendexTests.xctest */,
+				CD3AA7EA259830750087ACF1 /* CalendexUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD3AA7D0259830730087ACF1 /* Calendex */ = {
+			isa = PBXGroup;
+			children = (
+				CD3AA7D1259830730087ACF1 /* CalendexApp.swift */,
+				CD3AA7D3259830730087ACF1 /* ContentView.swift */,
+				CD3AA7D5259830750087ACF1 /* Assets.xcassets */,
+				CD3AA7DA259830750087ACF1 /* Info.plist */,
+				CD3AA7D7259830750087ACF1 /* Preview Content */,
+			);
+			path = Calendex;
+			sourceTree = "<group>";
+		};
+		CD3AA7D7259830750087ACF1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CD3AA7D8259830750087ACF1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CD3AA7E2259830750087ACF1 /* CalendexTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD3AA7E3259830750087ACF1 /* CalendexTests.swift */,
+				CD3AA7E5259830750087ACF1 /* Info.plist */,
+			);
+			path = CalendexTests;
+			sourceTree = "<group>";
+		};
+		CD3AA7ED259830750087ACF1 /* CalendexUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CD3AA7EE259830750087ACF1 /* CalendexUITests.swift */,
+				CD3AA7F0259830750087ACF1 /* Info.plist */,
+			);
+			path = CalendexUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD3AA7CD259830730087ACF1 /* Calendex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD3AA7F3259830750087ACF1 /* Build configuration list for PBXNativeTarget "Calendex" */;
+			buildPhases = (
+				CD3AA7CA259830730087ACF1 /* Sources */,
+				CD3AA7CB259830730087ACF1 /* Frameworks */,
+				CD3AA7CC259830730087ACF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Calendex;
+			productName = Calendex;
+			productReference = CD3AA7CE259830730087ACF1 /* Calendex.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD3AA7DE259830750087ACF1 /* CalendexTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD3AA7F6259830750087ACF1 /* Build configuration list for PBXNativeTarget "CalendexTests" */;
+			buildPhases = (
+				CD3AA7DB259830750087ACF1 /* Sources */,
+				CD3AA7DC259830750087ACF1 /* Frameworks */,
+				CD3AA7DD259830750087ACF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD3AA7E1259830750087ACF1 /* PBXTargetDependency */,
+			);
+			name = CalendexTests;
+			productName = CalendexTests;
+			productReference = CD3AA7DF259830750087ACF1 /* CalendexTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CD3AA7E9259830750087ACF1 /* CalendexUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD3AA7F9259830750087ACF1 /* Build configuration list for PBXNativeTarget "CalendexUITests" */;
+			buildPhases = (
+				CD3AA7E6259830750087ACF1 /* Sources */,
+				CD3AA7E7259830750087ACF1 /* Frameworks */,
+				CD3AA7E8259830750087ACF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD3AA7EC259830750087ACF1 /* PBXTargetDependency */,
+			);
+			name = CalendexUITests;
+			productName = CalendexUITests;
+			productReference = CD3AA7EA259830750087ACF1 /* CalendexUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD3AA7C6259830730087ACF1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					CD3AA7CD259830730087ACF1 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					CD3AA7DE259830750087ACF1 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = CD3AA7CD259830730087ACF1;
+					};
+					CD3AA7E9259830750087ACF1 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = CD3AA7CD259830730087ACF1;
+					};
+				};
+			};
+			buildConfigurationList = CD3AA7C9259830730087ACF1 /* Build configuration list for PBXProject "Calendex" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD3AA7C5259830730087ACF1;
+			productRefGroup = CD3AA7CF259830730087ACF1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD3AA7CD259830730087ACF1 /* Calendex */,
+				CD3AA7DE259830750087ACF1 /* CalendexTests */,
+				CD3AA7E9259830750087ACF1 /* CalendexUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD3AA7CC259830730087ACF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD3AA7D9259830750087ACF1 /* Preview Assets.xcassets in Resources */,
+				CD3AA7D6259830750087ACF1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD3AA7DD259830750087ACF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD3AA7E8259830750087ACF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD3AA7CA259830730087ACF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD3AA7D4259830730087ACF1 /* ContentView.swift in Sources */,
+				CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD3AA7DB259830750087ACF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD3AA7E4259830750087ACF1 /* CalendexTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD3AA7E6259830750087ACF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD3AA7EF259830750087ACF1 /* CalendexUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD3AA7E1259830750087ACF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD3AA7CD259830730087ACF1 /* Calendex */;
+			targetProxy = CD3AA7E0259830750087ACF1 /* PBXContainerItemProxy */;
+		};
+		CD3AA7EC259830750087ACF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD3AA7CD259830730087ACF1 /* Calendex */;
+			targetProxy = CD3AA7EB259830750087ACF1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CD3AA7F1259830750087ACF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CD3AA7F2259830750087ACF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD3AA7F4259830750087ACF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Calendex/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Calendex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = EvanBacon.Calendex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD3AA7F5259830750087ACF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Calendex/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Calendex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = EvanBacon.Calendex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CD3AA7F7259830750087ACF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CalendexTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = EvanBacon.CalendexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendex.app/Calendex";
+			};
+			name = Debug;
+		};
+		CD3AA7F8259830750087ACF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CalendexTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = EvanBacon.CalendexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendex.app/Calendex";
+			};
+			name = Release;
+		};
+		CD3AA7FA259830750087ACF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CalendexUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = EvanBacon.CalendexUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Calendex;
+			};
+			name = Debug;
+		};
+		CD3AA7FB259830750087ACF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CalendexUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = EvanBacon.CalendexUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Calendex;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD3AA7C9259830730087ACF1 /* Build configuration list for PBXProject "Calendex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD3AA7F1259830750087ACF1 /* Debug */,
+				CD3AA7F2259830750087ACF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD3AA7F3259830750087ACF1 /* Build configuration list for PBXNativeTarget "Calendex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD3AA7F4259830750087ACF1 /* Debug */,
+				CD3AA7F5259830750087ACF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD3AA7F6259830750087ACF1 /* Build configuration list for PBXNativeTarget "CalendexTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD3AA7F7259830750087ACF1 /* Debug */,
+				CD3AA7F8259830750087ACF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD3AA7F9259830750087ACF1 /* Build configuration list for PBXNativeTarget "CalendexUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD3AA7FA259830750087ACF1 /* Debug */,
+				CD3AA7FB259830750087ACF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD3AA7C6259830730087ACF1 /* Project object */;
+}
