@@ -8,11 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D1259830730087ACF1 /* CalendexApp.swift */; };
-		CD3AA7D4259830730087ACF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D3259830730087ACF1 /* ContentView.swift */; };
+		CD3AA7D4259830730087ACF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D3259830730087ACF1 /* Login.swift */; };
 		CD3AA7D6259830750087ACF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3AA7D5259830750087ACF1 /* Assets.xcassets */; };
 		CD3AA7D9259830750087ACF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3AA7D8259830750087ACF1 /* Preview Assets.xcassets */; };
 		CD3AA7E4259830750087ACF1 /* CalendexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7E3259830750087ACF1 /* CalendexTests.swift */; };
 		CD3AA7EF259830750087ACF1 /* CalendexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7EE259830750087ACF1 /* CalendexUITests.swift */; };
+		CD63025925B4A1ED003A6AA2 /* OverheadBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63025825B4A1ED003A6AA2 /* OverheadBanner.swift */; };
+		CD63025E25B4A253003A6AA2 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63025D25B4A253003A6AA2 /* AppColors.swift */; };
+		CD63026625B51E20003A6AA2 /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63026525B51E20003A6AA2 /* Year.swift */; };
+		CD63026E25B5FBD8003A6AA2 /* ScreenTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63026D25B5FBD8003A6AA2 /* ScreenTitle.swift */; };
+		CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63027225B60A5A003A6AA2 /* MonthButton.swift */; };
+		CD63027825B6116A003A6AA2 /* DataButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63027725B6116A003A6AA2 /* DataButton.swift */; };
+		CD63027D25B61345003A6AA2 /* SubBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63027C25B61345003A6AA2 /* SubBanner.swift */; };
+		CD63028225B6878C003A6AA2 /* TimeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63028125B6878C003A6AA2 /* TimeBar.swift */; };
+		CD63028725B6D4A6003A6AA2 /* TimeBar2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63028625B6D4A6003A6AA2 /* TimeBar2.swift */; };
+		CD63028E25B6D801003A6AA2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63028D25B6D801003A6AA2 /* Queue.swift */; };
+		CD63029625B6D895003A6AA2 /* BgTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63029525B6D895003A6AA2 /* BgTime.swift */; };
+		CD63029B25B6D950003A6AA2 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63029A25B6D950003A6AA2 /* Range.swift */; };
+		CD6302A025BDA736003A6AA2 /* DeviationGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63029F25BDA736003A6AA2 /* DeviationGraph.swift */; };
+		CD6302A525BDB3B4003A6AA2 /* DeviationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6302A425BDB3B4003A6AA2 /* DeviationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +49,7 @@
 /* Begin PBXFileReference section */
 		CD3AA7CE259830730087ACF1 /* Calendex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3AA7D1259830730087ACF1 /* CalendexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendexApp.swift; sourceTree = "<group>"; };
-		CD3AA7D3259830730087ACF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CD3AA7D3259830730087ACF1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		CD3AA7D5259830750087ACF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD3AA7D8259830750087ACF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD3AA7DA259830750087ACF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +59,20 @@
 		CD3AA7EA259830750087ACF1 /* CalendexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3AA7EE259830750087ACF1 /* CalendexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendexUITests.swift; sourceTree = "<group>"; };
 		CD3AA7F0259830750087ACF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD63025825B4A1ED003A6AA2 /* OverheadBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverheadBanner.swift; sourceTree = "<group>"; };
+		CD63025D25B4A253003A6AA2 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		CD63026525B51E20003A6AA2 /* Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
+		CD63026D25B5FBD8003A6AA2 /* ScreenTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTitle.swift; sourceTree = "<group>"; };
+		CD63027225B60A5A003A6AA2 /* MonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthButton.swift; sourceTree = "<group>"; };
+		CD63027725B6116A003A6AA2 /* DataButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataButton.swift; sourceTree = "<group>"; };
+		CD63027C25B61345003A6AA2 /* SubBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBanner.swift; sourceTree = "<group>"; };
+		CD63028125B6878C003A6AA2 /* TimeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBar.swift; sourceTree = "<group>"; };
+		CD63028625B6D4A6003A6AA2 /* TimeBar2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBar2.swift; sourceTree = "<group>"; };
+		CD63028D25B6D801003A6AA2 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		CD63029525B6D895003A6AA2 /* BgTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgTime.swift; sourceTree = "<group>"; };
+		CD63029A25B6D950003A6AA2 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
+		CD63029F25BDA736003A6AA2 /* DeviationGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviationGraph.swift; sourceTree = "<group>"; };
+		CD6302A425BDB3B4003A6AA2 /* DeviationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				CD3AA7D1259830730087ACF1 /* CalendexApp.swift */,
-				CD3AA7D3259830730087ACF1 /* ContentView.swift */,
+				CD63026225B51BCE003A6AA2 /* Screens */,
+				CD63026325B51BE1003A6AA2 /* UI Elements */,
+				CD63026425B51BF3003A6AA2 /* Globals */,
+				CD63028B25B6D77E003A6AA2 /* Data Structures */,
+				CD63028C25B6D7B4003A6AA2 /* Objects */,
 				CD3AA7D5259830750087ACF1 /* Assets.xcassets */,
 				CD3AA7DA259830750087ACF1 /* Info.plist */,
 				CD3AA7D7259830750087ACF1 /* Preview Content */,
@@ -128,6 +160,56 @@
 				CD3AA7F0259830750087ACF1 /* Info.plist */,
 			);
 			path = CalendexUITests;
+			sourceTree = "<group>";
+		};
+		CD63026225B51BCE003A6AA2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CD3AA7D3259830730087ACF1 /* Login.swift */,
+				CD63026525B51E20003A6AA2 /* Year.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CD63026325B51BE1003A6AA2 /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CD63025825B4A1ED003A6AA2 /* OverheadBanner.swift */,
+				CD63026D25B5FBD8003A6AA2 /* ScreenTitle.swift */,
+				CD63027225B60A5A003A6AA2 /* MonthButton.swift */,
+				CD63027725B6116A003A6AA2 /* DataButton.swift */,
+				CD63027C25B61345003A6AA2 /* SubBanner.swift */,
+				CD63028125B6878C003A6AA2 /* TimeBar.swift */,
+				CD63028625B6D4A6003A6AA2 /* TimeBar2.swift */,
+				CD63029F25BDA736003A6AA2 /* DeviationGraph.swift */,
+				CD6302A425BDB3B4003A6AA2 /* DeviationBar.swift */,
+			);
+			path = "UI Elements";
+			sourceTree = "<group>";
+		};
+		CD63026425B51BF3003A6AA2 /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				CD63025D25B4A253003A6AA2 /* AppColors.swift */,
+			);
+			path = Globals;
+			sourceTree = "<group>";
+		};
+		CD63028B25B6D77E003A6AA2 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				CD63028D25B6D801003A6AA2 /* Queue.swift */,
+			);
+			path = "Data Structures";
+			sourceTree = "<group>";
+		};
+		CD63028C25B6D7B4003A6AA2 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				CD63029525B6D895003A6AA2 /* BgTime.swift */,
+				CD63029A25B6D950003A6AA2 /* Range.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +341,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD3AA7D4259830730087ACF1 /* ContentView.swift in Sources */,
+				CD3AA7D4259830730087ACF1 /* Login.swift in Sources */,
+				CD63027825B6116A003A6AA2 /* DataButton.swift in Sources */,
+				CD63025E25B4A253003A6AA2 /* AppColors.swift in Sources */,
+				CD63026625B51E20003A6AA2 /* Year.swift in Sources */,
+				CD63025925B4A1ED003A6AA2 /* OverheadBanner.swift in Sources */,
+				CD6302A525BDB3B4003A6AA2 /* DeviationBar.swift in Sources */,
+				CD63026E25B5FBD8003A6AA2 /* ScreenTitle.swift in Sources */,
+				CD63027D25B61345003A6AA2 /* SubBanner.swift in Sources */,
+				CD6302A025BDA736003A6AA2 /* DeviationGraph.swift in Sources */,
+				CD63029625B6D895003A6AA2 /* BgTime.swift in Sources */,
+				CD63028E25B6D801003A6AA2 /* Queue.swift in Sources */,
+				CD63028725B6D4A6003A6AA2 /* TimeBar2.swift in Sources */,
+				CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */,
+				CD63028225B6878C003A6AA2 /* TimeBar.swift in Sources */,
 				CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */,
+				CD63029B25B6D950003A6AA2 /* Range.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
