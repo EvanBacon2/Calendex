@@ -12,39 +12,33 @@ struct DeviationBar: View {
     var ceiling: CGFloat
     var color: Color
     
-    init(_ range: Range,_ percent: CGFloat, _ ceiling: CGFloat? = nil) {
+    init(_ color: Color,_ percent: CGFloat, _ ceiling: CGFloat) {
+        self.color = color
         self.percent = percent
-        
-        if ((ceiling) != nil) {
-            self.ceiling = ceiling!
-        } else {
-            self.ceiling = 5
-        }
-        
-        switch range {
-        case .low:
-            self.color = AppColors.LOW_2
-        case .mid:
-            self.color = AppColors.MID_2
-        case .high:
-            self.color = AppColors.HIGH_2
-        }
+        self.ceiling = ceiling
     }
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 5, style: .continuous)
+        if (percent > 0) {
+            RoundedRectangle(cornerRadius: 5, style: .continuous)
             .fill(color)
-            .frame(width: UIScreen.screenWidth * 0.025,
+            .frame(width: UIScreen.screenWidth * 0.02,
                    height: (percent / ceiling) * UIScreen.screenHeight * 0.1)
+        } else {
+            RoundedRectangle(cornerRadius: 5, style: .continuous)
+            .fill(color)
+            .frame(width: UIScreen.screenWidth * 0.02,
+                   height: UIScreen.screenWidth * 0.01)
+        }
     }
 }
 
 struct DeviationBar_Previews: PreviewProvider {
     static var previews: some View {
         HStack(spacing: 1) {
-            DeviationBar(.low, 4)
-            DeviationBar(.mid, 4)
-            DeviationBar(.high, 4)
+            DeviationBar(AppColors.LOW_2, 4, 5)
+            DeviationBar(AppColors.MID_2, 4, 5)
+            DeviationBar(AppColors.HIGH_2, 0, 5)
         }
     }
 }

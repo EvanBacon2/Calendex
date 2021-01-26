@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Year: View {
+    
+    
     var body: some View {
         HStack() {
             Spacer()
@@ -20,22 +22,7 @@ struct Year: View {
                 SubBanner("Month Summary")
                 VStack(alignment: .center, spacing: 5) {
                     Spacer().frame(height: 10)
-                    HStack(spacing: 6) {
-                        MonthButton("Jan")
-                        MonthButton("Feb")
-                        MonthButton("Mar")
-                        MonthButton("Apr")
-                        MonthButton("May")
-                        MonthButton("Jun")
-                    }.frame(width: UIScreen.screenWidth * 0.9)
-                    HStack(spacing: 6) {
-                        MonthButton("Jul")
-                        MonthButton("Aug")
-                        MonthButton("Sep")
-                        MonthButton("Oct")
-                        MonthButton("Nov")
-                        MonthButton("Dec")
-                    }
+                    MonthSummary()
                     Spacer().frame(height: 0)
                     Rectangle()
                         .fill(AppColors.LIGHT_BLUE_GRAY)
@@ -52,10 +39,14 @@ struct Year: View {
                 VStack(spacing: 0) {
                     Spacer().frame(height: 10)
                     TimeBar2(8, 5, 87)
-                }.frame(width: UIScreen.screenWidth * 0.9 )
+                }.frame(width: UIScreen.screenWidth * 0.9)
                 Spacer().frame(height: 10)
                 SubBanner("Standard Deviation")
-                Spacer()
+                VStack(spacing: 0) {
+                    Spacer().frame(height: 10)
+                    DeviationGraph()
+                }.frame(width: UIScreen.screenWidth * 0.9)
+                //Spacer()
             }
         }
     }
