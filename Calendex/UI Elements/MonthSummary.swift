@@ -2,30 +2,24 @@
 //  MonthSummary.swift
 //  Calendex
 //
-//  Created by Evan Bacon on 1/24/21.
+//  Created by Evan Bacon on 2/7/21.
 //
 
 import SwiftUI
 
 struct MonthSummary: View {
     var body: some View {
-        VStack(spacing: 5) {
-            HStack(spacing: 6) {
-                MonthButton("Jan")
-                MonthButton("Feb")
-                MonthButton("Mar")
-                MonthButton("Apr")
-                MonthButton("May")
-                MonthButton("Jun")
-            }.frame(width: UIScreen.screenWidth * 0.9)
-            HStack(spacing: 6) {
-                MonthButton("Jul")
-                MonthButton("Aug")
-                MonthButton("Sep")
-                MonthButton("Oct")
-                MonthButton("Nov")
-                MonthButton("Dec")
-            }
+        VStack(spacing: 0) {
+            SubBanner("Month Summary").padding(.bottom, Spacing.DOUBLE_SPACE)
+            
+            MonthButtons().padding(.bottom, Spacing.SINGLE_SPACE)
+            
+            Rectangle()
+                .fill(AppColors.LIGHT_BLUE_GRAY)
+                .frame(width: UIScreen.screenWidth * 0.85, height: 1)
+                .padding(.bottom, Spacing.SINGLE_SPACE)
+            
+            DataButtons()
         }
     }
 }

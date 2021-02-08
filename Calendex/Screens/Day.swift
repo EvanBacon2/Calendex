@@ -14,30 +14,14 @@ struct Day: View {
         HStack(spacing: 0) {
             Spacer()
             VStack(alignment: .leading, spacing: 0) {
-                VStack() {
-                    ScreenTitle("Welcome")
-                    OverheadBanner("15")
-                }.padding(.bottom, blockSpace)
+                ScreenHeader(title: "", banner: "15").padding(.bottom, Spacing.HEADER_MARGIN)
                 ScrollView {
-                    DayChart()
-                    SubBanner("Summary")
-                    DayFields().padding(.bottom)
-                    Group {
-                        SubBanner("Time in Range")
-                        VStack(spacing: 0) {
-                            Spacer().frame(height: 10)
-                            TimeBar2(8, 5, 87)
-                        }.frame(width: UIScreen.screenWidth * 0.9)
+                    VStack(spacing: 0) {
+                        DayChart().padding(.bottom, Spacing.DOUBLE_SPACE)
+                        DayQuickData().padding(.bottom, Spacing.DOUBLE_SPACE)
+                        TimeInRange(low: 8, mid: 57, high: 35).padding(.bottom, Spacing.DOUBLE_SPACE)
+                        StandardDeviation()
                     }
-                    Spacer().frame(height: 10)
-                    Group {
-                        SubBanner("Standard Deviation")
-                        VStack(spacing: 0) {
-                            Spacer().frame(height: 10)
-                            DeviationGraph()
-                        }.frame(width: UIScreen.screenWidth * 0.9)
-                    }
-                    Spacer()
                 }
             }
         }
