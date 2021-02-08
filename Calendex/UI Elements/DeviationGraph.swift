@@ -20,9 +20,9 @@ struct DeviationGraph: View {
             Spacer().frame(width: 6)
             DeviationRange([1,1,1], .low)
             DeviationRangeMarker("70")
-            DeviationRange([1,1,1,1,1,1], .mid)
+            DeviationRange([1,1,5,5,1,1], .mid)
             DeviationRangeMarker("140")
-            DeviationRange([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], .high)
+            DeviationRange([1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0], .high)
         }
     }
 }

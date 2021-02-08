@@ -43,8 +43,9 @@ struct TimeBar2: View {
             }
             HStack(spacing: 0) {
                 Text("\(range.time)")
+                    .font(.system(size: 15))
                     .fixedSize()
-                    .frame(width: 20)
+                    .frame(width: 16)
             }
         }
     }
@@ -55,9 +56,9 @@ struct TimeBar2: View {
                 .trim(from: 0, to: 0.5)
                 .fill(range.color)
                 .rotationEffect(.degrees(90))
-                .frame(width: 36, height: 36)
-                .frame(width: 18)
-                .offset(x: 10)
+                .frame(width: 32, height: 32)
+                .frame(width: 16)
+                .offset(x: 8)
             if (range.time > 8) {
                 buildBar(range, range.time - 8, timeCovered: 8)
             }
@@ -68,18 +69,18 @@ struct TimeBar2: View {
         var barWidth: CGFloat
         
         if (timeLeft >= 84) {
-            barWidth = 189
+            barWidth = 168
         } else if ((timeCovered + timeLeft) == 100) {
-            barWidth = CGFloat(Double(timeLeft) * 2.25) - 18
+            barWidth = CGFloat(Double(timeLeft) * 2) - 16
         } else {
-            barWidth = CGFloat(Double(timeLeft) * 2.25)
+            barWidth = CGFloat(Double(timeLeft) * 2)
         }
         
         if (range.range == .mid &&
             low.time > 0 &&
             high.time > 0 &&
-            barWidth < 20) {
-            barWidth = 18
+            barWidth < 16) {
+            barWidth = 16
         }
         
         return HStack(spacing: 0) {
@@ -88,7 +89,7 @@ struct TimeBar2: View {
             }
             Rectangle()
                 .fill(range.color)
-                .frame(width: barWidth, height: 36)
+                .frame(width: barWidth, height: 32)
             if ((timeCovered + timeLeft) == 100) {
                 buildEndCap(range)
             }
@@ -101,14 +102,14 @@ struct TimeBar2: View {
                 .trim(from: 0, to: 0.5)
                 .fill(range.color)
                 .rotationEffect(.degrees(-90))
-                .frame(width: 36, height: 36)
-            .frame(width: 18)
-            .offset(x: -10)
+                .frame(width: 32, height: 32)
+            .frame(width: 16)
+            .offset(x: -8)
     }
 }
 
 struct TimeBar2_Previews: PreviewProvider {
     static var previews: some View {
-        TimeBar2(47, 1, 52)
+        TimeBar2(8, 40, 52)
     }
 }

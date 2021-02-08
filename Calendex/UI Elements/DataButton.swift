@@ -23,7 +23,8 @@ struct DataButton: View {
                 .frame(width: 80, height: 35)
                 .background(RoundedRectangle(cornerRadius: 10, style: .continuous)
                     .fill(AppColors.BRAND_COLOR)
-                    .frame(width: 80, height: 35))
+                    .frame(width: 80, height: 35)
+                    .shadow(radius: 6, y: 6))
         }
     }
 }

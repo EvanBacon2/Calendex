@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DeviationRange: View {
-    let BAR_WIDTH = UIScreen.screenWidth * 0.02
+    let BAR_WIDTH = UIScreen.screenWidth * 0.018
     let values: [CGFloat]
     let length: Int
     let color: Color

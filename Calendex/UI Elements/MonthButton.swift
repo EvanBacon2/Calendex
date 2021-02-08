@@ -23,7 +23,8 @@ struct MonthButton: View {
                 .frame(width: 40, height: 50)
                 .background(RoundedRectangle(cornerRadius: 10, style: .continuous)
                     .fill(AppColors.BRAND_COLOR)
-                    .frame(width: 40, height: 50))
+                    .frame(width: 40, height: 50)
+                    .shadow(radius: 6, y: 6))
         }
     }
 }

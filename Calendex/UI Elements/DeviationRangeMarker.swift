@@ -20,11 +20,12 @@ struct DeviationRangeMarker: View {
             Rectangle()
                 .fill(AppColors.LIGHT_BLUE_GRAY)
                 .frame(width: 2, height: 12)
-                .offset(y: 40)
+                .offset(y: 30)
             Text(val)
+                .font(.system(size: 15))
                 .fixedSize()
                 .frame(width: 4)
-                .offset(y: 35)
+                .offset(y: 25)
         }.frame(height: UIScreen.screenHeight * 0.1 + 7)
     }
 }

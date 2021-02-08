@@ -19,10 +19,10 @@ struct DeviationBar: View {
     }
     
     var body: some View {
-        if (percent > 0) {
+        if (percent > 0.3) {
             RoundedRectangle(cornerRadius: 5, style: .continuous)
             .fill(color)
-            .frame(width: UIScreen.screenWidth * 0.02,
+            .frame(width: UIScreen.screenWidth * 0.018,
                    height: (percent / ceiling) * UIScreen.screenHeight * 0.1)
         } else {
             RoundedRectangle(cornerRadius: 5, style: .continuous)
