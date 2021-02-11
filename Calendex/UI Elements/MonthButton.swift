@@ -11,6 +11,7 @@ struct MonthButton: View {
     var label: String
     var buttonWidth = UIScreen.screenWidth * 0.125
     var buttonHeight = UIScreen.screenHeight * 0.09
+    var buttonCorner = UIScreen.screenHeight * 0.016
     
     init(_ label: String) {
         self.label = label
@@ -23,7 +24,7 @@ struct MonthButton: View {
             Text(self.label)
                 .foregroundColor(Color.white)
                 .frame(width: buttonWidth, height: buttonHeight)
-                .background(RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .background(RoundedRectangle(cornerRadius: buttonCorner, style: .continuous)
                     .fill(AppColors.BRAND_COLOR)
                     .frame(width: buttonWidth, height: buttonHeight)
                     .shadow(radius: 6, y: 6))

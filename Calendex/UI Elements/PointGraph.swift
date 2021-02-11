@@ -17,12 +17,10 @@ struct PointGraph: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            // Spacer()
             ForEach(0..<values.count) { i in
                 ChartPoint(values[i])
-                // Spacer()
             }
-        }.frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight * 0.4 + 6)
+        }.frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight * 0.4 + UIScreen.screenHeight * 0.012)
     }
 }
 

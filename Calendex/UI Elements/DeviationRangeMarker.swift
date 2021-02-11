@@ -15,18 +15,18 @@ struct DeviationRangeMarker: View {
     }
     
     var body: some View {
-        VStack() {
-            Spacer()
-            Rectangle()
-                .fill(AppColors.LIGHT_BLUE_GRAY)
-                .frame(width: 2, height: 12)
-                .offset(y: 30)
+        VStack(spacing: 3) {
+            VStack(spacing: 0) {
+                Spacer()
+                Rectangle()
+                    .fill(AppColors.LIGHT_BLUE_GRAY)
+                    .frame(width: UIScreen.screenHeight * 0.004, height: UIScreen.screenHeight * 0.024)
+            }.frame(height: UIScreen.screenHeight * 0.126)
             Text(val)
                 .font(.system(size: 15))
                 .fixedSize()
                 .frame(width: 4)
-                .offset(y: 25)
-        }.frame(height: UIScreen.screenHeight * 0.1 + 7)
+        }
     }
 }
 

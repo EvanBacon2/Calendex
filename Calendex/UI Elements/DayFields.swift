@@ -10,13 +10,11 @@ import SwiftUI
 struct DayFields: View {
     var body: some View {
         HStack() {
-            Spacer()
             DataField(.MIN, 72)
             Spacer()
             DataField(.AVG, 112)
             Spacer()
             DataField(.MAX, 187)
-            Spacer()
         }.frame(width: UIScreen.screenWidth * 0.9)
     }
 }

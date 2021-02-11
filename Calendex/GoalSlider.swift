@@ -2,25 +2,41 @@
 //  GoalSlider.swift
 //  Calendex
 //
-//  Created by Evan Bacon on 2/6/21.
+//  Created by Evan Bacon on 2/11/21.
 //
 
 import SwiftUI
 
-struct MultiSlider: View {
+enum Metric {
+    case RANGE
+    case TIME
+    case DEVIATION
+}
+
+struct GoalSlider: View {
+    @EnvironmentObject var goals: Goals
+    
     @State private var limits: [CGFloat]
     
+    var metric: Metric
     var dragLimit: CGFloat = UIScreen.screenWidth * (0.425) - UIScreen.screenHeight * 0.0115
-    let multiThumb: Bool
     var thumbOneColor: Color
     
-    init(multiThumb: Bool) {
-        self.multiThumb = multiThumb
+    init(metric: Metric) {
+        self.metric = metric
         
-        if (multiThumb) {
+        switch metric {
+        case .RANGE:
             thumbOneColor = AppColors.LOW_2
-            _limits = State(initialValue: [-dragLimit, -20.0, 20.0, dragLimit])
-        } else {
+            
+            var lowThumb = (UIScreenWidth * 0.85 * ((goals.lowBgThreshold - 60) / 340)) - UIScreen.screenWidth * 0.425
+            var highThumb = (UIScreenWidth * 0.85 * ((goals.highBgThreshold - 60) / 340)) - UIScreen.screenWidth * 0.425
+            
+            _limits = State(initialValue: [-dragLimit, lowThumb, highThumb, dragLimit])
+        case .TIME:
+            thumbOneColor = AppColors.MID_2
+            _limits = State(initialValue: [-dragLimit, 0.0, dragLimit])
+        case .DEVIATION:
             thumbOneColor = AppColors.MID_2
             _limits = State(initialValue: [-dragLimit, 0.0, dragLimit])
         }
@@ -38,7 +54,7 @@ struct MultiSlider: View {
                     .frame(width: UIScreen.screenWidth * (0.425 - 0.0115) + limits[1],
                            height: UIScreen.screenHeight * 0.0115)
                     .offset(x: -5)
-                if (multiThumb) {
+                if (metric == .RANGE) {
                     Rectangle()
                         .fill(AppColors.MID_2)
                         .frame(width: limits[2] - limits[1],
@@ -62,8 +78,8 @@ struct MultiSlider: View {
     }
 }
 
-struct MultiSlider_Previews: PreviewProvider {
+struct GoalSlider_Previews: PreviewProvider {
     static var previews: some View {
-        MultiSlider(multiThumb: true)
+        GoalSlider(metric: .RANGE)
     }
 }

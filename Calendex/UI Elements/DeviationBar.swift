@@ -11,6 +11,9 @@ struct DeviationBar: View {
     var percent: CGFloat
     var ceiling: CGFloat
     var color: Color
+    var barWidth = Dimensions.BASE_UNIT * 5
+    var barHeight = Dimensions.BASE_UNIT * 50
+    var emptyBarHeight = Dimensions.BASE_UNIT * 3
     
     init(_ color: Color,_ percent: CGFloat, _ ceiling: CGFloat) {
         self.color = color
@@ -20,15 +23,15 @@ struct DeviationBar: View {
     
     var body: some View {
         if (percent > 0.3) {
-            RoundedRectangle(cornerRadius: 5, style: .continuous)
+            RoundedRectangle(cornerRadius: 5)
             .fill(color)
-            .frame(width: UIScreen.screenWidth * 0.018,
-                   height: (percent / ceiling) * UIScreen.screenHeight * 0.1)
+            .frame(width: barWidth,
+                   height: (percent / ceiling) * barHeight)
         } else {
-            RoundedRectangle(cornerRadius: 5, style: .continuous)
+            RoundedRectangle(cornerRadius: 10)
             .fill(color)
-            .frame(width: UIScreen.screenWidth * 0.02,
-                   height: UIScreen.screenWidth * 0.01)
+            .frame(width: barWidth,
+                   height: emptyBarHeight)
         }
     }
 }

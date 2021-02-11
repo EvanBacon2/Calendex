@@ -9,6 +9,9 @@ import SwiftUI
 
 struct DataButton: View {
     var label: String
+    var buttonWidth = UIScreen.screenHeight * 0.15
+    var buttonHeight = UIScreen.screenHeight * 0.06
+    var buttonCorner = UIScreen.screenHeight * 0.016
     
     init(_ label: String) {
         self.label = label
@@ -20,10 +23,10 @@ struct DataButton: View {
         }) {
             Text(self.label)
                 .foregroundColor(Color.white)
-                .frame(width: 80, height: 35)
-                .background(RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .frame(width: buttonWidth, height: buttonHeight)
+                .background(RoundedRectangle(cornerRadius: buttonCorner)
                     .fill(AppColors.BRAND_COLOR)
-                    .frame(width: 80, height: 35)
+                    .frame(width: buttonWidth, height: buttonHeight)
                     .shadow(radius: 6, y: 6))
         }
     }

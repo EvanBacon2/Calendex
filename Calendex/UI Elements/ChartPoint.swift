@@ -18,7 +18,7 @@ struct ChartPoint: View {
         Circle()
             .strokeBorder(AppColors.LIGHT_BLUE_GRAY)
             .background(Circle()).foregroundColor(AppColors.DARK_GRAY)
-            .frame(width: UIScreen.screenWidth * 0.8 / 24, height: 6)
+            .frame(width: UIScreen.screenWidth * 0.8 / 24, height: UIScreen.screenHeight * 0.012)
             .offset(y: UIScreen.screenHeight * 0.4 * CGFloat(-(value - 220) / 360.0))
     }
 }

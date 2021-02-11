@@ -19,7 +19,7 @@ struct SubBanner: View {
             Text(self.title).padding(.bottom, UIScreen.screenHeight * 0.01)
             Rectangle()
                 .fill(AppColors.DARK_GRAY)
-                .frame(width: UIScreen.screenWidth * 0.9, height: 1)
+                .frame(width: UIScreen.screenWidth * 0.9, height: Dimensions.BASE_UNIT)
         }
     }
 }

@@ -35,21 +35,23 @@ struct DeviationRange: View {
     }
     
     var body: some View {
-        VStack(spacing: 5) {
-            HStack(alignment: .bottom, spacing: 1) {
+        VStack(spacing: 0) {
+            Spacer(minLength: 0)
+            HStack(alignment: .bottom, spacing: UIScreen.screenHeight * 0.002) {
                 ForEach(0..<length) {i in
                     DeviationBar(color, values[i], ceiling)
                 }
             }
-            Rectangle()
+            Spacer().frame(height: UIScreen.screenHeight * 0.01)
+            RoundedRectangle(cornerRadius: 10)
                 .fill(color)
-                .frame(width: BAR_WIDTH * CGFloat(length) + (CGFloat(length) - 1), height: 2)
-        }
+                .frame(width: BAR_WIDTH * CGFloat(length) + ((CGFloat(length) - 1) * UIScreen.screenHeight * 0.002), height: UIScreen.screenHeight * 0.004)
+        }.frame(height: UIScreen.screenHeight * 0.114)
     }
 }
 
 struct DeviationRange_Previews: PreviewProvider {
     static var previews: some View {
-        DeviationRange([1, 1.5, 2], .low)
+        DeviationRange([1, 1.5, 5], .low)
     }
 }

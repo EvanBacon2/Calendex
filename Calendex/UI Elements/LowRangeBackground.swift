@@ -18,7 +18,7 @@ struct LowRangeBackground: View {
             Rectangle()
                 .fill(AppColors.LOW_2)
                 .frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight * height / 2)
-            RoundedRectangle(cornerRadius: UIScreen.screenHeight * 0.025 / 2)
+            RoundedRectangle(cornerRadius: UIScreen.screenHeight * 0.0125)
                 .fill(AppColors.LOW_2)
                 .frame(width: UIScreen.screenWidth * 0.8 , height: UIScreen.screenHeight * height)
         }

@@ -11,6 +11,9 @@ struct TimeBar2: View {
     let low: BgTime
     let mid: BgTime
     let high: BgTime
+    let minBarWidth = Dimensions.BASE_UNIT * 16
+    let midBarWidth = Dimensions.BASE_UNIT * 168
+    let barHeight = Dimensions.BASE_UNIT * 32
     
     init(_ low: Int, _ mid: Int, _ high: Int) {
         self.low = BgTime(.low, time: low)
@@ -56,9 +59,9 @@ struct TimeBar2: View {
                 .trim(from: 0, to: 0.5)
                 .fill(range.color)
                 .rotationEffect(.degrees(90))
-                .frame(width: 32, height: 32)
-                .frame(width: 16)
-                .offset(x: 8)
+                .frame(width: minBarWidth * 2, height: minBarWidth * 2)
+                .frame(width: minBarWidth)
+                .offset(x: minBarWidth / 2)
             if (range.time > 8) {
                 buildBar(range, range.time - 8, timeCovered: 8)
             }
@@ -69,18 +72,18 @@ struct TimeBar2: View {
         var barWidth: CGFloat
         
         if (timeLeft >= 84) {
-            barWidth = 168
+            barWidth = midBarWidth
         } else if ((timeCovered + timeLeft) == 100) {
-            barWidth = CGFloat(Double(timeLeft) * 2) - 16
+            barWidth = Dimensions.BASE_UNIT * CGFloat(Double(timeLeft) * 2) - 16
         } else {
-            barWidth = CGFloat(Double(timeLeft) * 2)
+            barWidth = Dimensions.BASE_UNIT * CGFloat(Double(timeLeft) * 2)
         }
         
         if (range.range == .mid &&
             low.time > 0 &&
             high.time > 0 &&
             barWidth < 16) {
-            barWidth = 16
+            barWidth = minBarWidth
         }
         
         return HStack(spacing: 0) {
@@ -89,7 +92,7 @@ struct TimeBar2: View {
             }
             Rectangle()
                 .fill(range.color)
-                .frame(width: barWidth, height: 32)
+                .frame(width: barWidth, height: barHeight)
             if ((timeCovered + timeLeft) == 100) {
                 buildEndCap(range)
             }
@@ -102,9 +105,9 @@ struct TimeBar2: View {
                 .trim(from: 0, to: 0.5)
                 .fill(range.color)
                 .rotationEffect(.degrees(-90))
-                .frame(width: 32, height: 32)
-            .frame(width: 16)
-            .offset(x: -8)
+                .frame(width: minBarWidth * 2, height: minBarWidth * 2)
+            .frame(width: minBarWidth)
+            .offset(x: -minBarWidth / 2)
     }
 }
 

@@ -10,17 +10,17 @@ import SwiftUI
 struct DeviationGraph: View {
     
     var body: some View {
-        HStack(alignment: .bottom, spacing: 2) {
+        HStack(alignment: .top, spacing: UIScreen.screenHeight * 0.004) {
             VStack(){
                 Rectangle()
                     .fill(AppColors.LIGHT_BLUE_GRAY)
-                    .frame(width: 2, height: UIScreen.screenHeight * 0.1)
+                    .frame(width: UIScreen.screenHeight * 0.004, height: UIScreen.screenHeight * 0.1)
                     Spacer()
-            }.frame(height: UIScreen.screenHeight * 0.1 + 7)
-            Spacer().frame(width: 6)
+            }.frame(height: UIScreen.screenHeight * 0.114)
+            Spacer().frame(width: UIScreen.screenHeight * 0.012)
             DeviationRange([1,1,1], .low)
             DeviationRangeMarker("70")
-            DeviationRange([1,1,5,5,1,1], .mid)
+            DeviationRange([1,1,4,5,1,1], .mid)
             DeviationRangeMarker("140")
             DeviationRange([1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0], .high)
         }

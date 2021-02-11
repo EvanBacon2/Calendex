@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Spacing {
-    static let SINGLE_SPACE = UIScreen.screenHeight * 0.01
+    static let SINGLE_SPACE = Dimensions.BASE_UNIT * 5
     
     static let DOUBLE_SPACE = SINGLE_SPACE * 2
     

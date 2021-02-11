@@ -19,7 +19,7 @@ struct DayButtons: View {
     }
     
     var body: some View {
-        VStack(spacing: 5) {
+        VStack(spacing: UIScreen.screenHeight * 0.01) {
             TopDayRow(offset: topOffset)
             MidDayRows(offset: topOffset, dayCount: dayCount)
             BottomDayRow(topOffset, bottomOffset, dayCount: dayCount)

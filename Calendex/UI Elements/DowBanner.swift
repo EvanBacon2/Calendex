@@ -11,7 +11,7 @@ struct DowBanner: View {
     var dows = ["S", "M", "T", "W", "Th", "F", "S"]
     
     var body: some View {
-        VStack(alignment: .center, spacing: 5) {
+        VStack(alignment: .center, spacing: UIScreen.screenHeight * 0.01) {
             HStack() {
                 Spacer()
                 ForEach(0..<7) { i in

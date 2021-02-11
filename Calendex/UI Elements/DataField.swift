@@ -18,15 +18,15 @@ struct DataField: View {
     var value: Int
     var textColor: Color
     var buttonColor: Color
+    var buttonWidth = UIScreen.screenHeight * 0.16
+    var buttonHeight = UIScreen.screenHeight * 0.06
+    var buttonCorner = UIScreen.screenHeight * 0.012
     
     init(_ data: Field, _ value: Int) {
         self.data = data
         self.value = value
         switch data {
-        case .MIN:
-            self.textColor = AppColors.DARK_GRAY
-            self.buttonColor = AppColors.LIGHT_BLUE_GRAY
-        case .MAX:
+        case .MIN, .MAX:
             self.textColor = AppColors.DARK_GRAY
             self.buttonColor = AppColors.LIGHT_BLUE_GRAY
         case .AVG:
@@ -36,15 +36,15 @@ struct DataField: View {
     }
     
     var body: some View {
-        VStack(spacing: 2) {
+        VStack(spacing: UIScreen.screenHeight * 0.002) {
             Text(data.rawValue)
                 .foregroundColor(AppColors.DARK_GRAY)
             Text("\(value) ml")
                 .foregroundColor(textColor)
-                .frame(width: 80, height: 30)
-                .background(RoundedRectangle(cornerRadius: 6, style: .continuous)
+                .frame(width: buttonWidth, height: buttonHeight)
+                .background(RoundedRectangle(cornerRadius: buttonCorner, style: .continuous)
                     .fill(buttonColor)
-                    .frame(width: 80, height: 30))
+                    .frame(width: buttonWidth, height: buttonHeight))
         }
     }
 }

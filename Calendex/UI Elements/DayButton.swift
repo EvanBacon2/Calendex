@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DayButton: View {
     var day: Int
+    var buttonLength = UIScreen.screenWidth * 0.9 / 9
+    var buttonCorner = UIScreen.screenHeight * 0.01
     
     init(_ day: Int) {
         self.day = day
@@ -20,11 +22,11 @@ struct DayButton: View {
         }) {
             Text("\(day)")
                 .foregroundColor(Color.white)
-                .frame(width: 40, height: 50)
-                .background(RoundedRectangle(cornerRadius: 5)
+                .frame(width: buttonLength, height: buttonLength)
+                .background(RoundedRectangle(cornerRadius: buttonCorner)
                                 .fill(AppColors.MID_2)
-                                    .frame(width: UIScreen.screenWidth * 0.9 / 9, height: UIScreen.screenWidth * 0.9 / 9))
-        }.frame(width: UIScreen.screenWidth * 0.9 / 9, height: UIScreen.screenWidth * 0.9 / 9)
+                                    .frame(width: buttonLength, height: buttonLength))
+        }
     }
 }
 

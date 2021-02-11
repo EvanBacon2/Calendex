@@ -31,7 +31,7 @@ struct ScreenTitle: View {
                     .shadow(color: Color.gray,
                             radius: 4.0,
                             y: 5)
-                    .offset(x: -10)
+                    .offset(x: Dimensions.BASE_UNIT * -10)
     
             }.frame(width: UIScreen.screenWidth * 0.9)
         }
