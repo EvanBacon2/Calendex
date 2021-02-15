@@ -8,80 +8,73 @@
 import SwiftUI
 
 struct SliderThumb: View {
+    @Binding var val: Int
+    
     @State private var startPos: CGFloat = 0.0
     @State private var prevDelta: CGFloat = 0.0
     @State private var sliderPos: CGFloat = 0.0
+    @State private var lowThreshold: CGFloat = 0.0
+    @State private var highThreshold: CGFloat = 0.0
     
-    var pos: Int
-    @Binding var limits: [CGFloat]
-    
-    init(pos: Int, limits: Binding<[CGFloat]>) {
-        self.pos = pos
-        self._limits = limits
-        self._startPos = State(initialValue: self.limits[pos])
-        self._sliderPos = State(initialValue: self.limits[pos])
+    init(startPos: CGFloat, lowThreshold: CGFloat, highThreshold: CGFloat, updateGoal: Binding<Int>) {
+        self._startPos = State(initialValue: startPos)
+        self._sliderPos = State(initialValue: startPos)
+        self._lowThreshold = State(initialValue: lowThreshold)
+        self._highThreshold = State(initialValue: highThreshold)
+        self._val = updateGoal
     }
     
     var sliderDrag: some Gesture {
         DragGesture(minimumDistance: 0)
             .onChanged {gesture in
-                let prevSliderPos = startPos + prevDelta
+                //let prevSliderPos = startPos + prevDelta
                 let newSliderPos = startPos + gesture.translation.width
                 
-                if (prevSliderPos > threshold(pos-1, true) &&
-                    prevSliderPos < threshold(pos+1, false)) {
-                    sliderPos = calcNewSliderPos(newSliderPos)
+                if (newSliderPos >= lowThreshold &&
+                        newSliderPos <= highThreshold) {
+                    sliderPos = checkBounds(newSliderPos)
                     prevDelta = gesture.translation.width
                     prevDelta -= shaveDelta(sliderPos)
-                } else if (prevSliderPos == threshold(pos-1, true)) {
-                    if (newSliderPos >= threshold(pos-1, true)) {
-                        sliderPos = newSliderPos
-                        prevDelta = gesture.translation.width
-                    }
-                } else if (prevSliderPos == threshold(pos+1, false)) {
-                    if (newSliderPos <= threshold(pos+1, false)) {
-                        sliderPos = newSliderPos
-                        prevDelta = gesture.translation.width
-                    }
                 }
                 
-                limits[pos] = sliderPos
+                /*if (prevSliderPos > lowThreshold &&
+                    prevSliderPos < highThreshold) {
+                    sliderPos = checkBounds(newSliderPos)
+                    prevDelta = gesture.translation.width
+                    prevDelta -= shaveDelta(sliderPos)
+                 
+                } else if (prevSliderPos == lowThreshold &&
+                           newSliderPos >= lowThreshold  ||
+                           prevSliderPos == highThreshold &&
+                           newSliderPos <= highThreshold) {
+                    sliderPos = checkBounds(newSliderPos)
+                    prevDelta = gesture.translation.width
+                }*/
+                self.val = Int(round(sliderPos))
             }.onEnded {_ in
                 startPos = sliderPos
                 prevDelta = 0.0
-                limits[pos] = sliderPos
+                self.val = Int(round(sliderPos))
             }
     }
     
-    func calcNewSliderPos(_ newPos: CGFloat) -> CGFloat {
-        if (newPos < threshold(pos-1, true)) {
-            return threshold(pos-1, true)
-        } else if (newPos > threshold(pos+1, false)) {
-            return threshold(pos+1, false)
+    func checkBounds(_ newPos: CGFloat) -> CGFloat {
+        if (newPos < lowThreshold) {
+            return lowThreshold
+        } else if (newPos > highThreshold) {
+            return highThreshold
         } else {
             return newPos
         }
     }
     
     func shaveDelta(_ sliderPos: CGFloat) -> CGFloat {
-        if (sliderPos < threshold(pos-1, true)) {
-            return sliderPos - threshold(pos-1, true)
-        } else if (sliderPos > threshold(pos+1, false)) {
-            return threshold(pos+1, false) - sliderPos
+        if (sliderPos < lowThreshold) {
+            return sliderPos - lowThreshold
+        } else if (sliderPos > highThreshold) {
+            return highThreshold - sliderPos
         } else {
             return 0.0
-        }
-    }
-    
-    func threshold(_ pos: Int, _ approachRight: Bool) -> CGFloat {
-        if (pos == 0 || pos == limits.count - 1) {
-            return limits[pos]
-        } else {
-            if (approachRight) {
-                return limits[pos] + 10
-            } else {
-                return limits[pos] - 10
-            }
         }
     }
     
@@ -95,9 +88,20 @@ struct SliderThumb: View {
 }
 
 struct SliderThumb_Previews: PreviewProvider {
-    @State static var limits: [CGFloat] = [-20.0, 0.0, 20.0]
-    
     static var previews: some View {
-        SliderThumb(pos: 1, limits: $limits)
+        SliderThumb_Preview_Container()
+    }
+}
+
+struct SliderThumb_Preview_Container: View {
+    var dragLimit: CGFloat = UIScreen.screenWidth * (0.425) - UIScreen.screenHeight * 0.0115
+    @State var val = 0
+    
+    var body: some View {
+        VStack() {
+            Text(String("\(val)"))
+            SliderThumb(startPos: 0, lowThreshold: -dragLimit, highThreshold: dragLimit, updateGoal: Binding(get: { return val },
+                set: { (newVal) in val = newVal }))
+        }
     }
 }

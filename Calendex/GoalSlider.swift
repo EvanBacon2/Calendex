@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Metric {
+enum Metroc {
     case RANGE
     case TIME
     case DEVIATION
@@ -16,29 +16,74 @@ enum Metric {
 struct GoalSlider: View {
     @EnvironmentObject var goals: Goals
     
-    @State private var limits: [CGFloat]
+    //var lowMetrocWidth: CGFloat
+    //var midMetrocWidth: CGFloat
+    //var highMetrocWidth: CGFloat
     
-    var metric: Metric
-    var dragLimit: CGFloat = UIScreen.screenWidth * (0.425) - UIScreen.screenHeight * 0.0115
+    var dragLimit: CGFloat = UIScreen.screenWidth * (0.425) -                      UIScreen.screenHeight * 0.0115
+    let sliderWidth = UIScreen.screenWidth * 0.85
     var thumbOneColor: Color
+    var Metroc: Metroc
     
-    init(metric: Metric) {
-        self.metric = metric
+    init(Metroc: Metroc) {
+        //lowMetrocWidth = calcWidth(range: .low, Metroc)
+        //midMetrocWidth = calcWidth(range: .mid, Metroc)
+        //highMetrocWidth = calcWidth(range: .high, Metroc)
         
-        switch metric {
+        self.Metroc = Metroc
+        
+        switch Metroc {
         case .RANGE:
             thumbOneColor = AppColors.LOW_2
-            
-            var lowThumb = (UIScreenWidth * 0.85 * ((goals.lowBgThreshold - 60) / 340)) - UIScreen.screenWidth * 0.425
-            var highThumb = (UIScreenWidth * 0.85 * ((goals.highBgThreshold - 60) / 340)) - UIScreen.screenWidth * 0.425
-            
-            _limits = State(initialValue: [-dragLimit, lowThumb, highThumb, dragLimit])
+        case .TIME, .DEVIATION:
+            thumbOneColor = AppColors.MID_2
+        }
+    }
+    
+    func calcWidth(range: Range, _ Metroc: Metroc) -> CGFloat {
+        let MetrocVal = getMetrocVal(range, Metroc)
+        return convertMetrocToWidth(MetrocVal, met: Metroc)
+    }
+    
+    func convertMetrocToWidth(_ MetrocVal: Int, met: Metroc) -> CGFloat {
+        let scale: CGFloat
+        
+            scale = (CGFloat(MetrocVal) - 60) / 340.0
+        
+        let width = (sliderWidth * scale)
+        
+        return width
+    }
+    
+    func getMetrocVal(_ range: Range, _ Metroc: Metroc) -> Int {
+        switch Metroc {
+        case .RANGE:
+            switch range {
+            case .high:
+                return 460 - goals.highBgThreshold
+            case .mid:
+                return goals.highBgThreshold - goals.lowBgThreshold + 60
+            case .low:
+                return goals.lowBgThreshold
+            }
         case .TIME:
-            thumbOneColor = AppColors.MID_2
-            _limits = State(initialValue: [-dragLimit, 0.0, dragLimit])
+            switch range {
+            case .low:
+                return goals.TimeInRangeThreshold
+            case .mid:
+                return 0
+            case .high:
+                return 100 - goals.TimeInRangeThreshold
+            }
         case .DEVIATION:
-            thumbOneColor = AppColors.MID_2
-            _limits = State(initialValue: [-dragLimit, 0.0, dragLimit])
+            switch range {
+            case .low:
+                return goals.DeviationThreshold
+            case .mid:
+                return 0
+            case .high:
+                return 100 - goals.DeviationThreshold
+            }
         }
     }
     
@@ -47,23 +92,23 @@ struct GoalSlider: View {
             HStack(spacing: 0) {
                 Spacer().frame(width: 10)
                 RoundedRectangle(cornerRadius: 5)
-                    .fill(AppColors.LOW_2)
+                    .fill(thumbOneColor)
                     .frame(width: UIScreen.screenHeight * 0.0115, height: UIScreen.screenHeight * 0.0115)
                 Rectangle()
-                    .fill(AppColors.LOW_2)
-                    .frame(width: UIScreen.screenWidth * (0.425 - 0.0115) + limits[1],
+                    .fill(thumbOneColor)
+                    .frame(width: calcWidth(range: .low, Metroc),
                            height: UIScreen.screenHeight * 0.0115)
                     .offset(x: -5)
-                if (metric == .RANGE) {
+                if (Metroc == .RANGE) {
                     Rectangle()
                         .fill(AppColors.MID_2)
-                        .frame(width: limits[2] - limits[1],
+                        .frame(width: calcWidth(range: .mid, Metroc),
                                height: UIScreen.screenHeight * 0.0115)
                         .offset(x: -5)
                 }
                 Rectangle()
                     .fill(AppColors.HIGH_2)
-                    .frame(width: UIScreen.screenWidth * (0.425 - 0.0115) - limits[2],
+                    .frame(width: calcWidth(range: .high, Metroc),
                            height: UIScreen.screenHeight * 0.0115)
                     .offset(x: -5)
                 RoundedRectangle(cornerRadius: 5)
@@ -71,15 +116,12 @@ struct GoalSlider: View {
                     .frame(width: UIScreen.screenHeight * 0.0115, height: UIScreen.screenHeight * 0.0115)
                     .offset(x: -10)
             }
-            ForEach(1..<limits.count - 1) { i in
-                SliderThumb(pos: i, limits: $limits)
-            }
         }
     }
 }
 
 struct GoalSlider_Previews: PreviewProvider {
     static var previews: some View {
-        GoalSlider(metric: .RANGE)
+        GoalSlider(Metroc: .RANGE).environmentObject(Goals())
     }
 }
