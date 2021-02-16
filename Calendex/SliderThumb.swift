@@ -17,8 +17,8 @@ struct SliderThumb: View {
     var lowThreshold: CGFloat
     var highThreshold: CGFloat
     
-    init(startPos: Binding<CGFloat>, lowThreshold: CGFloat, highThreshold: CGFloat, updateGoal: Binding<CGFloat>) {
-        self._val = updateGoal
+    init(startPos: Binding<CGFloat>, lowThreshold: CGFloat, highThreshold: CGFloat, val: Binding<CGFloat>) {
+        self._val = val
         self._startPos = State(initialValue: startPos.wrappedValue)
         self._sliderPos = startPos
         

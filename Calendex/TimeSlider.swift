@@ -99,7 +99,7 @@ struct TimeSlider: View {
     }
     
     func getThumb(startPos: Binding<CGFloat>, lowThreshold: CGFloat, highThreshold: CGFloat, val: Binding<CGFloat>) -> some View {
-        return AnyView(SliderThumb(startPos: startPos, lowThreshold: lowThreshold, highThreshold: highThreshold, updateGoal: val))
+        return AnyView(SliderThumb(startPos: startPos, lowThreshold: lowThreshold, highThreshold: highThreshold, val: val))
     }
     
     func barColor(range: Range) -> Color {

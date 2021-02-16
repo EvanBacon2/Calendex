@@ -117,7 +117,7 @@ struct AverageSlider: View {
     }
     
     func getThumb(startPos: Binding<CGFloat>, lowThreshold: CGFloat, highThreshold: CGFloat, val: Binding<CGFloat>) -> some View {
-        return AnyView(SliderThumb(startPos: startPos, lowThreshold: lowThreshold, highThreshold: highThreshold, updateGoal: val))
+        return AnyView(SliderThumb(startPos: startPos, lowThreshold: lowThreshold, highThreshold: highThreshold, val: val))
     }
     
     func barColor(range: Range) -> Color {
@@ -155,9 +155,8 @@ struct AverageSlider: View {
     }
 }
 
-struct Average_Previews: PreviewProvider {
+struct AverageSlider_Previews: PreviewProvider {
     static var previews: some View {
-        AverageSlider(sliderWidth: UIScreen.screenWidth * 0.85, sliderHeight: UIScreen.screenHeight * 0.0115, thumbPadding: 10)
-            .environmentObject(Goals())
+        AverageSlider(sliderWidth: UIScreen.screenWidth * 0.85, sliderHeight: UIScreen.screenHeight * 0.0115, thumbPadding: 10).environmentObject(Goals())
     }
 }

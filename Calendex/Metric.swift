@@ -14,7 +14,7 @@ protocol Metric {
     
     var activeRanges: Array<Range> { get }
     
-    var metrics: Array<Binding<Int>> { get }
+    func getMetrics() -> Array<Binding<Int>>
     
     func getMetricVal(range: Range) -> Int
 }

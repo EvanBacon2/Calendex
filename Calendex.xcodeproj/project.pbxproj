@@ -49,6 +49,9 @@
 		CD6CCB5925DBFB5600B256AA /* TimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB5825DBFB5600B256AA /* TimeSlider.swift */; };
 		CD6CCB5E25DBFB6800B256AA /* DeviationSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB5D25DBFB6800B256AA /* DeviationSlider.swift */; };
 		CD6CCB6925DC593000B256AA /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB6825DC593000B256AA /* Metric.swift */; };
+		CD6CCB7125DC5B9300B256AA /* Average.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB7025DC5B9300B256AA /* Average.swift */; };
+		CD6CCB7925DC763800B256AA /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB7825DC763800B256AA /* Time.swift */; };
+		CD6CCB7E25DC765000B256AA /* Deviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB7D25DC765000B256AA /* Deviation.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -135,6 +138,9 @@
 		CD6CCB5825DBFB5600B256AA /* TimeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlider.swift; sourceTree = "<group>"; };
 		CD6CCB5D25DBFB6800B256AA /* DeviationSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviationSlider.swift; sourceTree = "<group>"; };
 		CD6CCB6825DC593000B256AA /* Metric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metric.swift; sourceTree = "<group>"; };
+		CD6CCB7025DC5B9300B256AA /* Average.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Average.swift; sourceTree = "<group>"; };
+		CD6CCB7825DC763800B256AA /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		CD6CCB7D25DC765000B256AA /* Deviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deviation.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -212,13 +218,16 @@
 				CD6CCB4525DA5BC200B256AA /* AverageSlider.swift */,
 				CD6CCB5825DBFB5600B256AA /* TimeSlider.swift */,
 				CD6CCB5D25DBFB6800B256AA /* DeviationSlider.swift */,
+				CD6CCB6825DC593000B256AA /* Metric.swift */,
+				CD6CCB7025DC5B9300B256AA /* Average.swift */,
+				CD6CCB7825DC763800B256AA /* Time.swift */,
+				CD6CCB7D25DC765000B256AA /* Deviation.swift */,
 				CD63026425B51BF3003A6AA2 /* Globals */,
 				CD63028B25B6D77E003A6AA2 /* Data Structures */,
 				CD63028C25B6D7B4003A6AA2 /* Objects */,
 				CD3AA7D5259830750087ACF1 /* Assets.xcassets */,
 				CD3AA7DA259830750087ACF1 /* Info.plist */,
 				CD3AA7D7259830750087ACF1 /* Preview Content */,
-				CD6CCB6825DC593000B256AA /* Metric.swift */,
 			);
 			path = Calendex;
 			sourceTree = "<group>";
@@ -528,6 +537,7 @@
 				CD3AA7D4259830730087ACF1 /* Login.swift in Sources */,
 				CD6CCAC925D0BD9B00B256AA /* Spacing.swift in Sources */,
 				CDA22C0D25C80E45004D0CF2 /* DayFields.swift in Sources */,
+				CD6CCB7125DC5B9300B256AA /* Average.swift in Sources */,
 				CDA22BF525C807A6004D0CF2 /* PointGraph.swift in Sources */,
 				CD63027825B6116A003A6AA2 /* DataButton.swift in Sources */,
 				CD63025E25B4A253003A6AA2 /* AppColors.swift in Sources */,
@@ -540,9 +550,11 @@
 				CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */,
 				CD6302B425BE6F41003A6AA2 /* MonthButtons.swift in Sources */,
 				CD63026625B51E20003A6AA2 /* Year.swift in Sources */,
+				CD6CCB7925DC763800B256AA /* Time.swift in Sources */,
 				CD6CCACE25D0C01000B256AA /* ScreenHeader.swift in Sources */,
 				CD63025925B4A1ED003A6AA2 /* OverheadBanner.swift in Sources */,
 				CD6302AF25BE6487003A6AA2 /* DeviationRange.swift in Sources */,
+				CD6CCB7E25DC765000B256AA /* Deviation.swift in Sources */,
 				CD6302A525BDB3B4003A6AA2 /* DeviationBar.swift in Sources */,
 				CD6CCB6925DC593000B256AA /* Metric.swift in Sources */,
 				CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */,
