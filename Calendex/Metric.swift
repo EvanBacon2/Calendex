@@ -2,30 +2,19 @@
 //  Metric.swift
 //  Calendex
 //
-//  Created by Evan Bacon on 2/14/21.
+//  Created by Evan Bacon on 2/16/21.
 //
 
 import SwiftUI
 
 protocol Metric {
-    var lowColor: Color { get }
-    var midColor: Color { get }
-    var highColor: Color { get }
+    var valueRange: ClosedRange<Int> { get }
     
-    func getBar(range: Range, width: CGFloat) -> AnyView
+    var thumbPadding: Int { get }
     
-    func getThumb(startPos: CGFloat,
-                  lowThreshold: CGFloat,
-                  highThreshold: CGFloat,
-                  val: Binding<Int>) -> AnyView
-
-    func barColor(range: Range) -> Color
+    var activeRanges: Array<Range> { get }
     
-    func calcWidth(range: Range) -> CGFloat
-
-    func convertMetricToWidth(val: Int) -> CGFloat
-    
-    func convertWidthToMetric(width: CGFloat) -> Int
+    var metrics: Array<Binding<Int>> { get }
     
     func getMetricVal(range: Range) -> Int
 }
