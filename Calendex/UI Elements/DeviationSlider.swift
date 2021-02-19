@@ -24,6 +24,7 @@ struct DeviationSlider: View {
 struct DeviationSlider_Previews: PreviewProvider {
     static var previews: some View {
         DeviationSlider().environmentObject(Goals())
+                         .environmentObject(Colors())
     }
 }
 

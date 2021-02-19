@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SubBanner: View {
+    @EnvironmentObject var colors: Colors
+    
     var title: String
     
     init(_ title: String) {
@@ -18,7 +20,7 @@ struct SubBanner: View {
         VStack(alignment: .leading, spacing: 0) {
             Text(self.title).padding(.bottom, UIScreen.screenHeight * 0.01)
             Rectangle()
-                .fill(AppColors.DARK_GRAY)
+                .fill(colors.DARK_GRAY)
                 .frame(width: UIScreen.screenWidth * 0.9, height: Dimensions.BASE_UNIT)
         }
     }
@@ -26,6 +28,6 @@ struct SubBanner: View {
 
 struct SubBanner_Previews: PreviewProvider {
     static var previews: some View {
-        SubBanner("Month Summary")
+        SubBanner("Month Summary").environmentObject(Colors())
     }
 }

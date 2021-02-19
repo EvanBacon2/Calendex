@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LowRangeBackground: View {
+    @EnvironmentObject var colors: Colors
+    
     var height: CGFloat
     
     init(cutoff: Int) {
@@ -16,10 +18,10 @@ struct LowRangeBackground: View {
     var body: some View {
         ZStack(alignment: .top) {
             Rectangle()
-                .fill(AppColors.LOW_2)
+                .fill(colors.getActiveColor(range: .low))
                 .frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight * height / 2)
             RoundedRectangle(cornerRadius: UIScreen.screenHeight * 0.0125)
-                .fill(AppColors.LOW_2)
+                .fill(colors.getActiveColor(range: .low))
                 .frame(width: UIScreen.screenWidth * 0.8 , height: UIScreen.screenHeight * height)
         }
     }
@@ -27,6 +29,6 @@ struct LowRangeBackground: View {
 
 struct LowRangeBackground_Previews: PreviewProvider {
     static var previews: some View {
-        LowRangeBackground(cutoff: 70)
+        LowRangeBackground(cutoff: 70).environmentObject(Colors())
     }
 }

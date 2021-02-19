@@ -24,5 +24,6 @@ struct AverageSlider: View {
 struct AverageSlider_Previews: PreviewProvider {
     static var previews: some View {
         AverageSlider().environmentObject(Goals())
+                       .environmentObject(Colors())
     }
 }

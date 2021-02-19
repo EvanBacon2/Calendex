@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MidRangeBackground: View {
+    @EnvironmentObject var colors: Colors
+    
     var height: CGFloat
     
     init(lowCutoff: Int, highCutoff: Int) {
@@ -16,13 +18,13 @@ struct MidRangeBackground: View {
     
     var body: some View {
         Rectangle()
-            .fill(AppColors.MID_2)
+            .fill(colors.getActiveColor(range: .mid))
             .frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight * height)
     }
 }
 
 struct MidRangeBackground_Previews: PreviewProvider {
     static var previews: some View {
-        MidRangeBackground(lowCutoff: 70, highCutoff: 140)
+        MidRangeBackground(lowCutoff: 70, highCutoff: 140).environmentObject(Colors())
     }
 }

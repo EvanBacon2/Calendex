@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ColorPicker: View {
+    @EnvironmentObject var colors: Colors
+    
     @State var showPicker: Bool
     
     var circleDiameter = Dimensions.BASE_UNIT * 27
@@ -52,7 +54,7 @@ struct ColorPicker: View {
     func activeColorButton() -> some View {
         return Button(action: {() -> Void in showPicker.toggle()}) {
             Circle()
-                .fill(AppColors.getActiveColor(range: range))
+                .fill(colors.getActiveColor(range: range))
                 .frame(width: circleDiameter,
                        height: circleDiameter)
         }
@@ -61,7 +63,7 @@ struct ColorPicker: View {
 
 struct ColorPicker_Previews: PreviewProvider {
     static var previews: some View {
-        ColorPicker_Preview_Provider()
+        ColorPicker(range: .mid, alignment: .center).environmentObject(Colors())
     }
 }
 

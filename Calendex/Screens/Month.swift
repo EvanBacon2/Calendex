@@ -20,11 +20,14 @@ struct Month: View {
         HStack() {
             Spacer()
             VStack(alignment: .leading, spacing: 0) {
-                ScreenHeader(title: "", banner: "January").padding(.bottom, Spacing.HEADER_MARGIN)
+                ScreenHeader(title: "", banner: "January")
+                Spacer().frame(height: Spacing.HEADER_MARGIN)
                 ScrollView {
                     VStack(spacing: 0) {
-                    DaySummary(year: year, month: month).padding(.bottom, Spacing.TRIPLE_SPACE)
-                        TimeInRange(low: 8, mid: 57, high: 35).padding(.bottom, Spacing.DOUBLE_SPACE)
+                        DaySummary(year: year, month: month)
+                        Spacer().frame(height: Spacing.TRIPLE_SPACE)
+                        TimeInRange(low: 8, mid: 57, high: 35)
+                        Spacer().frame(height: Spacing.DOUBLE_SPACE)
                         StandardDeviation()
                     }
                 }
@@ -35,6 +38,6 @@ struct Month: View {
 
 struct Month_Previews: PreviewProvider {
     static var previews: some View {
-        Month(year: 2025, month: 7)
+        Month(year: 2025, month: 7).environmentObject(Colors())
     }
 }

@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct DeviationGraph: View {
+    @EnvironmentObject var colors: Colors
     
     var body: some View {
         HStack(alignment: .top, spacing: UIScreen.screenHeight * 0.004) {
             VStack(){
                 Rectangle()
-                    .fill(AppColors.LIGHT_BLUE_GRAY)
+                    .fill(colors.LIGHT_BLUE_GRAY)
                     .frame(width: UIScreen.screenHeight * 0.004, height: UIScreen.screenHeight * 0.1)
                     Spacer()
             }.frame(height: UIScreen.screenHeight * 0.114)

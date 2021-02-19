@@ -20,8 +20,7 @@
 		CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63027225B60A5A003A6AA2 /* MonthButton.swift */; };
 		CD63027825B6116A003A6AA2 /* DataButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63027725B6116A003A6AA2 /* DataButton.swift */; };
 		CD63027D25B61345003A6AA2 /* SubBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63027C25B61345003A6AA2 /* SubBanner.swift */; };
-		CD63028225B6878C003A6AA2 /* TimeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63028125B6878C003A6AA2 /* TimeBar.swift */; };
-		CD63028725B6D4A6003A6AA2 /* TimeBar2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63028625B6D4A6003A6AA2 /* TimeBar2.swift */; };
+		CD63028725B6D4A6003A6AA2 /* TimeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63028625B6D4A6003A6AA2 /* TimeBar.swift */; };
 		CD63028E25B6D801003A6AA2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63028D25B6D801003A6AA2 /* Queue.swift */; };
 		CD63029625B6D895003A6AA2 /* BgTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63029525B6D895003A6AA2 /* BgTime.swift */; };
 		CD63029B25B6D950003A6AA2 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63029A25B6D950003A6AA2 /* Range.swift */; };
@@ -57,6 +56,7 @@
 		CD6CCBB725DED1F000B256AA /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBB625DED1F000B256AA /* ColorPicker.swift */; };
 		CD6CCBBC25DEE6A100B256AA /* PickerBoxTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBBB25DEE6A100B256AA /* PickerBoxTriangle.swift */; };
 		CD6CCBC125DF263D00B256AA /* ColorPickerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBC025DF263D00B256AA /* ColorPickerMenu.swift */; };
+		CD6CCBC625DF73AC00B256AA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBC525DF73AC00B256AA /* Colors.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -114,8 +114,7 @@
 		CD63027225B60A5A003A6AA2 /* MonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthButton.swift; sourceTree = "<group>"; };
 		CD63027725B6116A003A6AA2 /* DataButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataButton.swift; sourceTree = "<group>"; };
 		CD63027C25B61345003A6AA2 /* SubBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBanner.swift; sourceTree = "<group>"; };
-		CD63028125B6878C003A6AA2 /* TimeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBar.swift; sourceTree = "<group>"; };
-		CD63028625B6D4A6003A6AA2 /* TimeBar2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBar2.swift; sourceTree = "<group>"; };
+		CD63028625B6D4A6003A6AA2 /* TimeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBar.swift; sourceTree = "<group>"; };
 		CD63028D25B6D801003A6AA2 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		CD63029525B6D895003A6AA2 /* BgTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgTime.swift; sourceTree = "<group>"; };
 		CD63029A25B6D950003A6AA2 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
@@ -151,6 +150,7 @@
 		CD6CCBB625DED1F000B256AA /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		CD6CCBBB25DEE6A100B256AA /* PickerBoxTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerBoxTriangle.swift; sourceTree = "<group>"; };
 		CD6CCBC025DF263D00B256AA /* ColorPickerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerMenu.swift; sourceTree = "<group>"; };
+		CD6CCBC525DF73AC00B256AA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -331,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				CD6CCB3525D53CAA00B256AA /* Goals.swift */,
+				CD6CCBC525DF73AC00B256AA /* Colors.swift */,
 			);
 			name = EnvironmentObjects;
 			sourceTree = "<group>";
@@ -390,8 +391,7 @@
 		CDA22BC625C7DF02004D0CF2 /* Time In Range */ = {
 			isa = PBXGroup;
 			children = (
-				CD63028125B6878C003A6AA2 /* TimeBar.swift */,
-				CD63028625B6D4A6003A6AA2 /* TimeBar2.swift */,
+				CD63028625B6D4A6003A6AA2 /* TimeBar.swift */,
 				CD6CCAD525D0C0F000B256AA /* TimeInRange.swift */,
 			);
 			name = "Time In Range";
@@ -594,6 +594,7 @@
 				CD6CCACE25D0C01000B256AA /* ScreenHeader.swift in Sources */,
 				CD63025925B4A1ED003A6AA2 /* OverheadBanner.swift in Sources */,
 				CD6302AF25BE6487003A6AA2 /* DeviationRange.swift in Sources */,
+				CD6CCBC625DF73AC00B256AA /* Colors.swift in Sources */,
 				CD6CCB7E25DC765000B256AA /* Deviation.swift in Sources */,
 				CD6CCBBC25DEE6A100B256AA /* PickerBoxTriangle.swift in Sources */,
 				CD6302A525BDB3B4003A6AA2 /* DeviationBar.swift in Sources */,
@@ -618,13 +619,12 @@
 				CD6CCAFE25D105EB00B256AA /* DaySummary.swift in Sources */,
 				CD63028E25B6D801003A6AA2 /* Queue.swift in Sources */,
 				CDA22BAE25C06060004D0CF2 /* MidDayRow.swift in Sources */,
-				CD63028725B6D4A6003A6AA2 /* TimeBar2.swift in Sources */,
+				CD63028725B6D4A6003A6AA2 /* TimeBar.swift in Sources */,
 				CDA22BBB25C0DB1C004D0CF2 /* Day.swift in Sources */,
 				CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */,
 				CD6CCB9325DCAC4400B256AA /* AverageSlider.swift in Sources */,
 				CD6CCAE025D0C35200B256AA /* DataButtons.swift in Sources */,
 				CDA22BF025C80719004D0CF2 /* ChartPoint.swift in Sources */,
-				CD63028225B6878C003A6AA2 /* TimeBar.swift in Sources */,
 				CDA22C1225C80F6F004D0CF2 /* DataField.swift in Sources */,
 				CD6CCB3625D53CAA00B256AA /* Goals.swift in Sources */,
 				CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */,

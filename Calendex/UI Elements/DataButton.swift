@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DataButton: View {
+    @EnvironmentObject var colors: Colors
+    
     var label: String
     var buttonWidth = UIScreen.screenHeight * 0.15
     var buttonHeight = UIScreen.screenHeight * 0.06
@@ -25,7 +27,7 @@ struct DataButton: View {
                 .foregroundColor(Color.white)
                 .frame(width: buttonWidth, height: buttonHeight)
                 .background(RoundedRectangle(cornerRadius: buttonCorner)
-                    .fill(AppColors.BRAND_COLOR)
+                    .fill(colors.ACCENT_COLOR)
                     .frame(width: buttonWidth, height: buttonHeight)
                     .shadow(radius: 6, y: 6))
         }
@@ -34,6 +36,6 @@ struct DataButton: View {
 
 struct DataButton_Previews: PreviewProvider {
     static var previews: some View {
-        DataButton("test")
+        DataButton("test").environmentObject(Colors())
     }
 }

@@ -24,5 +24,6 @@ struct TimeSlider: View {
 struct TimeSlider_Previews: PreviewProvider {
     static var previews: some View {
         TimeSlider().environmentObject(Goals())
+                    .environmentObject(Colors())
     }
 }

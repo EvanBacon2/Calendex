@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OverheadBanner: View {
+    @EnvironmentObject var colors: Colors
+    
     var title: String
     let bannerRadius = Dimensions.BASE_UNIT * 35
     let bannerHeight = Dimensions.BASE_UNIT * 30
@@ -20,10 +22,10 @@ struct OverheadBanner: View {
         ZStack(content: {
             HStack(spacing: -bannerRadius, content: {
                 RoundedRectangle(cornerRadius: bannerRadius, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
-                    .fill(AppColors.BRAND_COLOR)
+                    .fill(colors.ACCENT_COLOR)
                     .frame(width: bannerRadius + UIScreen.screenWidth * 0.9 / 2, height: bannerHeight)
                 Rectangle()
-                    .fill(AppColors.BRAND_COLOR)
+                    .fill(colors.ACCENT_COLOR)
                     .frame(width:  UIScreen.screenWidth * 0.9 / 2, height: bannerHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             })
             HStack(content: {
@@ -43,6 +45,6 @@ func Overhead_Banner(title: String) {
 
 struct OverheadBanner_Previews: PreviewProvider {
     static var previews: some View {
-        OverheadBanner("Enter Your Dexcom Login")
+        OverheadBanner("Enter Your Dexcom Login").environmentObject(Colors())
     }
 }

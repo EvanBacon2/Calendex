@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DeviationRangeMarker: View {
+    @EnvironmentObject var colors: Colors
+    
     var val: String
     
     init(_ val: String) {
@@ -19,7 +21,7 @@ struct DeviationRangeMarker: View {
             VStack(spacing: 0) {
                 Spacer()
                 Rectangle()
-                    .fill(AppColors.LIGHT_BLUE_GRAY)
+                    .fill(colors.LIGHT_BLUE_GRAY)
                     .frame(width: UIScreen.screenHeight * 0.004, height: UIScreen.screenHeight * 0.024)
             }.frame(height: UIScreen.screenHeight * 0.126)
             Text(val)
@@ -32,6 +34,6 @@ struct DeviationRangeMarker: View {
 
 struct DeviationRangeMarker_Previews: PreviewProvider {
     static var previews: some View {
-        DeviationRangeMarker("70")
+        DeviationRangeMarker("70").environmentObject(Colors())
     }
 }

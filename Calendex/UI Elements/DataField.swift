@@ -14,10 +14,10 @@ enum Field: String {
 }
 
 struct DataField: View {
+    @EnvironmentObject var colors: Colors
+    
     var data: Field
     var value: Int
-    var textColor: Color
-    var buttonColor: Color
     var buttonWidth = UIScreen.screenHeight * 0.16
     var buttonHeight = UIScreen.screenHeight * 0.06
     var buttonCorner = UIScreen.screenHeight * 0.012
@@ -25,32 +25,32 @@ struct DataField: View {
     init(_ data: Field, _ value: Int) {
         self.data = data
         self.value = value
-        switch data {
-        case .MIN, .MAX:
-            self.textColor = AppColors.DARK_GRAY
-            self.buttonColor = AppColors.LIGHT_BLUE_GRAY
-        case .AVG:
-            self.textColor = AppColors.LIGHT_BLUE_GRAY
-            self.buttonColor = AppColors.MID_2
-        }
     }
     
     var body: some View {
         VStack(spacing: UIScreen.screenHeight * 0.002) {
             Text(data.rawValue)
-                .foregroundColor(AppColors.DARK_GRAY)
+                .foregroundColor(colors.DARK_GRAY)
             Text("\(value) ml")
-                .foregroundColor(textColor)
+                .foregroundColor(textColor())
                 .frame(width: buttonWidth, height: buttonHeight)
                 .background(RoundedRectangle(cornerRadius: buttonCorner, style: .continuous)
-                    .fill(buttonColor)
+                    .fill(buttonColor())
                     .frame(width: buttonWidth, height: buttonHeight))
         }
+    }
+    
+    func textColor() -> Color {
+        return data == .AVG ? colors.LIGHT_BLUE_GRAY : colors.DARK_GRAY
+    }
+    
+    func buttonColor() -> Color {
+        return data == .AVG ? colors.getActiveColor(range: .mid) : colors.LIGHT_BLUE_GRAY
     }
 }
 
 struct DataField_Previews: PreviewProvider {
     static var previews: some View {
-        DataField(.AVG, 72)
+        DataField(.AVG, 72).environmentObject(Colors())
     }
 }

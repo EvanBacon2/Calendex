@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DaySummary: View {
+    @EnvironmentObject var colors: Colors
+    
     var topOffset: Int
     var bottomOffset: Int
     var dayCount: Int
@@ -37,7 +39,7 @@ struct DaySummary: View {
             DayButtons(topOffset: topOffset, bottomOffset: bottomOffset, dayCount: dayCount).padding(.bottom, Spacing.SINGLE_SPACE)
             
             Rectangle()
-                .fill(AppColors.LIGHT_BLUE_GRAY)
+                .fill(colors.LIGHT_BLUE_GRAY)
                 .frame(width: UIScreen.screenWidth * 0.85, height: 1).padding(.bottom, Spacing.SINGLE_SPACE)
             
             DataButtons()

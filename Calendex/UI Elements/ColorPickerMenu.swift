@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ColorPickerMenu: View {
+    @EnvironmentObject var colors: Colors
+    
     @Binding var showPicker: Bool
     
     var circleDiameter = Dimensions.BASE_UNIT * 27
@@ -42,12 +44,12 @@ struct ColorPickerMenu: View {
     func pickerBox() -> some View {
         return VStack(spacing: 0) {
             PickerBoxTriangle()
-                .fill(AppColors.LIGHT_BLUE_GRAY)
+                .fill(colors.LIGHT_BLUE_GRAY)
                 .frame(width: circleDiameter / 3,
                        height: circleDiameter / 3)
             RoundedRectangle(cornerRadius: 5)
-                .fill(AppColors.LIGHT_BLUE_GRAY)
-                .frame(width: ((circleDiameter + circleSpacing) * CGFloat(AppColors.RANGE_COLOR_OPTIONS)) + circleSpacing,
+                .fill(colors.LIGHT_BLUE_GRAY)
+                .frame(width: ((circleDiameter + circleSpacing) * CGFloat(colors.RANGE_COLOR_OPTIONS)) + circleSpacing,
                        height: 45)
                 .fixedSize()
                 .frame(width: circleDiameter)
@@ -59,10 +61,10 @@ struct ColorPickerMenu: View {
         return HStack(spacing: circleSpacing) {
             ForEach(0..<3) { i in
                 Button(action: {() -> Void in showPicker.toggle()
-                    AppColors.setActiveColor(range: range, newColor: AppColors.getColor(range: range, index: i))
+                    colors.setActiveColor(range: range, newColor: colors.getColor(range: range, index: i))
                 }) {
                     Circle()
-                        .fill(AppColors.getColor(range: range, index: i))
+                        .fill(colors.getColor(range: range, index: i))
                         .frame(width: circleDiameter,
                                height: circleDiameter)
                 }
@@ -76,11 +78,11 @@ struct ColorPickerMenu: View {
 
 struct ColorPickerMenu_Previews: PreviewProvider {
     static var previews: some View {
-        ColorPickerMenu_Preview_Provider()
+        ColorPickerMenu_Preview_View().environmentObject(Colors())
     }
 }
 
-struct ColorPickerMenu_Preview_Provider: View {
+struct ColorPickerMenu_Preview_View: View {
     @State var showPicker = true
     
     var body: some View {

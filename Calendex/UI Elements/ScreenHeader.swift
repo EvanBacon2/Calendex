@@ -26,6 +26,6 @@ struct ScreenHeader: View {
 
 struct ScreenHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ScreenHeader(title: "Welcome", banner: "2020")
+        ScreenHeader(title: "Welcome", banner: "2020").environmentObject(Colors())
     }
 }

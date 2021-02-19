@@ -1,98 +1,120 @@
 //
-//  TimeBar.swift
+//  TimeBar2.swift
 //  Calendex
 //
-//  Created by Evan Bacon on 1/18/21.
+//  Created by Evan Bacon on 1/19/21.
 //
 
 import SwiftUI
 
 struct TimeBar: View {
-    var lowPerc: CGFloat
-    var lowWidth: CGFloat
-    var midPerc: CGFloat
-    var midWidth: CGFloat
-    var highPerc: CGFloat
-    var highWidth: CGFloat
+    @EnvironmentObject var colors: Colors
     
-    let lowText: String
-    let midText: String
-    let highText: String
+    let low: BgTime
+    let mid: BgTime
+    let high: BgTime
+    let minBarWidth = Dimensions.BASE_UNIT * 16
+    let midBarWidth = Dimensions.BASE_UNIT * 168
+    let barHeight = Dimensions.BASE_UNIT * 32
     
-    init(low: CGFloat, mid: CGFloat, high: CGFloat) {
-        self.lowPerc = low
-        self.lowWidth = low * 250 < 20 ? 0 :
-                        low == 1 ? 210 : low * 250 - 20
-        self.midPerc = mid
-        self.midWidth = mid * 250 < 20 ? 20 :
-                        mid == 1 ? 210 : mid * 250 - 40
-        self.highPerc = high
-        self.highWidth = high * 250 < 20 ? 0 :
-                         high == 1 ? 210 : high * 250 - 20
-        
-        self.lowText = "$\(lowPerc * 100)%"
-        self.midText = "$\((1 - (lowPerc + highPerc)) * 100)%"
-        self.highText = "$\(highPerc * 100)%"
+    init(_ low: Int, _ mid: Int, _ high: Int) {
+        self.low = BgTime(.low, time: low, colors: _colors)
+        self.mid = BgTime(.mid, time: mid, colors: _colors)
+        self.high = BgTime(.high, time: high, colors: _colors)
     }
     
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
-            VStack() {
-                HStack(spacing: 0) {
-                    Circle()
-                        .trim(from: 0, to: 0.5)
-                        .fill(lowPerc > 0 ? AppColors.LOW_2 :
-                              highPerc == 1 ? AppColors.HIGH_2 : AppColors.MID_2)
-                        .rotationEffect(.degrees(90))
-                        .frame(width: 40, height: 40)
-                        .frame(width: 20)
-                        .offset(x: 10)
-                    
-                    Rectangle()
-                        .fill(AppColors.LOW_2)
-                        .frame(width: lowWidth, height: 40)
-                }
-                if (lowPerc > 0) {
-                    Text("12%")
-                        .fixedSize()
-                        .frame(width: 20)
-                }
+            if (low.time > 0) {
+                buildRange(timeCovered: 0, low)
             }
-            if (lowPerc > 0) {
-                Spacer().frame(width: 4)
+            if (mid.time > 0) {
+                buildRange(timeCovered: low.time, mid)
             }
-            VStack() {
-                Rectangle()
-                    .fill(AppColors.MID_2)
-                    .frame(width: midWidth, height: 40)
-                if (lowPerc + highPerc < 1) {
-                    Text("80%")
-                        .fixedSize()
-                        .frame(width: 20)
-                }
+            if (high.time > 0) {
+                buildRange(timeCovered: low.time + mid.time, high)
             }
-            if (highPerc > 0) {
-                Spacer().frame(width: 4)
+        }
+    }
+    
+    func buildRange(timeCovered: Int, _ range: BgTime) -> some View {
+        return VStack() {
+            if (timeCovered == 0) {
+                buildStartCap(range)
+            } else if (timeCovered <= 92) {
+                buildBar(range, range.time, timeCovered: timeCovered)
+            } else {
+                buildEndCap(range)
             }
-            Rectangle()
-                .fill(AppColors.HIGH_2)
-                .frame(width: highWidth, height: 40)
-                
-            
+            HStack(spacing: 0) {
+                Text("\(range.time)")
+                    .font(.system(size: 15))
+                    .fixedSize()
+                    .frame(width: 16)
+            }
+        }
+    }
+    
+    func buildStartCap(_ range: BgTime) -> some View {
+        return HStack(spacing: 0) {
             Circle()
                 .trim(from: 0, to: 0.5)
-                .fill(highPerc > 0 ? AppColors.HIGH_2 :
-                      lowPerc == 1 ? AppColors.LOW_2 : AppColors.MID_2)
-                .rotationEffect(.degrees(-90))
-                .frame(width: 40, height: 40)
-                .frame(width: 20)
-                .offset(x: -10)
+                .fill(range.color())
+                .rotationEffect(.degrees(90))
+                .frame(width: minBarWidth * 2, height: minBarWidth * 2)
+                .frame(width: minBarWidth)
+                .offset(x: minBarWidth / 2)
+            if (range.time > 8) {
+                buildBar(range, range.time - 8, timeCovered: 8)
+            }
         }
+    }
+    
+    func buildBar(_ range: BgTime, _ timeLeft: Int, timeCovered: Int) -> some View {
+        var barWidth: CGFloat
+        
+        if (timeLeft >= 84) {
+            barWidth = midBarWidth
+        } else if ((timeCovered + timeLeft) == 100) {
+            barWidth = Dimensions.BASE_UNIT * CGFloat(Double(timeLeft) * 2) - 16
+        } else {
+            barWidth = Dimensions.BASE_UNIT * CGFloat(Double(timeLeft) * 2)
+        }
+        
+        if (range.range == .mid &&
+            low.time > 0 &&
+            high.time > 0 &&
+            barWidth < 16) {
+            barWidth = minBarWidth
+        }
+        
+        return HStack(spacing: 0) {
+            if (range.time == timeLeft) {
+                Spacer().frame(width: 3)
+            }
+            Rectangle()
+                .fill(range.color())
+                .frame(width: barWidth, height: barHeight)
+            if ((timeCovered + timeLeft) == 100) {
+                buildEndCap(range)
+            }
+        }
+        
+    }
+    
+    func buildEndCap(_ range: BgTime) -> some View {
+        return Circle()
+                .trim(from: 0, to: 0.5)
+                .fill(range.color())
+                .rotationEffect(.degrees(-90))
+                .frame(width: minBarWidth * 2, height: minBarWidth * 2)
+            .frame(width: minBarWidth)
+            .offset(x: -minBarWidth / 2)
     }
 }
 
 struct TimeBar_Previews: PreviewProvider {
     static var previews: some View {
-        TimeBar(low: 0.0, mid: 0.0, high: 0.9)
+        TimeBar(8, 40, 52).environmentObject(Colors())
     }
 }

@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct SliderThumb: View {
+    @EnvironmentObject var colors: Colors
+    
     @Binding var val: CGFloat
+    @Binding private var sliderPos: CGFloat
     
     @State private var startPos: CGFloat = 0.0
     @State private var prevDelta: CGFloat = 0.0
-    @Binding private var sliderPos: CGFloat
     
     var lowThreshold: CGFloat
     var highThreshold: CGFloat
@@ -72,13 +74,13 @@ struct SliderThumb: View {
             if (textOnTop) {
                 Text("\(Int(self.val))")
                     .font(.system(size: 12))
-                    .foregroundColor(AppColors.DARK_GRAY)
+                    .foregroundColor(colors.DARK_GRAY)
                     .offset(x: self.sliderPos, y: -7)
                     .fixedSize()
                     .frame(height: 1.0)
             }
             Rectangle()
-                .fill(AppColors.LIGHT_BLUE_GRAY)
+                .fill(colors.LIGHT_BLUE_GRAY)
                 .frame(width: Dimensions.BASE_UNIT * 3,
                        height: Dimensions.BASE_UNIT * 11)
                 .offset(x: self.sliderPos)
@@ -86,7 +88,7 @@ struct SliderThumb: View {
             if (!textOnTop) {
                 Text("\(Int(self.val))")
                     .font(.system(size: 12))
-                    .foregroundColor(AppColors.DARK_GRAY)
+                    .foregroundColor(colors.DARK_GRAY)
                     .offset(x: self.sliderPos, y: 7)
                     .fixedSize()
                     .frame(height: 1.0)

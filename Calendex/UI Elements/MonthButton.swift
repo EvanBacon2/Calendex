@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MonthButton: View {
+    @EnvironmentObject var colors: Colors
+    
     var label: String
     var buttonWidth = UIScreen.screenWidth * 0.125
     var buttonHeight = UIScreen.screenHeight * 0.09
@@ -25,7 +27,7 @@ struct MonthButton: View {
                 .foregroundColor(Color.white)
                 .frame(width: buttonWidth, height: buttonHeight)
                 .background(RoundedRectangle(cornerRadius: buttonCorner, style: .continuous)
-                    .fill(AppColors.BRAND_COLOR)
+                    .fill(colors.ACCENT_COLOR)
                     .frame(width: buttonWidth, height: buttonHeight)
                     .shadow(radius: 6, y: 6))
         }
@@ -34,6 +36,6 @@ struct MonthButton: View {
 
 struct MonthButton_Previews: PreviewProvider {
     static var previews: some View {
-        MonthButton("Tst")
+        MonthButton("Tst").environmentObject(Colors())
     }
 }

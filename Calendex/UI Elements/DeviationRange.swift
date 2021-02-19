@@ -8,24 +8,18 @@
 import SwiftUI
 
 struct DeviationRange: View {
+    @EnvironmentObject var colors: Colors
+    
     let BAR_WIDTH = UIScreen.screenWidth * 0.018
     let values: [CGFloat]
     let length: Int
-    let color: Color
+    let range: Range
     let ceiling: CGFloat
     
     init(_ values: [CGFloat], _ range: Range, _ ceiling: CGFloat? = nil) {
         self.length = values.count
         self.values = values
-        
-        switch range {
-        case .low:
-            self.color = AppColors.LOW_2
-        case .mid:
-            self.color = AppColors.MID_2
-        case .high:
-            self.color = AppColors.HIGH_2
-        }
+        self.range = range
         
         if (ceiling != nil) {
             self.ceiling = ceiling!
@@ -37,14 +31,14 @@ struct DeviationRange: View {
     var body: some View {
         VStack(spacing: 0) {
             Spacer(minLength: 0)
-            HStack(alignment: .bottom, spacing: UIScreen.screenHeight * 0.002) {
+            HStack(alignment: .bottom, spacing: Dimensions.BASE_UNIT) {
                 ForEach(0..<length) {i in
-                    DeviationBar(color, values[i], ceiling)
+                    DeviationBar(colors.getActiveColor(range: range), values[i], ceiling)
                 }
             }
             Spacer().frame(height: UIScreen.screenHeight * 0.01)
             RoundedRectangle(cornerRadius: 10)
-                .fill(color)
+                .fill(colors.getActiveColor(range: range))
                 .frame(width: BAR_WIDTH * CGFloat(length) + ((CGFloat(length) - 1) * UIScreen.screenHeight * 0.002), height: UIScreen.screenHeight * 0.004)
         }.frame(height: UIScreen.screenHeight * 0.114)
     }
@@ -52,6 +46,6 @@ struct DeviationRange: View {
 
 struct DeviationRange_Previews: PreviewProvider {
     static var previews: some View {
-        DeviationRange([1, 1.5, 5], .low)
+        DeviationRange([1, 1.5, 5], .low).environmentObject(Colors())
     }
 }

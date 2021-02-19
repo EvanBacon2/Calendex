@@ -38,10 +38,18 @@ struct DeviationBar: View {
 
 struct DeviationBar_Previews: PreviewProvider {
     static var previews: some View {
+        DeviationBar_Prevew_View().environmentObject(Colors())
+    }
+}
+
+struct DeviationBar_Prevew_View: View {
+    @EnvironmentObject var colors: Colors
+    
+    var body: some View {
         HStack(spacing: 1) {
-            DeviationBar(AppColors.LOW_2, 4, 5)
-            DeviationBar(AppColors.MID_2, 4, 5)
-            DeviationBar(AppColors.HIGH_2, 0, 5)
+            DeviationBar(colors.getActiveColor(range: .low), 4, 5)
+            DeviationBar(colors.getActiveColor(range: .mid), 4, 5)
+            DeviationBar(colors.getActiveColor(range: .high), 0, 5)
         }
     }
 }

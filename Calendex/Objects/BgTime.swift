@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct BgTime {
+    @EnvironmentObject var colors: Colors
+    
     let range: Range
-    let color: Color
     var time: Int
     
-    init(_ range: Range, time: Int) {
+    init(_ range: Range, time: Int, colors: EnvironmentObject<Colors>) {
+        self._colors = colors
         self.range = range
         self.time = time
-        if (range == .low) {
-            color = AppColors.LOW_2
-        } else if (range == .mid) {
-            color = AppColors.MID_2
-        } else {
-            color = AppColors.HIGH_2
-        }
+    }
+    
+    func color() -> Color {
+        return colors.getActiveColor(range: range)
     }
 }
 

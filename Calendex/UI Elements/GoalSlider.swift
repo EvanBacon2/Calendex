@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GoalSlider: View {
+    @EnvironmentObject var colors: Colors
+    
     //Slider Fields
     let sliderWidth: CGFloat
     let sliderHeight: CGFloat
@@ -83,7 +85,7 @@ struct GoalSlider: View {
                 barCap(range: range, endCap: false)
             }
             Rectangle()
-                .fill(AppColors.getActiveColor(range: range))
+                .fill(colors.getActiveColor(range: range))
                 .frame(width: width,
                        height: sliderHeight)
             if (range == activeRanges[activeRanges.count - 1]) {
@@ -95,12 +97,12 @@ struct GoalSlider: View {
     func barCap(range: Range, endCap: Bool) -> some View {
         return HStack(spacing: 0) {
             RoundedRectangle(cornerRadius: sliderHeight)
-                .fill(AppColors.getActiveColor(range: range))
+                .fill(colors.getActiveColor(range: range))
                 .frame(width: sliderHeight,
                        height: sliderHeight)
                 .offset(x: sliderHeight / 2)
             Rectangle()
-                .fill(AppColors.getActiveColor(range: range))
+                .fill(colors.getActiveColor(range: range))
                 .frame(width: sliderHeight / 2,
                        height: sliderHeight)
         }.frame(height: sliderHeight)
@@ -132,6 +134,6 @@ struct GoalSlider_Preview_Provider: View {
     var body: some View {
         GoalSlider(sliderWidth: UIScreen.screenWidth * 0.85,
                    sliderHeight: UIScreen.screenHeight * 0.0115,
-                   metric: Average(goals: _goals))
+                   metric: Average(goals: _goals)).environmentObject(Colors())
     }
 }

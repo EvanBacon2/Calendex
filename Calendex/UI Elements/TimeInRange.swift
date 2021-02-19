@@ -21,13 +21,13 @@ struct TimeInRange: View {
     var body: some View {
         VStack(spacing: 0) {
             SubBanner("Time in Range").padding(.bottom, Spacing.DOUBLE_SPACE)
-            TimeBar2(low, mid, high)
+            TimeBar(low, mid, high)
         }
     }
 }
 
 struct TimeInRange_Previews: PreviewProvider {
     static var previews: some View {
-        TimeInRange(low: 8, mid: 57, high: 35)
+        TimeInRange(low: 8, mid: 57, high: 35).environmentObject(Colors())
     }
 }

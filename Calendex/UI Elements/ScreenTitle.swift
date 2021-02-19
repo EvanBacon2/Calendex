@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ScreenTitle: View {
+    @EnvironmentObject var colors: Colors
+    
     var title: String
     let simpleGearSymbolConfig = UIImage.SymbolConfiguration(pointSize: 18.0, weight: .black, scale: .large)
     
@@ -19,15 +21,15 @@ struct ScreenTitle: View {
         ZStack() {
             Text(self.title)
                 .font(.system(size: 24))
-                .foregroundColor(AppColors.DARK_GRAY)
+                .foregroundColor(colors.DARK_GRAY)
             HStack() {
                 Image(systemName: "chevron.left")
                     .imageScale(.large)
                     .font(.system(size: 24))
-                    .foregroundColor(AppColors.DARK_GRAY)
+                    .foregroundColor(colors.DARK_GRAY)
                 Spacer()
                 Image(uiImage: UIImage(named: "simple.gear", in: nil, with: simpleGearSymbolConfig)!.withRenderingMode(.alwaysTemplate))
-                    .foregroundColor(AppColors.DARK_GRAY)
+                    .foregroundColor(colors.DARK_GRAY)
                     .shadow(color: Color.gray,
                             radius: 4.0,
                             y: 5)
@@ -40,6 +42,6 @@ struct ScreenTitle: View {
 
 struct ScreenTitle_Previews: PreviewProvider {
     static var previews: some View {
-        ScreenTitle("Test")
+        ScreenTitle("Test").environmentObject(Colors())
     }
 }

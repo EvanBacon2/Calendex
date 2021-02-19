@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DayButton: View {
+    @EnvironmentObject var colors: Colors
+    
     var day: Int
     var buttonLength = UIScreen.screenWidth * 0.9 / 9
     var buttonCorner = UIScreen.screenHeight * 0.01
@@ -24,7 +26,7 @@ struct DayButton: View {
                 .foregroundColor(Color.white)
                 .frame(width: buttonLength, height: buttonLength)
                 .background(RoundedRectangle(cornerRadius: buttonCorner)
-                                .fill(AppColors.MID_2)
+                                .fill(colors.getActiveColor(range: .mid))
                                     .frame(width: buttonLength, height: buttonLength))
         }
     }
@@ -32,6 +34,6 @@ struct DayButton: View {
 
 struct DayButton_Previews: PreviewProvider {
     static var previews: some View {
-        DayButton(1)
+        DayButton(1).environmentObject(Colors())
     }
 }
