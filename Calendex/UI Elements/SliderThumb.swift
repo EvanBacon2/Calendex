@@ -17,13 +17,17 @@ struct SliderThumb: View {
     var lowThreshold: CGFloat
     var highThreshold: CGFloat
     
-    init(startPos: Binding<CGFloat>, lowThreshold: CGFloat, highThreshold: CGFloat, val: Binding<CGFloat>) {
+    var textOnTop: Bool
+    
+    init(startPos: Binding<CGFloat>, lowThreshold: CGFloat, highThreshold: CGFloat, val: Binding<CGFloat>, textOnTop: Bool) {
         self._val = val
         self._startPos = State(initialValue: startPos.wrappedValue)
         self._sliderPos = startPos
         
         self.lowThreshold = lowThreshold
         self.highThreshold = highThreshold
+        
+        self.textOnTop = textOnTop
     }
     
     var sliderDrag: some Gesture {
@@ -37,11 +41,9 @@ struct SliderThumb: View {
                     prevDelta = gesture.translation.width
                     prevDelta -= shaveDelta(sliderPos)
                 }
-                //self.val = sliderPos
             }.onEnded {_ in
                 startPos = sliderPos
                 prevDelta = 0.0
-                //self.val = sliderPos
             }
     }
     
@@ -66,11 +68,30 @@ struct SliderThumb: View {
     }
     
     var body: some View {
-        Rectangle()
-            .fill(AppColors.LIGHT_BLUE_GRAY)
-            .frame(width: Dimensions.BASE_UNIT * 3, height: Dimensions.BASE_UNIT * 11)
-            .offset(x: self.sliderPos)
-            .gesture(sliderDrag)
+        VStack(spacing: 1) {
+            if (textOnTop) {
+                Text("\(Int(self.val))")
+                    .font(.system(size: 12))
+                    .foregroundColor(AppColors.DARK_GRAY)
+                    .offset(x: self.sliderPos, y: -7)
+                    .fixedSize()
+                    .frame(height: 1.0)
+            }
+            Rectangle()
+                .fill(AppColors.LIGHT_BLUE_GRAY)
+                .frame(width: Dimensions.BASE_UNIT * 3,
+                       height: Dimensions.BASE_UNIT * 11)
+                .offset(x: self.sliderPos)
+                .gesture(sliderDrag)
+            if (!textOnTop) {
+                Text("\(Int(self.val))")
+                    .font(.system(size: 12))
+                    .foregroundColor(AppColors.DARK_GRAY)
+                    .offset(x: self.sliderPos, y: 7)
+                    .fixedSize()
+                    .frame(height: 1.0)
+            }
+        }
     }
 }
 

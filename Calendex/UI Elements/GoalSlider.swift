@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct GoalSlider: View {
-    @EnvironmentObject var goals: Goals
-    
     //Slider Fields
     let sliderWidth: CGFloat
     let sliderHeight: CGFloat
@@ -24,6 +22,7 @@ struct GoalSlider: View {
     let rangeEnd: Int
     let activeRanges: Array<Range>
     
+    //Slider Metric
     let metric: Metric
     
     init(sliderWidth: CGFloat, sliderHeight: CGFloat, metric: Metric) {
@@ -53,58 +52,59 @@ struct GoalSlider: View {
                     getBar(range: metric.activeRanges[i], width: calcWidth(range: metric.activeRanges[i]))
                 }
             }
-            HStack(spacing: 0) {
+            ZStack() {
                 ForEach(0..<metric.activeRanges.count - 1) { [self] i in
                     SliderThumb(startPos: getPositionBinding(binding: metric.getMetrics()[i]),
-                             lowThreshold: i == 0 ? -dragLimit : calcThumbPos(rangeInd: i - 1) + thumbPaddingWidth,
-                             highThreshold: i == metric.activeRanges.count - 2 ? dragLimit : calcThumbPos(rangeInd: i + 1) - thumbPaddingWidth,
-                             val: getValueBinding(binding: metric.getMetrics()[i]))
+                                lowThreshold: i == 0 ? -dragLimit : thumbPosition(index: i - 1) + thumbPaddingWidth,
+                                highThreshold: i == metric.activeRanges.count - 2 ? dragLimit : thumbPosition(index: i + 1) - thumbPaddingWidth,
+                                val: getValueBinding(binding: metric.getMetrics()[i]), textOnTop: i % 2 == 0)
                 }
             }
         }
     }
     
     func getPositionBinding(binding: Binding<Int>) -> Binding<CGFloat> {
-        return Binding(get: { return self.convertMetricToWidth(val: binding.wrappedValue) - self.thumbAdjustment }, set: {_,_ in })
+        return Binding(get: { return self.convertMetricToWidth(val: binding.wrappedValue) - self.thumbAdjustment },
+                       set: {_,_ in })
     }
     
     func getValueBinding(binding: Binding<Int>) -> Binding<CGFloat> {
-        return Binding(get: { return 0.0 }, set: { (newValue) in binding.wrappedValue = self.convertWidthToMetric(width: newValue) })
+        return Binding(get: { return CGFloat(binding.wrappedValue) },
+                       set: { (newValue) in binding.wrappedValue = self.convertWidthToMetric(width: newValue) })
     }
     
-    func calcThumbPos(rangeInd: Int) -> CGFloat {
-        return metric.activeRanges[0...rangeInd].reduce(0, { x, y in x + calcWidth(range: y) }) - thumbAdjustment
+    func thumbPosition(index: Int) -> CGFloat {
+        return getPositionBinding(binding: metric.getMetrics()[index]).wrappedValue
     }
     
     func getBar(range: Range, width: CGFloat) -> some View {
-        return AnyView(HStack(spacing: 0) {
+        return HStack(spacing: 0) {
             if (range == activeRanges[0]) {
-                RoundedRectangle(cornerRadius: sliderHeight)
-                    .fill(AppColors.getColorForRange(range: range))
-                    .frame(width: sliderHeight,
-                           height: sliderHeight)
-                    .offset(x: sliderHeight / 2)
-                Rectangle()
-                    .fill(AppColors.getColorForRange(range: range))
-                    .frame(width: sliderHeight / 2,
-                           height: sliderHeight)
+                barCap(range: range, endCap: false)
             }
             Rectangle()
-                .fill(AppColors.getColorForRange(range: range))
+                .fill(AppColors.getActiveColor(range: range))
                 .frame(width: width,
                        height: sliderHeight)
             if (range == activeRanges[activeRanges.count - 1]) {
-                Rectangle()
-                    .fill(AppColors.getColorForRange(range: range))
-                    .frame(width: sliderHeight / 2,
-                           height: sliderHeight)
-                RoundedRectangle(cornerRadius: sliderHeight)
-                    .fill(AppColors.getColorForRange(range: range))
-                    .frame(width: sliderHeight,
-                           height: sliderHeight)
-                    .offset(x: -sliderHeight / 2)
+                barCap(range: range, endCap: true)
             }
-        })
+        }
+    }
+    
+    func barCap(range: Range, endCap: Bool) -> some View {
+        return HStack(spacing: 0) {
+            RoundedRectangle(cornerRadius: sliderHeight)
+                .fill(AppColors.getActiveColor(range: range))
+                .frame(width: sliderHeight,
+                       height: sliderHeight)
+                .offset(x: sliderHeight / 2)
+            Rectangle()
+                .fill(AppColors.getActiveColor(range: range))
+                .frame(width: sliderHeight / 2,
+                       height: sliderHeight)
+        }.frame(height: sliderHeight)
+         .rotationEffect(.degrees(endCap ? 180 : 0))
     }
     
     func calcWidth(range: Range) -> CGFloat {
