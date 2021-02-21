@@ -57,6 +57,8 @@
 		CD6CCBBC25DEE6A100B256AA /* PickerBoxTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBBB25DEE6A100B256AA /* PickerBoxTriangle.swift */; };
 		CD6CCBC125DF263D00B256AA /* ColorPickerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBC025DF263D00B256AA /* ColorPickerMenu.swift */; };
 		CD6CCBC625DF73AC00B256AA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBC525DF73AC00B256AA /* Colors.swift */; };
+		CD6CCBD125E08F0E00B256AA /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBD025E08F0E00B256AA /* SettingsButton.swift */; };
+		CD6CCBD625E16AC700B256AA /* SettingsButtonSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBD525E16AC700B256AA /* SettingsButtonSelected.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -151,6 +153,8 @@
 		CD6CCBBB25DEE6A100B256AA /* PickerBoxTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerBoxTriangle.swift; sourceTree = "<group>"; };
 		CD6CCBC025DF263D00B256AA /* ColorPickerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerMenu.swift; sourceTree = "<group>"; };
 		CD6CCBC525DF73AC00B256AA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		CD6CCBD025E08F0E00B256AA /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		CD6CCBD525E16AC700B256AA /* SettingsButtonSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonSelected.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -416,6 +420,8 @@
 				CD6CCACD25D0C01000B256AA /* ScreenHeader.swift */,
 				CD63026D25B5FBD8003A6AA2 /* ScreenTitle.swift */,
 				CD63027C25B61345003A6AA2 /* SubBanner.swift */,
+				CD6CCBD025E08F0E00B256AA /* SettingsButton.swift */,
+				CD6CCBD525E16AC700B256AA /* SettingsButtonSelected.swift */,
 			);
 			name = "Titles-Headers-Banners";
 			sourceTree = "<group>";
@@ -630,11 +636,13 @@
 				CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */,
 				CDA22BE025C7E8CE004D0CF2 /* MidRangeBackground.swift in Sources */,
 				CD63029B25B6D950003A6AA2 /* Range.swift in Sources */,
+				CD6CCBD125E08F0E00B256AA /* SettingsButton.swift in Sources */,
 				CD6CCB9825DEA59C00B256AA /* TimeSlider.swift in Sources */,
 				CD6302C925C00604003A6AA2 /* DowBanner.swift in Sources */,
 				CD6CCB1125D1481300B256AA /* Dimensions.swift in Sources */,
 				CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */,
 				CD6CCB2D25D531EF00B256AA /* GoalSlider.swift in Sources */,
+				CD6CCBD625E16AC700B256AA /* SettingsButtonSelected.swift in Sources */,
 				CDA22BA925C05E08004D0CF2 /* BottomDayRow.swift in Sources */,
 				CD6302AA25BE621F003A6AA2 /* DeviationRangeMarker.swift in Sources */,
 			);

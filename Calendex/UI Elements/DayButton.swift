@@ -19,9 +19,7 @@ struct DayButton: View {
     }
     
     var body: some View {
-        Button(action: {
-        
-        }) {
+        NavigationLink(destination: Day(day: day)) {
             Text("\(day)")
                 .foregroundColor(Color.white)
                 .frame(width: buttonLength, height: buttonLength)

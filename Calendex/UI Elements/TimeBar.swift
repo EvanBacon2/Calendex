@@ -10,31 +10,39 @@ import SwiftUI
 struct TimeBar: View {
     @EnvironmentObject var colors: Colors
     
-    let low: BgTime
-    let mid: BgTime
-    let high: BgTime
+    let low: Int
+    let mid: Int
+    let high: Int
     let minBarWidth = Dimensions.BASE_UNIT * 16
     let midBarWidth = Dimensions.BASE_UNIT * 168
-    let barHeight = Dimensions.BASE_UNIT * 32
+    let barHeight = Dimensions.BASE_UNIT * 26
     
     init(_ low: Int, _ mid: Int, _ high: Int) {
-        self.low = BgTime(.low, time: low, colors: _colors)
-        self.mid = BgTime(.mid, time: mid, colors: _colors)
-        self.high = BgTime(.high, time: high, colors: _colors)
+        //self.low = BgTime(.low, time: low, colors: _colors)
+        //self.mid = BgTime(.mid, time: mid, colors: _colors)
+        //self.high = BgTime(.high, time: high, colors: _colors)
+        
+        self.low = low
+        self.mid = mid
+        self.high = high
     }
     
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
-            if (low.time > 0) {
-                buildRange(timeCovered: 0, low)
+            if (low > 0) {
+                buildRange(timeCovered: 0, buildBgTime(range: .low, time: self.low))
             }
-            if (mid.time > 0) {
-                buildRange(timeCovered: low.time, mid)
+            if (mid > 0) {
+                buildRange(timeCovered: low, buildBgTime(range: .mid, time: self.mid))
             }
-            if (high.time > 0) {
-                buildRange(timeCovered: low.time + mid.time, high)
+            if (high > 0) {
+                buildRange(timeCovered: low + mid, buildBgTime(range: .high, time: self.high))
             }
         }
+    }
+    
+    func buildBgTime(range: Range, time: Int) -> BgTime {
+        return BgTime(range, time: time, colors: _colors)
     }
     
     func buildRange(timeCovered: Int, _ range: BgTime) -> some View {
@@ -61,7 +69,7 @@ struct TimeBar: View {
                 .trim(from: 0, to: 0.5)
                 .fill(range.color())
                 .rotationEffect(.degrees(90))
-                .frame(width: minBarWidth * 2, height: minBarWidth * 2)
+                .frame(width: minBarWidth * 2, height: barHeight)
                 .frame(width: minBarWidth)
                 .offset(x: minBarWidth / 2)
             if (range.time > 8) {
@@ -82,8 +90,8 @@ struct TimeBar: View {
         }
         
         if (range.range == .mid &&
-            low.time > 0 &&
-            high.time > 0 &&
+            low > 0 &&
+            high > 0 &&
             barWidth < 16) {
             barWidth = minBarWidth
         }
@@ -107,7 +115,7 @@ struct TimeBar: View {
                 .trim(from: 0, to: 0.5)
                 .fill(range.color())
                 .rotationEffect(.degrees(-90))
-                .frame(width: minBarWidth * 2, height: minBarWidth * 2)
+                .frame(width: minBarWidth * 2, height: barHeight)
             .frame(width: minBarWidth)
             .offset(x: -minBarWidth / 2)
     }

@@ -21,12 +21,10 @@ struct OverheadBanner: View {
     var body: some View {
         ZStack(content: {
             HStack(spacing: -bannerRadius, content: {
-                RoundedRectangle(cornerRadius: bannerRadius, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
+                RoundedRectangle(cornerRadius: 0.0)
                     .fill(colors.ACCENT_COLOR)
-                    .frame(width: bannerRadius + UIScreen.screenWidth * 0.9 / 2, height: bannerHeight)
-                Rectangle()
-                    .fill(colors.ACCENT_COLOR)
-                    .frame(width:  UIScreen.screenWidth * 0.9 / 2, height: bannerHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(width: UIScreen.screenWidth * 1.0, height: bannerHeight)
+                
             })
             HStack(content: {
                 Text(self.title)

@@ -11,7 +11,7 @@ struct ScreenTitle: View {
     @EnvironmentObject var colors: Colors
     
     var title: String
-    let simpleGearSymbolConfig = UIImage.SymbolConfiguration(pointSize: 18.0, weight: .black, scale: .large)
+    let simpleGearSymbolConfig = UIImage.SymbolConfiguration(pointSize: 16.0, weight: .black, scale: .large)
     
     init(_ title: String) {
         self.title = title

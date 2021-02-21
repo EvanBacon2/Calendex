@@ -10,11 +10,17 @@ import SwiftUI
 struct MonthSummary: View {
     @EnvironmentObject var colors: Colors
     
+    let year: Int
+    
+    init(year: Int) {
+        self.year = year
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             SubBanner("Month Summary")
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
-            MonthButtons()
+            MonthButtons(year: year)
             Spacer().frame(height: Spacing.SINGLE_SPACE)
             seperator()
             Spacer().frame(height: Spacing.SINGLE_SPACE)
@@ -31,6 +37,6 @@ struct MonthSummary: View {
 
 struct MonthSummary_Previews: PreviewProvider {
     static var previews: some View {
-        MonthSummary().environmentObject(Colors())
+        MonthSummary(year: 2020).environmentObject(Colors())
     }
 }

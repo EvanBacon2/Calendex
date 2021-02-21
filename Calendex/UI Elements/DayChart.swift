@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct DayChart: View {
+    @EnvironmentObject var goals: Goals
+    
     var body: some View {
         VStack(spacing: 0) {
             ZStack() {
-                DayChartBackground(lowCutoff: 70, highCutoff: 140)
+                DayChartBackground(lowCutoff: goals.lowBgThreshold, highCutoff: goals.highBgThreshold)
                 PointGraph([80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80])
             }
         }.frame(width: UIScreen.screenWidth * 0.9)
@@ -20,6 +22,7 @@ struct DayChart: View {
 
 struct DayChart_Previews: PreviewProvider {
     static var previews: some View {
-        DayChart()
+        DayChart().environmentObject(Colors())
+                  .environmentObject(Goals())
     }
 }
