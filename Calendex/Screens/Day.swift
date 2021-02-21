@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Day: View {
+    @State var settingsActive: Bool = false
+    
     let blockSpace = UIScreen.screenHeight * 0.02
     
     let day: Int
@@ -18,7 +20,7 @@ struct Day: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            OverheadBanner("14")
+            OverheadBanner("\(day)")
             ScrollView {
                 Spacer().frame(height: Spacing.HEADER_MARGIN)
                 VStack(spacing: 0) {
@@ -31,7 +33,16 @@ struct Day: View {
                     StandardDeviation()
                 }.frame(width: UIScreen.screenWidth)
             }
-        }.navigationBarItems(trailing: SettingsButton())
+            settingsLink()
+        }.navigationTitle("\(day)")
+        .navigationBarItems(trailing: SettingsButton($settingsActive))
+    }
+    
+    func settingsLink() -> NavigationLink<EmptyView, Settings> {
+        return NavigationLink(destination: Settings(),
+                              isActive: $settingsActive) {
+            EmptyView()
+        }
     }
 }
 

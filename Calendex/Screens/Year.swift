@@ -10,7 +10,9 @@ import SwiftUI
 struct Year: View {
     @EnvironmentObject var colors: Colors
     
-    @State var titleDisplayMode: NavigationBarItem.TitleDisplayMode = .large
+    @State var settingsActive: Bool = false
+    
+    //@State var titleDisplayMode: NavigationBarItem.TitleDisplayMode = .large
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: AppColors.DARK_GRAY]
@@ -19,7 +21,6 @@ struct Year: View {
     
     var body: some View {
         NavigationView {
-            GeometryReader { geometry in
             ScrollView() {
                 LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
                     Section(header: OverheadBanner("2020")) {
@@ -32,20 +33,27 @@ struct Year: View {
                         Spacer()
                     }
                 }
-            }.navigationBarTitle("Welcome")//, displayMode: titleDisplay(scrollPos: geometry.frame(in: .global).minY))
-            .navigationBarItems(trailing: SettingsButton())
-            }
+                settingsLink()
+            }.navigationBarTitle("Welcome")
+            .navigationBarItems(trailing: SettingsButton($settingsActive))
         }
     }
     
-    func titleDisplay(scrollPos: CGFloat) -> NavigationBarItem.TitleDisplayMode {
+    func settingsLink() -> NavigationLink<EmptyView, Settings> {
+        return NavigationLink(destination: Settings(),
+                              isActive: $settingsActive) {
+            EmptyView()
+        }
+    }
+    
+    /*func titleDisplay(scrollPos: CGFloat) -> NavigationBarItem.TitleDisplayMode {
         if (titleDisplayMode == .large) {
             titleDisplayMode = scrollPos == 64.0 ? .inline : .large
             return titleDisplayMode
         } else {
             return titleDisplayMode
         }
-    }
+    }*/
 }
 
 struct Year_Previews: PreviewProvider {

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Month: View {
+    @State var settingsActive: Bool = false
+    
     let year: Int
     let month: Int
     let months: [String]
@@ -34,8 +36,16 @@ struct Month: View {
                     StandardDeviation()
                 }.frame(width: UIScreen.screenWidth)
             }
+            settingsLink()
         }.navigationBarTitle("Month", displayMode: .inline)
-         .navigationBarItems(trailing: SettingsButton())
+        .navigationBarItems(trailing: SettingsButton($settingsActive))
+    }
+    
+    func settingsLink() -> NavigationLink<EmptyView, Settings> {
+        return NavigationLink(destination: Settings(),
+                              isActive: $settingsActive) {
+            EmptyView()
+        }
     }
 }
 
