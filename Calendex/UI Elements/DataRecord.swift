@@ -16,7 +16,7 @@ struct DataRecord: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text(year)
+            Text(year).font(.title3)
             Spacer().frame(height: Dimensions.BASE_UNIT)
             DataBar()
         }

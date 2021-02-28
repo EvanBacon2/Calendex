@@ -13,8 +13,13 @@ struct SliderThumb: View {
     @Binding var val: CGFloat
     @Binding private var sliderPos: CGFloat
     
+    @State private var selected: Bool = false
+    @State private var fontSize: CGFloat = 14.0
     @State private var startPos: CGFloat = 0.0
     @State private var prevDelta: CGFloat = 0.0
+    
+    @State private var topOff: CGFloat = Dimensions.BASE_UNIT * -6
+    @State private var bottomOff: CGFloat = Dimensions.BASE_UNIT * 6
     
     var lowThreshold: CGFloat
     var highThreshold: CGFloat
@@ -35,6 +40,14 @@ struct SliderThumb: View {
     var sliderDrag: some Gesture {
         DragGesture(minimumDistance: 0)
             .onChanged {gesture in
+                withAnimation(Animation.default) {
+                    fontSize = 20
+                    topOff = Dimensions.BASE_UNIT * -17
+                    bottomOff = Dimensions.BASE_UNIT * -29
+                }
+                
+                selected = true
+                
                 let newSliderPos = startPos + gesture.translation.width
                 
                 if (newSliderPos >= lowThreshold &&
@@ -46,6 +59,12 @@ struct SliderThumb: View {
             }.onEnded {_ in
                 startPos = sliderPos
                 prevDelta = 0.0
+                selected = false
+                withAnimation(Animation.default) {
+                    fontSize = 14
+                    topOff = Dimensions.BASE_UNIT * -6
+                    bottomOff = Dimensions.BASE_UNIT * 6
+                }
             }
     }
     
@@ -72,12 +91,7 @@ struct SliderThumb: View {
     var body: some View {
         VStack(spacing: 1) {
             if (textOnTop) {
-                Text("\(Int(self.val))")
-                    .font(.system(size: 12))
-                    .foregroundColor(colors.DARK_GRAY)
-                    .offset(x: self.sliderPos, y: -7)
-                    .fixedSize()
-                    .frame(height: 1.0)
+                thumbCaption(top: true)
             }
             Rectangle()
                 .fill(colors.LIGHT_BLUE_GRAY)
@@ -86,14 +100,21 @@ struct SliderThumb: View {
                 .offset(x: self.sliderPos)
                 .gesture(sliderDrag)
             if (!textOnTop) {
-                Text("\(Int(self.val))")
-                    .font(.system(size: 12))
-                    .foregroundColor(colors.DARK_GRAY)
-                    .offset(x: self.sliderPos, y: 7)
-                    .fixedSize()
-                    .frame(height: 1.0)
+                thumbCaption(top: false)
             }
         }
+    }
+    
+    func thumbCaption(top: Bool) -> some View {
+        let offset: CGFloat = top ? topOff : bottomOff
+        
+        return Text("\(Int(self.val))")
+                .foregroundColor(colors.DARK_GRAY)
+                .animatableFont(name: "San Francisco", size: fontSize)
+                .offset(y: offset)
+                .offset(x: self.sliderPos)
+                .fixedSize()
+                .frame(height: 1.0)
     }
 }
 

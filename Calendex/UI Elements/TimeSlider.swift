@@ -12,10 +12,10 @@ struct TimeSlider: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text("Time In Range")
+            Text("Time In Range").font(.title3)
             Spacer().frame(height: UIScreen.screenHeight * 0.015)
             SliderRuler(markings: [0, 25, 50, 75, 100])
-            Spacer().frame(height: UIScreen.screenHeight * 0.03)
+            Spacer().frame(height: UIScreen.screenHeight * 0.05)
             GoalSlider(sliderWidth: UIScreen.screenWidth * 0.85, sliderHeight: UIScreen.screenHeight * 0.0115, metric: Time(goals: _goals))
         }
     }

@@ -16,6 +16,8 @@ struct Deviation: Metric {
     
     var valueRange: ClosedRange<Int> = 0...100
     
+    var step: Int = 1
+    
     var thumbPadding: Int = 0
     
     var activeRanges: Array<Range> = [.mid, .high]

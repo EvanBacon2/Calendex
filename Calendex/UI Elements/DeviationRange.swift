@@ -11,15 +11,15 @@ struct DeviationRange: View {
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
-    let barWidth = UIScreen.screenWidth * 0.018
+    let barWidth = UIScreen.screenWidth * 0.016
     var values: [CGFloat]
-    let length: Int
+    let length: CGFloat
     let range: Range
     let ceiling: CGFloat
     
     init(_ values: [CGFloat], _ range: Range, _ ceiling: CGFloat = 5) {
         self.values = values
-        self.length = self.values.count
+        self.length = CGFloat(self.values.count)
         self.range = range
         self.ceiling = ceiling
     }
@@ -40,7 +40,7 @@ struct DeviationRange: View {
     func rangeUnderline() -> some View {
         return RoundedRectangle(cornerRadius: 10)
                     .fill(colors.getActiveColor(range: range))
-                    .frame(width: barWidth * CGFloat(length) + ((CGFloat(length) - 1) * UIScreen.screenHeight * 0.002), height: UIScreen.screenHeight * 0.004)
+            .frame(width: barWidth * length + (length - 1) * Dimensions.BASE_UNIT, height: UIScreen.screenHeight * 0.004)
     }
 }
 

@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct Settings: View {
+    @State private var toggleAvailable: Bool = true
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             OverheadBanner("Settings")
             ScrollView {
                 VStack() {
-                    Spacer().frame(height: 15)
+                    Spacer().frame(height: Spacing.HEADER_MARGIN)
                     Group {
                         SubBanner("Goals")
                         AverageSlider()
@@ -32,9 +34,9 @@ struct Settings: View {
                         SubBanner("Color")
                         HStack(spacing: UIScreen.screenHeight * 0.04)
                         {
-                            ColorPicker(range: .low, alignment: .center)
-                            ColorPicker(range: .mid, alignment: .center)
-                            ColorPicker(range: .high, alignment: .trailing)
+                            ColorPicker(range: .low, alignment: .center, toggleAvailable: $toggleAvailable)
+                            ColorPicker(range: .mid, alignment: .center, toggleAvailable: $toggleAvailable)
+                            ColorPicker(range: .high, alignment: .trailing, toggleAvailable: $toggleAvailable)
                         }
                     }
                     Spacer()

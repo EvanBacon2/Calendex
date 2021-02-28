@@ -11,7 +11,7 @@ import SwiftUI
 struct CalendexApp: App {
     var body: some Scene {
         WindowGroup {
-            Login()
+            Year()
         }
     }
 }

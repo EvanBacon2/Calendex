@@ -16,6 +16,8 @@ struct Average: Metric {
     
     var valueRange: ClosedRange<Int> = 60...400
     
+    var step: Int = 5
+    
     var thumbPadding: Int = 10
     
     var activeRanges: Array<Range> = [.low, .mid, .high]

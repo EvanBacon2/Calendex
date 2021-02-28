@@ -18,7 +18,8 @@ struct SubBanner: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text(self.title).padding(.bottom, UIScreen.screenHeight * 0.01)
+            Text(self.title).font(.title2)
+            Spacer().frame(height: UIScreen.screenHeight * 0.01)
             Rectangle()
                 .fill(colors.DARK_GRAY)
                 .frame(width: UIScreen.screenWidth * 0.9, height: Dimensions.BASE_UNIT)

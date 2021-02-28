@@ -18,9 +18,9 @@ struct DataField: View {
     
     var data: Field
     var value: Int
-    var buttonWidth = UIScreen.screenHeight * 0.16
-    var buttonHeight = UIScreen.screenHeight * 0.06
-    var buttonCorner = UIScreen.screenHeight * 0.012
+    var buttonWidth = UIScreen.screenWidth * 0.28
+    var buttonHeight = UIScreen.screenWidth * 0.28 * 0.37
+    var buttonCorner: CGFloat = 6
     
     init(_ data: Field, _ value: Int) {
         self.data = data

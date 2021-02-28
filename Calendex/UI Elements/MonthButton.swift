@@ -15,8 +15,8 @@ struct MonthButton: View {
     let month: Int
     
     var buttonWidth = UIScreen.screenWidth * 0.125
-    var buttonHeight = UIScreen.screenHeight * 0.09
-    var buttonCorner = UIScreen.screenHeight * 0.016
+    var buttonHeight = UIScreen.screenWidth * 0.125 * 1.4
+    var buttonCorner: CGFloat = 8
     
     init(_ label: String, year: Int, month: Int) {
         self.label = label

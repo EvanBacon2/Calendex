@@ -10,6 +10,8 @@ import SwiftUI
 protocol Metric {
     var valueRange: ClosedRange<Int> { get }
     
+    var step: Int { get }
+    
     var thumbPadding: Int { get }
     
     var activeRanges: Array<Range> { get }

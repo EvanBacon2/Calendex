@@ -11,7 +11,7 @@ struct DeviationBar: View {
     var percent: CGFloat
     var ceiling: CGFloat
     var color: Color
-    var barWidth = Dimensions.BASE_UNIT * 5
+    var barWidth = UIScreen.screenWidth * 0.016
     var barHeight = Dimensions.BASE_UNIT * 50
     var emptyBarHeight = Dimensions.BASE_UNIT * 3
     

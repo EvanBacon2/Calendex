@@ -56,7 +56,7 @@ struct TimeBar: View {
             }
             HStack(spacing: 0) {
                 Text("\(range.time)")
-                    .font(.system(size: 15))
+                    .font(.title3)
                     .fixedSize()
                     .frame(width: 16)
             }

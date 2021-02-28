@@ -13,9 +13,9 @@ struct DataButton: View {
     @Binding var selected: String
     
     var label: String
-    var buttonWidth = UIScreen.screenHeight * 0.15
-    var buttonHeight = UIScreen.screenHeight * 0.06
-    var buttonCorner = UIScreen.screenHeight * 0.016
+    var buttonWidth = UIScreen.screenWidth * 0.26
+    var buttonHeight = UIScreen.screenWidth * 0.26 * 0.4
+    var buttonCorner: CGFloat = 8
     
     init(_ label: String, selected: Binding<String>) {
         self.label = label

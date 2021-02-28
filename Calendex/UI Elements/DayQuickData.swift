@@ -18,6 +18,6 @@ struct DayQuickData: View {
 
 struct DayQuickData_Previews: PreviewProvider {
     static var previews: some View {
-        DayQuickData()
+        DayQuickData().environmentObject(Colors())
     }
 }

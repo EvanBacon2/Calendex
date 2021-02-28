@@ -28,7 +28,7 @@ struct OverheadBanner: View {
             })
             HStack(content: {
                 Text(self.title)
-                .font(.system(size: 14))
+                .font(.title3)
                 .foregroundColor(Color.white)
                 .offset(x: bannerRadius / 2)
                 Spacer()

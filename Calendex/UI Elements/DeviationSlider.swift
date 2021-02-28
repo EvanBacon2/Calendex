@@ -12,10 +12,10 @@ struct DeviationSlider: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text("Standard Deviation")
+            Text("Standard Deviation").font(.title3)
             Spacer().frame(height: UIScreen.screenHeight * 0.015)
             SliderRuler(markings: [0, 25, 50, 75, 100])
-            Spacer().frame(height: UIScreen.screenHeight * 0.03)
+            Spacer().frame(height: UIScreen.screenHeight * 0.05)
             GoalSlider(sliderWidth: UIScreen.screenWidth * 0.85, sliderHeight: UIScreen.screenHeight * 0.0115, metric: Deviation(goals: _goals))
         }
     }

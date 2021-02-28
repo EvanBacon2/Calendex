@@ -59,6 +59,8 @@
 		CD6CCBC625DF73AC00B256AA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBC525DF73AC00B256AA /* Colors.swift */; };
 		CD6CCBD125E08F0E00B256AA /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBD025E08F0E00B256AA /* SettingsButton.swift */; };
 		CD6CCBD625E16AC700B256AA /* SettingsButtonSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBD525E16AC700B256AA /* SettingsButtonSelected.swift */; };
+		CD6CCBDE25EA25A500B256AA /* AnimatableCustomFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBDD25EA25A500B256AA /* AnimatableCustomFontModifier.swift */; };
+		CD6CCBE425EB40B600B256AA /* BloodSugar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBE225EB40B500B256AA /* BloodSugar.xcdatamodeld */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -155,6 +157,8 @@
 		CD6CCBC525DF73AC00B256AA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CD6CCBD025E08F0E00B256AA /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		CD6CCBD525E16AC700B256AA /* SettingsButtonSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonSelected.swift; sourceTree = "<group>"; };
+		CD6CCBDD25EA25A500B256AA /* AnimatableCustomFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableCustomFontModifier.swift; sourceTree = "<group>"; };
+		CD6CCBE325EB40B600B256AA /* BloodSugar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BloodSugar.xcdatamodel; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				CD3AA7D5259830750087ACF1 /* Assets.xcassets */,
 				CD3AA7DA259830750087ACF1 /* Info.plist */,
 				CD3AA7D7259830750087ACF1 /* Preview Content */,
+				CD6CCBE225EB40B500B256AA /* BloodSugar.xcdatamodeld */,
 			);
 			path = Calendex;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				CD6302BF25BFD923003A6AA2 /* StandardDeviation */,
 				CDA22BC625C7DF02004D0CF2 /* Time In Range */,
 				CDA22BCE25C7DF6D004D0CF2 /* Titles-Headers-Banners */,
+				CD6CCBDD25EA25A500B256AA /* AnimatableCustomFontModifier.swift */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -616,6 +622,7 @@
 				CD63026E25B5FBD8003A6AA2 /* ScreenTitle.swift in Sources */,
 				CD6CCBC125DF263D00B256AA /* ColorPickerMenu.swift in Sources */,
 				CDA22BD325C7E22A004D0CF2 /* DayChartBackground.swift in Sources */,
+				CD6CCBDE25EA25A500B256AA /* AnimatableCustomFontModifier.swift in Sources */,
 				CD6CCAC425CFCE4A00B256AA /* SliderRuler.swift in Sources */,
 				CDA22BA425C05DF7004D0CF2 /* MidDayRows.swift in Sources */,
 				CD6CCB9D25DEA7D000B256AA /* DeviationSlider.swift in Sources */,
@@ -639,6 +646,7 @@
 				CD6CCBD125E08F0E00B256AA /* SettingsButton.swift in Sources */,
 				CD6CCB9825DEA59C00B256AA /* TimeSlider.swift in Sources */,
 				CD6302C925C00604003A6AA2 /* DowBanner.swift in Sources */,
+				CD6CCBE425EB40B600B256AA /* BloodSugar.xcdatamodeld in Sources */,
 				CD6CCB1125D1481300B256AA /* Dimensions.swift in Sources */,
 				CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */,
 				CD6CCB2D25D531EF00B256AA /* GoalSlider.swift in Sources */,
@@ -958,6 +966,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CD6CCBE225EB40B500B256AA /* BloodSugar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CD6CCBE325EB40B600B256AA /* BloodSugar.xcdatamodel */,
+			);
+			currentVersion = CD6CCBE325EB40B600B256AA /* BloodSugar.xcdatamodel */;
+			path = BloodSugar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CD3AA7C6259830730087ACF1 /* Project object */;
 }

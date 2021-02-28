@@ -10,16 +10,20 @@ import SwiftUI
 struct ColorPicker: View {
     @EnvironmentObject var colors: Colors
     
-    @State var showPicker: Bool
+    @Binding var toggleAvailable: Bool
     
-    var circleDiameter = Dimensions.BASE_UNIT * 27
+    @State private var toggled: Bool = false
+    @State private var pickerOffset: CGFloat = 40.0
+    @State private var pickerScale: CGFloat = 0.0
+    
+    var circleDiameter = UIScreen.screenWidth * 0.1
     
     var range: Range
     var alignment: Alignment
     var label: String
     
-    init(range: Range, alignment: Alignment) {
-        self._showPicker = State(initialValue: false)
+    init(range: Range, alignment: Alignment, toggleAvailable: Binding<Bool>) {
+        self._toggleAvailable = toggleAvailable
         
         self.range = range
         self.alignment = alignment
@@ -37,6 +41,7 @@ struct ColorPicker: View {
         HStack(alignment: .top, spacing: 10) {
             HStack() {
                 Text(label)
+                    .font(.subheadline)
                     .foregroundColor(Color.black)
             }.frame(height: circleDiameter)
             ZStack() {
@@ -44,31 +49,43 @@ struct ColorPicker: View {
                     activeColorButton()
                     Spacer()
                 }
-                if (showPicker) {
-                    ColorPickerMenu(range: range, alignment: alignment, showPicker: $showPicker)
-                }
+                ColorPickerMenu(range: range, alignment: alignment, togglePicker: { () -> Void in togglePicker() })
+                    .offset(y: pickerOffset)
+                    .scaleEffect(pickerScale)
+                    .animation(.easeOut(duration: 0.2))
             }.frame(height: UIScreen.screenHeight * 0.23)
         }
     }
     
     func activeColorButton() -> some View {
-        return Button(action: {() -> Void in showPicker.toggle()}) {
+        return Button(action: {() -> Void in togglePicker() }) {
             Circle()
                 .fill(colors.getActiveColor(range: range))
                 .frame(width: circleDiameter,
                        height: circleDiameter)
         }
     }
+    
+    func togglePicker() -> Void {
+        if (toggleAvailable || toggled) {
+            pickerOffset = pickerOffset == 40.0 ? 0.0 : 40.0
+            pickerScale = pickerScale == 1.0 ? 0.0 : 1.0
+            toggled.toggle()
+            toggleAvailable.toggle()
+        }
+    }
 }
 
 struct ColorPicker_Previews: PreviewProvider {
     static var previews: some View {
-        ColorPicker(range: .mid, alignment: .center).environmentObject(Colors())
+        EmptyView()//ColorPicker_Preview_View()
     }
 }
 
-struct ColorPicker_Preview_Provider: View {
+struct ColorPicker_Preview_View: View {
+    @State private var toggleAvailable: Bool = true
+    
     var body: some View {
-        ColorPicker(range: .mid, alignment: .center)
+        ColorPicker(range: .mid, alignment: .center, toggleAvailable: $toggleAvailable)
     }
 }

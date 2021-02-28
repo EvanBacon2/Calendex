@@ -25,7 +25,7 @@ struct DeviationRangeMarker: View {
                     .frame(width: UIScreen.screenHeight * 0.004, height: UIScreen.screenHeight * 0.024)
             }.frame(height: UIScreen.screenHeight * 0.126)
             Text(val)
-                .font(.system(size: 15))
+                .font(.title3)
                 .fixedSize()
                 .frame(width: 4)
         }

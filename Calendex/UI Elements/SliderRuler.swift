@@ -47,7 +47,7 @@ struct SliderRuler: View {
     
     func rulerText(text: String) -> some View {
         return Text(text)
-            .font(.system(size: 14))
+            .font(.callout)
             .foregroundColor(colors.DARK_GRAY)
             .fixedSize()
             .frame(width: 1.0)

@@ -21,6 +21,6 @@ struct DayFields: View {
 
 struct DayFields_Previews: PreviewProvider {
     static var previews: some View {
-        DayFields()
+        DayFields().environmentObject(Colors())
     }
 }

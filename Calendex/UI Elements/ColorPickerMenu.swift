@@ -10,16 +10,16 @@ import SwiftUI
 struct ColorPickerMenu: View {
     @EnvironmentObject var colors: Colors
     
-    @Binding var showPicker: Bool
+    let togglePicker: () -> Void
     
-    var circleDiameter = Dimensions.BASE_UNIT * 27
-    var circleSpacing = Dimensions.BASE_UNIT * 6
+    var circleDiameter = UIScreen.screenWidth * 0.1
+    var circleSpacing = UIScreen.screenWidth * 0.022
     
     var range: Range
     var alignment: CGFloat
     
-    init(range: Range, alignment: Alignment, showPicker: Binding<Bool>) {
-        self._showPicker = showPicker
+    init(range: Range, alignment: Alignment, togglePicker: @escaping () -> Void) {
+        self.togglePicker = togglePicker
         
         self.range = range
         switch alignment {
@@ -50,7 +50,7 @@ struct ColorPickerMenu: View {
             RoundedRectangle(cornerRadius: 5)
                 .fill(colors.LIGHT_BLUE_GRAY)
                 .frame(width: ((circleDiameter + circleSpacing) * CGFloat(colors.RANGE_COLOR_OPTIONS)) + circleSpacing,
-                       height: 45)
+                       height: circleDiameter + circleSpacing * 2)
                 .fixedSize()
                 .frame(width: circleDiameter)
                 .offset(x: alignment)
@@ -60,7 +60,8 @@ struct ColorPickerMenu: View {
     func pickerOptions() -> some View {
         return HStack(spacing: circleSpacing) {
             ForEach(0..<3) { i in
-                Button(action: {() -> Void in showPicker.toggle()
+                Button(action: {() -> Void in
+                    togglePicker()
                     colors.setActiveColor(range: range, newColor: colors.getColor(range: range, index: i))
                 }) {
                     Circle()
@@ -69,9 +70,9 @@ struct ColorPickerMenu: View {
                                height: circleDiameter)
                 }
             }
-        }.frame(height: 45)
+        }.frame(height: circleDiameter + circleSpacing * 2)
         .fixedSize()
-        .frame(width: 30)
+        .frame(width: circleDiameter)
         .offset(x: alignment)
     }
 }
@@ -83,9 +84,7 @@ struct ColorPickerMenu_Previews: PreviewProvider {
 }
 
 struct ColorPickerMenu_Preview_View: View {
-    @State var showPicker = true
-    
     var body: some View {
-        ColorPickerMenu(range: .low, alignment: .leading, showPicker: $showPicker)
+        ColorPickerMenu(range: .low, alignment: .leading, togglePicker: {() -> Void in })
     }
 }

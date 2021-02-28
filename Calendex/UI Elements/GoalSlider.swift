@@ -118,7 +118,9 @@ struct GoalSlider: View {
     }
     
     func convertWidthToMetric(width: CGFloat) -> Int {
-        return Int(round((width + thumbAdjustment) * CGFloat(rangeEnd - rangeStart) / sliderWidth + CGFloat(rangeStart)))
+        let wholeNum = Int(round((width + thumbAdjustment) * CGFloat(rangeEnd - rangeStart) / sliderWidth + CGFloat(rangeStart)))
+        
+        return wholeNum - wholeNum % metric.step
     }
 }
 
