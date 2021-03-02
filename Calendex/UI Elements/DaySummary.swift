@@ -18,8 +18,7 @@ struct DaySummary: View {
         let cal = Calendar.current
         let firstDay = DateComponents(
             year: year,
-            month: month,
-            weekdayOrdinal: 1)
+            month: month)
         let firstDate = cal.date(from: firstDay)!
         topOffset = cal.component(.weekday, from: firstDate)
         dayCount = cal.range(of: .day, in: .month, for: firstDate)!.count
@@ -49,6 +48,6 @@ struct DaySummary: View {
 
 struct DaySummary_Previews: PreviewProvider {
     static var previews: some View {
-        DaySummary(year: 2021, month: 6)
+        DaySummary(year: 2021, month: 2).environmentObject(Colors())
     }
 }
