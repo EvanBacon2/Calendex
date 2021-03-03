@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct MonthButtons: View {
+    @FetchRequest var monthInfo: FetchedResults<Date_Info_Entity>
+    
     let year: Int
     
     init(year: Int) {
         self.year = year
+        self._monthInfo = FetchRequest(fetchRequest: Fetches.fetchMonthsInYear(year: year))
     }
     
     var body: some View {

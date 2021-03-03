@@ -11,11 +11,11 @@ import SwiftUI
 struct CalendexApp: App {
     @Environment(\.scenePhase) var scenePhase
     
-    let persistenceController = PersistenceController.shared
+    let persistenceController = PersistenceController.preview
     
     var body: some Scene {
         WindowGroup {
-            Year().environmentObject(Colors())
+            Year(year: 2021).environmentObject(Colors())
                   .environmentObject(Goals())
                   .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }.onChange(of: scenePhase) { _ in

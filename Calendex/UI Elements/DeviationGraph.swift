@@ -11,6 +11,14 @@ struct DeviationGraph: View {
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
+    let distribution: [CGFloat]
+    let ceiling: CGFloat
+    
+    init(distribution: [DistributionRange_Entity]) {
+        self.distribution = distribution.map { $0.value }
+        self.ceiling = self.distribution.max()!
+    }
+    
     var body: some View {
         VStack() {
             HStack(alignment: .top, spacing: UIScreen.screenHeight * 0.004) {
@@ -22,11 +30,11 @@ struct DeviationGraph: View {
                         Spacer()
                 }.frame(height: UIScreen.screenHeight * 0.114)
                 Spacer().frame(width: UIScreen.screenHeight * 0.012)
-                DeviationRange(lowVals(), .low)
+                DeviationRange(lowVals(), .low, ceiling)
                 DeviationRangeMarker("\(goals.lowBgThreshold)")
-                DeviationRange(midVals(), .mid)
+                DeviationRange(midVals(), .mid, ceiling)
                 DeviationRangeMarker("\(goals.highBgThreshold)")
-                DeviationRange(highVals(), .high)
+                DeviationRange(highVals(), .high, ceiling)
             }
         }
     }
@@ -36,22 +44,22 @@ struct DeviationGraph: View {
     }
     
     func lowVals() -> [CGFloat] {
-        return Array(repeating: 2.0, count: index(goals.lowBgThreshold))
+        return Array(distribution[0..<index(goals.lowBgThreshold)])
     }
     
     func midVals() -> [CGFloat] {
-        return Array(repeating: 2.0, count: index(goals.highBgThreshold) -                                   index(goals.lowBgThreshold))
+        return Array(distribution[index(goals.lowBgThreshold)..<index(goals.highBgThreshold)])
     }
     
     func highVals() -> [CGFloat] {
-        return Array(repeating: 2.0, count: index(400) -
-                                            index(goals.highBgThreshold))
+        return Array(distribution[index(goals.highBgThreshold)..<distribution.count])
     }
 }
 
 struct DeviationGraph_Previews: PreviewProvider {
     static var previews: some View {
-        DeviationGraph().environmentObject(Colors())
-                        .environmentObject(Goals())
+        //DeviationGraph().environmentObject(Colors())
+                        //.environmentObject(Goals())
+        EmptyView()
     }
 }

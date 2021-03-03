@@ -19,34 +19,29 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
         
-        let cal = Calendar.current
-        var dates: [DateComponents] = []
-        let year = DateComponents(year: 2020)
-        let months = (1...12).map { month in DateComponents(year: 2020, month: month) }
-        var days: [DateComponents] = []
-        let monthDays = months.map { month in Array(cal.range(of: .day, in: .month, for: cal.date(from: month)!)!)
-            .map { day in DateComponents(year: 2020, month: month.month, day: day) } }
-        for daysInMonth in monthDays {
-            days.append(contentsOf: daysInMonth)
-        }
+        let year: Int32 = 2021
+        let monthDays: [Int32] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         
         let yearEntity = Date_Info_Entity(context: controller.container.viewContext)
-        yearEntity.start_date_attr = cal.date(from: year)!
-        yearEntity.end_date_attr = cal.date(byAdding: .year, value: 1, to: yearEntity.start_date_attr!)!
+        yearEntity.year_attr = year
+        yearEntity.month_attr = -1
+        yearEntity.day_attr = -1
         yearEntity.date_info = getBgInfo(controller)
         
-        for month in months {
+        for month: Int32 in 1...12 {
             let monthEntity = Date_Info_Entity(context: controller.container.viewContext)
-            monthEntity.start_date_attr = cal.date(from: month)!
-            monthEntity.end_date_attr = cal.date(byAdding: .month, value: 1, to: monthEntity.start_date_attr!)!
+            monthEntity.year_attr = 2021
+            monthEntity.month_attr = month
+            monthEntity.day_attr = -1
             monthEntity.date_info = getBgInfo(controller)
-        }
-        
-        for day in days {
-            let dayEntity = Date_Info_Entity(context: controller.container.viewContext)
-            dayEntity.start_date_attr = cal.date(from: day)!
-            dayEntity.end_date_attr = cal.date(byAdding: .day, value: 1, to: dayEntity.start_date_attr!)!
-            dayEntity.date_info = getBgInfo(controller)
+            
+            for day: Int32 in 1...monthDays[Int(month) - 1] {
+                let dayEntity = Date_Info_Entity(context: controller.container.viewContext)
+                dayEntity.year_attr = 2021
+                dayEntity.month_attr = month
+                dayEntity.day_attr = day
+                dayEntity.date_info = getBgInfo(controller)
+            }
         }
 
         return controller
@@ -95,13 +90,13 @@ struct PersistenceController {
     }
     
     static func getDistRanges(_ controller: PersistenceController) -> [DistributionRange_Entity] {
-        var vals = (1...36).map { _ in CGFloat.random(in: 0...1) }
-        let sum: CGFloat = vals.reduce(0, { x, y in x + y })
-        vals = vals.map { $0 / sum }
-        let distRanges = (4...40).map { i ->
+        var vals = (1...36).map { _ in Float.random(in: 0...100) }
+        let sum: Float = vals.reduce(0, { x, y in x + y })
+        vals = vals.map { $0 / (sum * 0.01) }
+        let distRanges = (4...39).map { i ->
             DistributionRange_Entity in let r = DistributionRange_Entity(context: controller.container.viewContext)
             r.range_attr = Int32(i * 10)
-            r.value_attr = Float(vals[i - 4])
+            r.value_attr = vals[i - 4]
             return r
         }
         

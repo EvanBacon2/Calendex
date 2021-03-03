@@ -10,6 +10,8 @@ import SwiftUI
 struct MonthSummary: View {
     @EnvironmentObject var colors: Colors
     
+    @State var selected: String = "Average"
+    
     let year: Int
     
     init(year: Int) {
@@ -24,7 +26,7 @@ struct MonthSummary: View {
             Spacer().frame(height: Spacing.SINGLE_SPACE)
             seperator()
             Spacer().frame(height: Spacing.SINGLE_SPACE)
-            DataButtons()
+            DataButtons(selected: $selected)
         }
     }
     

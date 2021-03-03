@@ -30,7 +30,7 @@ struct Day: View {
                     Spacer().frame(height: Spacing.DOUBLE_SPACE)
                     TimeInRange(low: 8, mid: 57, high: 35)
                     Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                    StandardDeviation()
+                    //StandardDeviation()
                 }.frame(width: UIScreen.screenWidth)
             }
             settingsLink()

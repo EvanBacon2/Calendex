@@ -8,28 +8,30 @@
 import SwiftUI
 
 struct Year: View {
+    @FetchRequest var yearInfo: FetchedResults<Date_Info_Entity>
+    
     @EnvironmentObject var colors: Colors
     
     @State var settingsActive: Bool = false
     
-    //@State var titleDisplayMode: NavigationBarItem.TitleDisplayMode = .large
-    
-    init() {
+    init(year: Int) {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: AppColors.DARK_GRAY]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        self._yearInfo = FetchRequest(fetchRequest: Fetches.fetchDateInfo(year: year))
     }
     
     var body: some View {
         NavigationView {
             ScrollView() {
                 LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
-                    Section(header: OverheadBanner("2020")) {
+                    Section(header: OverheadBanner("\(getYear())")) {
                         Spacer().frame(height: Spacing.HEADER_MARGIN)
-                        MonthSummary(year: 2020)
+                        MonthSummary(year: getYear())
                         Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                        TimeInRange(low: 8, mid: 57, high: 35)
+                        TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
                         Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                        StandardDeviation()
+                        StandardDeviation(distribution: (yearInfo.first?.date_info?.distribution)!)
                         Spacer()
                     }
                 }
@@ -39,26 +41,41 @@ struct Year: View {
         }
     }
     
+    func getYear() -> Int {
+        if (yearInfo.isEmpty) {
+            return 0
+        } else {
+            return (yearInfo.first?.year)!
+        }
+    }
+    
+    func getRange(_ range: Range) -> Int {
+        if (yearInfo.isEmpty) {
+            return 0
+        } else {
+            let tir = yearInfo.first?.info?.timeInRange
+            switch range {
+            case .low:
+                return Int(tir!.lowTime)
+            case .mid:
+                return Int(tir!.midTime)
+            case .high:
+                return Int(tir!.highTime)
+            }
+        }
+    }
+    
     func settingsLink() -> NavigationLink<EmptyView, Settings> {
         return NavigationLink(destination: Settings(),
                               isActive: $settingsActive) {
             EmptyView()
         }
     }
-    
-    /*func titleDisplay(scrollPos: CGFloat) -> NavigationBarItem.TitleDisplayMode {
-        if (titleDisplayMode == .large) {
-            titleDisplayMode = scrollPos == 64.0 ? .inline : .large
-            return titleDisplayMode
-        } else {
-            return titleDisplayMode
-        }
-    }*/
 }
 
 struct Year_Previews: PreviewProvider {
     static var previews: some View {
-        Year().environmentObject(Colors())
+        return Year(2021).environmentObject(Colors())
               .environmentObject(Goals())
     }
 }

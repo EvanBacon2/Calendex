@@ -17,11 +17,11 @@ struct DeviationRange: View {
     let range: Range
     let ceiling: CGFloat
     
-    init(_ values: [CGFloat], _ range: Range, _ ceiling: CGFloat = 5) {
+    init(_ values: [CGFloat], _ range: Range, _ ceiling: CGFloat) {
         self.values = values
         self.length = CGFloat(self.values.count)
         self.range = range
-        self.ceiling = ceiling
+        self.ceiling = ceiling < 5.0 ? 5.0 : ceiling
     }
     
     var body: some View {
@@ -50,9 +50,9 @@ struct DeviationRange_Previews: PreviewProvider {
     
     static var previews: some View {
         HStack() {
-            DeviationRange(lowVals, .low).environmentObject(Colors())
+            DeviationRange(lowVals, .low, 5.0).environmentObject(Colors())
                   .environmentObject(Goals())
-            DeviationRange(midVals, .mid).environmentObject(Colors())
+            DeviationRange(midVals, .mid, 5.0).environmentObject(Colors())
                   .environmentObject(Goals())
         }
     }

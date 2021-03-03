@@ -21,7 +21,6 @@
 		CD63027825B6116A003A6AA2 /* DataButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63027725B6116A003A6AA2 /* DataButton.swift */; };
 		CD63027D25B61345003A6AA2 /* SubBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63027C25B61345003A6AA2 /* SubBanner.swift */; };
 		CD63028725B6D4A6003A6AA2 /* TimeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63028625B6D4A6003A6AA2 /* TimeBar.swift */; };
-		CD63028E25B6D801003A6AA2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63028D25B6D801003A6AA2 /* Queue.swift */; };
 		CD63029625B6D895003A6AA2 /* BgTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63029525B6D895003A6AA2 /* BgTime.swift */; };
 		CD63029B25B6D950003A6AA2 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63029A25B6D950003A6AA2 /* Range.swift */; };
 		CD6302A025BDA736003A6AA2 /* DeviationGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63029F25BDA736003A6AA2 /* DeviationGraph.swift */; };
@@ -74,6 +73,7 @@
 		CD6CCC0825EB8B8800B256AA /* DistributionRange_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBFA25EB8B8800B256AA /* DistributionRange_Entity+CoreDataProperties.swift */; };
 		CD6CCC4C25EDF9A700B256AA /* Date_Info_Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC4A25EDF9A600B256AA /* Date_Info_Entity+CoreDataClass.swift */; };
 		CD6CCC4D25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC4B25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift */; };
+		CD6CCC5B25EF43E300B256AA /* Fetches.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC5A25EF43E200B256AA /* Fetches.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -132,7 +132,6 @@
 		CD63027725B6116A003A6AA2 /* DataButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataButton.swift; sourceTree = "<group>"; };
 		CD63027C25B61345003A6AA2 /* SubBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBanner.swift; sourceTree = "<group>"; };
 		CD63028625B6D4A6003A6AA2 /* TimeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBar.swift; sourceTree = "<group>"; };
-		CD63028D25B6D801003A6AA2 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		CD63029525B6D895003A6AA2 /* BgTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgTime.swift; sourceTree = "<group>"; };
 		CD63029A25B6D950003A6AA2 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
 		CD63029F25BDA736003A6AA2 /* DeviationGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviationGraph.swift; sourceTree = "<group>"; };
@@ -185,6 +184,7 @@
 		CD6CCBFA25EB8B8800B256AA /* DistributionRange_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DistributionRange_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD6CCC4A25EDF9A600B256AA /* Date_Info_Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date_Info_Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD6CCC4B25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date_Info_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD6CCC5A25EF43E200B256AA /* Fetches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetches.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -258,7 +258,6 @@
 				CD63026225B51BCE003A6AA2 /* Screens */,
 				CD63026325B51BE1003A6AA2 /* UI Elements */,
 				CD63026425B51BF3003A6AA2 /* Globals */,
-				CD63028B25B6D77E003A6AA2 /* Data Structures */,
 				CD63028C25B6D7B4003A6AA2 /* Objects */,
 				CD3AA7D5259830750087ACF1 /* Assets.xcassets */,
 				CD3AA7DA259830750087ACF1 /* Info.plist */,
@@ -330,16 +329,9 @@
 				CD63025D25B4A253003A6AA2 /* AppColors.swift */,
 				CD6CCAC825D0BD9B00B256AA /* Spacing.swift */,
 				CD6CCB1025D1481300B256AA /* Dimensions.swift */,
+				CD6CCC5A25EF43E200B256AA /* Fetches.swift */,
 			);
 			path = Globals;
-			sourceTree = "<group>";
-		};
-		CD63028B25B6D77E003A6AA2 /* Data Structures */ = {
-			isa = PBXGroup;
-			children = (
-				CD63028D25B6D801003A6AA2 /* Queue.swift */,
-			);
-			path = "Data Structures";
 			sourceTree = "<group>";
 		};
 		CD63028C25B6D7B4003A6AA2 /* Objects */ = {
@@ -693,7 +685,6 @@
 				CD6302A025BDA736003A6AA2 /* DeviationGraph.swift in Sources */,
 				CD63029625B6D895003A6AA2 /* BgTime.swift in Sources */,
 				CD6CCAFE25D105EB00B256AA /* DaySummary.swift in Sources */,
-				CD63028E25B6D801003A6AA2 /* Queue.swift in Sources */,
 				CDA22BAE25C06060004D0CF2 /* MidDayRow.swift in Sources */,
 				CD63028725B6D4A6003A6AA2 /* TimeBar.swift in Sources */,
 				CD6CCC4D25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift in Sources */,
@@ -703,6 +694,7 @@
 				CD6CCBFD25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift in Sources */,
 				CD6CCAE025D0C35200B256AA /* DataButtons.swift in Sources */,
 				CDA22BF025C80719004D0CF2 /* ChartPoint.swift in Sources */,
+				CD6CCC5B25EF43E300B256AA /* Fetches.swift in Sources */,
 				CD6CCC0825EB8B8800B256AA /* DistributionRange_Entity+CoreDataProperties.swift in Sources */,
 				CDA22C1225C80F6F004D0CF2 /* DataField.swift in Sources */,
 				CD6CCB3625D53CAA00B256AA /* Goals.swift in Sources */,

@@ -14,19 +14,24 @@ extension Date_Info_Entity {
         return NSFetchRequest<Date_Info_Entity>(entityName: "Date_Info_Entity")
     }
 
-    @NSManaged public var start_date_attr: Date?
-    @NSManaged public var end_date_attr: Date?
+    @NSManaged public var year_attr: Int32
+    @NSManaged public var month_attr: Int32
+    @NSManaged public var day_attr: Int32
     @NSManaged public var date_info: Bg_Info_Entity?
     
-    public var startDate: Date? {
-        start_date_attr
+    public var year: Int {
+        Int(year_attr)
     }
     
-    public var endDate: Date? {
-        end_date_attr
+    public var month: Int {
+        Int(month_attr)
     }
     
-    public var info: Bg_Info_Entity?? {
+    public var day: Int {
+        Int(day_attr)
+    }
+    
+    public var info: Bg_Info_Entity? {
         date_info
     }
 }

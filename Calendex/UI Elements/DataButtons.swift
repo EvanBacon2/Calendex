@@ -8,21 +8,26 @@
 import SwiftUI
 
 struct DataButtons: View {
-    @State var selected: String = "Average"
+    @Binding var selected: String
+    
+    init(selected: Binding<String>) {
+        self._selected = selected
+    }
     
     var body: some View {
         HStack(spacing: 0) {
-            DataButton("Average", selected: $selected)
+            DataButton("Average", selected: _selected)
             Spacer()
-            DataButton("Range", selected: $selected)
+            DataButton("Range", selected: _selected)
             Spacer()
-            DataButton("Deviation", selected: $selected)
+            DataButton("Deviation", selected: _selected)
         }.frame(width: UIScreen.screenWidth * 0.86)
     }
 }
 
 struct DataButtons_Previews: PreviewProvider {
     static var previews: some View {
-        DataButtons().environmentObject(Colors())
+        //DataButtons().environmentObject(Colors())
+        EmptyView()
     }
 }

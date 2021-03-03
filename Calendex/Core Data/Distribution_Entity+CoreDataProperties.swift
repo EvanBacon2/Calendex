@@ -20,7 +20,7 @@ extension Distribution_Entity {
     
     public var distribution: [DistributionRange_Entity] {
         let set = dis_disRange as? Set<DistributionRange_Entity> ?? []
-        return set.sorted() { $0.value < $1.value }
+        return set.sorted() { $0.range_attr < $1.range_attr }
     }
 }
 
