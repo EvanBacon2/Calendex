@@ -69,7 +69,7 @@ struct PersistenceController {
         let infoEntity = Bg_Info_Entity(context: controller.container.viewContext)
         
         infoEntity.info_mea = Measures_Entity(context: controller.container.viewContext)
-        infoEntity.info_mea?.mean_attr = Float([82.0, 112.0, 194.0].randomElement()!)
+        infoEntity.info_mea?.mean_attr = Float([62.0, 112.0, 194.0].randomElement()!)
         infoEntity.info_mea?.stdDeviation_attr = Float([12.0, 32.0, 54.0].randomElement()!)
         infoEntity.info_mea?.min_attr = Int32([43, 61, 93].randomElement()!)
         infoEntity.info_mea?.max_attr = Int32([136, 176, 232].randomElement()!)

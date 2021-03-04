@@ -75,7 +75,7 @@ struct Year: View {
 
 struct Year_Previews: PreviewProvider {
     static var previews: some View {
-        return Year(2021).environmentObject(Colors())
-              .environmentObject(Goals())
+        return Year(year: 2021).environmentObject(Colors())
+                               .environmentObject(Goals())
     }
 }

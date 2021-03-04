@@ -22,7 +22,7 @@ struct MonthSummary: View {
         VStack(spacing: 0) {
             SubBanner("Month Summary")
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
-            MonthButtons(year: year)
+            MonthButtons(year: year, selected: selected)
             Spacer().frame(height: Spacing.SINGLE_SPACE)
             seperator()
             Spacer().frame(height: Spacing.SINGLE_SPACE)

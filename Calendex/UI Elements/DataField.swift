@@ -15,6 +15,7 @@ enum Field: String {
 
 struct DataField: View {
     @EnvironmentObject var colors: Colors
+    @EnvironmentObject var goals: Goals
     
     var data: Field
     var value: Int
@@ -45,12 +46,23 @@ struct DataField: View {
     }
     
     func buttonColor() -> Color {
-        return data == .AVG ? colors.getActiveColor(range: .mid) : colors.LIGHT_BLUE_GRAY
+        return data == .AVG ? colors.getActiveColor(range: getRange()) : colors.LIGHT_BLUE_GRAY
+    }
+    
+    func getRange() -> Range {
+        if (value < goals.lowBgThreshold) {
+            return .low
+        } else if (value > goals.highBgThreshold) {
+            return .high
+        } else {
+            return .mid
+        }
     }
 }
 
 struct DataField_Previews: PreviewProvider {
     static var previews: some View {
         DataField(.AVG, 72).environmentObject(Colors())
+                           .environmentObject(Goals())
     }
 }

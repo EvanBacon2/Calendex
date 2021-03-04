@@ -28,7 +28,7 @@ extension Bg_Info_Entity {
         info_dis?.distribution
     }
     
-    public var meaures: Measures_Entity? {
+    public var measures: Measures_Entity? {
         info_mea
     }
 }

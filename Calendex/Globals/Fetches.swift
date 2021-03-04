@@ -24,8 +24,8 @@ struct Fetches {
         fetch.sortDescriptors = [NSSortDescriptor(keyPath: \Date_Info_Entity.month_attr, ascending: true)]
         fetch.predicate = NSCompoundPredicate(andPredicateWithSubpredicates:
                          [NSPredicate(format: "year_attr == %@", NSNumber(value: year)),
-                          NSPredicate(format: "month_attr != %@", -1),
-                          NSPredicate(format: "day_attr == %@", -1)])
+                          NSPredicate(format: "month_attr != %@", NSNumber(value: -1)),
+                          NSPredicate(format: "day_attr == %@", NSNumber(value: -1))])
         return fetch
     }
     
@@ -35,7 +35,7 @@ struct Fetches {
         fetch.predicate = NSCompoundPredicate(andPredicateWithSubpredicates:
                          [NSPredicate(format: "year_attr == %@", NSNumber(value: year)),
                           NSPredicate(format: "month_attr == %@", NSNumber(value: month)),
-                          NSPredicate(format: "day_attr != %@", -1)])
+                          NSPredicate(format: "day_attr != %@", NSNumber(value: -1))])
         return fetch
     }
 }
