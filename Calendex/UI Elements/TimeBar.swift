@@ -18,10 +18,6 @@ struct TimeBar: View {
     let barHeight = Dimensions.BASE_UNIT * 26
     
     init(_ low: Int, _ mid: Int, _ high: Int) {
-        //self.low = BgTime(.low, time: low, colors: _colors)
-        //self.mid = BgTime(.mid, time: mid, colors: _colors)
-        //self.high = BgTime(.high, time: high, colors: _colors)
-        
         self.low = low
         self.mid = mid
         self.high = high

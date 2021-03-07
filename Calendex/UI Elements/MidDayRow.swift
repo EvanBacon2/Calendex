@@ -8,21 +8,23 @@
 import SwiftUI
 
 struct MidDayRow: View {
-    var selected: String
+    let selected: String
     
-    var dayInfo: FetchedResults<Date_Info_Entity>
-    var offset: Int
+    let year: Int
+    let month: Int
+    let offset: Int
     
-    init(offset: Int, row: Int, dayInfo: FetchedResults<Date_Info_Entity>, selected: String) {
+    init(year: Int, month: Int, offset: Int, row: Int, selected: String) {
         self.selected = selected
-        self.dayInfo = dayInfo
+        self.year = year
+        self.month = month
         self.offset = (7 * (row + 1)) - (offset - 1)
     }
     var body: some View {
         HStack(spacing: 0) {
             Spacer()
             ForEach(1..<8) { i in
-                DayButton(index(i), dayInfo: dayInfo[index(i) - 1], selected: selected)
+                DayButton(year: year, month: month, day: index(i), selected: selected)
                 Spacer()
             }
         }.frame(width: UIScreen.screenWidth * 0.9)

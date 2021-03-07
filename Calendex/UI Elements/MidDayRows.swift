@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct MidDayRows: View {
-    var selected: String
+    let selected: String
     
-    var offset: Int
-    var dayCount: Int
+    let year: Int
+    let month: Int
+    let offset: Int
+    let dayCount: Int
     
-    let dayInfo: FetchedResults<Date_Info_Entity>
-    
-    init(offset: Int, dayCount: Int, dayInfo: FetchedResults<Date_Info_Entity>, selected: String) {
+    init(year: Int, month: Int, offset: Int, dayCount: Int, selected: String) {
         self.selected = selected
         
+        self.year = year
+        self.month = month
         self.offset = offset
         self.dayCount = dayCount
-        
-        self.dayInfo = dayInfo
     }
     
     var body: some View {
         ForEach(0..<dayCount/7) { i in
-            MidDayRow(offset: offset, row: i, dayInfo: dayInfo, selected: selected)
+            MidDayRow(year: year, month: month, offset: offset, row: i, selected: selected)
         }
     }
 }

@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct DayButtons: View {
-    @FetchRequest var dayInfo: FetchedResults<Date_Info_Entity>
+    let selected: String
     
-    var selected: String
-    
-    var topOffset: Int
-    var bottomOffset: Int
+    let year: Int
+    let month: Int
+    let topOffset: Int
+    let bottomOffset: Int
     var dayCount: Int
     
     init(year: Int, month: Int, selected: String) {
-        self._dayInfo = FetchRequest(fetchRequest: Fetches.fetchDaysInMonth(year: year, month: month))
-        
         self.selected = selected
+        
+        self.year = year
+        self.month = month
         
         let cal = Calendar.current
         let firstDay = DateComponents(
@@ -39,9 +40,9 @@ struct DayButtons: View {
     
     var body: some View {
         VStack(spacing: UIScreen.screenHeight * 0.01) {
-            TopDayRow(offset: topOffset, dayInfo: dayInfo, selected: selected)
-            MidDayRows(offset: topOffset, dayCount: dayCount, dayInfo: dayInfo, selected: selected)
-            BottomDayRow(topOffset, bottomOffset, dayCount: dayCount, dayInfo: dayInfo, selected: selected)
+            TopDayRow(year: year, month: month, offset: topOffset, selected: selected)
+            MidDayRows(year: year, month: month, offset: topOffset, dayCount: dayCount, selected: selected)
+            BottomDayRow(year: year, month: month, topOffset, bottomOffset, dayCount: dayCount, selected: selected)
         }
     }
 }

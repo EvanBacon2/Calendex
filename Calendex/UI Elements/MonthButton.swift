@@ -8,46 +8,53 @@
 import SwiftUI
 
 struct MonthButton: View {
+    @FetchRequest var monthInfo: FetchedResults<Date_Info_Entity>
+    
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
-    var selected: String
-    
-    let label: String
+    let selected: String
     let year: Int
     let month: Int
+    let monthNames: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     
-    let monthInfo: Date_Info_Entity
+    let buttonWidth = UIScreen.screenWidth * 0.125
+    let buttonHeight = UIScreen.screenWidth * 0.125 * 1.4
+    let buttonCorner: CGFloat = 8
     
-    var buttonWidth = UIScreen.screenWidth * 0.125
-    var buttonHeight = UIScreen.screenWidth * 0.125 * 1.4
-    var buttonCorner: CGFloat = 8
-    
-    init(_ label: String, year: Int, month: Int, monthInfo: Date_Info_Entity, selected: String) {
-        self.label = label
-        self.year = year
-        self.month = month
-        
-        self.monthInfo = monthInfo
+    init(year: Int, month: Int, selected: String) {
+        self._monthInfo = FetchRequest(fetchRequest: Fetches.fetchDateInfo(year: year, month: month))
         
         self.selected = selected
+        self.year = year
+        self.month = month
     }
     
     var body: some View {
-        NavigationLink(destination: Month(year: year, month: month, monthInfo: monthInfo)) {
-            Text(self.label)
-                .foregroundColor(Color.white)
-                .frame(width: buttonWidth, height: buttonHeight)
-                .background(RoundedRectangle(cornerRadius: buttonCorner, style: .continuous)
-                                .fill(colors.getActiveColor(range: getRange()))
-                                .frame(width: buttonWidth, height: buttonHeight)
-                                .shadow(radius: 6, y: 6))
+        if !self.monthInfo.isEmpty {
+            NavigationLink(destination: Month(year: year, month: month, monthInfo: monthInfo.first!)) {
+                monthRec()
+            }
+        } else {
+            monthRec()
         }
+    }
+    
+    func monthRec() -> some View {
+        let active = !self.monthInfo.isEmpty
+        
+        return Text(monthNames[month - 1])
+                  .foregroundColor(active ? Color.white: colors.DARK_GRAY)
+                  .frame(width: buttonWidth, height: buttonHeight)
+                  .background(RoundedRectangle(cornerRadius: buttonCorner, style: .continuous)
+                                  .fill(active ? colors.getActiveColor(range: getRange()) : colors.LIGHT_BLUE_GRAY)
+                                  .frame(width: buttonWidth, height: buttonHeight)
+                                  .shadow(radius: 6, y: 6))
     }
     
     func getRange() -> Range {
         if (selected == "Average") {
-            let mean = monthInfo.info?.measures?.mean ?? 0.0
+            let mean = monthInfo.first!.info?.measures?.mean ?? 0.0
             
             if (mean < CGFloat(goals.lowBgThreshold)) {
                 return .low
@@ -57,7 +64,7 @@ struct MonthButton: View {
                 return .mid
             }
         } else if (selected == "Range") {
-            let range = monthInfo.info?.timeInRange?.midTime ?? 0.0
+            let range = monthInfo.first!.info?.timeInRange?.midTime ?? 0.0
             
             if (range >= CGFloat(goals.TimeInRangeThreshold)) {
                 return .mid
@@ -65,7 +72,7 @@ struct MonthButton: View {
                 return .high
             }
         } else {//if selected == "Deviation"
-            let deviation = monthInfo.info?.measures?.stdDeviation ?? 0.0
+            let deviation = monthInfo.first!.info?.measures?.stdDeviation ?? 0.0
             
             if (deviation <= CGFloat(goals.DeviationThreshold)) {
                 return .mid
