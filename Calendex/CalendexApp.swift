@@ -15,9 +15,10 @@ struct CalendexApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Year(year: 2021).environmentObject(Colors())
+            NewLogin().environmentObject(Colors())
+            /*Year(year: 2021).environmentObject(Colors())
                   .environmentObject(Goals())
-                  .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                  .environment(\.managedObjectContext, persistenceController.container.viewContext)*/
         }.onChange(of: scenePhase) { _ in
             persistenceController.save()
         }

@@ -26,6 +26,7 @@ struct PersistenceController {
         yearEntity.year_attr = year
         yearEntity.month_attr = -1
         yearEntity.day_attr = -1
+        yearEntity.entries_attr = 365
         yearEntity.date_info = getBgInfo(controller)
         
         for month: Int32 in 1...12 {
@@ -33,6 +34,7 @@ struct PersistenceController {
             monthEntity.year_attr = 2021
             monthEntity.month_attr = month
             monthEntity.day_attr = -1
+            monthEntity.entries_attr = monthDays[Int(month - 1)]
             monthEntity.date_info = getBgInfo(controller)
             
             for day: Int32 in 1...monthDays[Int(month) - 1] {
@@ -40,6 +42,7 @@ struct PersistenceController {
                 dayEntity.year_attr = 2021
                 dayEntity.month_attr = month
                 dayEntity.day_attr = day
+                dayEntity.entries_attr = 1
                 dayEntity.date_info = getBgInfo(controller)
             }
         }

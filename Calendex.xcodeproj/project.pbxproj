@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27D218888CFC318BB9503C9B /* Pods_Calendex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDEBA939D25838050EAB0DF /* Pods_Calendex.framework */; };
 		CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D1259830730087ACF1 /* CalendexApp.swift */; };
 		CD3AA7D4259830730087ACF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D3259830730087ACF1 /* Login.swift */; };
 		CD3AA7D6259830750087ACF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3AA7D5259830750087ACF1 /* Assets.xcassets */; };
@@ -74,6 +75,8 @@
 		CD6CCC4C25EDF9A700B256AA /* Date_Info_Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC4A25EDF9A600B256AA /* Date_Info_Entity+CoreDataClass.swift */; };
 		CD6CCC4D25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC4B25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift */; };
 		CD6CCC5B25EF43E300B256AA /* Fetches.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC5A25EF43E200B256AA /* Fetches.swift */; };
+		CD6CCC6025F462AC00B256AA /* NewLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC5F25F462AC00B256AA /* NewLogin.swift */; };
+		CD6CCC6825F4BD4800B256AA /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC6725F4BD4800B256AA /* SignInViewModel.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -92,6 +95,10 @@
 		CDA22C0D25C80E45004D0CF2 /* DayFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22C0C25C80E45004D0CF2 /* DayFields.swift */; };
 		CDA22C1225C80F6F004D0CF2 /* DataField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22C1125C80F6F004D0CF2 /* DataField.swift */; };
 		CDA22C1A25CE77F6004D0CF2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22C1925CE77F6004D0CF2 /* Settings.swift */; };
+		CDFE64192607C79500986423 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFE64182607C79500986423 /* AccessToken.swift */; };
+		CDFE64252607D81100986423 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFE64242607D81100986423 /* SignInRequest.swift */; };
+		CDFE642D2607D82400986423 /* TokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFE642C2607D82400986423 /* TokenRequest.swift */; };
+		CDFE64322607D83600986423 /* StatsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFE64312607D83600986423 /* StatsRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +119,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B6D58A3665D8A1ED6CE28A5 /* Pods-Calendex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calendex.release.xcconfig"; path = "Target Support Files/Pods-Calendex/Pods-Calendex.release.xcconfig"; sourceTree = "<group>"; };
 		CD3AA7CE259830730087ACF1 /* Calendex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3AA7D1259830730087ACF1 /* CalendexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendexApp.swift; sourceTree = "<group>"; };
 		CD3AA7D3259830730087ACF1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -185,6 +193,8 @@
 		CD6CCC4A25EDF9A600B256AA /* Date_Info_Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date_Info_Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD6CCC4B25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date_Info_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD6CCC5A25EF43E200B256AA /* Fetches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetches.swift; sourceTree = "<group>"; };
+		CD6CCC5F25F462AC00B256AA /* NewLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogin.swift; sourceTree = "<group>"; };
+		CD6CCC6725F4BD4800B256AA /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -203,6 +213,12 @@
 		CDA22C0C25C80E45004D0CF2 /* DayFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFields.swift; sourceTree = "<group>"; };
 		CDA22C1125C80F6F004D0CF2 /* DataField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataField.swift; sourceTree = "<group>"; };
 		CDA22C1925CE77F6004D0CF2 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		CDDEBA939D25838050EAB0DF /* Pods_Calendex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calendex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDFE64182607C79500986423 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		CDFE64242607D81100986423 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
+		CDFE642C2607D82400986423 /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
+		CDFE64312607D83600986423 /* StatsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsRequest.swift; sourceTree = "<group>"; };
+		F49FF772408954752E42D7B2 /* Pods-Calendex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calendex.debug.xcconfig"; path = "Target Support Files/Pods-Calendex/Pods-Calendex.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D218888CFC318BB9503C9B /* Pods_Calendex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +247,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0ED2A67764AE8F01649D352A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F49FF772408954752E42D7B2 /* Pods-Calendex.debug.xcconfig */,
+				5B6D58A3665D8A1ED6CE28A5 /* Pods-Calendex.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B29C5872AD16290CB67DD400 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDDEBA939D25838050EAB0DF /* Pods_Calendex.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD08F16A26094BF600FD3235 /* Blood Sugar */ = {
+			isa = PBXGroup;
+			children = (
+				CD6CCBE225EB40B500B256AA /* BloodSugar.xcdatamodeld */,
+				CD6CCBED25EB8B8800B256AA /* Measures_Entity+CoreDataClass.swift */,
+				CD6CCBEE25EB8B8800B256AA /* Measures_Entity+CoreDataProperties.swift */,
+				CD6CCC4A25EDF9A600B256AA /* Date_Info_Entity+CoreDataClass.swift */,
+				CD6CCC4B25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift */,
+				CD6CCBEF25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift */,
+				CD6CCBF025EB8B8800B256AA /* Distribution_Entity+CoreDataProperties.swift */,
+				CD6CCBF325EB8B8800B256AA /* TimeInRange_Entity+CoreDataClass.swift */,
+				CD6CCBF425EB8B8800B256AA /* TimeInRange_Entity+CoreDataProperties.swift */,
+				CD6CCBF525EB8B8800B256AA /* Bg_Info_Entity+CoreDataClass.swift */,
+				CD6CCBF625EB8B8800B256AA /* Bg_Info_Entity+CoreDataProperties.swift */,
+				CD6CCBF925EB8B8800B256AA /* DistributionRange_Entity+CoreDataClass.swift */,
+				CD6CCBFA25EB8B8800B256AA /* DistributionRange_Entity+CoreDataProperties.swift */,
+			);
+			name = "Blood Sugar";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CD08F16C26094CD600FD3235 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				CD6CCBE825EB760F00B256AA /* PersistenceController.swift */,
+				CD08F16A26094BF600FD3235 /* Blood Sugar */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		CD08F16D26094D1200FD3235 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				CD3AA7D3259830730087ACF1 /* Login.swift */,
+				CD6CCC5F25F462AC00B256AA /* NewLogin.swift */,
+				CD63026525B51E20003A6AA2 /* Year.swift */,
+				CD6302C325C00571003A6AA2 /* Month.swift */,
+				CDA22BBA25C0DB1C004D0CF2 /* Day.swift */,
+				CDA22C1925CE77F6004D0CF2 /* Settings.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
 		CD3AA7C5259830730087ACF1 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +314,9 @@
 				CD3AA7E2259830750087ACF1 /* CalendexTests */,
 				CD3AA7ED259830750087ACF1 /* CalendexUITests */,
 				CD3AA7CF259830730087ACF1 /* Products */,
+				0ED2A67764AE8F01649D352A /* Pods */,
+				B29C5872AD16290CB67DD400 /* Frameworks */,
+				CD6CCC6725F4BD4800B256AA /* SignInViewModel.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -254,9 +334,10 @@
 			isa = PBXGroup;
 			children = (
 				CD3AA7D1259830730087ACF1 /* CalendexApp.swift */,
-				CD6CCC0C25EB8BA500B256AA /* Core Data */,
-				CD63026225B51BCE003A6AA2 /* Screens */,
+				CD08F16C26094CD600FD3235 /* Core Data */,
+				CD08F16D26094D1200FD3235 /* Screen */,
 				CD63026325B51BE1003A6AA2 /* UI Elements */,
+				CDFE64232607D7D900986423 /* API Calls */,
 				CD63026425B51BF3003A6AA2 /* Globals */,
 				CD63028C25B6D7B4003A6AA2 /* Objects */,
 				CD3AA7D5259830750087ACF1 /* Assets.xcassets */,
@@ -292,18 +373,6 @@
 			path = CalendexUITests;
 			sourceTree = "<group>";
 		};
-		CD63026225B51BCE003A6AA2 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				CD3AA7D3259830730087ACF1 /* Login.swift */,
-				CD63026525B51E20003A6AA2 /* Year.swift */,
-				CD6302C325C00571003A6AA2 /* Month.swift */,
-				CDA22BBA25C0DB1C004D0CF2 /* Day.swift */,
-				CDA22C1925CE77F6004D0CF2 /* Settings.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
 		CD63026325B51BE1003A6AA2 /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +406,7 @@
 		CD63028C25B6D7B4003A6AA2 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				CDFE64172607C77500986423 /* Json */,
 				CD63029525B6D895003A6AA2 /* BgTime.swift */,
 				CD63029A25B6D950003A6AA2 /* Range.swift */,
 			);
@@ -398,35 +468,6 @@
 				CD6CCBC025DF263D00B256AA /* ColorPickerMenu.swift */,
 			);
 			name = "Color Picker";
-			sourceTree = "<group>";
-		};
-		CD6CCC0C25EB8BA500B256AA /* Core Data */ = {
-			isa = PBXGroup;
-			children = (
-				CD6CCBE825EB760F00B256AA /* PersistenceController.swift */,
-				CD6CCC1025EB8BC700B256AA /* BloodSugar */,
-			);
-			path = "Core Data";
-			sourceTree = "<group>";
-		};
-		CD6CCC1025EB8BC700B256AA /* BloodSugar */ = {
-			isa = PBXGroup;
-			children = (
-				CD6CCBE225EB40B500B256AA /* BloodSugar.xcdatamodeld */,
-				CD6CCBED25EB8B8800B256AA /* Measures_Entity+CoreDataClass.swift */,
-				CD6CCBEE25EB8B8800B256AA /* Measures_Entity+CoreDataProperties.swift */,
-				CD6CCC4A25EDF9A600B256AA /* Date_Info_Entity+CoreDataClass.swift */,
-				CD6CCC4B25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift */,
-				CD6CCBEF25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift */,
-				CD6CCBF025EB8B8800B256AA /* Distribution_Entity+CoreDataProperties.swift */,
-				CD6CCBF325EB8B8800B256AA /* TimeInRange_Entity+CoreDataClass.swift */,
-				CD6CCBF425EB8B8800B256AA /* TimeInRange_Entity+CoreDataProperties.swift */,
-				CD6CCBF525EB8B8800B256AA /* Bg_Info_Entity+CoreDataClass.swift */,
-				CD6CCBF625EB8B8800B256AA /* Bg_Info_Entity+CoreDataProperties.swift */,
-				CD6CCBF925EB8B8800B256AA /* DistributionRange_Entity+CoreDataClass.swift */,
-				CD6CCBFA25EB8B8800B256AA /* DistributionRange_Entity+CoreDataProperties.swift */,
-			);
-			name = BloodSugar;
 			sourceTree = "<group>";
 		};
 		CDA22BBF25C7DEA9004D0CF2 /* Day Summary */ = {
@@ -503,6 +544,24 @@
 			name = DayDataFields;
 			sourceTree = "<group>";
 		};
+		CDFE64172607C77500986423 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				CDFE64182607C79500986423 /* AccessToken.swift */,
+			);
+			name = Json;
+			sourceTree = "<group>";
+		};
+		CDFE64232607D7D900986423 /* API Calls */ = {
+			isa = PBXGroup;
+			children = (
+				CDFE64242607D81100986423 /* SignInRequest.swift */,
+				CDFE642C2607D82400986423 /* TokenRequest.swift */,
+				CDFE64312607D83600986423 /* StatsRequest.swift */,
+			);
+			name = "API Calls";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -510,9 +569,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD3AA7F3259830750087ACF1 /* Build configuration list for PBXNativeTarget "Calendex" */;
 			buildPhases = (
+				A57DC07F40EF4853B1A5515A /* [CP] Check Pods Manifest.lock */,
 				CD3AA7CA259830730087ACF1 /* Sources */,
 				CD3AA7CB259830730087ACF1 /* Frameworks */,
 				CD3AA7CC259830730087ACF1 /* Resources */,
+				31141C0A9182BCFB8CC5FE98 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -627,6 +688,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		31141C0A9182BCFB8CC5FE98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Calendex/Pods-Calendex-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Calendex/Pods-Calendex-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Calendex/Pods-Calendex-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A57DC07F40EF4853B1A5515A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Calendex-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CD3AA7CA259830730087ACF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -650,6 +753,7 @@
 				CD6CCAEB25D0D11B00B256AA /* MonthSummary.swift in Sources */,
 				CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */,
 				CD6302B425BE6F41003A6AA2 /* MonthButtons.swift in Sources */,
+				CDFE64322607D83600986423 /* StatsRequest.swift in Sources */,
 				CD6CCC0325EB8B8800B256AA /* Bg_Info_Entity+CoreDataClass.swift in Sources */,
 				CD6CCC0225EB8B8800B256AA /* TimeInRange_Entity+CoreDataProperties.swift in Sources */,
 				CD63026625B51E20003A6AA2 /* Year.swift in Sources */,
@@ -673,11 +777,13 @@
 				CD6CCBA325DEC9DD00B256AA /* DataBar.swift in Sources */,
 				CDA22C1A25CE77F6004D0CF2 /* Settings.swift in Sources */,
 				CD6CCAD625D0C0F000B256AA /* TimeInRange.swift in Sources */,
+				CDFE642D2607D82400986423 /* TokenRequest.swift in Sources */,
 				CD6CCC0425EB8B8800B256AA /* Bg_Info_Entity+CoreDataProperties.swift in Sources */,
 				CD63026E25B5FBD8003A6AA2 /* ScreenTitle.swift in Sources */,
 				CD6CCBC125DF263D00B256AA /* ColorPickerMenu.swift in Sources */,
 				CDA22BD325C7E22A004D0CF2 /* DayChartBackground.swift in Sources */,
 				CD6CCBDE25EA25A500B256AA /* AnimatableCustomFontModifier.swift in Sources */,
+				CDFE64252607D81100986423 /* SignInRequest.swift in Sources */,
 				CD6CCAC425CFCE4A00B256AA /* SliderRuler.swift in Sources */,
 				CDA22BA425C05DF7004D0CF2 /* MidDayRows.swift in Sources */,
 				CD6CCB9D25DEA7D000B256AA /* DeviationSlider.swift in Sources */,
@@ -690,6 +796,7 @@
 				CD6CCC4D25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift in Sources */,
 				CDA22BBB25C0DB1C004D0CF2 /* Day.swift in Sources */,
 				CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */,
+				CD6CCC6825F4BD4800B256AA /* SignInViewModel.swift in Sources */,
 				CD6CCB9325DCAC4400B256AA /* AverageSlider.swift in Sources */,
 				CD6CCBFD25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift in Sources */,
 				CD6CCAE025D0C35200B256AA /* DataButtons.swift in Sources */,
@@ -698,6 +805,8 @@
 				CD6CCC0825EB8B8800B256AA /* DistributionRange_Entity+CoreDataProperties.swift in Sources */,
 				CDA22C1225C80F6F004D0CF2 /* DataField.swift in Sources */,
 				CD6CCB3625D53CAA00B256AA /* Goals.swift in Sources */,
+				CDFE64192607C79500986423 /* AccessToken.swift in Sources */,
+				CD6CCC6025F462AC00B256AA /* NewLogin.swift in Sources */,
 				CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */,
 				CDA22BE025C7E8CE004D0CF2 /* MidRangeBackground.swift in Sources */,
 				CD63029B25B6D950003A6AA2 /* Range.swift in Sources */,
@@ -866,11 +975,13 @@
 		};
 		CD3AA7F4259830750087ACF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F49FF772408954752E42D7B2 /* Pods-Calendex.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Calendex/Preview Content\"";
+				DEVELOPMENT_TEAM = SA278G3HGP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Calendex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -887,11 +998,13 @@
 		};
 		CD3AA7F5259830750087ACF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B6D58A3665D8A1ED6CE28A5 /* Pods-Calendex.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Calendex/Preview Content\"";
+				DEVELOPMENT_TEAM = SA278G3HGP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Calendex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

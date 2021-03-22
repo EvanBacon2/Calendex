@@ -8,6 +8,7 @@
     </entity>
     <entity name="Date_Info_Entity" representedClassName="Date_Info_Entity" syncable="YES">
         <attribute name="day_attr" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="entries_attr" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="month_attr" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="year_attr" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="date_info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bg_Info_Entity" inverseName="info_date" inverseEntity="Bg_Info_Entity"/>
@@ -35,11 +36,11 @@
         <relationship name="tir_info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bg_Info_Entity" inverseName="info_tir" inverseEntity="Bg_Info_Entity"/>
     </entity>
     <elements>
-        <element name="TimeInRange_Entity" positionX="-54" positionY="18" width="128" height="103"/>
-        <element name="Distribution_Entity" positionX="-124.09765625" positionY="265.62890625" width="128" height="73"/>
-        <element name="Measures_Entity" positionX="-225" positionY="207" width="128" height="118"/>
-        <element name="DistributionRange_Entity" positionX="-216" positionY="216" width="128" height="88"/>
         <element name="Bg_Info_Entity" positionX="-261" positionY="171" width="128" height="103"/>
-        <element name="Date_Info_Entity" positionX="-108" positionY="207" width="128" height="103"/>
+        <element name="Date_Info_Entity" positionX="-108" positionY="207" width="128" height="118"/>
+        <element name="Distribution_Entity" positionX="-124.09765625" positionY="265.62890625" width="128" height="73"/>
+        <element name="DistributionRange_Entity" positionX="-216" positionY="216" width="128" height="88"/>
+        <element name="Measures_Entity" positionX="-225" positionY="207" width="128" height="118"/>
+        <element name="TimeInRange_Entity" positionX="-54" positionY="18" width="128" height="103"/>
     </elements>
 </model>
