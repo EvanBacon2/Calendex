@@ -10,17 +10,35 @@ import SwiftUI
 struct TimeBar: View {
     @EnvironmentObject var colors: Colors
     
-    let low: Int
-    let mid: Int
-    let high: Int
+    let low: CGFloat
+    let lowLessThanOne: Bool
+    let mid: CGFloat
+    let midLessThanOne: Bool
+    let high: CGFloat
+    let highLessThanOne: Bool
     let minBarWidth = Dimensions.BASE_UNIT * 16
     let midBarWidth = Dimensions.BASE_UNIT * 168
     let barHeight = Dimensions.BASE_UNIT * 26
     
-    init(_ low: Int, _ mid: Int, _ high: Int) {
-        self.low = low
-        self.mid = mid
-        self.high = high
+    init(_ low: CGFloat, _ mid: CGFloat, _ high: CGFloat) {
+        var lessCount = 0
+        
+        self.lowLessThanOne = low > 0.0 && low < 1.0
+        self.low = self.lowLessThanOne ? 1 : low
+        if lowLessThanOne {
+            lessCount += 1
+        }
+        
+        self.midLessThanOne = mid > 0.0 && mid < 1.0
+        self.mid = self.lowLessThanOne ? 1 : mid
+        if midLessThanOne {
+            lessCount += 1
+        }
+        
+        self.highLessThanOne = high > 0.0 && high < 1.0
+        self.high = self.lowLessThanOne ? 1 : high
+        
+        
     }
     
     var body: some View {

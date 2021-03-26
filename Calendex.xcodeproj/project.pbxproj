@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		27D218888CFC318BB9503C9B /* Pods_Calendex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDEBA939D25838050EAB0DF /* Pods_Calendex.framework */; };
+		CD08F1732609531500FD3235 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F1722609531500FD3235 /* Token.swift */; };
+		CD08F17B26096B2400FD3235 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F17A26096B2400FD3235 /* Stats.swift */; };
+		CD08F1802609A03500FD3235 /* DataRangeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F17F2609A03500FD3235 /* DataRangeRequest.swift */; };
+		CD08F1852609A3C800FD3235 /* DataRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F1842609A3C800FD3235 /* DataRange.swift */; };
+		CD08F192260AA80B00FD3235 /* EgvRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F191260AA80B00FD3235 /* EgvRequest.swift */; };
+		CD08F197260AA89D00FD3235 /* Egvs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F196260AA89D00FD3235 /* Egvs.swift */; };
+		CD08F1A5260BD56E00FD3235 /* DateInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F1A4260BD56E00FD3235 /* DateInfoRequest.swift */; };
+		CD08F1AA260D9EAC00FD3235 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F1A9260D9EAC00FD3235 /* Loading.swift */; };
 		CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D1259830730087ACF1 /* CalendexApp.swift */; };
 		CD3AA7D4259830730087ACF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D3259830730087ACF1 /* Login.swift */; };
 		CD3AA7D6259830750087ACF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3AA7D5259830750087ACF1 /* Assets.xcassets */; };
@@ -120,6 +128,14 @@
 
 /* Begin PBXFileReference section */
 		5B6D58A3665D8A1ED6CE28A5 /* Pods-Calendex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calendex.release.xcconfig"; path = "Target Support Files/Pods-Calendex/Pods-Calendex.release.xcconfig"; sourceTree = "<group>"; };
+		CD08F1722609531500FD3235 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		CD08F17A26096B2400FD3235 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		CD08F17F2609A03500FD3235 /* DataRangeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRangeRequest.swift; sourceTree = "<group>"; };
+		CD08F1842609A3C800FD3235 /* DataRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRange.swift; sourceTree = "<group>"; };
+		CD08F191260AA80B00FD3235 /* EgvRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgvRequest.swift; sourceTree = "<group>"; };
+		CD08F196260AA89D00FD3235 /* Egvs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Egvs.swift; sourceTree = "<group>"; };
+		CD08F1A4260BD56E00FD3235 /* DateInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInfoRequest.swift; sourceTree = "<group>"; };
+		CD08F1A9260D9EAC00FD3235 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		CD3AA7CE259830730087ACF1 /* Calendex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3AA7D1259830730087ACF1 /* CalendexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendexApp.swift; sourceTree = "<group>"; };
 		CD3AA7D3259830730087ACF1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -294,17 +310,33 @@
 			path = "Core Data";
 			sourceTree = "<group>";
 		};
-		CD08F16D26094D1200FD3235 /* Screen */ = {
+		CD08F16D26094D1200FD3235 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CD3AA7D1259830730087ACF1 /* CalendexApp.swift */,
 				CD3AA7D3259830730087ACF1 /* Login.swift */,
 				CD6CCC5F25F462AC00B256AA /* NewLogin.swift */,
+				CD6CCC6725F4BD4800B256AA /* SignInViewModel.swift */,
 				CD63026525B51E20003A6AA2 /* Year.swift */,
 				CD6302C325C00571003A6AA2 /* Month.swift */,
 				CDA22BBA25C0DB1C004D0CF2 /* Day.swift */,
 				CDA22C1925CE77F6004D0CF2 /* Settings.swift */,
+				CD08F1A9260D9EAC00FD3235 /* Loading.swift */,
 			);
-			path = Screen;
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CD08F16E26094DCA00FD3235 /* API Calls */ = {
+			isa = PBXGroup;
+			children = (
+				CDFE64242607D81100986423 /* SignInRequest.swift */,
+				CDFE642C2607D82400986423 /* TokenRequest.swift */,
+				CDFE64312607D83600986423 /* StatsRequest.swift */,
+				CD08F17F2609A03500FD3235 /* DataRangeRequest.swift */,
+				CD08F191260AA80B00FD3235 /* EgvRequest.swift */,
+				CD08F1A4260BD56E00FD3235 /* DateInfoRequest.swift */,
+			);
+			path = "API Calls";
 			sourceTree = "<group>";
 		};
 		CD3AA7C5259830730087ACF1 = {
@@ -316,7 +348,6 @@
 				CD3AA7CF259830730087ACF1 /* Products */,
 				0ED2A67764AE8F01649D352A /* Pods */,
 				B29C5872AD16290CB67DD400 /* Frameworks */,
-				CD6CCC6725F4BD4800B256AA /* SignInViewModel.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -333,11 +364,10 @@
 		CD3AA7D0259830730087ACF1 /* Calendex */ = {
 			isa = PBXGroup;
 			children = (
-				CD3AA7D1259830730087ACF1 /* CalendexApp.swift */,
 				CD08F16C26094CD600FD3235 /* Core Data */,
-				CD08F16D26094D1200FD3235 /* Screen */,
+				CD08F16D26094D1200FD3235 /* Screens */,
 				CD63026325B51BE1003A6AA2 /* UI Elements */,
-				CDFE64232607D7D900986423 /* API Calls */,
+				CD08F16E26094DCA00FD3235 /* API Calls */,
 				CD63026425B51BF3003A6AA2 /* Globals */,
 				CD63028C25B6D7B4003A6AA2 /* Objects */,
 				CD3AA7D5259830750087ACF1 /* Assets.xcassets */,
@@ -399,6 +429,7 @@
 				CD6CCAC825D0BD9B00B256AA /* Spacing.swift */,
 				CD6CCB1025D1481300B256AA /* Dimensions.swift */,
 				CD6CCC5A25EF43E200B256AA /* Fetches.swift */,
+				CD08F1722609531500FD3235 /* Token.swift */,
 			);
 			path = Globals;
 			sourceTree = "<group>";
@@ -548,18 +579,11 @@
 			isa = PBXGroup;
 			children = (
 				CDFE64182607C79500986423 /* AccessToken.swift */,
+				CD08F17A26096B2400FD3235 /* Stats.swift */,
+				CD08F1842609A3C800FD3235 /* DataRange.swift */,
+				CD08F196260AA89D00FD3235 /* Egvs.swift */,
 			);
 			name = Json;
-			sourceTree = "<group>";
-		};
-		CDFE64232607D7D900986423 /* API Calls */ = {
-			isa = PBXGroup;
-			children = (
-				CDFE64242607D81100986423 /* SignInRequest.swift */,
-				CDFE642C2607D82400986423 /* TokenRequest.swift */,
-				CDFE64312607D83600986423 /* StatsRequest.swift */,
-			);
-			name = "API Calls";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -737,6 +761,7 @@
 			files = (
 				CD3AA7D4259830730087ACF1 /* Login.swift in Sources */,
 				CD6CCAC925D0BD9B00B256AA /* Spacing.swift in Sources */,
+				CD08F1AA260D9EAC00FD3235 /* Loading.swift in Sources */,
 				CD6CCBAB25DECB6600B256AA /* DataRecord.swift in Sources */,
 				CDA22C0D25C80E45004D0CF2 /* DayFields.swift in Sources */,
 				CD6CCB7125DC5B9300B256AA /* Average.swift in Sources */,
@@ -770,9 +795,11 @@
 				CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */,
 				CDA22BFA25C80AF5004D0CF2 /* DayChart.swift in Sources */,
 				CD6302C425C00571003A6AA2 /* Month.swift in Sources */,
+				CD08F1732609531500FD3235 /* Token.swift in Sources */,
 				CD6CCB1625D4CCC200B256AA /* SliderThumb.swift in Sources */,
 				CD6CCBFC25EB8B8800B256AA /* Measures_Entity+CoreDataProperties.swift in Sources */,
 				CDA22BD825C7E689004D0CF2 /* LowRangeBackground.swift in Sources */,
+				CD08F197260AA89D00FD3235 /* Egvs.swift in Sources */,
 				CD6CCC0725EB8B8800B256AA /* DistributionRange_Entity+CoreDataClass.swift in Sources */,
 				CD6CCBA325DEC9DD00B256AA /* DataBar.swift in Sources */,
 				CDA22C1A25CE77F6004D0CF2 /* Settings.swift in Sources */,
@@ -781,12 +808,15 @@
 				CD6CCC0425EB8B8800B256AA /* Bg_Info_Entity+CoreDataProperties.swift in Sources */,
 				CD63026E25B5FBD8003A6AA2 /* ScreenTitle.swift in Sources */,
 				CD6CCBC125DF263D00B256AA /* ColorPickerMenu.swift in Sources */,
+				CD08F1852609A3C800FD3235 /* DataRange.swift in Sources */,
+				CD08F1A5260BD56E00FD3235 /* DateInfoRequest.swift in Sources */,
 				CDA22BD325C7E22A004D0CF2 /* DayChartBackground.swift in Sources */,
 				CD6CCBDE25EA25A500B256AA /* AnimatableCustomFontModifier.swift in Sources */,
 				CDFE64252607D81100986423 /* SignInRequest.swift in Sources */,
 				CD6CCAC425CFCE4A00B256AA /* SliderRuler.swift in Sources */,
 				CDA22BA425C05DF7004D0CF2 /* MidDayRows.swift in Sources */,
 				CD6CCB9D25DEA7D000B256AA /* DeviationSlider.swift in Sources */,
+				CD08F192260AA80B00FD3235 /* EgvRequest.swift in Sources */,
 				CD63027D25B61345003A6AA2 /* SubBanner.swift in Sources */,
 				CD6302A025BDA736003A6AA2 /* DeviationGraph.swift in Sources */,
 				CD63029625B6D895003A6AA2 /* BgTime.swift in Sources */,
@@ -801,9 +831,11 @@
 				CD6CCBFD25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift in Sources */,
 				CD6CCAE025D0C35200B256AA /* DataButtons.swift in Sources */,
 				CDA22BF025C80719004D0CF2 /* ChartPoint.swift in Sources */,
+				CD08F17B26096B2400FD3235 /* Stats.swift in Sources */,
 				CD6CCC5B25EF43E300B256AA /* Fetches.swift in Sources */,
 				CD6CCC0825EB8B8800B256AA /* DistributionRange_Entity+CoreDataProperties.swift in Sources */,
 				CDA22C1225C80F6F004D0CF2 /* DataField.swift in Sources */,
+				CD08F1802609A03500FD3235 /* DataRangeRequest.swift in Sources */,
 				CD6CCB3625D53CAA00B256AA /* Goals.swift in Sources */,
 				CDFE64192607C79500986423 /* AccessToken.swift in Sources */,
 				CD6CCC6025F462AC00B256AA /* NewLogin.swift in Sources */,

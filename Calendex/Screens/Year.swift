@@ -49,18 +49,18 @@ struct Year: View {
         }
     }
     
-    func getRange(_ range: Range) -> Int {
+    func getRange(_ range: Range) -> CGFloat {
         if (yearInfo.isEmpty) {
             return 0
         } else {
             let tir = yearInfo.first?.info?.timeInRange
             switch range {
             case .low:
-                return Int(tir!.lowTime)
+                return tir!.lowTime * 100
             case .mid:
-                return Int(tir!.midTime)
+                return tir!.midTime * 100
             case .high:
-                return Int(tir!.highTime)
+                return tir!.highTime * 100
             }
         }
     }
@@ -77,5 +77,6 @@ struct Year_Previews: PreviewProvider {
     static var previews: some View {
         return Year(year: 2021).environmentObject(Colors())
                                .environmentObject(Goals())
+                               .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct TimeInRange: View {
-    var low: Int
-    var mid: Int
-    var high: Int
+    var low: CGFloat
+    var mid: CGFloat
+    var high: CGFloat
     
-    init(low: Int, mid: Int, high: Int) {
+    init(low: CGFloat, mid: CGFloat, high: CGFloat) {
         self.low = low
         self.mid = mid
         self.high = high

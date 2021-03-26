@@ -49,11 +49,11 @@ struct Month: View {
         let tir = monthInfo.info?.timeInRange
         switch range {
             case .low:
-            return Int(tir!.lowTime)
+            return Int(tir!.lowTime * 100)
         case .mid:
-            return Int(tir!.midTime)
+            return Int(tir!.midTime * 100)
         case .high:
-            return Int(tir!.highTime)
+            return Int(tir!.highTime * 100)
         }
     }
     
@@ -64,8 +64,7 @@ struct Month: View {
 
 struct Month_Previews: PreviewProvider {
     static var previews: some View {
-        //Month(year: 2025, month: 7).environmentObject(Colors())
-                                   //.environmentObject(Goals())
+        //Month(year: 2025, month: 7).environmentObject(Colors()).environmentObject(Goals())
         EmptyView()
     }
 }
