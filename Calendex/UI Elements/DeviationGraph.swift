@@ -15,7 +15,7 @@ struct DeviationGraph: View {
     let ceiling: CGFloat
     
     init(distribution: [DistributionRange_Entity]) {
-        self.distribution = distribution.map { $0.value }
+        self.distribution = distribution.map { $0.value * 100}
         self.ceiling = self.distribution.max()!
     }
     

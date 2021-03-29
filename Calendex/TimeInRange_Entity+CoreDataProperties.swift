@@ -21,15 +21,18 @@ extension TimeInRange_Entity {
     @NSManaged public var tir_info: Bg_Info_Entity?
     
     public var lowTime: CGFloat {
-        CGFloat(lowTime_attr)
+        get { return CGFloat(lowTime_attr) }
+        set(lowTime) { self.lowTime_attr = Float(lowTime) }
     }
     
     public var midTime: CGFloat {
-        CGFloat(midTime_attr)
+        get { return CGFloat(midTime_attr) }
+        set(midTime) { self.midTime_attr = Float(midTime) }
     }
     
     public var highTime: CGFloat {
-        CGFloat(highTime_attr)
+        get { return CGFloat(highTime_attr) }
+        set(highTime) { self.highTime_attr = Float(highTime) }
     }
 }
 

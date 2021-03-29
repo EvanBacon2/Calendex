@@ -22,19 +22,23 @@ extension Measures_Entity {
     @NSManaged public var mea_info: Bg_Info_Entity?
     
     public var mean: CGFloat {
-        CGFloat(mean_attr)
+        get { return CGFloat(mean_attr) }
+        set(mean) { self.mean_attr = Float(mean)}
     }
     
     public var stdDeviation: CGFloat {
-        CGFloat(stdDeviation_attr)
+        get { return CGFloat(stdDeviation_attr) }
+        set(stdDev) { self.stdDeviation_attr = Float(stdDev) }
     }
     
     public var min: Int {
-        Int(min_attr)
+        get { return Int(min_attr) }
+        set(min) { self.min_attr = Int32(min) }
     }
 
     public var max: Int {
-        Int(max_attr)
+        get { return Int(max_attr) }
+        set(max) { self.max_attr = Int32(max) }
     }
 }
 

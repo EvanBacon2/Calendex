@@ -17,23 +17,21 @@ extension Date_Info_Entity {
     @NSManaged public var year_attr: Int32
     @NSManaged public var month_attr: Int32
     @NSManaged public var day_attr: Int32
-    @NSManaged public var entries_attr: Int32
     @NSManaged public var date_info: Bg_Info_Entity?
     
     public var year: Int {
-        Int(year_attr)
+        get { return Int(year_attr) }
+        set(year) { self.year_attr = Int32(year) }
     }
     
     public var month: Int {
-        Int(month_attr)
+        get { return Int(month_attr) }
+        set(month) { self.month_attr = Int32(month) }
     }
     
     public var day: Int {
-        Int(day_attr)
-    }
-    
-    public var entries: Int {
-        Int(entries_attr)
+        get { return Int(day_attr) }
+        set(day) { self.day_attr = Int32(day) }
     }
     
     public var info: Bg_Info_Entity? {

@@ -10,11 +10,11 @@ import SwiftUI
 struct TimeBar: View {
     @EnvironmentObject var colors: Colors
     
-    let low: CGFloat
+    var low: CGFloat
     let lowLessThanOne: Bool
-    let mid: CGFloat
+    var mid: CGFloat
     let midLessThanOne: Bool
-    let high: CGFloat
+    var high: CGFloat
     let highLessThanOne: Bool
     let minBarWidth = Dimensions.BASE_UNIT * 16
     let midBarWidth = Dimensions.BASE_UNIT * 168
@@ -25,32 +25,63 @@ struct TimeBar: View {
         
         self.lowLessThanOne = low > 0.0 && low < 1.0
         self.low = self.lowLessThanOne ? 1 : low
-        if lowLessThanOne {
-            lessCount += 1
-        }
+        if lowLessThanOne { lessCount += 1 }
         
         self.midLessThanOne = mid > 0.0 && mid < 1.0
-        self.mid = self.lowLessThanOne ? 1 : mid
-        if midLessThanOne {
-            lessCount += 1
-        }
+        self.mid = self.midLessThanOne ? 1 : mid
+        if midLessThanOne { lessCount += 1 }
         
         self.highLessThanOne = high > 0.0 && high < 1.0
-        self.high = self.lowLessThanOne ? 1 : high
+        self.high = self.highLessThanOne ? 1 : high
+        if highLessThanOne { lessCount += 1 }
         
+        if lessCount == 0 {
+            self.low = round(self.low)
+            self.mid = round(self.mid)
+            self.high = round(self.high)
+        } else if lessCount == 1 {
+            if self.lowLessThanOne {
+                self.mid = floor(self.mid)
+                self.high = floor(self.high)
+            }
+            if self.midLessThanOne {
+                self.low = floor(self.low)
+                self.high = floor(self.high)
+            }
+            if self.highLessThanOne {
+                self.low = floor(self.low)
+                self.mid = floor(self.mid)
+            }
+        } else if lessCount == 2 {
+            if self.midLessThanOne && self.highLessThanOne {
+                self.low -= (1 - mid) + (1 - high)
+            }
+            if self.lowLessThanOne && self.highLessThanOne {
+                self.mid -= (1 - low) + (1 - high)
+            }
+            if self.lowLessThanOne && self.midLessThanOne {
+                self.high -= (1 - low) + (1 - mid)
+            }
+        }
         
+        if self.low + self.mid + self.high == 99 { self.mid += 1 }
+        if self.low + self.mid + self.high == 101 {
+            if self.low >= 2 { self.low -= 1 }
+            else if self.mid >= 2 { self.mid -= 1 }
+            else if self.high >= 2 { self.high -= 1 }
+        }
     }
     
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
             if (low > 0) {
-                buildRange(timeCovered: 0, buildBgTime(range: .low, time: self.low))
+                buildRange(timeCovered: 0, buildBgTime(range: .low, time: Int(self.low)))
             }
             if (mid > 0) {
-                buildRange(timeCovered: low, buildBgTime(range: .mid, time: self.mid))
+                buildRange(timeCovered: Int(low), buildBgTime(range: .mid, time: Int(self.mid)))
             }
             if (high > 0) {
-                buildRange(timeCovered: low + mid, buildBgTime(range: .high, time: self.high))
+                buildRange(timeCovered: Int(low + mid), buildBgTime(range: .high, time: Int(self.high)))
             }
         }
     }

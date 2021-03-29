@@ -15,14 +15,14 @@ struct DeviationBar: View {
     var barHeight = Dimensions.BASE_UNIT * 50
     var emptyBarHeight = Dimensions.BASE_UNIT * 3
     
-    init(_ color: Color,_ percent: CGFloat, _ ceiling: CGFloat) {
+    init(_ color: Color, _ percent: CGFloat, _ ceiling: CGFloat) {
         self.color = color
         self.percent = percent
         self.ceiling = ceiling
     }
     
     var body: some View {
-        if (percent > 0.3) {
+        if percent > 0.3 * (ceiling / 5) {
             RoundedRectangle(cornerRadius: 5)
             .fill(color)
             .frame(width: barWidth,
@@ -49,7 +49,8 @@ struct DeviationBar_Prevew_View: View {
         HStack(spacing: 1) {
             DeviationBar(colors.getActiveColor(range: .low), 4, 5)
             DeviationBar(colors.getActiveColor(range: .mid), 4, 5)
-            DeviationBar(colors.getActiveColor(range: .high), 0, 5)
+            DeviationBar(colors.getActiveColor(range: .high), 0.34, 15)
+            DeviationBar(colors.getActiveColor(range: .high), 0.29, 15)
         }
     }
 }

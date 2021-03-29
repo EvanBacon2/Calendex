@@ -27,7 +27,7 @@ struct Day: View {
             ScrollView {
                 Spacer().frame(height: Spacing.HEADER_MARGIN)
                 VStack(spacing: 0) {
-                    DayChart()
+                    DayChart(day: dayInfo)
                     Spacer().frame(height: Spacing.DOUBLE_SPACE)
                     DayQuickData(min: dayInfo.info?.measures?.min ?? -1,
                                  max: dayInfo.info?.measures?.max ?? -1,
@@ -43,15 +43,18 @@ struct Day: View {
         .navigationBarItems(trailing: SettingsButton($settingsActive))
     }
     
-    func getRange(_ range: Range) -> Int {
+    func getRange(_ range: Range) -> CGFloat {
         let tir = dayInfo.info?.timeInRange
+        /*print("lowTime: \(tir!.lowTime)")
+        print("midTime: \(tir!.midTime)")
+        print("highTime: \(tir!.highTime)")*/
         switch range {
             case .low:
-            return Int(tir!.lowTime)
+            return tir!.lowTime * 100
         case .mid:
-            return Int(tir!.midTime)
+            return tir!.midTime * 100
         case .high:
-            return Int(tir!.highTime)
+            return tir!.highTime * 100
         }
     }
     

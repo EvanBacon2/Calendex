@@ -45,15 +45,15 @@ struct Month: View {
         .navigationBarItems(trailing: SettingsButton($settingsActive))
     }
     
-    func getRange(_ range: Range) -> Int {
+    func getRange(_ range: Range) -> CGFloat {
         let tir = monthInfo.info?.timeInRange
         switch range {
             case .low:
-            return Int(tir!.lowTime * 100)
+            return tir!.lowTime * 100
         case .mid:
-            return Int(tir!.midTime * 100)
+            return tir!.midTime * 100
         case .high:
-            return Int(tir!.highTime * 100)
+            return tir!.highTime * 100
         }
     }
     

@@ -19,12 +19,14 @@ extension DistributionRange_Entity {
     @NSManaged public var value_attr: Float
     @NSManaged public var disRange_dis: Distribution_Entity?
     
-    public var range: CGFloat {
-        CGFloat(range_attr)
+    public var range: Int {
+        get { return Int(range_attr) }
+        set(range) { self.range_attr = Int32(range) }
     }
     
     public var value: CGFloat {
-        CGFloat(value_attr)
+        get { return CGFloat(value_attr) }
+        set(value) { self.value_attr = Float(value) }
     }
 }
 

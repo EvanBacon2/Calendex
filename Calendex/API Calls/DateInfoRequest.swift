@@ -9,12 +9,12 @@ import Foundation
 import PromiseKit
 
 struct DateInfoRequest {
-    static func call(token: String, startDate: Date, endDate: Date, lowBound: Int, highBound: Int) -> Promise<(Date, Stats, Egvs)> {
+    static func call(token: String, startDate: Date, endDate: Date, lowBound: Int, highBound: Int) -> Promise<(Date, Egvs)> {
         var res: [Any] = []
         res.append(startDate)
         
         return Promise { seal in
-            firstly {
+            /*firstly {
                 StatsRequest.call(token: token,
                                   startDate: startDate,
                                   endDate: endDate,
@@ -22,13 +22,13 @@ struct DateInfoRequest {
                                   highBound: highBound)
             }.done { stats in
                 res.append(stats)
-            }.then {
+            }.*/firstly {
                 EgvRequest.call(token: token,
                                 startDate: startDate,
                                 endDate:endDate)
             }.done { egvs in
                 res.append(egvs)
-                seal.fulfill((date: res[0] as! Date, stats: res[1] as! Stats, egvs: res[2] as! Egvs))
+                seal.fulfill((date: res[0] as! Date, egvs: res[1] as! Egvs))
             }.catch { error in
                 seal.reject(error)
             }
