@@ -1,5 +1,5 @@
 //
-//  StandardDeviation.swift
+//  Distribution.swift
 //  Calendex
 //
 //  Created by Evan Bacon on 2/7/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StandardDeviation: View {
+struct Distribution: View {
     let distribution: [DistributionRange_Entity]
     
     init(distribution: [DistributionRange_Entity]) {
@@ -15,15 +15,15 @@ struct StandardDeviation: View {
     }
     var body: some View {
         VStack(spacing: 0) {
-            SubBanner("Standard Deviation").padding(.bottom, Spacing.DOUBLE_SPACE)
-            DeviationGraph(distribution: distribution)
+            SubBanner("Standard Distribution").padding(.bottom, Spacing.DOUBLE_SPACE)
+            DistributionGraph(distribution: distribution)
         }
     }
 }
 
-struct StandardDeviation_Previews: PreviewProvider {
+struct Distribution_Previews: PreviewProvider {
     static var previews: some View {
-        //StandardDeviation()
+        //StandardDistribution()
         EmptyView()
     }
 }

@@ -40,9 +40,7 @@ struct DayChart: View {
         let dayEnd = cal.date(byAdding: .day, value: 1, to: self.day)!
         let dayLength = dayEnd.timeIntervalSince(self.day)
         firstly {
-            EgvRequest.call(token: Token.accessToken!.access_token,
-                            startDate: self.day,
-                            endDate: dayEnd)
+            EgvRequest.call(startDate: self.day, endDate: dayEnd)
         }.done { egvs in
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"

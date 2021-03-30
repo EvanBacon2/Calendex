@@ -1,5 +1,5 @@
 //
-//  DeviationGraph.swift
+//  DistributionGraph.swift
 //  Calendex
 //
 //  Created by Evan Bacon on 1/24/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DeviationGraph: View {
+struct DistributionGraph: View {
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
@@ -30,11 +30,11 @@ struct DeviationGraph: View {
                         Spacer()
                 }.frame(height: UIScreen.screenHeight * 0.114)
                 Spacer().frame(width: UIScreen.screenHeight * 0.012)
-                DeviationRange(lowVals(), .low, ceiling)
-                DeviationRangeMarker("\(goals.lowBgThreshold)")
-                DeviationRange(midVals(), .mid, ceiling)
-                DeviationRangeMarker("\(goals.highBgThreshold)")
-                DeviationRange(highVals(), .high, ceiling)
+                DistributionRange(lowVals(), .low, ceiling)
+                DistributionRangeMarker("\(goals.lowBgThreshold)")
+                DistributionRange(midVals(), .mid, ceiling)
+                DistributionRangeMarker("\(goals.highBgThreshold)")
+                DistributionRange(highVals(), .high, ceiling)
             }
         }
     }
@@ -56,9 +56,9 @@ struct DeviationGraph: View {
     }
 }
 
-struct DeviationGraph_Previews: PreviewProvider {
+struct DistributionGraph_Previews: PreviewProvider {
     static var previews: some View {
-        //DeviationGraph().environmentObject(Colors())
+        //DistributionGraph().environmentObject(Colors())
                         //.environmentObject(Goals())
         EmptyView()
     }

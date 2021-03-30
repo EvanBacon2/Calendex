@@ -35,7 +35,7 @@ struct Day: View {
                     Spacer().frame(height: Spacing.DOUBLE_SPACE)
                     TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
                     Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                    StandardDeviation(distribution: (dayInfo.date_info?.distribution)!)
+                    Distribution(distribution: (dayInfo.date_info?.distribution)!)
                 }.frame(width: UIScreen.screenWidth)
             }
             settingsLink()

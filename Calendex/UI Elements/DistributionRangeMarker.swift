@@ -1,5 +1,5 @@
 //
-//  DeviationRangeMarker.swift
+//  DistributionRangeMarker.swift
 //  Calendex
 //
 //  Created by Evan Bacon on 1/24/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DeviationRangeMarker: View {
+struct DistributionRangeMarker: View {
     @EnvironmentObject var colors: Colors
     
     var val: String
@@ -32,8 +32,8 @@ struct DeviationRangeMarker: View {
     }
 }
 
-struct DeviationRangeMarker_Previews: PreviewProvider {
+struct DistributionRangeMarker_Previews: PreviewProvider {
     static var previews: some View {
-        DeviationRangeMarker("70").environmentObject(Colors())
+        DistributionRangeMarker("70").environmentObject(Colors())
     }
 }

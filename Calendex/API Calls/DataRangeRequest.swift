@@ -9,7 +9,21 @@ import Foundation
 import PromiseKit
 
 struct DataRangeRequest {
-    static func call(token: String) -> Promise<DataRange> {
+    static func call() -> Promise<DataRange> {
+        return Promise { seal in
+            firstly {
+                TokenRequest.getAccessToken()
+            }.then { token in
+                DataRangeRequest.request(token)
+            }.done { range in
+                seal.fulfill(range)
+            }.catch { error in
+                seal.reject(error)
+            }
+        }
+    }
+    
+    private static func request(_ token: String) -> Promise<DataRange> {
         return Promise { seal in
             let rangeHeaders = [
               "authorization": "Bearer \(token)",

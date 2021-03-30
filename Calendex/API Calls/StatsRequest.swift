@@ -9,7 +9,21 @@ import Foundation
 import PromiseKit
 
 struct StatsRequest {
-    static func call(token: String, startDate: Date, endDate: Date, lowBound: Int, highBound: Int) -> Promise<Stats> {
+    static func call(startDate: Date, endDate: Date, lowBound: Int, highBound: Int) -> Promise<Stats> {
+        return Promise { seal in
+            firstly {
+                TokenRequest.getAccessToken()
+            }.then { token in
+                StatsRequest.request(token, startDate, endDate, lowBound, highBound)
+            }.done { stats in
+                seal.fulfill(stats)
+            }.catch { error in
+                seal.reject(error)
+            }
+        }
+    }
+    
+    private static func request(_ token: String, _ startDate: Date, _ endDate: Date, _ lowBound: Int, _ highBound: Int) -> Promise<Stats> {
         return Promise { seal in
             let statHeaders = [
               "authorization": "Bearer \(token)",

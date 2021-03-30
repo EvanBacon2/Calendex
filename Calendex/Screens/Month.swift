@@ -37,7 +37,7 @@ struct Month: View {
                     Spacer().frame(height: Spacing.TRIPLE_SPACE)
                     TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
                     Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                    StandardDeviation(distribution: (monthInfo.date_info?.distribution)!)
+                    Distribution(distribution: (monthInfo.date_info?.distribution)!)
                 }.frame(width: UIScreen.screenWidth)
             }
             settingsLink()

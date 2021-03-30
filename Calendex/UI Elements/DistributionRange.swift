@@ -1,5 +1,5 @@
 //
-//  DeviationRange.swift
+//  DistributionRange.swift
 //  Calendex
 //
 //  Created by Evan Bacon on 1/24/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DeviationRange: View {
+struct DistributionRange: View {
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
@@ -29,7 +29,7 @@ struct DeviationRange: View {
             Spacer(minLength: 0)
             HStack(alignment: .bottom, spacing: Dimensions.BASE_UNIT) {
                 ForEach(values, id: \.self) {val in
-                    DeviationBar(colors.getActiveColor(range: range), val, ceiling)
+                    DistributionBar(colors.getActiveColor(range: range), val, ceiling)
                 }
             }
             Spacer().frame(height: UIScreen.screenHeight * 0.01)
@@ -44,15 +44,15 @@ struct DeviationRange: View {
     }
 }
 
-struct DeviationRange_Previews: PreviewProvider {
+struct DistributionRange_Previews: PreviewProvider {
     static let lowVals: [CGFloat] = [1,1,1,1,1,1,1,1]
     static let midVals: [CGFloat] = [1,1,1,1,1,1,1,1]
     
     static var previews: some View {
         HStack() {
-            DeviationRange(lowVals, .low, 5.0).environmentObject(Colors())
+            DistributionRange(lowVals, .low, 5.0).environmentObject(Colors())
                   .environmentObject(Goals())
-            DeviationRange(midVals, .mid, 5.0).environmentObject(Colors())
+            DistributionRange(midVals, .mid, 5.0).environmentObject(Colors())
                   .environmentObject(Goals())
         }
     }

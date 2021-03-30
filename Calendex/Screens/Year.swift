@@ -31,7 +31,7 @@ struct Year: View {
                         Spacer().frame(height: Spacing.DOUBLE_SPACE)
                         TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
                         Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                        StandardDeviation(distribution: (yearInfo.first?.date_info?.distribution)!)
+                        Distribution(distribution: (yearInfo.first?.date_info?.distribution)!)
                         Spacer()
                     }
                 }

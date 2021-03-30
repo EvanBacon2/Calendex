@@ -35,6 +35,11 @@
         <attribute name="midTime_attr" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="tir_info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bg_Info_Entity" inverseName="info_tir" inverseEntity="Bg_Info_Entity"/>
     </entity>
+    <entity name="Token_Entity" representedClassName="Token_Entity" syncable="YES">
+        <attribute name="access_attr" optional="YES" attributeType="String"/>
+        <attribute name="expire_attr" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="refresh_attr" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Bg_Info_Entity" positionX="-261" positionY="171" width="128" height="118"/>
         <element name="Date_Info_Entity" positionX="-108" positionY="207" width="128" height="103"/>
@@ -42,5 +47,6 @@
         <element name="DistributionRange_Entity" positionX="-216" positionY="216" width="128" height="88"/>
         <element name="Measures_Entity" positionX="-225" positionY="207" width="128" height="118"/>
         <element name="TimeInRange_Entity" positionX="-54" positionY="18" width="128" height="103"/>
+        <element name="Token_Entity" positionX="-153" positionY="162" width="128" height="88"/>
     </elements>
 </model>
