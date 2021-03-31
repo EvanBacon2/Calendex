@@ -77,11 +77,6 @@ struct PersistenceController {
         infoEntity.info_mea?.min_attr = Int32([43, 61, 93].randomElement()!)
         infoEntity.info_mea?.max_attr = Int32([136, 176, 232].randomElement()!)
             
-        infoEntity.info_tir = TimeInRange_Entity(context: controller.container.viewContext)
-        infoEntity.info_tir?.lowTime_attr = 12.0
-        infoEntity.info_tir?.midTime_attr = 72.0
-        infoEntity.info_tir?.highTime_attr = 16.0
-            
         let distRanges = getDistRanges(controller)
             
         infoEntity.info_dis = Distribution_Entity(context: controller.container.viewContext)

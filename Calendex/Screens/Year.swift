@@ -11,6 +11,7 @@ struct Year: View {
     @FetchRequest var yearInfo: FetchedResults<Date_Info_Entity>
     
     @EnvironmentObject var colors: Colors
+    @EnvironmentObject var goals: Goals
     
     @State var settingsActive: Bool = false
     
@@ -53,16 +54,20 @@ struct Year: View {
         if (yearInfo.isEmpty) {
             return 0
         } else {
-            let tir = yearInfo.first?.info?.timeInRange
+            let dis = yearInfo.first?.info?.distribution
             switch range {
             case .low:
-                return tir!.lowTime * 100
+                return dis![0..<thToI(goals.lowBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
             case .mid:
-                return tir!.midTime * 100
+                return dis![thToI(goals.lowBgThreshold)..<thToI(goals.highBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
             case .high:
-                return tir!.highTime * 100
+                return dis![thToI(goals.highBgThreshold)..<dis!.count].reduce(0, { sum, val in sum + val.value }) * 100
             }
         }
+    }
+    
+    func thToI(_ threshold: Int) -> Int {
+        return (threshold / 10) - 4
     }
     
     func settingsLink() -> NavigationLink<EmptyView, Settings> {

@@ -5,7 +5,6 @@
         <relationship name="info_date" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Date_Info_Entity" inverseName="date_info" inverseEntity="Date_Info_Entity"/>
         <relationship name="info_dis" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Distribution_Entity" inverseName="dis_info" inverseEntity="Distribution_Entity"/>
         <relationship name="info_mea" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Measures_Entity" inverseName="mea_info" inverseEntity="Measures_Entity"/>
-        <relationship name="info_tir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeInRange_Entity" inverseName="tir_info" inverseEntity="TimeInRange_Entity"/>
     </entity>
     <entity name="Date_Info_Entity" representedClassName="Date_Info_Entity" syncable="YES">
         <attribute name="day_attr" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -29,24 +28,17 @@
         <attribute name="stdDeviation_attr" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="mea_info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bg_Info_Entity" inverseName="info_mea" inverseEntity="Bg_Info_Entity"/>
     </entity>
-    <entity name="TimeInRange_Entity" representedClassName="TimeInRange_Entity" syncable="YES">
-        <attribute name="highTime_attr" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="lowTime_attr" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="midTime_attr" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="tir_info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bg_Info_Entity" inverseName="info_tir" inverseEntity="Bg_Info_Entity"/>
-    </entity>
     <entity name="Token_Entity" representedClassName="Token_Entity" syncable="YES">
         <attribute name="access_attr" optional="YES" attributeType="String"/>
         <attribute name="expire_attr" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="refresh_attr" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Bg_Info_Entity" positionX="-261" positionY="171" width="128" height="118"/>
+        <element name="Bg_Info_Entity" positionX="-261" positionY="171" width="128" height="103"/>
         <element name="Date_Info_Entity" positionX="-108" positionY="207" width="128" height="103"/>
         <element name="Distribution_Entity" positionX="-124.09765625" positionY="265.62890625" width="128" height="73"/>
         <element name="DistributionRange_Entity" positionX="-216" positionY="216" width="128" height="88"/>
         <element name="Measures_Entity" positionX="-225" positionY="207" width="128" height="118"/>
-        <element name="TimeInRange_Entity" positionX="-54" positionY="18" width="128" height="103"/>
         <element name="Token_Entity" positionX="-153" positionY="162" width="128" height="88"/>
     </elements>
 </model>

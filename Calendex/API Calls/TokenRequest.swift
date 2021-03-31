@@ -23,7 +23,7 @@ struct TokenRequest {
                             TokenRequest.call(refreshToken: token.refresh!)
                         }.done { newToken in
                             token.access = newToken.access_token
-                            token.expire = Date(timeInterval: TimeInterval(newToken.expires_in), since: Date())
+                            token.expire = Date(timeInterval: TimeInterval(newToken.expires_in - 120), since: Date())
                             token.refresh = newToken.refresh_token
                             seal.fulfill(token.access!)
                         }.catch { error in
@@ -38,15 +38,15 @@ struct TokenRequest {
     }
     
     static func call(refreshToken: String) -> Promise<AccessToken> {
-        return baseCall(permission: refreshToken, label: "refresh_token")
+        return baseCall(permission: refreshToken, type: "refresh_token", label: "refresh_token")
     }
     
     
     static func call(authCode: String) -> Promise<AccessToken> {
-        return baseCall(permission: authCode, label: "code")
+        return baseCall(permission: authCode, type: "authorization_code", label: "code")
     }
     
-    private static func baseCall(permission: String, label: String) -> Promise<AccessToken> {
+    private static func baseCall(permission: String, type: String, label: String) -> Promise<AccessToken> {
         return Promise { seal in
             let tokenHeaders = [
                 "content-type": "application/x-www-form-urlencoded",
@@ -62,7 +62,7 @@ struct TokenRequest {
             tokenData.append("client_secret=bnezGihDqAkZOHho".data(using: String.Encoding.utf8)!)
             tokenData.append("&client_id=xMJNMZkfJcz8UKxLg7co5pjQ6sHrnaB0".data(using: String.Encoding.utf8)!)
             tokenData.append("&\(label)=\(permission)".data(using: String.Encoding.utf8)!)
-            tokenData.append("&grant_type=authorization_code".data(using: String.Encoding.utf8)!)
+            tokenData.append("&grant_type=\(type)".data(using: String.Encoding.utf8)!)
             tokenData.append("&redirect_uri=calendex://".data(using: String.Encoding.utf8)!)
             
             var tokenRequest = URLRequest(url: tokenURL.url!, cachePolicy: .useProtocolCachePolicy)

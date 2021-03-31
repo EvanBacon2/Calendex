@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Day: View {
+    @EnvironmentObject var goals: Goals
+    
     @State var settingsActive: Bool = false
     
     let blockSpace = UIScreen.screenHeight * 0.02
@@ -44,18 +46,22 @@ struct Day: View {
     }
     
     func getRange(_ range: Range) -> CGFloat {
-        let tir = dayInfo.info?.timeInRange
+        let dis = dayInfo.info?.distribution
         /*print("lowTime: \(tir!.lowTime)")
         print("midTime: \(tir!.midTime)")
         print("highTime: \(tir!.highTime)")*/
         switch range {
             case .low:
-            return tir!.lowTime * 100
+            return dis![0..<thToI(goals.lowBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
         case .mid:
-            return tir!.midTime * 100
+            return dis![thToI(goals.lowBgThreshold)..<thToI(goals.highBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
         case .high:
-            return tir!.highTime * 100
+            return dis![thToI(goals.highBgThreshold)..<dis!.count].reduce(0, { sum, val in sum + val.value }) * 100
         }
+    }
+    
+    func thToI(_ threshold: Int) -> Int {
+        return (threshold / 10) - 4
     }
     
     func settingsLink() -> NavigationLink<EmptyView, Settings> {

@@ -15,7 +15,7 @@ struct Distribution: View {
     }
     var body: some View {
         VStack(spacing: 0) {
-            SubBanner("Standard Distribution").padding(.bottom, Spacing.DOUBLE_SPACE)
+            SubBanner("Distribution").padding(.bottom, Spacing.DOUBLE_SPACE)
             DistributionGraph(distribution: distribution)
         }
     }

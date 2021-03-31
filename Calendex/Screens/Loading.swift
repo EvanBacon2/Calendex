@@ -11,7 +11,6 @@ import PromiseKit
 struct Loading: View {
     @EnvironmentObject var goals: Goals
     
-    @StateObject var viewModel = SignInViewModel()
     @Binding private var loadingDone: Bool
     
     let userRange: DataRange?
@@ -30,9 +29,9 @@ struct Loading: View {
     
     func load() -> some View {
         firstly {
-            viewModel.populateDataBase(dataRange: self.userRange!,
-                                       lowBound: goals.lowBgThreshold,
-                                       highBound: goals.highBgThreshold)
+            BSSetup.populateDataBase(dataRange: self.userRange!,
+                                     lowBound: goals.lowBgThreshold,
+                                     highBound: goals.highBgThreshold)
         }.done { res in
             loadingDone = true
         }.catch { error in

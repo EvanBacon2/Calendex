@@ -59,7 +59,7 @@ struct DayButton: View {
                 return .mid
             }
         } else if selected == "Range" {
-            let range = dayInfo.first!.info?.timeInRange?.midTime ?? 0.0
+            let range = dayInfo.first!.info!.distribution![thToI(goals.lowBgThreshold)..<thToI(goals.highBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
             
             if (range >= CGFloat(goals.TimeInRangeThreshold)) {
                 return .mid
@@ -75,6 +75,10 @@ struct DayButton: View {
                 return .high
             }
         }
+    }
+    
+    func thToI(_ threshold: Int) -> Int {
+        return (threshold / 10) - 4
     }
 }
 

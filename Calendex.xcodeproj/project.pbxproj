@@ -73,8 +73,6 @@
 		CD6CCBFC25EB8B8800B256AA /* Measures_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBEE25EB8B8800B256AA /* Measures_Entity+CoreDataProperties.swift */; };
 		CD6CCBFD25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBEF25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift */; };
 		CD6CCBFE25EB8B8800B256AA /* Distribution_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBF025EB8B8800B256AA /* Distribution_Entity+CoreDataProperties.swift */; };
-		CD6CCC0125EB8B8800B256AA /* TimeInRange_Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBF325EB8B8800B256AA /* TimeInRange_Entity+CoreDataClass.swift */; };
-		CD6CCC0225EB8B8800B256AA /* TimeInRange_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBF425EB8B8800B256AA /* TimeInRange_Entity+CoreDataProperties.swift */; };
 		CD6CCC0325EB8B8800B256AA /* Bg_Info_Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBF525EB8B8800B256AA /* Bg_Info_Entity+CoreDataClass.swift */; };
 		CD6CCC0425EB8B8800B256AA /* Bg_Info_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBF625EB8B8800B256AA /* Bg_Info_Entity+CoreDataProperties.swift */; };
 		CD6CCC0725EB8B8800B256AA /* DistributionRange_Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCBF925EB8B8800B256AA /* DistributionRange_Entity+CoreDataClass.swift */; };
@@ -86,6 +84,7 @@
 		CD6CCC6825F4BD4800B256AA /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC6725F4BD4800B256AA /* SignInViewModel.swift */; };
 		CD9D303C2611B66300F948F1 /* Token_Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D303B2611B66300F948F1 /* Token_Entity+CoreDataClass.swift */; };
 		CD9D30442611BD4E00F948F1 /* Token_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30432611BD4E00F948F1 /* Token_Entity+CoreDataProperties.swift */; };
+		CD9D30522612F32600F948F1 /* BSSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30512612F32600F948F1 /* BSSetup.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -200,8 +199,6 @@
 		CD6CCBEE25EB8B8800B256AA /* Measures_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Measures_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD6CCBEF25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Distribution_Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD6CCBF025EB8B8800B256AA /* Distribution_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Distribution_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CD6CCBF325EB8B8800B256AA /* TimeInRange_Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInRange_Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		CD6CCBF425EB8B8800B256AA /* TimeInRange_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInRange_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD6CCBF525EB8B8800B256AA /* Bg_Info_Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bg_Info_Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD6CCBF625EB8B8800B256AA /* Bg_Info_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bg_Info_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD6CCBF925EB8B8800B256AA /* DistributionRange_Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DistributionRange_Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -213,6 +210,7 @@
 		CD6CCC6725F4BD4800B256AA /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		CD9D303B2611B66300F948F1 /* Token_Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token_Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD9D30432611BD4E00F948F1 /* Token_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD9D30512612F32600F948F1 /* BSSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSSetup.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -286,14 +284,13 @@
 			isa = PBXGroup;
 			children = (
 				CD6CCBE225EB40B500B256AA /* BloodSugar.xcdatamodeld */,
+				CD9D30512612F32600F948F1 /* BSSetup.swift */,
 				CD6CCBED25EB8B8800B256AA /* Measures_Entity+CoreDataClass.swift */,
 				CD6CCBEE25EB8B8800B256AA /* Measures_Entity+CoreDataProperties.swift */,
 				CD6CCC4A25EDF9A600B256AA /* Date_Info_Entity+CoreDataClass.swift */,
 				CD6CCC4B25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift */,
 				CD6CCBEF25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift */,
 				CD6CCBF025EB8B8800B256AA /* Distribution_Entity+CoreDataProperties.swift */,
-				CD6CCBF325EB8B8800B256AA /* TimeInRange_Entity+CoreDataClass.swift */,
-				CD6CCBF425EB8B8800B256AA /* TimeInRange_Entity+CoreDataProperties.swift */,
 				CD6CCBF525EB8B8800B256AA /* Bg_Info_Entity+CoreDataClass.swift */,
 				CD6CCBF625EB8B8800B256AA /* Bg_Info_Entity+CoreDataProperties.swift */,
 				CD6CCBF925EB8B8800B256AA /* DistributionRange_Entity+CoreDataClass.swift */,
@@ -768,7 +765,6 @@
 				CD6CCBAB25DECB6600B256AA /* DataRecord.swift in Sources */,
 				CDA22C0D25C80E45004D0CF2 /* DayFields.swift in Sources */,
 				CD6CCB7125DC5B9300B256AA /* Average.swift in Sources */,
-				CD6CCC0125EB8B8800B256AA /* TimeInRange_Entity+CoreDataClass.swift in Sources */,
 				CDA22BF525C807A6004D0CF2 /* PointGraph.swift in Sources */,
 				CD6CCBFB25EB8B8800B256AA /* Measures_Entity+CoreDataClass.swift in Sources */,
 				CD63027825B6116A003A6AA2 /* DataButton.swift in Sources */,
@@ -783,7 +779,6 @@
 				CD6302B425BE6F41003A6AA2 /* MonthButtons.swift in Sources */,
 				CDFE64322607D83600986423 /* StatsRequest.swift in Sources */,
 				CD6CCC0325EB8B8800B256AA /* Bg_Info_Entity+CoreDataClass.swift in Sources */,
-				CD6CCC0225EB8B8800B256AA /* TimeInRange_Entity+CoreDataProperties.swift in Sources */,
 				CD63026625B51E20003A6AA2 /* Year.swift in Sources */,
 				CD6CCB7925DC763800B256AA /* Time.swift in Sources */,
 				CD6CCACE25D0C01000B256AA /* ScreenHeader.swift in Sources */,
@@ -825,6 +820,7 @@
 				CD6CCAFE25D105EB00B256AA /* DaySummary.swift in Sources */,
 				CDA22BAE25C06060004D0CF2 /* MidDayRow.swift in Sources */,
 				CD63028725B6D4A6003A6AA2 /* TimeBar.swift in Sources */,
+				CD9D30522612F32600F948F1 /* BSSetup.swift in Sources */,
 				CD6CCC4D25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift in Sources */,
 				CDA22BBB25C0DB1C004D0CF2 /* Day.swift in Sources */,
 				CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */,
