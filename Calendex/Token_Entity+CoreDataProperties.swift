@@ -20,7 +20,7 @@ extension Token_Entity {
     @NSManaged public var refresh_attr: String?
     
     public var access: String? {
-        get { return self.expire < Date() ? self.access_attr : nil }
+        get { return Date() < self.expire ? self.access_attr : nil }
         set(access) { self.access_attr = access}
     }
     

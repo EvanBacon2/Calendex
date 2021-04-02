@@ -85,6 +85,8 @@
 		CD9D303C2611B66300F948F1 /* Token_Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D303B2611B66300F948F1 /* Token_Entity+CoreDataClass.swift */; };
 		CD9D30442611BD4E00F948F1 /* Token_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30432611BD4E00F948F1 /* Token_Entity+CoreDataProperties.swift */; };
 		CD9D30522612F32600F948F1 /* BSSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30512612F32600F948F1 /* BSSetup.swift */; };
+		CD9D3063261457B500F948F1 /* RangeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D3062261457B500F948F1 /* RangeField.swift */; };
+		CD9D306B2614677900F948F1 /* RangeFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D306A2614677900F948F1 /* RangeFields.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -211,6 +213,8 @@
 		CD9D303B2611B66300F948F1 /* Token_Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token_Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD9D30432611BD4E00F948F1 /* Token_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD9D30512612F32600F948F1 /* BSSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSSetup.swift; sourceTree = "<group>"; };
+		CD9D3062261457B500F948F1 /* RangeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeField.swift; sourceTree = "<group>"; };
+		CD9D306A2614677900F948F1 /* RangeFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeFields.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -412,7 +416,7 @@
 				CD6CCB8E25DCA58C00B256AA /* GoalSlider */,
 				CDA22BFE25C80B70004D0CF2 /* Day Chart */,
 				CDA22BBF25C7DEA9004D0CF2 /* Day Summary */,
-				CDA22C1E25CF837B004D0CF2 /* DayDataFields */,
+				CDA22C1E25CF837B004D0CF2 /* Day Data Fields */,
 				CDA22BCA25C7DF4A004D0CF2 /* Month Summary */,
 				CD6302BF25BFD923003A6AA2 /* Distribution */,
 				CDA22BC625C7DF02004D0CF2 /* Time In Range */,
@@ -522,6 +526,8 @@
 			children = (
 				CD63028625B6D4A6003A6AA2 /* TimeBar.swift */,
 				CD6CCAD525D0C0F000B256AA /* TimeInRange.swift */,
+				CD9D3062261457B500F948F1 /* RangeField.swift */,
+				CD9D306A2614677900F948F1 /* RangeFields.swift */,
 			);
 			name = "Time In Range";
 			sourceTree = "<group>";
@@ -565,14 +571,14 @@
 			name = "Day Chart";
 			sourceTree = "<group>";
 		};
-		CDA22C1E25CF837B004D0CF2 /* DayDataFields */ = {
+		CDA22C1E25CF837B004D0CF2 /* Day Data Fields */ = {
 			isa = PBXGroup;
 			children = (
 				CDA22C1125C80F6F004D0CF2 /* DataField.swift */,
 				CDA22C0C25C80E45004D0CF2 /* DayFields.swift */,
 				CD6CCB0525D10E3B00B256AA /* DayQuickData.swift */,
 			);
-			name = DayDataFields;
+			name = "Day Data Fields";
 			sourceTree = "<group>";
 		};
 		CDFE64172607C77500986423 /* Json */ = {
@@ -772,6 +778,7 @@
 				CD6CCB0625D10E3B00B256AA /* DayQuickData.swift in Sources */,
 				CDA22BB625C0685D004D0CF2 /* DayButtons.swift in Sources */,
 				CDA22BE825C7E9B0004D0CF2 /* HighRangeBackground.swift in Sources */,
+				CD9D306B2614677900F948F1 /* RangeFields.swift in Sources */,
 				CD6CCBB725DED1F000B256AA /* ColorPicker.swift in Sources */,
 				CD6CCADB25D0C25700B256AA /* Distribution.swift in Sources */,
 				CD6CCAEB25D0D11B00B256AA /* MonthSummary.swift in Sources */,
@@ -851,6 +858,7 @@
 				CD6CCB1125D1481300B256AA /* Dimensions.swift in Sources */,
 				CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */,
 				CD6CCB2D25D531EF00B256AA /* GoalSlider.swift in Sources */,
+				CD9D3063261457B500F948F1 /* RangeField.swift in Sources */,
 				CD6CCBD625E16AC700B256AA /* SettingsButtonSelected.swift in Sources */,
 				CDA22BA925C05E08004D0CF2 /* BottomDayRow.swift in Sources */,
 				CD6302AA25BE621F003A6AA2 /* DistributionRangeMarker.swift in Sources */,

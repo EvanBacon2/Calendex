@@ -13,14 +13,9 @@ struct BgTime {
     let range: Range
     var time: Int
     
-    init(_ range: Range, time: Int, colors: EnvironmentObject<Colors>) {
-        self._colors = colors
+    init(_ range: Range, time: Int) {
         self.range = range
         self.time = time
-    }
-    
-    func color() -> Color {
-        return colors.getActiveColor(range: range)
     }
 }
 
