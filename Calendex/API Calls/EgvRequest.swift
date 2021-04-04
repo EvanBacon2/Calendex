@@ -52,6 +52,7 @@ struct EgvRequest {
               } else {
                 do {
                     let decoder = JSONDecoder()
+                    print(data ?? "no data")
                     let egvs = try decoder.decode(Egvs.self, from: data!)
                     seal.fulfill(egvs)
                     return

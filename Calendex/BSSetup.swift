@@ -12,7 +12,7 @@ import CoreData
 struct BSSetup {
     static let coreContext = PersistenceController.shared.container.viewContext
     
-    static func populateDataBase(dataRange: DataRange, lowBound: Int, highBound: Int) -> Promise<Bool> {
+    static func populateDataBase(dataRange: DataRange, lowBound: Int, highBound: Int) -> Promise<Void> {
         return Promise { seal in
             var cal = Calendar.current
             cal.timeZone = TimeZone(identifier: "UTC")!
@@ -30,19 +30,42 @@ struct BSSetup {
             var dates: [Date] = []
             
             var currDate = startDate
-            while (currDate <= endDate) {
-                dates.append(currDate)
-                currDate = cal.date(byAdding: .day, value: 1, to: currDate)!
+            while let nextDate = cal.date(byAdding: .day, value: 90, to: currDate), nextDate <= endDate {
+                dates.append(nextDate)
+                currDate = nextDate
             }
             
             when(fulfilled: dates.map { DateEgvRequest.call(startDate: $0,
-                                                            endDate: cal.date(byAdding: .day, value: 1, to: $0)!)
+                                                            endDate: cal.date(byAdding: .day, value: 90, to: $0)!)
             }).done { results in
                 for res in results {
-                    self.createDate(date: cal.dateComponents([.day, .month, .year], from: res.0),
-                                    info: self.getInfoFromEgvs(egvs: res.1,
-                                                               lowBound: lowBound,
-                                                               highBound: highBound))
+                    var index = res.1.egvs.count - 1
+                    var startIndex = res.1.egvs.count - 1
+                    var currDay = formatter.date(from: res.1.egvs[res.1.egvs.count - 1].systemTime)!
+                    let dayComp = cal.dateComponents([.day, .month, .year], from: currDay)
+                    currDay = cal.date(from: dayComp)!
+                    var dayCutoff = cal.date(byAdding: .day, value: 1, to: currDay)!
+                    while index >= 0 {
+                        index -= 288
+                        if index < 0 {
+                            index = 0
+                        } else {
+                            while let indexDate = formatter.date(from: res.1.egvs[index].systemTime),
+                                  indexDate > dayCutoff {
+                                index += 1
+                            }
+                        }
+                        if startIndex - index > 0 {
+                            self.createDate(date: cal.dateComponents([.day, .month, .year], from: currDay),
+                                            info: self.getInfoFromEgvs(egvs: res.1.egvs[index..<startIndex],
+                                                                       lowBound: lowBound,
+                                                                       highBound: highBound))
+                        }
+                        startIndex = index - 1
+                        index -= 1
+                        currDay = dayCutoff
+                        dayCutoff = cal.date(byAdding: .day, value: 1, to: dayCutoff)!
+                    }
                 }
                 
                 var currMonth = startDate
@@ -67,7 +90,7 @@ struct BSSetup {
                     currYear = cal.date(byAdding: .year, value: 1, to: currYear)!
                 }
                 
-                seal.fulfill(true)
+                seal.fulfill(())
             }.catch { error in
                 seal.reject(error)
             }
@@ -83,28 +106,28 @@ struct BSSetup {
         dateEntity.date_info = info
     }
     
-    private static func getInfoFromEgvs(egvs: Egvs, lowBound: Int, highBound: Int) -> Bg_Info_Entity {
+    private static func getInfoFromEgvs(egvs: ArraySlice<Egv>, lowBound: Int, highBound: Int) -> Bg_Info_Entity {
         let info = Bg_Info_Entity(context: self.coreContext)
-        
+        print(egvs.count)
         info.info_mea = Measures_Entity(context: self.coreContext)
         info.info_dis = Distribution_Entity(context: self.coreContext)
-        info.entries = egvs.egvs.count
+        info.entries = egvs.count
         
         let measures = info.info_mea!
         let distribution = info.info_dis!
         
-        let entries = egvs.egvs.count
+        let entries = egvs.count
         
         info.entries = entries
-        measures.mean = CGFloat(egvs.egvs.reduce(0.0, { sum, val in sum + val.value })) / CGFloat(entries)
+        measures.mean = CGFloat(egvs.reduce(0.0, { sum, val in sum + val.value })) / CGFloat(entries)
         measures.stdDeviation = CGFloat(
-            sqrt(egvs.egvs.reduce(0.0, { dev, val in pow(val.value - Double(measures.mean), 2) }) / Double(entries)))
-        measures.min = egvs.egvs.reduce(Int(INT_MAX), { min, val  in Int(val.value) < min ? Int(val.value) : min })
-        measures.max = egvs.egvs.reduce(Int(-INT_MAX - 1), { max, val in Int(val.value) > max ? Int(val.value) : max })
+            sqrt(egvs.reduce(0.0, { dev, val in pow(val.value - Double(measures.mean), 2) }) / Double(entries)))
+        measures.min = egvs.reduce(Int(INT_MAX), { min, val  in Int(val.value) < min ? Int(val.value) : min })
+        measures.max = egvs.reduce(Int(-INT_MAX - 1), { max, val in Int(val.value) > max ? Int(val.value) : max })
     
         var distCounts = Array(repeating: 0, count: 36)
         
-        for egv in egvs.egvs {
+        for egv in egvs {
             var val = egv.value
             val = val < 40 ? val + 1 : val
             val = val > 400 ? val - 1 : val

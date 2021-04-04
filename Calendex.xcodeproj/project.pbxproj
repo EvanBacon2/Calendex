@@ -16,7 +16,6 @@
 		CD08F1A5260BD56E00FD3235 /* DateEgvRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F1A4260BD56E00FD3235 /* DateEgvRequest.swift */; };
 		CD08F1AA260D9EAC00FD3235 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F1A9260D9EAC00FD3235 /* Loading.swift */; };
 		CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D1259830730087ACF1 /* CalendexApp.swift */; };
-		CD3AA7D4259830730087ACF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7D3259830730087ACF1 /* Login.swift */; };
 		CD3AA7D6259830750087ACF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3AA7D5259830750087ACF1 /* Assets.xcassets */; };
 		CD3AA7D9259830750087ACF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3AA7D8259830750087ACF1 /* Preview Assets.xcassets */; };
 		CD3AA7E4259830750087ACF1 /* CalendexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7E3259830750087ACF1 /* CalendexTests.swift */; };
@@ -80,8 +79,8 @@
 		CD6CCC4C25EDF9A700B256AA /* Date_Info_Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC4A25EDF9A600B256AA /* Date_Info_Entity+CoreDataClass.swift */; };
 		CD6CCC4D25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC4B25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift */; };
 		CD6CCC5B25EF43E300B256AA /* Fetches.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC5A25EF43E200B256AA /* Fetches.swift */; };
-		CD6CCC6025F462AC00B256AA /* NewLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC5F25F462AC00B256AA /* NewLogin.swift */; };
-		CD6CCC6825F4BD4800B256AA /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC6725F4BD4800B256AA /* SignInViewModel.swift */; };
+		CD6CCC6025F462AC00B256AA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC5F25F462AC00B256AA /* Login.swift */; };
+		CD6CCC6825F4BD4800B256AA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCC6725F4BD4800B256AA /* LoginViewModel.swift */; };
 		CD9D303C2611B66300F948F1 /* Token_Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D303B2611B66300F948F1 /* Token_Entity+CoreDataClass.swift */; };
 		CD9D30442611BD4E00F948F1 /* Token_Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30432611BD4E00F948F1 /* Token_Entity+CoreDataProperties.swift */; };
 		CD9D30522612F32600F948F1 /* BSSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30512612F32600F948F1 /* BSSetup.swift */; };
@@ -139,7 +138,6 @@
 		CD08F1A9260D9EAC00FD3235 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		CD3AA7CE259830730087ACF1 /* Calendex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3AA7D1259830730087ACF1 /* CalendexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendexApp.swift; sourceTree = "<group>"; };
-		CD3AA7D3259830730087ACF1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		CD3AA7D5259830750087ACF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD3AA7D8259830750087ACF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD3AA7DA259830750087ACF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -208,8 +206,8 @@
 		CD6CCC4A25EDF9A600B256AA /* Date_Info_Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date_Info_Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD6CCC4B25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date_Info_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD6CCC5A25EF43E200B256AA /* Fetches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetches.swift; sourceTree = "<group>"; };
-		CD6CCC5F25F462AC00B256AA /* NewLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogin.swift; sourceTree = "<group>"; };
-		CD6CCC6725F4BD4800B256AA /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		CD6CCC5F25F462AC00B256AA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		CD6CCC6725F4BD4800B256AA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CD9D303B2611B66300F948F1 /* Token_Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token_Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD9D30432611BD4E00F948F1 /* Token_Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token_Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD9D30512612F32600F948F1 /* BSSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSSetup.swift; sourceTree = "<group>"; };
@@ -319,9 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				CD3AA7D1259830730087ACF1 /* CalendexApp.swift */,
-				CD3AA7D3259830730087ACF1 /* Login.swift */,
-				CD6CCC5F25F462AC00B256AA /* NewLogin.swift */,
-				CD6CCC6725F4BD4800B256AA /* SignInViewModel.swift */,
+				CD6CCC5F25F462AC00B256AA /* Login.swift */,
+				CD6CCC6725F4BD4800B256AA /* LoginViewModel.swift */,
 				CD63026525B51E20003A6AA2 /* Year.swift */,
 				CD6302C325C00571003A6AA2 /* Month.swift */,
 				CDA22BBA25C0DB1C004D0CF2 /* Day.swift */,
@@ -765,7 +762,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD3AA7D4259830730087ACF1 /* Login.swift in Sources */,
 				CD6CCAC925D0BD9B00B256AA /* Spacing.swift in Sources */,
 				CD08F1AA260D9EAC00FD3235 /* Loading.swift in Sources */,
 				CD6CCBAB25DECB6600B256AA /* DataRecord.swift in Sources */,
@@ -831,7 +827,7 @@
 				CD6CCC4D25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift in Sources */,
 				CDA22BBB25C0DB1C004D0CF2 /* Day.swift in Sources */,
 				CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */,
-				CD6CCC6825F4BD4800B256AA /* SignInViewModel.swift in Sources */,
+				CD6CCC6825F4BD4800B256AA /* LoginViewModel.swift in Sources */,
 				CD6CCB9325DCAC4400B256AA /* AverageSlider.swift in Sources */,
 				CD6CCBFD25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift in Sources */,
 				CD6CCAE025D0C35200B256AA /* DataButtons.swift in Sources */,
@@ -843,7 +839,7 @@
 				CD08F1802609A03500FD3235 /* DataRangeRequest.swift in Sources */,
 				CD6CCB3625D53CAA00B256AA /* Goals.swift in Sources */,
 				CDFE64192607C79500986423 /* AccessToken.swift in Sources */,
-				CD6CCC6025F462AC00B256AA /* NewLogin.swift in Sources */,
+				CD6CCC6025F462AC00B256AA /* Login.swift in Sources */,
 				CD3AA7D2259830730087ACF1 /* CalendexApp.swift in Sources */,
 				CDA22BE025C7E8CE004D0CF2 /* MidRangeBackground.swift in Sources */,
 				CD63029B25B6D950003A6AA2 /* Range.swift in Sources */,

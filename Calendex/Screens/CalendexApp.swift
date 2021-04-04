@@ -13,12 +13,9 @@ struct CalendexApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NewLogin().environmentObject(Colors())
+            Login().environmentObject(Colors())
                       .environmentObject(Goals())
                       .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
-            /*Year(year: 2021).environmentObject(Colors())
-                  .environmentObject(Goals())
-                  .environment(\.managedObjectContext, persistenceController.container.viewContext)*/
         }.onChange(of: scenePhase) { _ in
             PersistenceController.shared.save()
         }

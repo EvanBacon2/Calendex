@@ -10,7 +10,7 @@ import SwiftUI
 class Colors: ObservableObject {
     let ACCENT_COLOR = SwiftUI.Color.init(hue: 162.0 / 360, saturation: 60.0 / 100, brightness: 51.0 / 100)
 
-    let LIGHT_BLUE_GRAY = SwiftUI.Color.init(hue: 191.0 / 360, saturation: 20.0 / 100, brightness: 90.0 / 100)
+    let LIGHT_BLUE_GRAY = SwiftUI.Color.init(hue: 191.0 / 360, saturation: 12.0 / 100, brightness: 90.0 / 100)
     
     let DARK_GRAY = SwiftUI.Color.init(hue: 191.0 / 360, saturation: 5.0 / 100, brightness: 45.0 / 100)
     

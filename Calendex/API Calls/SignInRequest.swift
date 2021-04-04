@@ -9,7 +9,7 @@ import Foundation
 import AuthenticationServices
 import PromiseKit
 
-struct SignInRequest {
+struct AuthorizeRequest {
     static func call(context: ASWebAuthenticationPresentationContextProviding) -> Promise<String> {
         return Promise { seal in
             var authURL = URLComponents()
