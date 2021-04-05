@@ -54,8 +54,20 @@ struct EgvRequest {
                     let decoder = JSONDecoder()
                     print(data ?? "no data")
                     print(startDate)
-                    let egvs = try decoder.decode(Egvs.self, from: data!)
-                    seal.fulfill(egvs)
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if httpResponse.statusCode == 500 {
+                            firstly {
+                                self.request(token, startDate, endDate)
+                            }.done { res in
+                                seal.fulfill(res)
+                            }.catch { error in
+                                seal.reject(error)
+                            }
+                        } else if httpResponse.statusCode == 200 {
+                            let egvs = try decoder.decode(Egvs.self, from: data!)
+                            seal.fulfill(egvs)
+                        }
+                    }
                     return
                 } catch {
                     seal.reject(error)

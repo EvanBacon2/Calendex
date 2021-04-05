@@ -25,8 +25,8 @@ struct Settings: View {
                         DeviationSlider()
                     }
                     Group {
-                        SubBanner("Data")
-                        DataRecord()
+                        //SubBanner("Data")
+                        //DataRecord()
                     }
                     Group {
                         SubBanner("Color")

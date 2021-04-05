@@ -12,11 +12,17 @@ struct DataRecord: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(0..<viewModel.records.count) { i in
-                Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                Text(String(viewModel.records[i].0)).font(.title3)
-                Spacer().frame(height: Spacing.SINGLE_SPACE)
-                DataBar(record: viewModel.records[i].1)
+            if viewModel.records.count > 0 {
+                ForEach(0..<viewModel.records.count) { i in
+                    Spacer().frame(height: Spacing.DOUBLE_SPACE)
+                    Text(String(viewModel.records[i].0)).font(.title3)
+                    Spacer().frame(height: Spacing.SINGLE_SPACE)
+                    DataBar(record: viewModel.records[i].1)
+                }
+            } else if !viewModel.recordsCompiled {
+                Text("Loading Data...")
+            } else {
+                Text("No Data") 
             }
         }
     }
