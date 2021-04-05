@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct DataRecord: View {
-    var year: String
-    
-    init(year: String) {
-        self.year = year
-    }
+    @StateObject var viewModel: DataRecordViewModel = DataRecordViewModel()
     
     var body: some View {
         VStack(spacing: 0) {
-            Text(year).font(.title3)
-            Spacer().frame(height: Dimensions.BASE_UNIT)
-            DataBar()
+            ForEach(0..<viewModel.records.count) { i in
+                Spacer().frame(height: Spacing.DOUBLE_SPACE)
+                Text(String(viewModel.records[i].0)).font(.title3)
+                Spacer().frame(height: Spacing.SINGLE_SPACE)
+                DataBar(record: viewModel.records[i].1)
+            }
         }
     }
 }
 
 struct DataRecord_Previews: PreviewProvider {
     static var previews: some View {
-        DataRecord(year: "2020")
+        DataRecord()
     }
 }

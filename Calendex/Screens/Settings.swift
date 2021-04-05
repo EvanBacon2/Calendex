@@ -26,9 +26,7 @@ struct Settings: View {
                     }
                     Group {
                         SubBanner("Data")
-                        DataRecord(year: "2020")
-                        DataRecord(year: "2019")
-                        DataRecord(year: "2018")
+                        DataRecord()
                     }
                     Group {
                         SubBanner("Color")

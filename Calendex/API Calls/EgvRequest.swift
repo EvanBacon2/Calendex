@@ -53,6 +53,7 @@ struct EgvRequest {
                 do {
                     let decoder = JSONDecoder()
                     print(data ?? "no data")
+                    print(startDate)
                     let egvs = try decoder.decode(Egvs.self, from: data!)
                     seal.fulfill(egvs)
                     return

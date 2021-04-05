@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AppColors {
-    static let BRAND_COLOR = SwiftUI.UIColor.init(hue: 162.0 / 360, saturation: 60.0 / 100, brightness: 51.0 / 100, alpha: 1.0)
+    static let BRAND_COLOR = SwiftUI.Color.init(hue: 162.0 / 360, saturation: 60.0 / 100, brightness: 51.0 / 100)
 
-    static let LIGHT_BLUE_GRAY = SwiftUI.Color.init(hue: 191.0 / 360, saturation: 20.0 / 100, brightness: 90.0 / 100)
+    static let LIGHT_BLUE_GRAY = SwiftUI.Color.init(hue: 191.0 / 360, saturation: 12.0 / 100, brightness: 90.0 / 100)
     
     static let DARK_GRAY = SwiftUI.UIColor.init(hue: 191.0 / 360, saturation: 5.0 / 100, brightness: 45.0 / 100, alpha: 1.0)
     

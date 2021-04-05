@@ -68,7 +68,7 @@ struct BSSetup {
                     }
                 }
                 
-                var currMonth = startDate
+                var currMonth = cal.date(from: DateComponents(year: startComp.year!, month: startComp.month))!
                 while (currMonth <= endDate) {
                     let month = cal.dateComponents([.month, .year], from: currMonth)
                     self.createDate(date: month,
@@ -79,7 +79,7 @@ struct BSSetup {
                     currMonth = cal.date(byAdding: .month, value: 1, to: currMonth)!
                 }
                 
-                var currYear = startDate
+                var currYear = cal.date(from: DateComponents(year: startComp.year!))!
                 while (currYear <= endDate) {
                     let year = cal.dateComponents([.year], from: currYear)
                     self.createDate(date: year,

@@ -77,6 +77,8 @@ class LoginViewModel: NSObject, ObservableObject, ASWebAuthenticationPresentatio
             firstly {
                 DataRangeRequest.call()
             }.done { range in
+                print(range.egvs!.start)
+                print(range.egvs!.end)
                 seal.fulfill(range)
             }.catch { error in
                 seal.reject(error)
