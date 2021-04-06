@@ -11,6 +11,7 @@ struct MonthSummary: View {
     @EnvironmentObject var colors: Colors
     
     @State var selected: String = "Average"
+    @State var navMonth: Int? = nil
     
     let year: Int
     
@@ -22,12 +23,17 @@ struct MonthSummary: View {
         VStack(spacing: 0) {
             SubBanner("Month Summary")
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
-            MonthButtons(year: year, selected: selected)
+            MonthButtons(year: year, selected: selected, monthNav: $navMonth)
             Spacer().frame(height: Spacing.SINGLE_SPACE)
             seperator()
             Spacer().frame(height: Spacing.SINGLE_SPACE)
             DataButtons(selected: $selected)
-        }
+        }//.navigate(using: $navMonth, destination: makeMonth)
+    }
+    
+    @ViewBuilder
+    func makeMonth(for month: Int) -> some View {
+        Month(year: year, month: month)
     }
     
     func seperator() -> some View {

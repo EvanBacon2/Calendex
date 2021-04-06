@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DayButtons: View {
+    @Binding var navDay: Int?
+    
     let selected: String
     
     let year: Int
@@ -16,11 +18,13 @@ struct DayButtons: View {
     let bottomOffset: Int
     var dayCount: Int
     
-    init(year: Int, month: Int, selected: String) {
+    init(year: Int, month: Int, selected: String, navDay: Binding<Int?>) {
         self.selected = selected
         
         self.year = year
         self.month = month
+        
+        self._navDay = navDay
         
         let cal = Calendar.current
         let firstDay = DateComponents(
@@ -40,9 +44,9 @@ struct DayButtons: View {
     
     var body: some View {
         VStack(spacing: UIScreen.screenHeight * 0.01) {
-            TopDayRow(year: year, month: month, offset: topOffset, selected: selected)
-            MidDayRows(year: year, month: month, offset: topOffset, dayCount: dayCount, selected: selected)
-            BottomDayRow(year: year, month: month, topOffset, bottomOffset, dayCount: dayCount, selected: selected)
+            TopDayRow(year: year, month: month, offset: topOffset, selected: selected, navDay: _navDay)
+            MidDayRows(year: year, month: month, offset: topOffset, dayCount: dayCount, selected: selected, navDay: _navDay)
+            BottomDayRow(year: year, month: month, topOffset, bottomOffset, dayCount: dayCount, selected: selected, navDay: _navDay)
         }
     }
 }

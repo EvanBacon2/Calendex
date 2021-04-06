@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Month: View {
+    @FetchRequest var monthInfo: FetchedResults<Date_Info_Entity>
+    
     @EnvironmentObject var goals: Goals
     
     @State var settingsActive: Bool = false
@@ -15,10 +17,8 @@ struct Month: View {
     let year: Int
     let month: Int
     let months: [String]
-    
-    let monthInfo: Date_Info_Entity
 
-    init(year: Int, month: Int, monthInfo: Date_Info_Entity) {
+    init(year: Int, month: Int) {
         self.year = year
         self.month = month
         self.months = ["January", "Febuary", "March",
@@ -26,7 +26,7 @@ struct Month: View {
                        "July", "August", "September",
                        "October", "November", "December"]
         
-        self.monthInfo = monthInfo
+        self._monthInfo = FetchRequest(fetchRequest: Fetches.fetchDateInfo(year: year, month: month))
     }
     
     var body: some View {
@@ -39,7 +39,7 @@ struct Month: View {
                     Spacer().frame(height: Spacing.TRIPLE_SPACE)
                     TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
                     Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                    Distribution(distribution: (monthInfo.date_info?.distribution)!)
+                    Distribution(distribution: (monthInfo.first!.date_info?.distribution)!)
                 }.frame(width: UIScreen.screenWidth)
             }
             settingsLink()
@@ -48,7 +48,7 @@ struct Month: View {
     }
     
     func getRange(_ range: Range) -> CGFloat {
-        let dis = monthInfo.info?.distribution
+        let dis = monthInfo.first!.info?.distribution
         switch range {
             case .low:
             return dis![0..<thToI(goals.lowBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100

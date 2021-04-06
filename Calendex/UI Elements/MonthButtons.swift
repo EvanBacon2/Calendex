@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MonthButtons: View {
-    @FetchRequest var monthInfo: FetchedResults<Date_Info_Entity>
+    @Binding var monthNav: Int?
     
     @State private var monthIndex: Int = 0
     
@@ -16,22 +16,22 @@ struct MonthButtons: View {
     
     let year: Int
     
-    init(year: Int, selected: String) {
-        self._monthInfo = FetchRequest(fetchRequest: Fetches.fetchMonthsInYear(year: year))
+    init(year: Int, selected: String, monthNav: Binding<Int?>) {
         self.selected = selected
         self.year = year
+        self._monthNav = monthNav
     }
     
     var body: some View {
         VStack(spacing: UIScreen.screenWidth * 0.018) {
             HStack(spacing: UIScreen.screenWidth * 0.018) {
                 ForEach(1..<7) { i in
-                    MonthButton(year: year, month: i, selected: selected)
+                    MonthButton(year: year, month: i, selected: selected, monthNav: _monthNav)
                 }
             }
             HStack(spacing: UIScreen.screenWidth * 0.018) {
                 ForEach(7..<13) { i in
-                    MonthButton(year: year, month: i, selected: selected)
+                    MonthButton(year: year, month: i, selected: selected, monthNav: _monthNav)
                 }
             }
         }

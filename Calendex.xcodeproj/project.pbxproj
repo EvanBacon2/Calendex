@@ -88,6 +88,7 @@
 		CD9D306B2614677900F948F1 /* RangeFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D306A2614677900F948F1 /* RangeFields.swift */; };
 		CD9D30792619B3BF00F948F1 /* DayChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30782619B3BF00F948F1 /* DayChartViewModel.swift */; };
 		CD9D30812619BDB500F948F1 /* DataRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30802619BDB500F948F1 /* DataRecordViewModel.swift */; };
+		CD9D3097261D111400F948F1 /* DateInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D3096261D111400F948F1 /* DateInfoViewModel.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -217,6 +218,7 @@
 		CD9D306A2614677900F948F1 /* RangeFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeFields.swift; sourceTree = "<group>"; };
 		CD9D30782619B3BF00F948F1 /* DayChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayChartViewModel.swift; sourceTree = "<group>"; };
 		CD9D30802619BDB500F948F1 /* DataRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRecordViewModel.swift; sourceTree = "<group>"; };
+		CD9D3096261D111400F948F1 /* DateInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInfoViewModel.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				CDA22BBA25C0DB1C004D0CF2 /* Day.swift */,
 				CDA22C1925CE77F6004D0CF2 /* Settings.swift */,
 				CD08F1A9260D9EAC00FD3235 /* Loading.swift */,
+				CD9D3096261D111400F948F1 /* DateInfoViewModel.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -835,6 +838,7 @@
 				CDA22BBB25C0DB1C004D0CF2 /* Day.swift in Sources */,
 				CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */,
 				CD6CCC6825F4BD4800B256AA /* LoginViewModel.swift in Sources */,
+				CD9D3097261D111400F948F1 /* DateInfoViewModel.swift in Sources */,
 				CD6CCB9325DCAC4400B256AA /* AverageSlider.swift in Sources */,
 				CD6CCBFD25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift in Sources */,
 				CD6CCAE025D0C35200B256AA /* DataButtons.swift in Sources */,

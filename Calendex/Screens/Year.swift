@@ -13,6 +13,7 @@ struct Year: View {
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
+    @StateObject var viewModel: DateInfoViewModel
     @State var settingsActive: Bool = false
     
     init(year: Int) {
@@ -20,25 +21,42 @@ struct Year: View {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         
         self._yearInfo = FetchRequest(fetchRequest: Fetches.fetchDateInfo(year: year))
+        self._viewModel = StateObject(wrappedValue: DateInfoViewModel(year: year))
     }
     
     var body: some View {
         NavigationView {
-            ScrollView() {
+            ScrollView {
                 LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
                     Section(header: OverheadBanner("\(getYear())")) {
-                        Spacer().frame(height: Spacing.HEADER_MARGIN)
-                        MonthSummary(year: getYear())
-                        Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                        TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
-                        Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                        Distribution(distribution: (yearInfo.first?.date_info?.distribution)!)
-                        Spacer()
+                        TabView {
+                            LazyVStack(spacing: 0) {
+                                Spacer().frame(height: Spacing.HEADER_MARGIN)
+                                MonthSummary(year: getYear())
+                                Spacer().frame(height: Spacing.DOUBLE_SPACE)
+                                TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
+                                Spacer().frame(height: Spacing.DOUBLE_SPACE)
+                                Distribution(distribution: (yearInfo.first?.date_info?.distribution)!)
+                                Spacer()
+                                
+                            }
+                            
+                            LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
+                                Spacer().frame(height: Spacing.HEADER_MARGIN)
+                                MonthSummary(year: getYear())
+                                Spacer().frame(height: Spacing.DOUBLE_SPACE)
+                                TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
+                                Spacer().frame(height: Spacing.DOUBLE_SPACE)
+                                Distribution(distribution: (yearInfo.first?.date_info?.distribution)!)
+                                Spacer()
+                            }
+                            
+                            settingsLink()
+                        }.tabViewStyle(PageTabViewStyle())
                     }
                 }
-                settingsLink()
             }.navigationBarTitle("Welcome")
-            .navigationBarItems(trailing: SettingsButton($settingsActive))
+             .navigationBarItems(trailing: SettingsButton($settingsActive))
         }
     }
     
@@ -51,19 +69,7 @@ struct Year: View {
     }
     
     func getRange(_ range: Range) -> CGFloat {
-        if (yearInfo.isEmpty) {
-            return 0
-        } else {
-            let dis = yearInfo.first?.info?.distribution
-            switch range {
-            case .low:
-                return dis![0..<thToI(goals.lowBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
-            case .mid:
-                return dis![thToI(goals.lowBgThreshold)..<thToI(goals.highBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
-            case .high:
-                return dis![thToI(goals.highBgThreshold)..<dis!.count].reduce(0, { sum, val in sum + val.value }) * 100
-            }
-        }
+        return viewModel.getRange(range, lowBound: goals.lowBgThreshold, highBound: goals.highBgThreshold)
     }
     
     func thToI(_ threshold: Int) -> Int {
@@ -83,5 +89,28 @@ struct Year_Previews: PreviewProvider {
         return Year(year: 2021).environmentObject(Colors())
                                .environmentObject(Goals())
                                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
+
+extension NavigationLink where Label == EmptyView {
+    init?<Value>(_ binding: Binding<Value?>, @ViewBuilder destination: (Value) -> Destination) {
+        guard let value = binding.wrappedValue else {
+            return nil
+        }
+
+        let isActive = Binding(
+            get: { true },
+            set: { newValue in if !newValue { binding.wrappedValue = nil } }
+        )
+
+        self.init(destination: destination(value), isActive: isActive, label: EmptyView.init)
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func navigate<Value, Destination: View>(using binding: Binding<Value?>, @ViewBuilder destination: (Value) -> Destination
+    ) -> some View {
+        background(NavigationLink(binding, destination: destination))
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Day: View {
+    @FetchRequest var dayInfo: FetchedResults<Date_Info_Entity>
+    
     @EnvironmentObject var goals: Goals
     
     @State var settingsActive: Bool = false
@@ -16,11 +18,9 @@ struct Day: View {
     
     let day: Int
     
-    let dayInfo: Date_Info_Entity
-    
-    init(day: Int, dayInfo: Date_Info_Entity) {
+    init(year: Int, month: Int, day: Int) {
         self.day = day
-        self.dayInfo = dayInfo
+        self._dayInfo = FetchRequest(fetchRequest: Fetches.fetchDateInfo(year: year, month: month, day: day))
     }
     
     var body: some View {
@@ -29,15 +29,15 @@ struct Day: View {
             ScrollView {
                 Spacer().frame(height: Spacing.HEADER_MARGIN)
                 VStack(spacing: 0) {
-                    DayChart(day: dayInfo)
+                    DayChart(day: dayInfo.first!)
                     Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                    DayQuickData(min: dayInfo.info?.measures?.min ?? -1,
-                                 max: dayInfo.info?.measures?.max ?? -1,
-                                 avg: Int(dayInfo.info?.measures?.mean ?? -1.0))
+                    DayQuickData(min: dayInfo.first!.info?.measures?.min ?? -1,
+                                 max: dayInfo.first!.info?.measures?.max ?? -1,
+                                 avg: Int(dayInfo.first!.info?.measures?.mean ?? -1.0))
                     Spacer().frame(height: Spacing.DOUBLE_SPACE)
                     TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
                     Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                    Distribution(distribution: (dayInfo.date_info?.distribution)!)
+                    Distribution(distribution: (dayInfo.first!.date_info?.distribution)!)
                 }.frame(width: UIScreen.screenWidth)
             }
             settingsLink()
@@ -46,10 +46,7 @@ struct Day: View {
     }
     
     func getRange(_ range: Range) -> CGFloat {
-        let dis = dayInfo.info?.distribution
-        /*print("lowTime: \(tir!.lowTime)")
-        print("midTime: \(tir!.midTime)")
-        print("highTime: \(tir!.highTime)")*/
+        let dis = dayInfo.first!.info?.distribution
         switch range {
             case .low:
             return dis![0..<thToI(goals.lowBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100

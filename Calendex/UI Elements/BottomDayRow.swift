@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BottomDayRow: View {
+    @Binding var navDay: Int?
+    
     var selected: String
     
     let year: Int
@@ -16,7 +18,7 @@ struct BottomDayRow: View {
     var bottomOffset: Int
     var dayCount: Int
     
-    init(year: Int, month: Int, _ topOffset: Int, _ bottomOffset: Int, dayCount: Int, selected: String) {
+    init(year: Int, month: Int, _ topOffset: Int, _ bottomOffset: Int, dayCount: Int, selected: String, navDay: Binding<Int?>) {
         self.selected = selected
         
         self.year = year
@@ -24,6 +26,8 @@ struct BottomDayRow: View {
         self.topOffset = topOffset
         self.bottomOffset = bottomOffset
         self.dayCount = dayCount
+        
+        self._navDay = navDay
     }
     
     var body: some View {
@@ -33,7 +37,7 @@ struct BottomDayRow: View {
                 if (i > bottomOffset) {
                     DayButtonFiller()
                 } else {
-                    DayButton(year: year, month: month, day: index(i), selected: selected)
+                    DayButton(year: year, month: month, day: index(i), selected: selected, navDay: _navDay)
                 }
                 Spacer()
             }

@@ -13,23 +13,29 @@ struct DayButton: View {
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
+    @Binding var navDay: Int?
+    
     let day: Int
     let selected: String
     let buttonLength = UIScreen.screenWidth * 0.9 / 9
     let buttonCorner: CGFloat = 6
     
-    init(year: Int, month: Int, day: Int, selected: String) {
+    init(year: Int, month: Int, day: Int, selected: String, navDay: Binding<Int?>) {
         self._dayInfo = FetchRequest(fetchRequest: Fetches.fetchDateInfo(year: year, month: month, day: day))
         
         self.day = day
         self.selected = selected
+        
+        self._navDay = navDay
     }
     
     var body: some View {
         if !dayInfo.isEmpty {
-            NavigationLink(destination: Day(day: day, dayInfo: dayInfo.first!)) {
+            Button {
+                self.navDay = day
+            } label: {
                 dayRec()
-            }
+            }.frame(width: buttonLength, height: buttonLength)
         } else {
             dayRec()
         }

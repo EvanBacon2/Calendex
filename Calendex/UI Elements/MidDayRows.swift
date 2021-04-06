@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MidDayRows: View {
+    @Binding var navDay: Int?
+    
     let selected: String
     
     let year: Int
@@ -15,18 +17,20 @@ struct MidDayRows: View {
     let offset: Int
     let dayCount: Int
     
-    init(year: Int, month: Int, offset: Int, dayCount: Int, selected: String) {
+    init(year: Int, month: Int, offset: Int, dayCount: Int, selected: String, navDay: Binding<Int?>) {
         self.selected = selected
         
         self.year = year
         self.month = month
         self.offset = offset
         self.dayCount = dayCount
+        
+        self._navDay = navDay
     }
     
     var body: some View {
         ForEach(0..<dayCount/7) { i in
-            MidDayRow(year: year, month: month, offset: offset, row: i, selected: selected)
+            MidDayRow(year: year, month: month, offset: offset, row: i, selected: selected, navDay: _navDay)
         }
     }
 }
