@@ -12,13 +12,12 @@ import Foundation
 class DateInfoViewModel: ObservableObject {
     let coreContext = PersistenceController.shared.container.viewContext
     
-    let dateInfo: Date_Info_Entity?
+    var dateInfo: Date_Info_Entity? = nil
     
     init(year: Int = -1, month: Int = -1, day: Int = -1) {
         do {
-            dateInfo = try coreContext.fetch(Fetches.fetchDateInfo(year: year, month: month, day: day)).first ?? nil
+            dateInfo = try coreContext.fetch(Fetches.fetchDateInfo(year: year, month: month, day: day)).first
         } catch {
-            dateInfo = nil
             print(error)
         }
     }

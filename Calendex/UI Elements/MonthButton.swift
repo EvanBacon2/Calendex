@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct MonthButton: View {
-    //@FetchRequest var monthInfo: FetchedResults<Date_Info_Entity>
-    
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
     @Binding var monthNav: Int?
+    
+    @StateObject var viewModel: DateButtonViewModel
     
     let selected: String
     let year: Int
@@ -25,9 +25,8 @@ struct MonthButton: View {
     let buttonCorner: CGFloat = 8
     
     init(year: Int, month: Int, selected: String, monthNav: Binding<Int?>) {
-        //self._monthInfo = FetchRequest(fetchRequest: Fetches.fetchDateInfo(year: year, month: month))
-        
         self._monthNav = monthNav
+        self._viewModel = StateObject(wrappedValue: DateButtonViewModel(year: year, month: month))
         
         self.selected = selected
         self.year = year
@@ -35,56 +34,37 @@ struct MonthButton: View {
     }
     
     var body: some View {
-        //if !self.monthInfo.isEmpty && self.monthInfo.first!.info!.entries > 0 {
+        if viewModel.dateHasData() {
             Button {
                 self.monthNav = month
             } label: {
                 monthRec()
             }.frame(width: buttonWidth, height: buttonHeight)
-        //} else {
-           // monthRec()
-        //}
+        } else {
+           monthRec()
+        }
     }
     
     func monthRec() -> some View {
-        let active = true//!self.monthInfo.isEmpty
+        let active = viewModel.dateHasData()
         
         return Text(monthNames[month - 1])
                   .foregroundColor(active ? Color.white: colors.DARK_GRAY)
                   .frame(width: buttonWidth, height: buttonHeight)
                   .background(RoundedRectangle(cornerRadius: buttonCorner, style: .continuous)
                                 .fill(active ? colors.getActiveColor(range: getRange()) : colors.LIGHT_BLUE_GRAY)
-                                  .frame(width: buttonWidth, height: buttonHeight)
-                                  .shadow(radius: 6, y: 6))
+                                .frame(width: buttonWidth, height: buttonHeight)
+                                .shadow(radius: 6, y: 6))
     }
     
     func getRange() -> Range {
         if (selected == "Average") {
-            let mean = CGFloat(84.0)//monthInfo.first!.info?.measures?.mean ?? 0.0
-            
-            if (mean < CGFloat(goals.lowBgThreshold)) {
-                return .low
-            } else if (mean > CGFloat(goals.highBgThreshold)) {
-                return .high
-            } else {
-                return .mid
-            }
+            return viewModel.getAvgRange(lowBound: goals.lowBgThreshold, highBound: goals.highBgThreshold)
         } else if (selected == "Range") {
-            let range = CGFloat(72.0) //monthInfo.first!.info!.distribution![thToI(goals.lowBgThreshold)..<thToI(goals.highBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
-            
-            if (range >= CGFloat(goals.TimeInRangeThreshold)) {
-                return .mid
-            } else {
-                return .high
-            }
+            return viewModel.getTimeRange(timeBound: goals.TimeInRangeThreshold,
+                                          lowBound: goals.lowBgThreshold, highBound: goals.highBgThreshold)
         } else {//if selected == "Deviation"
-            let deviation = CGFloat(29.0)//monthInfo.first!.info?.measures?.stdDeviation ?? 0.0
-            
-            if (deviation <= CGFloat(goals.DeviationThreshold)) {
-                return .mid
-            } else {
-                return .high
-            }
+            return viewModel.getStdDevRange(devBound: goals.DeviationThreshold)
         }
     }
     

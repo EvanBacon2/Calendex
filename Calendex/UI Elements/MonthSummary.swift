@@ -28,7 +28,7 @@ struct MonthSummary: View {
             seperator()
             Spacer().frame(height: Spacing.SINGLE_SPACE)
             DataButtons(selected: $selected)
-        }//.navigate(using: $navMonth, destination: makeMonth)
+        }.navigate(using: $navMonth, destination: makeMonth)
     }
     
     @ViewBuilder

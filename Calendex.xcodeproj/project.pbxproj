@@ -89,6 +89,8 @@
 		CD9D30792619B3BF00F948F1 /* DayChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30782619B3BF00F948F1 /* DayChartViewModel.swift */; };
 		CD9D30812619BDB500F948F1 /* DataRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30802619BDB500F948F1 /* DataRecordViewModel.swift */; };
 		CD9D3097261D111400F948F1 /* DateInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D3096261D111400F948F1 /* DateInfoViewModel.swift */; };
+		CD9D309C261D2C9C00F948F1 /* DateButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D309B261D2C9C00F948F1 /* DateButtonViewModel.swift */; };
+		CD9D30A1261D88FD00F948F1 /* YearInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30A0261D88FD00F948F1 /* YearInfo.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -219,6 +221,8 @@
 		CD9D30782619B3BF00F948F1 /* DayChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayChartViewModel.swift; sourceTree = "<group>"; };
 		CD9D30802619BDB500F948F1 /* DataRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRecordViewModel.swift; sourceTree = "<group>"; };
 		CD9D3096261D111400F948F1 /* DateInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInfoViewModel.swift; sourceTree = "<group>"; };
+		CD9D309B261D2C9C00F948F1 /* DateButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButtonViewModel.swift; sourceTree = "<group>"; };
+		CD9D30A0261D88FD00F948F1 /* YearInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearInfo.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 				CDA22C1925CE77F6004D0CF2 /* Settings.swift */,
 				CD08F1A9260D9EAC00FD3235 /* Loading.swift */,
 				CD9D3096261D111400F948F1 /* DateInfoViewModel.swift */,
+				CD9D30A0261D88FD00F948F1 /* YearInfo.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -545,6 +550,7 @@
 				CD63027225B60A5A003A6AA2 /* MonthButton.swift */,
 				CD6302B325BE6F41003A6AA2 /* MonthButtons.swift */,
 				CD6CCAEA25D0D11B00B256AA /* MonthSummary.swift */,
+				CD9D309B261D2C9C00F948F1 /* DateButtonViewModel.swift */,
 			);
 			name = "Month Summary";
 			sourceTree = "<group>";
@@ -797,6 +803,7 @@
 				CD6CCACE25D0C01000B256AA /* ScreenHeader.swift in Sources */,
 				CD63025925B4A1ED003A6AA2 /* OverheadBanner.swift in Sources */,
 				CD6302AF25BE6487003A6AA2 /* DistributionRange.swift in Sources */,
+				CD9D309C261D2C9C00F948F1 /* DateButtonViewModel.swift in Sources */,
 				CD6CCBC625DF73AC00B256AA /* Colors.swift in Sources */,
 				CD6CCB7E25DC765000B256AA /* Deviation.swift in Sources */,
 				CD6CCBBC25DEE6A100B256AA /* PickerBoxTriangle.swift in Sources */,
@@ -814,6 +821,7 @@
 				CD6CCBA325DEC9DD00B256AA /* DataBar.swift in Sources */,
 				CDA22C1A25CE77F6004D0CF2 /* Settings.swift in Sources */,
 				CD6CCAD625D0C0F000B256AA /* TimeInRange.swift in Sources */,
+				CD9D30A1261D88FD00F948F1 /* YearInfo.swift in Sources */,
 				CDFE642D2607D82400986423 /* TokenRequest.swift in Sources */,
 				CD6CCC0425EB8B8800B256AA /* Bg_Info_Entity+CoreDataProperties.swift in Sources */,
 				CD63026E25B5FBD8003A6AA2 /* ScreenTitle.swift in Sources */,
