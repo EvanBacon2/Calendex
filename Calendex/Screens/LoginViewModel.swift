@@ -85,11 +85,11 @@ class LoginViewModel: NSObject, ObservableObject, ASWebAuthenticationPresentatio
     }
     
     private func populate(userRange: DataRange, lowBound: Int, highBound: Int) -> Promise<Void> {
+        let setup = BSSetup(lowBound: lowBound, highBound: highBound)
+        
         return Promise { seal in
             firstly {
-                BSSetup.populateDataBase(dataRange: userRange,
-                                         lowBound: lowBound,
-                                         highBound: highBound)
+                setup.populateDataBase(dataRange: userRange)
             }.done {
                 self.accessFlag = false
                 self.finishFlag = true

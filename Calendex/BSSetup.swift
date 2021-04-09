@@ -10,16 +10,30 @@ import PromiseKit
 import CoreData
 
 struct BSSetup {
-    static let coreContext = PersistenceController.shared.container.viewContext
+    let coreContext: NSManagedObjectContext
     
-    static func populateDataBase(dataRange: DataRange, lowBound: Int, highBound: Int) -> Promise<Void> {
+    let cal: Calendar
+    let formatter: DateFormatter
+    
+    let lowBound: Int
+    let highBound: Int
+    
+    init(lowBound: Int, highBound: Int) {
+        self.coreContext = PersistenceController.shared.container.viewContext
+        
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+        self.cal = calendar
+        
+        self.formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        self.lowBound = lowBound
+        self.highBound = highBound
+    }
+    
+    func populateDataBase(dataRange: DataRange) -> Promise<Void> {
         return Promise { seal in
-            var cal = Calendar.current
-            cal.timeZone = TimeZone(identifier: "UTC")!
-            
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-            
             var startDate = formatter.date(from: dataRange.egvs!.start.systemTime)!
             var endDate = formatter.date(from: dataRange.egvs!.end.systemTime)!
             let startComp = cal.dateComponents([.day, .month, .year], from: startDate)
@@ -43,58 +57,20 @@ struct BSSetup {
                 currDate = nextDate
             }
             
-            when(fulfilled: dates.map { DateEgvRequest.call(startDate: $0,
-                                                            endDate: cal.date(byAdding: .day, value: 90, to: $0)!)
-            }).done { results in
-                for res in results {
-                    var index = res.1.egvs.count - 1
-                    var startIndex = res.1.egvs.count - 1
-                    var currDay = formatter.date(from: res.1.egvs[res.1.egvs.count - 1].systemTime)!
-                    let dayComp = cal.dateComponents([.day, .month, .year], from: currDay)
-                    currDay = cal.date(from: dayComp)!
-                    print(currDay)
-                    var dayCutoff = cal.date(byAdding: .day, value: 1, to: currDay)!
-                    while index >= 0 {
-                        index -= 290
-                        if index < 0 {
-                            index = 0
-                        }
-                        
-                        while let indexDate = formatter.date(from: res.1.egvs[index].systemTime), indexDate > dayCutoff {
-                            index += 1
-                        }
-                        
-                        self.createDate(date: cal.dateComponents([.day, .month, .year], from: currDay),
-                                        info: self.getInfoFromEgvs(egvs: res.1.egvs[index..<startIndex],
-                                                                   lowBound: lowBound,
-                                                                   highBound: highBound))
-                        
-                        startIndex = index - 1
-                        index -= 1
-                        currDay = dayCutoff
-                        dayCutoff = cal.date(byAdding: .day, value: 1, to: dayCutoff)!
-                    }
-                }
-                
+            when(fulfilled: dates.map { fillDayBlock(startDate: $0,
+                                                     endDate: cal.date(byAdding: .day, value: 90, to: $0)!)
+            }).done {
                 var currMonth = cal.date(from: DateComponents(year: startComp.year!, month: startComp.month))!
                 while (currMonth <= endDate) {
                     let month = cal.dateComponents([.month, .year], from: currMonth)
-                    self.createDate(date: month,
-                                    info: self.getInfoFromCore(fetchType: "month",
-                                                               date: month,
-                                                               lowBound: lowBound,
-                                                               highBound: highBound))
+                    self.createDate(date: month, info: self.getInfoFromCore(fetchType: "month", date: month))
                     currMonth = cal.date(byAdding: .month, value: 1, to: currMonth)!
                 }
                 
                 var currYear = cal.date(from: DateComponents(year: startComp.year!))!
                 while (currYear <= endDate) {
                     let year = cal.dateComponents([.year], from: currYear)
-                    self.createDate(date: year,
-                                    info: self.getInfoFromCore(fetchType: "year",
-                                                               date: year,
-                                                               lowBound: lowBound,
-                                                               highBound: highBound))
+                    self.createDate(date: year, info: self.getInfoFromCore(fetchType: "year", date: year))
                     currYear = cal.date(byAdding: .year, value: 1, to: currYear)!
                 }
                 
@@ -105,7 +81,51 @@ struct BSSetup {
         }
     }
     
-    private static func createDate(date: DateComponents, info: Bg_Info_Entity) {
+    private func fillDayBlock(startDate: Date, endDate: Date) -> Promise<Void> {
+        return Promise { seal in
+            firstly {
+                DateEgvRequest.call(startDate: startDate, endDate: endDate)
+            }.done { res in
+                var cal = Calendar.current
+                cal.timeZone = TimeZone(identifier: "UTC")!
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+                
+                var index = res.1.egvs.count - 1
+                var startIndex = res.1.egvs.count - 1
+                var currDay = formatter.date(from: res.1.egvs[res.1.egvs.count - 1].systemTime)!
+                let dayComp = cal.dateComponents([.day, .month, .year], from: currDay)
+                currDay = cal.date(from: dayComp)!
+                print(currDay)
+                var dayCutoff = cal.date(byAdding: .day, value: 1, to: currDay)!
+                while index >= 0 {
+                    index -= 290
+                    if index < 0 {
+                        index = 0
+                    }
+                    
+                    while let indexDate = formatter.date(from: res.1.egvs[index].systemTime), indexDate > dayCutoff {
+                        index += 1
+                    }
+                    
+                    self.createDate(date: cal.dateComponents([.day, .month, .year], from: currDay),
+                                    info: self.getInfoFromEgvs(egvs: res.1.egvs[index..<startIndex]))
+                    
+                    startIndex = index - 1
+                    index -= 1
+                    currDay = dayCutoff
+                    dayCutoff = cal.date(byAdding: .day, value: 1, to: dayCutoff)!
+                }
+                
+                seal.fulfill(())
+            }.catch { error in
+                seal.reject(error)
+            }
+        }
+    }
+    
+    private func createDate(date: DateComponents, info: Bg_Info_Entity) {
         let dateEntity = Date_Info_Entity(context: self.coreContext)
         
         dateEntity.year = date.year ?? -1
@@ -114,7 +134,7 @@ struct BSSetup {
         dateEntity.date_info = info
     }
     
-    private static func getInfoFromEgvs(egvs: ArraySlice<Egv>, lowBound: Int, highBound: Int) -> Bg_Info_Entity {
+    private func getInfoFromEgvs(egvs: ArraySlice<Egv>) -> Bg_Info_Entity {
         let info = Bg_Info_Entity(context: self.coreContext)
         info.info_mea = Measures_Entity(context: self.coreContext)
         info.info_dis = Distribution_Entity(context: self.coreContext)
@@ -159,7 +179,7 @@ struct BSSetup {
         return info
     }
     
-    private static func getInfoFromCore(fetchType: String, date: DateComponents, lowBound: Int, highBound: Int) -> Bg_Info_Entity {
+    private func getInfoFromCore(fetchType: String, date: DateComponents) -> Bg_Info_Entity {
         var fetchRes: [Date_Info_Entity] = []
         
         do {
