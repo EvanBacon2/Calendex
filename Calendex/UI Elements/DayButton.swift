@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DayButton: View {
-    @FetchRequest var dayInfo: FetchedResults<Date_Info_Entity>
-    
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
     @Binding var navDay: Int?
+    
+    @StateObject var viewModel: DateButtonViewModel
     
     let day: Int
     let selected: String
@@ -21,16 +21,16 @@ struct DayButton: View {
     let buttonCorner: CGFloat = 6
     
     init(year: Int, month: Int, day: Int, selected: String, navDay: Binding<Int?>) {
-        self._dayInfo = FetchRequest(fetchRequest: Fetches.fetchDateInfo(year: year, month: month, day: day))
+        self._navDay = navDay
+        
+        self._viewModel = StateObject(wrappedValue: DateButtonViewModel(year: year, month: month, day: day))
         
         self.day = day
         self.selected = selected
-        
-        self._navDay = navDay
     }
     
     var body: some View {
-        if !dayInfo.isEmpty {
+        if viewModel.dateHasData() {
             Button {
                 self.navDay = day
             } label: {
@@ -42,7 +42,7 @@ struct DayButton: View {
     }
     
     func dayRec() -> some View {
-        let active = !dayInfo.isEmpty
+        let active = viewModel.dateHasData()
         
         return Text("\(day)")
             .font(.callout)
@@ -54,37 +54,14 @@ struct DayButton: View {
     }
     
     func getRange() -> Range {
-        if selected == "Average" {
-            let mean = dayInfo.first!.info?.measures?.mean ?? 0.0
-            
-            if (mean < CGFloat(goals.lowBgThreshold)) {
-                return .low
-            } else if (mean > CGFloat(goals.highBgThreshold)) {
-                return .high
-            } else {
-                return .mid
-            }
-        } else if selected == "Range" {
-            let range = dayInfo.first!.info!.distribution![thToI(goals.lowBgThreshold)..<thToI(goals.highBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
-            
-            if (range >= CGFloat(goals.TimeInRangeThreshold)) {
-                return .mid
-            } else {
-                return .high
-            }
+        if (selected == "Average") {
+            return viewModel.getAvgRange(lowBound: goals.lowBgThreshold, highBound: goals.highBgThreshold)
+        } else if (selected == "Range") {
+            return viewModel.getTimeRange(timeBound: goals.TimeInRangeThreshold,
+                                          lowBound: goals.lowBgThreshold, highBound: goals.highBgThreshold)
         } else {//if selected == "Deviation"
-            let deviation = dayInfo.first!.info?.measures?.stdDeviation ?? 0.0
-            
-            if (deviation <= CGFloat(goals.DeviationThreshold)) {
-                return .mid
-            } else {
-                return .high
-            }
+            return viewModel.getStdDevRange(devBound: goals.DeviationThreshold)
         }
-    }
-    
-    func thToI(_ threshold: Int) -> Int {
-        return (threshold / 10) - 4
     }
 }
 

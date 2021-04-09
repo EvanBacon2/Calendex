@@ -9,6 +9,12 @@ import Foundation
 import CoreData
 
 struct Fetches {
+    static func fetchMetaData() -> NSFetchRequest<Meta_Entity> {
+        let fetch: NSFetchRequest<Meta_Entity> = Meta_Entity.fetchRequest()
+        fetch.sortDescriptors = []
+        return fetch
+    }
+    
     static func fetchDateInfo(year: Int = -1, month: Int = -1, day: Int = -1) -> NSFetchRequest<Date_Info_Entity> {
         let fetch: NSFetchRequest<Date_Info_Entity> = Date_Info_Entity.fetchRequest()
         fetch.sortDescriptors = []

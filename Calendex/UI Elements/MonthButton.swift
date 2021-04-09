@@ -67,10 +67,6 @@ struct MonthButton: View {
             return viewModel.getStdDevRange(devBound: goals.DeviationThreshold)
         }
     }
-    
-    func thToI(_ threshold: Int) -> Int {
-        return (threshold / 10) - 4
-    }
 }
 
 struct MonthButton_Previews: PreviewProvider {

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct Month: View {
-    @FetchRequest var monthInfo: FetchedResults<Date_Info_Entity>
-    
     @EnvironmentObject var goals: Goals
     
+    let viewModel: MonthViewModel
     @State var settingsActive: Bool = false
+    @State var activeTab: Int
     
     let year: Int
     let month: Int
@@ -26,41 +26,24 @@ struct Month: View {
                        "July", "August", "September",
                        "October", "November", "December"]
         
-        self._monthInfo = FetchRequest(fetchRequest: Fetches.fetchDateInfo(year: year, month: month))
+        self.viewModel = MonthViewModel(year: year, month: month)
+        
+        self._activeTab = State(wrappedValue: month - viewModel.startMonth())
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            OverheadBanner(months[month-1])
-            ScrollView {
-                Spacer().frame(height: Spacing.HEADER_MARGIN)
-                VStack(spacing: 0) {
-                    DaySummary(year: year, month: month)
-                    Spacer().frame(height: Spacing.TRIPLE_SPACE)
-                    TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
-                    Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                    Distribution(distribution: (monthInfo.first!.date_info?.distribution)!)
-                }.frame(width: UIScreen.screenWidth)
-            }
-            settingsLink()
-        }.navigationBarTitle("Month", displayMode: .inline)
-        .navigationBarItems(trailing: SettingsButton($settingsActive))
-    }
-    
-    func getRange(_ range: Range) -> CGFloat {
-        let dis = monthInfo.first!.info?.distribution
-        switch range {
-            case .low:
-            return dis![0..<thToI(goals.lowBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
-        case .mid:
-            return dis![thToI(goals.lowBgThreshold)..<thToI(goals.highBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
-        case .high:
-            return dis![thToI(goals.highBgThreshold)..<dis!.count].reduce(0, { sum, val in sum + val.value }) * 100
-        }
-    }
-    
-    func thToI(_ threshold: Int) -> Int {
-        return (threshold / 10) - 4
+            VStack(spacing: 0) {
+                OverheadBanner(months[viewModel.startMonth() + activeTab - 1])
+                TabView(selection: $activeTab) {
+                    ForEach(0..<viewModel.nMonths()) { i in
+                        ScrollView {
+                            MonthInfo(year: self.year, month: viewModel.startMonth() + i)
+                        }
+                    }
+                }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                settingsLink()
+            }.navigationBarTitle("\(month)", displayMode: .inline)
+             .navigationBarItems(trailing: SettingsButton($settingsActive))
     }
     
     func settingsLink() -> NavigationLink<EmptyView, Settings> {
@@ -70,7 +53,8 @@ struct Month: View {
 
 struct Month_Previews: PreviewProvider {
     static var previews: some View {
-        //Month(year: 2025, month: 7).environmentObject(Colors()).environmentObject(Goals())
-        EmptyView()
+        Month(year: 2025, month: 7)
+            .environmentObject(Colors())
+            .environmentObject(Goals())
     }
 }

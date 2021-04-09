@@ -13,7 +13,7 @@ struct DowBanner: View {
     var dows = ["S", "M", "T", "W", "Th", "F", "S"]
     
     var body: some View {
-        VStack(alignment: .center, spacing: UIScreen.screenHeight * 0.01) {
+        VStack(alignment: .center, spacing: 0) {
             HStack() {
                 Spacer()
                 ForEach(0..<7) { i in
@@ -23,6 +23,7 @@ struct DowBanner: View {
                     Spacer()
                 }
             }
+            Spacer().frame(height: UIScreen.screenHeight * 0.01)
             Rectangle()
                 .fill(colors.DARK_GRAY)
                 .frame(width: UIScreen.screenWidth * 0.9, height: 1)

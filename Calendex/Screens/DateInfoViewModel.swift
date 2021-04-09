@@ -14,7 +14,15 @@ class DateInfoViewModel: ObservableObject {
     
     var dateInfo: Date_Info_Entity? = nil
     
+    let year: Int
+    let month: Int
+    let day: Int
+    
     init(year: Int = -1, month: Int = -1, day: Int = -1) {
+        self.year = year
+        self.month = month
+        self.day = day
+        
         do {
             dateInfo = try coreContext.fetch(Fetches.fetchDateInfo(year: year, month: month, day: day)).first
         } catch {

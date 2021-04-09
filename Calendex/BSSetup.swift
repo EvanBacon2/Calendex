@@ -27,7 +27,15 @@ struct BSSetup {
             startDate = cal.date(from: startComp)!
             endDate = cal.date(from: endComp)!
             
-            var dates: [Date] = []
+            let metaEntity = Meta_Entity(context: coreContext)
+            metaEntity.startYear = startComp.year!
+            metaEntity.startMonth = startComp.month!
+            metaEntity.startDay = startComp.day!
+            metaEntity.endYear = endComp.year!
+            metaEntity.endMonth = endComp.month!
+            metaEntity.endDay = endComp.day!
+            
+            var dates: [Date] = [startDate]
             
             var currDate = startDate
             while let nextDate = cal.date(byAdding: .day, value: 90, to: currDate), nextDate <= endDate {
@@ -44,23 +52,23 @@ struct BSSetup {
                     var currDay = formatter.date(from: res.1.egvs[res.1.egvs.count - 1].systemTime)!
                     let dayComp = cal.dateComponents([.day, .month, .year], from: currDay)
                     currDay = cal.date(from: dayComp)!
+                    print(currDay)
                     var dayCutoff = cal.date(byAdding: .day, value: 1, to: currDay)!
                     while index >= 0 {
-                        index -= 288
+                        index -= 290
                         if index < 0 {
                             index = 0
-                        } else {
-                            while let indexDate = formatter.date(from: res.1.egvs[index].systemTime),
-                                  indexDate > dayCutoff {
-                                index += 1
-                            }
                         }
-                        if startIndex - index > 0 {
-                            self.createDate(date: cal.dateComponents([.day, .month, .year], from: currDay),
-                                            info: self.getInfoFromEgvs(egvs: res.1.egvs[index..<startIndex],
-                                                                       lowBound: lowBound,
-                                                                       highBound: highBound))
+                        
+                        while let indexDate = formatter.date(from: res.1.egvs[index].systemTime), indexDate > dayCutoff {
+                            index += 1
                         }
+                        
+                        self.createDate(date: cal.dateComponents([.day, .month, .year], from: currDay),
+                                        info: self.getInfoFromEgvs(egvs: res.1.egvs[index..<startIndex],
+                                                                   lowBound: lowBound,
+                                                                   highBound: highBound))
+                        
                         startIndex = index - 1
                         index -= 1
                         currDay = dayCutoff
@@ -108,7 +116,6 @@ struct BSSetup {
     
     private static func getInfoFromEgvs(egvs: ArraySlice<Egv>, lowBound: Int, highBound: Int) -> Bg_Info_Entity {
         let info = Bg_Info_Entity(context: self.coreContext)
-        print(egvs.count)
         info.info_mea = Measures_Entity(context: self.coreContext)
         info.info_dis = Distribution_Entity(context: self.coreContext)
         info.entries = egvs.count

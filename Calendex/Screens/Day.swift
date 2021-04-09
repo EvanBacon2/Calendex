@@ -8,57 +8,39 @@
 import SwiftUI
 
 struct Day: View {
-    @FetchRequest var dayInfo: FetchedResults<Date_Info_Entity>
-    
     @EnvironmentObject var goals: Goals
     
+    let viewModel: DayViewModel
     @State var settingsActive: Bool = false
+    @State var activeTab: Int
     
     let blockSpace = UIScreen.screenHeight * 0.02
     
+    let year: Int
+    let month: Int
     let day: Int
     
     init(year: Int, month: Int, day: Int) {
+        self.year = year
+        self.month = month
         self.day = day
-        self._dayInfo = FetchRequest(fetchRequest: Fetches.fetchDateInfo(year: year, month: month, day: day))
+        self.viewModel = DayViewModel(year: year, month: month, day: day)
+        self._activeTab = State(wrappedValue: day - viewModel.startDay())
     }
     
     var body: some View {
         VStack(spacing: 0) {
-            OverheadBanner("\(day)")
-            ScrollView {
-                Spacer().frame(height: Spacing.HEADER_MARGIN)
-                VStack(spacing: 0) {
-                    DayChart(day: dayInfo.first!)
-                    Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                    DayQuickData(min: dayInfo.first!.info?.measures?.min ?? -1,
-                                 max: dayInfo.first!.info?.measures?.max ?? -1,
-                                 avg: Int(dayInfo.first!.info?.measures?.mean ?? -1.0))
-                    Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                    TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
-                    Spacer().frame(height: Spacing.DOUBLE_SPACE)
-                    Distribution(distribution: (dayInfo.first!.date_info?.distribution)!)
-                }.frame(width: UIScreen.screenWidth)
-            }
+            OverheadBanner("\(viewModel.startDay() + activeTab)")
+            TabView(selection: $activeTab) {
+                ForEach(0..<viewModel.nDays()) { i in
+                    ScrollView {
+                        DayInfo(year: self.year, month: self.month, day: viewModel.startDay() + i)
+                    }
+                }
+            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             settingsLink()
-        }.navigationTitle("\(day)")
-        .navigationBarItems(trailing: SettingsButton($settingsActive))
-    }
-    
-    func getRange(_ range: Range) -> CGFloat {
-        let dis = dayInfo.first!.info?.distribution
-        switch range {
-            case .low:
-            return dis![0..<thToI(goals.lowBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
-        case .mid:
-            return dis![thToI(goals.lowBgThreshold)..<thToI(goals.highBgThreshold)].reduce(0, { sum, val in sum + val.value }) * 100
-        case .high:
-            return dis![thToI(goals.highBgThreshold)..<dis!.count].reduce(0, { sum, val in sum + val.value }) * 100
-        }
-    }
-    
-    func thToI(_ threshold: Int) -> Int {
-        return (threshold / 10) - 4
+        }.navigationBarTitle("\(day)", displayMode: .inline)
+         .navigationBarItems(trailing: SettingsButton($settingsActive))
     }
     
     func settingsLink() -> NavigationLink<EmptyView, Settings> {

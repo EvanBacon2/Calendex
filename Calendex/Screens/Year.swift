@@ -8,45 +8,41 @@
 import SwiftUI
 
 struct Year: View {
+    @FetchRequest var metaData: FetchedResults<Meta_Entity>
+    
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
-    @StateObject var viewModel: DateInfoViewModel
     @State var settingsActive: Bool = false
     @State var activeTab: Int = 0
     
     init(year: Int) {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: AppColors.DARK_GRAY]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        self._viewModel = StateObject(wrappedValue: DateInfoViewModel(year: year))
+    
+        self._metaData = FetchRequest(fetchRequest: Fetches.fetchMetaData())
     }
     
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
-                    Section(header: OverheadBanner("\(viewModel.dateInfo!.year)")) {
+                    Section(header: OverheadBanner("\(metaData.first!.startYear + activeTab)")) {
                         TabView(selection: $activeTab) {
-                            YearInfo(year: 2016).tag(0)
-                            YearInfo(year: 2017).tag(1)
-                            settingsLink()
-                        }.tabViewStyle(PageTabViewStyle())
+                            ForEach(0..<nYears()) { i in
+                                YearInfo(year: metaData.first!.startYear + i).tag(i)
+                            }
+                        }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                     }
-                    printTab()
                 }
+                settingsLink()
             }.navigationBarTitle("Welcome")
              .navigationBarItems(trailing: SettingsButton($settingsActive))
         }
     }
     
-    func printTab() -> some View {
-        print(activeTab)
-        return EmptyView()
-    }
-    
-    func getRange(_ range: Range) -> CGFloat {
-        return viewModel.getRange(range, lowBound: goals.lowBgThreshold, highBound: goals.highBgThreshold)
+    func nYears() -> Int {
+        return (metaData.first!.endYear - metaData.first!.startYear) + 1
     }
     
     func settingsLink() -> NavigationLink<EmptyView, Settings> {
