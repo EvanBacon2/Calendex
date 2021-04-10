@@ -74,6 +74,7 @@ struct BSSetup {
                     currYear = cal.date(byAdding: .year, value: 1, to: currYear)!
                 }
                 
+                metaEntity.setupComplete = true
                 seal.fulfill(())
             }.catch { error in
                 seal.reject(error)

@@ -14,12 +14,18 @@ extension Meta_Entity {
         return NSFetchRequest<Meta_Entity>(entityName: "Meta_Entity")
     }
 
+    @NSManaged public var setup_complete_attr: Bool
     @NSManaged public var start_year_attr: Int32
     @NSManaged public var start_month_attr: Int32
     @NSManaged public var start_day_attr: Int32
     @NSManaged public var end_year_attr: Int32
     @NSManaged public var end_month_attr: Int32
     @NSManaged public var end_day_attr: Int32
+    
+    public var setupComplete: Bool {
+        get { return setup_complete_attr }
+        set(setup) { self.setup_complete_attr = setup }
+    }
     
     public var startYear: Int {
         get { return Int(start_year_attr) }

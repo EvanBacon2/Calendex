@@ -16,7 +16,7 @@ struct Year: View {
     @State var settingsActive: Bool = false
     @State var activeTab: Int = 0
     
-    init(year: Int) {
+    init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: AppColors.DARK_GRAY]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     
@@ -55,9 +55,9 @@ struct Year: View {
 
 struct Year_Previews: PreviewProvider {
     static var previews: some View {
-        return Year(year: 2021).environmentObject(Colors())
-                               .environmentObject(Goals())
-                               .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        return Year().environmentObject(Colors())
+                     .environmentObject(Goals())
+                     .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
 

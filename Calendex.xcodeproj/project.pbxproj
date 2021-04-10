@@ -340,20 +340,8 @@
 		CD08F16D26094D1200FD3235 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				CD3AA7D1259830730087ACF1 /* CalendexApp.swift */,
-				CD6CCC5F25F462AC00B256AA /* Login.swift */,
-				CD6CCC6725F4BD4800B256AA /* LoginViewModel.swift */,
-				CD63026525B51E20003A6AA2 /* Year.swift */,
-				CD6302C325C00571003A6AA2 /* Month.swift */,
-				CDA22BBA25C0DB1C004D0CF2 /* Day.swift */,
-				CDA22C1925CE77F6004D0CF2 /* Settings.swift */,
-				CD08F1A9260D9EAC00FD3235 /* Loading.swift */,
-				CD9D3096261D111400F948F1 /* DateInfoViewModel.swift */,
-				CD9D30A0261D88FD00F948F1 /* YearInfo.swift */,
-				CD9D30B2261EC95D00F948F1 /* MonthInfo.swift */,
-				CD9D30B7261F1DB300F948F1 /* MonthViewModel.swift */,
-				CD9D30BF261F278B00F948F1 /* DayInfo.swift */,
-				CD9D30C4261F2B1700F948F1 /* DayViewModel.swift */,
+				CD9D30CB2621AF8200F948F1 /* Views */,
+				CD9D30CC2621AF8C00F948F1 /* ViewModels */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -396,6 +384,7 @@
 		CD3AA7D0259830730087ACF1 /* Calendex */ = {
 			isa = PBXGroup;
 			children = (
+				CD3AA7D1259830730087ACF1 /* CalendexApp.swift */,
 				CD08F16C26094CD600FD3235 /* Core Data */,
 				CD08F16D26094D1200FD3235 /* Screens */,
 				CD63026325B51BE1003A6AA2 /* UI Elements */,
@@ -516,9 +505,8 @@
 		CD6CCBA125DEC9C100B256AA /* Data Record */ = {
 			isa = PBXGroup;
 			children = (
-				CD6CCBA225DEC9DD00B256AA /* DataBar.swift */,
-				CD9D30802619BDB500F948F1 /* DataRecordViewModel.swift */,
-				CD6CCBAA25DECB6600B256AA /* DataRecord.swift */,
+				CD9D30CE2621AFF000F948F1 /* ViewModels */,
+				CD9D30CD2621AFE900F948F1 /* Views */,
 			);
 			name = "Data Record";
 			sourceTree = "<group>";
@@ -531,6 +519,70 @@
 				CD6CCBC025DF263D00B256AA /* ColorPickerMenu.swift */,
 			);
 			name = "Color Picker";
+			sourceTree = "<group>";
+		};
+		CD9D30CB2621AF8200F948F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD6CCC5F25F462AC00B256AA /* Login.swift */,
+				CD08F1A9260D9EAC00FD3235 /* Loading.swift */,
+				CD63026525B51E20003A6AA2 /* Year.swift */,
+				CD9D30A0261D88FD00F948F1 /* YearInfo.swift */,
+				CD6302C325C00571003A6AA2 /* Month.swift */,
+				CD9D30B2261EC95D00F948F1 /* MonthInfo.swift */,
+				CDA22BBA25C0DB1C004D0CF2 /* Day.swift */,
+				CD9D30BF261F278B00F948F1 /* DayInfo.swift */,
+				CDA22C1925CE77F6004D0CF2 /* Settings.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CD9D30CC2621AF8C00F948F1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CD6CCC6725F4BD4800B256AA /* LoginViewModel.swift */,
+				CD9D3096261D111400F948F1 /* DateInfoViewModel.swift */,
+				CD9D30B7261F1DB300F948F1 /* MonthViewModel.swift */,
+				CD9D30C4261F2B1700F948F1 /* DayViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		CD9D30CD2621AFE900F948F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD6CCBA225DEC9DD00B256AA /* DataBar.swift */,
+				CD6CCBAA25DECB6600B256AA /* DataRecord.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CD9D30CE2621AFF000F948F1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CD9D30802619BDB500F948F1 /* DataRecordViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		CD9D30CF2621B01500F948F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD63027725B6116A003A6AA2 /* DataButton.swift */,
+				CD6CCADF25D0C35200B256AA /* DataButtons.swift */,
+				CD63027225B60A5A003A6AA2 /* MonthButton.swift */,
+				CD6302B325BE6F41003A6AA2 /* MonthButtons.swift */,
+				CD6CCAEA25D0D11B00B256AA /* MonthSummary.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CD9D30D02621B01E00F948F1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CD9D309B261D2C9C00F948F1 /* DateButtonViewModel.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 		CDA22BBF25C7DEA9004D0CF2 /* Day Summary */ = {
@@ -563,12 +615,8 @@
 		CDA22BCA25C7DF4A004D0CF2 /* Month Summary */ = {
 			isa = PBXGroup;
 			children = (
-				CD63027725B6116A003A6AA2 /* DataButton.swift */,
-				CD6CCADF25D0C35200B256AA /* DataButtons.swift */,
-				CD63027225B60A5A003A6AA2 /* MonthButton.swift */,
-				CD6302B325BE6F41003A6AA2 /* MonthButtons.swift */,
-				CD6CCAEA25D0D11B00B256AA /* MonthSummary.swift */,
-				CD9D309B261D2C9C00F948F1 /* DateButtonViewModel.swift */,
+				CD9D30CF2621B01500F948F1 /* Views */,
+				CD9D30D02621B01E00F948F1 /* ViewModels */,
 			);
 			name = "Month Summary";
 			sourceTree = "<group>";

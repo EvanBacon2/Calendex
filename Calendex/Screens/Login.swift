@@ -9,6 +9,8 @@ import SwiftUI
 import PromiseKit
 
 struct Login: View {
+    @FetchRequest var metaData: FetchedResults<Meta_Entity>
+    
     @Environment(\.managedObjectContext) var coreContext
     
     @EnvironmentObject var colors: Colors
@@ -19,15 +21,23 @@ struct Login: View {
     let fieldWidth = Dimensions.BASE_UNIT * 85
     let fieldHeight = Dimensions.BASE_UNIT * 30
     
+    init() {
+        self._metaData = FetchRequest(fetchRequest: Fetches.fetchMetaData())
+    }
+    
     var body: some View {
-        if (viewModel.authFlag) {
-            signInButton()
-        } else if (viewModel.accessFlag) {
-            Loading()
-        } else if (viewModel.finishFlag) {
-            Year(year: 2016)
+        if let meta = metaData.first, meta.setupComplete {
+            Year()
         } else {
-            EmptyView()
+            if (viewModel.authFlag) {
+                signInButton()
+            } else if (viewModel.accessFlag) {
+                Loading()
+            } else if (viewModel.finishFlag) {
+                Year()
+            } else {
+                EmptyView()
+            }
         }
     }
     
