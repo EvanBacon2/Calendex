@@ -44,12 +44,12 @@ struct ColorPickerMenu: View {
     func pickerBox() -> some View {
         return VStack(spacing: 0) {
             PickerBoxTriangle()
-                .fill(colors.LIGHT_BLUE_GRAY)
+                .fill(AppColors.LIGHT_BLUE_GRAY)
                 .frame(width: circleDiameter / 3,
                        height: circleDiameter / 3)
             RoundedRectangle(cornerRadius: 5)
-                .fill(colors.LIGHT_BLUE_GRAY)
-                .frame(width: ((circleDiameter + circleSpacing) * CGFloat(colors.RANGE_COLOR_OPTIONS)) + circleSpacing,
+                .fill(AppColors.LIGHT_BLUE_GRAY)
+                .frame(width: ((circleDiameter + circleSpacing) * CGFloat(AppColors.RANGE_COLOR_OPTIONS)) + circleSpacing,
                        height: circleDiameter + circleSpacing * 2)
                 .fixedSize()
                 .frame(width: circleDiameter)

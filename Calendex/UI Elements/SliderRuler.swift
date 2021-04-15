@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct SliderRuler: View {
-    @EnvironmentObject var colors: Colors
-    
     var markings: [Int]
     var rulerRange: CGFloat
     var rulerWidth: CGFloat
@@ -31,7 +29,7 @@ struct SliderRuler: View {
             }.frame(width: rulerWidth)
             
             RoundedRectangle(cornerRadius: 5)
-                .fill(colors.LIGHT_BLUE_GRAY)
+                .fill(AppColors.LIGHT_BLUE_GRAY)
                 .frame(width: rulerWidth, height: Dimensions.BASE_UNIT * 2)
             
             HStack(spacing: 0) {
@@ -48,14 +46,14 @@ struct SliderRuler: View {
     func rulerText(text: String) -> some View {
         return Text(text)
             .font(.callout)
-            .foregroundColor(colors.DARK_GRAY)
+            .foregroundColor(AppColors.DARK_GRAY)
             .fixedSize()
             .frame(width: 1.0)
     }
     
     func rulerMarking() -> some View {
         return RoundedRectangle(cornerRadius: 5)
-            .fill(colors.LIGHT_BLUE_GRAY)
+            .fill(AppColors.LIGHT_BLUE_GRAY)
             .frame(width: Dimensions.BASE_UNIT *  2)
             .fixedSize()
             .frame(width: 1.0,

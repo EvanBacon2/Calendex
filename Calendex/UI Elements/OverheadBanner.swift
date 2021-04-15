@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct OverheadBanner: View {
-    @EnvironmentObject var colors: Colors
-    
     var title: String
     let bannerRadius = Dimensions.BASE_UNIT * 35
     let bannerHeight = Dimensions.BASE_UNIT * 30
@@ -22,7 +20,7 @@ struct OverheadBanner: View {
         ZStack(content: {
             HStack(spacing: -bannerRadius, content: {
                 RoundedRectangle(cornerRadius: 0.0)
-                    .fill(colors.ACCENT_COLOR)
+                    .fill(AppColors.ACCENT_COLOR)
                     .frame(width: UIScreen.screenWidth * 1.0, height: bannerHeight)
                 
             })

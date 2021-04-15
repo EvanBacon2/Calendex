@@ -29,7 +29,7 @@ struct DataBar: View {
     
     func barSlice(data: Bool) -> some View {
         return Rectangle()
-            .fill(data ? AppColors.BRAND_COLOR: AppColors.LIGHT_BLUE_GRAY)
+            .fill(data ? AppColors.ACCENT_COLOR: AppColors.LIGHT_BLUE_GRAY)
             .frame(width: barWidth / 363.0,
                    height: barHeight)
     }
@@ -37,12 +37,12 @@ struct DataBar: View {
     func barCap(data: Bool, endCap: Bool) -> some View {
         return HStack(spacing: 0) {
             RoundedRectangle(cornerRadius: barHeight)
-                .fill(data ? AppColors.BRAND_COLOR: AppColors.LIGHT_BLUE_GRAY)
+                .fill(data ? AppColors.ACCENT_COLOR: AppColors.LIGHT_BLUE_GRAY)
                 .frame(width: barHeight,
                        height: barHeight)
                 .offset(x: barHeight / 2)
             Rectangle()
-                .fill(data ? AppColors.BRAND_COLOR: AppColors.LIGHT_BLUE_GRAY)
+                .fill(data ? AppColors.ACCENT_COLOR: AppColors.LIGHT_BLUE_GRAY)
                 .frame(width: barHeight / 2,
                        height: barHeight)
         }.frame(height: barHeight)

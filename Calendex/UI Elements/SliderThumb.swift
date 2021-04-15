@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct SliderThumb: View {
-    @EnvironmentObject var colors: Colors
-    
     @Binding var val: CGFloat
     @Binding private var sliderPos: CGFloat
     
@@ -94,7 +92,7 @@ struct SliderThumb: View {
                 thumbCaption(top: true)
             }
             Rectangle()
-                .fill(colors.LIGHT_BLUE_GRAY)
+                .fill(AppColors.LIGHT_BLUE_GRAY)
                 .frame(width: Dimensions.BASE_UNIT * 3,
                        height: Dimensions.BASE_UNIT * 11)
                 .offset(x: self.sliderPos)
@@ -109,7 +107,7 @@ struct SliderThumb: View {
         let offset: CGFloat = top ? topOff : bottomOff
         
         return Text("\(Int(self.val))")
-                .foregroundColor(colors.DARK_GRAY)
+                .foregroundColor(AppColors.DARK_GRAY)
                 .animatableFont(name: "San Francisco", size: fontSize)
                 .offset(y: offset)
                 .offset(x: self.sliderPos)

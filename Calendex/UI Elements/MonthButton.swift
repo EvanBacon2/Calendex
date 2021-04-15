@@ -49,12 +49,11 @@ struct MonthButton: View {
         let active = viewModel.dateHasData()
         
         return Text(monthNames[month - 1])
-                  .foregroundColor(active ? Color.white: colors.DARK_GRAY)
+                  .foregroundColor(active ? Color.white: AppColors.DARK_GRAY)
                   .frame(width: buttonWidth, height: buttonHeight)
                   .background(RoundedRectangle(cornerRadius: buttonCorner, style: .continuous)
-                                .fill(active ? colors.getActiveColor(range: getRange()) : colors.LIGHT_BLUE_GRAY)
+                                .fill(active ? colors.activeColor(range: getRange()) : AppColors.LIGHT_BLUE_GRAY)
                                 .frame(width: buttonWidth, height: buttonHeight))
-                                //.shadow(radius: 6, y: 6))
     }
     
     func getRange() -> Range {

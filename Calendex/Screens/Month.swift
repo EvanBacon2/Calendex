@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct Month: View {
-    @EnvironmentObject var goals: Goals
-    
     let viewModel: MonthViewModel
+    
     @State var settingsActive: Bool = false
     @State var activeTab: Int
     

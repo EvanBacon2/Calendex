@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct DowBanner: View {
-    @EnvironmentObject var colors: Colors
-    
     var dows = ["S", "M", "T", "W", "Th", "F", "S"]
     
     var body: some View {
@@ -25,7 +23,7 @@ struct DowBanner: View {
             }
             Spacer().frame(height: UIScreen.screenHeight * 0.01)
             Rectangle()
-                .fill(colors.DARK_GRAY)
+                .fill(AppColors.DARK_GRAY)
                 .frame(width: UIScreen.screenWidth * 0.9, height: 1)
         }.frame(width: UIScreen.screenWidth * 0.9)
     }

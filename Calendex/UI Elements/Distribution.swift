@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct Distribution: View {
-    @EnvironmentObject var colors: Colors
-    
     let distribution: [CGFloat]
     
     init(distribution: [CGFloat]) {

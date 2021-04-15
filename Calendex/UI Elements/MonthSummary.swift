@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MonthSummary: View {
-    @EnvironmentObject var colors: Colors
-    
     @State var selected: String = "Average"
     @State var navMonth: Int? = nil
     
@@ -38,7 +36,7 @@ struct MonthSummary: View {
     
     func seperator() -> some View {
         return Rectangle()
-            .fill(colors.DARK_GRAY)
+            .fill(AppColors.DARK_GRAY)
             .frame(width: UIScreen.screenWidth * 0.85, height: 1)
     }
 }

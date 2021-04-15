@@ -11,11 +11,6 @@ import PromiseKit
 struct Login: View {
     @FetchRequest var metaData: FetchedResults<Meta_Entity>
     
-    @Environment(\.managedObjectContext) var coreContext
-    
-    @EnvironmentObject var colors: Colors
-    @EnvironmentObject var goals: Goals
-    
     @StateObject var viewModel: LoginViewModel = LoginViewModel()
     
     let fieldWidth = Dimensions.BASE_UNIT * 85
@@ -51,7 +46,7 @@ struct Login: View {
                 Text("Login")
                     .foregroundColor(Color.white)
                     .background(RoundedRectangle(cornerRadius: 35)
-                        .fill(colors.ACCENT_COLOR)
+                        //.fill(AppColors.ACCENT_COLOR)
                         .frame(width: fieldWidth,
                                height: fieldHeight))
             }.frame(width: fieldWidth,

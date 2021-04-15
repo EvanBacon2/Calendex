@@ -27,10 +27,10 @@ struct DataButton: View {
             selected = label
         }) {
             Text(self.label)
-                .foregroundColor(selected == label ? Color.white : colors.DARK_GRAY)
+                .foregroundColor(selected == label ? Color.white : AppColors.DARK_GRAY)
                 .frame(width: buttonWidth, height: buttonHeight)
                 .background(RoundedRectangle(cornerRadius: buttonCorner)
-                    .fill(selected == label ? colors.ACCENT_COLOR : colors.LIGHT_BLUE_GRAY)
+                    .fill(selected == label ? AppColors.ACCENT_COLOR : AppColors.LIGHT_BLUE_GRAY)
                     .frame(width: buttonWidth, height: buttonHeight))
                     //.shadow(radius: 6, y: 6))
         }

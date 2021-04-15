@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ChartPoint: View {
-    @EnvironmentObject var colors: Colors
-    
     var x: CGFloat
     var y: CGFloat
     
@@ -20,8 +18,8 @@ struct ChartPoint: View {
     
     var body: some View {
         Circle()
-            .strokeBorder(colors.LIGHT_BLUE_GRAY)
-            .background(Circle()).foregroundColor(colors.DARK_GRAY)
+            .strokeBorder(AppColors.LIGHT_BLUE_GRAY)
+            .background(Circle()).foregroundColor(AppColors.DARK_GRAY)
             .frame(width: UIScreen.screenWidth * 0.8 / 268, height: UIScreen.screenHeight * 0.012)
             .offset(x: (UIScreen.screenWidth * 0.8 * x) - UIScreen.screenWidth * 0.4,
                     y: UIScreen.screenHeight * 0.4 * CGFloat(-(y - 220) / 360.0))

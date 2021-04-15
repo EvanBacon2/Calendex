@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct DistributionGraph: View {
-    @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
-    let distribution: [CGFloat]
+    var distribution: [CGFloat] = Array(repeating: 0, count: 36)
     let ceiling: CGFloat
     
     let baseAngleOffset = 15.0
@@ -24,22 +23,7 @@ struct DistributionGraph: View {
     var body: some View {
         VStack() {
             HStack(alignment: .top, spacing: UIScreen.screenHeight * 0.004) {
-                VStack() {
-                    Text("\(Int(round(ceiling)))")
-                        .font(.footnote)
-                        .foregroundColor(colors.DARK_GRAY)
-                    Spacer()
-                    Text("0")
-                        .font(.footnote)
-                        .foregroundColor(colors.DARK_GRAY)
-                }.frame(height: UIScreen.screenHeight * 0.1)
-                VStack() {
-                    Rectangle()
-                        .fill(colors.LIGHT_BLUE_GRAY)
-                        .frame(width: UIScreen.screenHeight * 0.004,
-                               height: UIScreen.screenHeight * 0.1)
-                        Spacer()
-                }.frame(height: UIScreen.screenHeight * 0.114)
+                DistributionYAxis(ceiling: ceiling)
                 Spacer().frame(width: UIScreen.screenHeight * 0.012)
                 DistributionRange(lowVals(), .low, ceiling)
                 DistributionRangeMarker("\(goals.lowBgThreshold)",
@@ -57,6 +41,8 @@ struct DistributionGraph: View {
     }
     
     func lowVals() -> [CGFloat] {
+        print("test")
+        
         return Array(distribution[0..<index(goals.lowBgThreshold)])
     }
     

@@ -85,7 +85,7 @@ struct GoalSlider: View {
                 barCap(range: range, endCap: false)
             }
             Rectangle()
-                .fill(colors.getActiveColor(range: range))
+                .fill(colors.activeColor(range: range))
                 .frame(width: width,
                        height: sliderHeight)
             if (range == activeRanges[activeRanges.count - 1]) {
@@ -97,12 +97,12 @@ struct GoalSlider: View {
     func barCap(range: Range, endCap: Bool) -> some View {
         return HStack(spacing: 0) {
             RoundedRectangle(cornerRadius: sliderHeight)
-                .fill(colors.getActiveColor(range: range))
+                .fill(colors.activeColor(range: range))
                 .frame(width: sliderHeight,
                        height: sliderHeight)
                 .offset(x: sliderHeight / 2)
             Rectangle()
-                .fill(colors.getActiveColor(range: range))
+                .fill(colors.activeColor(range: range))
                 .frame(width: sliderHeight / 2,
                        height: sliderHeight)
         }.frame(height: sliderHeight)

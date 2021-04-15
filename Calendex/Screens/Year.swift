@@ -10,15 +10,15 @@ import SwiftUI
 struct Year: View {
     @FetchRequest var metaData: FetchedResults<Meta_Entity>
     
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var colors: Colors
-    @EnvironmentObject var goals: Goals
     
     @State var settingsActive: Bool = false
     @State var activeTab: Int
     
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: AppColors.DARK_GRAY]
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        //UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(AppColors.DARK_GRAY)]
+        //UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     
         self._metaData = FetchRequest(fetchRequest: Fetches.fetchMetaData())
         self._activeTab = State(wrappedValue: 2015)
@@ -54,9 +54,9 @@ struct Year: View {
                     }
                 }
                 settingsLink()
-            }.navigationBarTitle("Welcome")
+            }.navigationBarTitle("", displayMode: .inline)
              .navigationBarItems(trailing: SettingsButton($settingsActive))
-            .background(SwiftUI.Color.init(hue: 191.0 / 360, saturation: 0.0 / 100, brightness: 8.0 / 100))
+             .background(colors.backgroundColor(colorScheme))
         }
     }
     

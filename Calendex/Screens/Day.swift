@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct Day: View {
-    @EnvironmentObject var goals: Goals
-    
     let viewModel: DayViewModel
+    
     @State var settingsActive: Bool = false
     @State var activeTab: Int
-    
-    let blockSpace = UIScreen.screenHeight * 0.02
     
     let year: Int
     let month: Int

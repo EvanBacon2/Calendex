@@ -19,10 +19,10 @@ struct HighRangeBackground: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             RoundedRectangle(cornerRadius: UIScreen.screenHeight * 0.0125)
-                .fill(colors.getActiveColor(range: .high))
+                .fill(colors.activeColor(range: .high))
                 .frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight * height)
             Rectangle()
-                .fill(colors.getActiveColor(range: .high))
+                .fill(colors.activeColor(range: .high))
                 .frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight * height / 2)
         }
     }

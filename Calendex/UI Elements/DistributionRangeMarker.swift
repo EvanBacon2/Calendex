@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct DistributionRangeMarker: View {
-    @EnvironmentObject var colors: Colors
-    
     let val: String
     let angleOffset: Double
     let angleShift: Double
@@ -28,7 +26,7 @@ struct DistributionRangeMarker: View {
             VStack(spacing: 0) {
                 Spacer()
                 Rectangle()
-                    .fill(colors.LIGHT_BLUE_GRAY)
+                    .fill(AppColors.LIGHT_BLUE_GRAY)
                     .frame(width: markerW, height: markerH)
                     .rotationEffect(.radians(angleOffset))
             }.frame(height: UIScreen.screenHeight * 0.126)

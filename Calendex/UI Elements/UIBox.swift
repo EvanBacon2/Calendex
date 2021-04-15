@@ -25,7 +25,7 @@ struct UIBox<Content: View>: View {
     
     func box() -> some View {
         return RoundedRectangle(cornerRadius: 10)
-            .fill(colors.getBoxColor(colorScheme))
+            .fill(colors.boxColor(colorScheme))
             .padding(-Spacing.SINGLE_SPACE * 1.5)
     }
 }

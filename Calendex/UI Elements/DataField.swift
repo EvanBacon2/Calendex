@@ -31,7 +31,7 @@ struct DataField: View {
     var body: some View {
         VStack(spacing: UIScreen.screenHeight * 0.002) {
             Text(data.rawValue)
-                .foregroundColor(colors.DARK_GRAY)
+                .foregroundColor(AppColors.DARK_GRAY)
             Text("\(value) ml")
                 .foregroundColor(textColor())
                 .frame(width: buttonWidth, height: buttonHeight)
@@ -42,11 +42,11 @@ struct DataField: View {
     }
     
     func textColor() -> Color {
-        return data == .AVG ? colors.LIGHT_BLUE_GRAY : colors.DARK_GRAY
+        return data == .AVG ? AppColors.LIGHT_BLUE_GRAY : AppColors.DARK_GRAY
     }
     
     func buttonColor() -> Color {
-        return data == .AVG ? colors.getActiveColor(range: getRange()) : colors.LIGHT_BLUE_GRAY
+        return data == .AVG ? colors.activeColor(range: getRange()) : AppColors.LIGHT_BLUE_GRAY
     }
     
     func getRange() -> Range {

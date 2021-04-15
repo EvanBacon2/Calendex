@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct SubBanner: View {
-    @EnvironmentObject var colors: Colors
-    
     var title: String
     
     init(_ title: String) {
@@ -21,7 +19,7 @@ struct SubBanner: View {
             Text(self.title).font(.title2)
             Spacer().frame(height: UIScreen.screenHeight * 0.01)
             Rectangle()
-                .fill(colors.DARK_GRAY)
+                .fill(AppColors.DARK_GRAY)
                 .frame(width: UIScreen.screenWidth * 0.9, height: Dimensions.BASE_UNIT)
         }
     }

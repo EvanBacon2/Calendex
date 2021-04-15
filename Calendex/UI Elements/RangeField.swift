@@ -74,21 +74,21 @@ struct RangeField: View {
         return RoundedRectangle(cornerRadius: fieldR,           style: .continuous)
             .frame(width: fieldW * activeWscale,
                    height: fieldH * activeHScale)
-            .foregroundColor(colors.getActiveColor(range: range))
+            .foregroundColor(colors.activeColor(range: range))
     }
     
     func ghostBox() -> some View {
         return RoundedRectangle(cornerRadius: fieldR, style: .continuous)
             .frame(width: ghostW * activeWscale,
                    height: ghostH * activeHScale)
-            .foregroundColor(colors.getBoxColor(colorScheme))
+            .foregroundColor(colors.boxColor(colorScheme))
     }
     
     func divider() -> some View {
         return Rectangle()
             .frame(width: dividerW * activeWscale,
                    height: fieldH * activeHScale)
-            .foregroundColor(colors.getBoxColor(colorScheme))
+            .foregroundColor(colors.boxColor(colorScheme))
     }
 }
 

@@ -29,7 +29,7 @@ struct DistributionRange: View {
             Spacer(minLength: 0)
             HStack(alignment: .bottom, spacing: Dimensions.BASE_UNIT) {
                 ForEach(values, id: \.self) {val in
-                    DistributionBar(colors.getActiveColor(range: range), val, ceiling)
+                    DistributionBar(colors.activeColor(range: range), val, ceiling)
                 }
             }
             Spacer().frame(height: UIScreen.screenHeight * 0.01)
@@ -39,7 +39,7 @@ struct DistributionRange: View {
     
     func rangeUnderline() -> some View {
         return RoundedRectangle(cornerRadius: 10)
-                    .fill(colors.getActiveColor(range: range))
+                    .fill(colors.activeColor(range: range))
             .frame(width: barWidth * length + (length - 1) * Dimensions.BASE_UNIT, height: UIScreen.screenHeight * 0.004)
     }
 }

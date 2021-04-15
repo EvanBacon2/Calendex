@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct DistributionBar: View {
-    var percent: CGFloat
-    var ceiling: CGFloat
-    var color: Color
-    var barWidth = UIScreen.screenWidth * 0.016
-    var barHeight = Dimensions.BASE_UNIT * 50
-    var emptyBarHeight = Dimensions.BASE_UNIT * 3
+    let percent: CGFloat
+    let ceiling: CGFloat
+    let color: Color
+    
+    let barWidth = UIScreen.screenWidth * 0.016
+    let barHeight = Dimensions.BASE_UNIT * 50
+    let emptyBarHeight = Dimensions.BASE_UNIT * 3
     
     init(_ color: Color, _ percent: CGFloat, _ ceiling: CGFloat) {
         self.color = color
@@ -47,10 +48,10 @@ struct DistributionBar_Prevew_View: View {
     
     var body: some View {
         HStack(spacing: 1) {
-            DistributionBar(colors.getActiveColor(range: .low), 4, 5)
-            DistributionBar(colors.getActiveColor(range: .mid), 4, 5)
-            DistributionBar(colors.getActiveColor(range: .high), 0.34, 15)
-            DistributionBar(colors.getActiveColor(range: .high), 0.29, 15)
+            DistributionBar(colors.activeColor(range: .low), 4, 5)
+            DistributionBar(colors.activeColor(range: .mid), 4, 5)
+            DistributionBar(colors.activeColor(range: .high), 0.34, 15)
+            DistributionBar(colors.activeColor(range: .high), 0.29, 15)
         }
     }
 }

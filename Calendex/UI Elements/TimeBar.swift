@@ -122,7 +122,7 @@ struct TimeBar: View {
                 Spacer().frame(width: percentWidth * CGFloat(spacePercent))
             }
             Rectangle()
-                .fill(colors.getActiveColor(range: range.range))
+                .fill(colors.activeColor(range: range.range))
                 .frame(width: barWidth, height: barHeight)
             if ((timeCovered + timeLeft) == totalPercent) {
                 buildEndCap(range)
@@ -143,10 +143,10 @@ struct TimeBar: View {
     func cap(_ range: Range, endCap: Bool = false) -> some View {
         return ZStack(alignment: endCap ? .leading : .trailing) {
             RoundedRectangle(cornerRadius: 7)
-                .fill(colors.getActiveColor(range: range))
+                .fill(colors.activeColor(range: range))
                 .frame(width: minBarWidth, height: barHeight)
             Rectangle()
-                .fill(colors.getActiveColor(range: range))
+                .fill(colors.activeColor(range: range))
                 .frame(width: 3.5, height: barHeight)
         }
     }

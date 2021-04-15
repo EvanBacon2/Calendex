@@ -99,6 +99,9 @@
 		CD9D30C5261F2B1700F948F1 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30C4261F2B1700F948F1 /* DayViewModel.swift */; };
 		CD9D30DA26272D8800F948F1 /* EmptyTimeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30D926272D8800F948F1 /* EmptyTimeBar.swift */; };
 		CD9D30DF2627BACD00F948F1 /* UIBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30DE2627BACD00F948F1 /* UIBox.swift */; };
+		CD9D30EA2628248800F948F1 /* DistributionYAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30E92628248800F948F1 /* DistributionYAxis.swift */; };
+		CD9D30EF2628262900F948F1 /* DateShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30EE2628262900F948F1 /* DateShell.swift */; };
+		CD9D30F7262829D100F948F1 /* DateShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30F6262829D100F948F1 /* DateShellViewModel.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -239,6 +242,9 @@
 		CD9D30C4261F2B1700F948F1 /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
 		CD9D30D926272D8800F948F1 /* EmptyTimeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTimeBar.swift; sourceTree = "<group>"; };
 		CD9D30DE2627BACD00F948F1 /* UIBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBox.swift; sourceTree = "<group>"; };
+		CD9D30E92628248800F948F1 /* DistributionYAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionYAxis.swift; sourceTree = "<group>"; };
+		CD9D30EE2628262900F948F1 /* DateShell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateShell.swift; sourceTree = "<group>"; };
+		CD9D30F6262829D100F948F1 /* DateShellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateShellViewModel.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -477,6 +483,7 @@
 				CD6302AE25BE6487003A6AA2 /* DistributionRange.swift */,
 				CD6302A925BE621E003A6AA2 /* DistributionRangeMarker.swift */,
 				CD6CCADA25D0C25700B256AA /* Distribution.swift */,
+				CD9D30E92628248800F948F1 /* DistributionYAxis.swift */,
 			);
 			name = Distribution;
 			sourceTree = "<group>";
@@ -510,8 +517,8 @@
 		CD6CCBA125DEC9C100B256AA /* Data Record */ = {
 			isa = PBXGroup;
 			children = (
-				CD9D30CE2621AFF000F948F1 /* ViewModels */,
 				CD9D30CD2621AFE900F948F1 /* Views */,
+				CD9D30CE2621AFF000F948F1 /* ViewModels */,
 			);
 			name = "Data Record";
 			sourceTree = "<group>";
@@ -538,6 +545,7 @@
 				CDA22BBA25C0DB1C004D0CF2 /* Day.swift */,
 				CD9D30BF261F278B00F948F1 /* DayInfo.swift */,
 				CDA22C1925CE77F6004D0CF2 /* Settings.swift */,
+				CD9D30EE2628262900F948F1 /* DateShell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -549,6 +557,7 @@
 				CD9D3096261D111400F948F1 /* DateInfoViewModel.swift */,
 				CD9D30B7261F1DB300F948F1 /* MonthViewModel.swift */,
 				CD9D30C4261F2B1700F948F1 /* DayViewModel.swift */,
+				CD9D30F6262829D100F948F1 /* DateShellViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -896,6 +905,7 @@
 				CD6CCBC625DF73AC00B256AA /* Colors.swift in Sources */,
 				CD6CCB7E25DC765000B256AA /* Deviation.swift in Sources */,
 				CD6CCBBC25DEE6A100B256AA /* PickerBoxTriangle.swift in Sources */,
+				CD9D30EF2628262900F948F1 /* DateShell.swift in Sources */,
 				CD6CCBE925EB760F00B256AA /* PersistenceController.swift in Sources */,
 				CD6302A525BDB3B4003A6AA2 /* DistributionBar.swift in Sources */,
 				CD6CCB6925DC593000B256AA /* Metric.swift in Sources */,
@@ -933,6 +943,7 @@
 				CD63028725B6D4A6003A6AA2 /* TimeBar.swift in Sources */,
 				CD9D30522612F32600F948F1 /* BSSetup.swift in Sources */,
 				CD6CCC4D25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift in Sources */,
+				CD9D30F7262829D100F948F1 /* DateShellViewModel.swift in Sources */,
 				CDA22BBB25C0DB1C004D0CF2 /* Day.swift in Sources */,
 				CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */,
 				CD9D30B3261EC95D00F948F1 /* MonthInfo.swift in Sources */,
@@ -949,6 +960,7 @@
 				CDA22C1225C80F6F004D0CF2 /* DataField.swift in Sources */,
 				CD08F1802609A03500FD3235 /* DataRangeRequest.swift in Sources */,
 				CD9D30812619BDB500F948F1 /* DataRecordViewModel.swift in Sources */,
+				CD9D30EA2628248800F948F1 /* DistributionYAxis.swift in Sources */,
 				CD6CCB3625D53CAA00B256AA /* Goals.swift in Sources */,
 				CD9D30DA26272D8800F948F1 /* EmptyTimeBar.swift in Sources */,
 				CDFE64192607C79500986423 /* AccessToken.swift in Sources */,

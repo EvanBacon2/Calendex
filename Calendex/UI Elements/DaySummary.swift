@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct DaySummary: View {
-    @EnvironmentObject var colors: Colors
-    
     @State var selected: String = "Average"
     @State var navDay: Int? = nil
     
@@ -28,7 +26,7 @@ struct DaySummary: View {
             DayButtons(year: year, month: month, selected: selected, navDay: $navDay)
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
             Rectangle()
-                .fill(colors.DARK_GRAY)
+                .fill(AppColors.DARK_GRAY)
                 .frame(width: UIScreen.screenWidth * 0.85, height: 1).padding(.bottom, Spacing.DOUBLE_SPACE)
             DataButtons(selected: $selected)
         }.navigate(using: $navDay, destination: makeDay)

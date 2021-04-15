@@ -12,10 +12,6 @@ struct PointGraph: View {
     
     init(_ values: [(Int, TimeInterval)]) {
         self.values = values
-        /*print("low: \(Double(values.filter({ $0.0 <= 70 }).count) / Double(values.count))")
-        print("mid: \(Double(values.filter({ $0.0 > 70 && $0.0 < 140 }).count) / Double(values.count))")
-        print("high: \(Double(values.filter({ $0.0 >= 140 }).count) / Double(values.count))")
-        print("mean: \(values.reduce(0.0, { sum, val in sum + Double(val.0) }) / Double(values.count))")*/
     }
     
     var body: some View {

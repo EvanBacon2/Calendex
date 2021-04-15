@@ -59,7 +59,7 @@ struct ColorPicker: View {
     func activeColorButton() -> some View {
         return Button(action: {() -> Void in togglePicker() }) {
             Circle()
-                .fill(colors.getActiveColor(range: range))
+                .fill(colors.activeColor(range: range))
                 .frame(width: circleDiameter,
                        height: circleDiameter)
         }

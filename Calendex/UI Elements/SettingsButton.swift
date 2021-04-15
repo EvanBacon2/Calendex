@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct SettingsButton: View {
-    @EnvironmentObject var colors: Colors
-    
     @Binding var settingsActive: Bool
     
     let simpleGearSymbolConfig = UIImage.SymbolConfiguration(pointSize: 14.0, weight: .black, scale: .large)
@@ -22,7 +20,7 @@ struct SettingsButton: View {
         //NavigationLink(destination: Settings()) {
         Button(action: { settingsActive.toggle() }) {
             Image(uiImage: UIImage(named: "simple.gear", in: nil, with: simpleGearSymbolConfig)!.withRenderingMode(.alwaysTemplate))
-                .foregroundColor(colors.DARK_GRAY)
+                .foregroundColor(AppColors.DARK_GRAY)
         }
         //}
     }

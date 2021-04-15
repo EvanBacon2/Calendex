@@ -46,10 +46,10 @@ struct DayButton: View {
         
         return Text("\(day)")
             .font(.callout)
-            .foregroundColor(active ? Color.white : colors.DARK_GRAY)
+            .foregroundColor(active ? Color.white : AppColors.DARK_GRAY)
             .frame(width: buttonLength, height: buttonLength)
             .background(RoundedRectangle(cornerRadius: buttonCorner)
-                            .fill(active ? colors.getActiveColor(range: getRange()) : colors.LIGHT_BLUE_GRAY)
+                            .fill(active ? colors.activeColor(range: getRange()) : AppColors.LIGHT_BLUE_GRAY)
                             .frame(width: buttonLength, height: buttonLength))
     }
     
