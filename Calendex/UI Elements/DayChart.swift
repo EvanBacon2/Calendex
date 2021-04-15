@@ -11,14 +11,10 @@ import PromiseKit
 struct DayChart: View {
     @EnvironmentObject var goals: Goals
     
-    @StateObject private var viewModel: DayChartViewModel
+    let points: [(Int, Double)]
     
-    init(day: Date_Info_Entity) {
-        var cal = Calendar.current
-        cal.timeZone = TimeZone(identifier: "UTC")!
-        let dayDate = cal.date(from: DateComponents(year: day.year, month: day.month, day: day.day))!
-    
-        self._viewModel = StateObject(wrappedValue: DayChartViewModel(day: dayDate))
+    init(points: [(Int, Double)]) {
+        self.points = points
     }
     
     var body: some View {
@@ -26,7 +22,7 @@ struct DayChart: View {
             ZStack() {
                 DayChartBackground(lowCutoff: goals.lowBgThreshold,
                                    highCutoff: goals.highBgThreshold)
-                PointGraph(viewModel.points)
+                PointGraph(points)
             }
         }.frame(width: UIScreen.screenWidth * 0.9)
     }

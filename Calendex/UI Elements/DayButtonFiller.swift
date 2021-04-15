@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct DayButtonFiller: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var buttonLength = UIScreen.screenWidth * 0.9 / 9
     var buttonCorner = UIScreen.screenHeight * 0.01
     
     var body: some View {
         RoundedRectangle(cornerRadius: buttonCorner)
-            .fill(Color.white)
+            .foregroundColor(AppColors.backgroundColor(colorScheme))
             .frame(width: buttonLength, height: buttonLength)
     }
 }

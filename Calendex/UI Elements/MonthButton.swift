@@ -13,7 +13,7 @@ struct MonthButton: View {
     
     @Binding var monthNav: Int?
     
-    @StateObject var viewModel: DateButtonViewModel
+    @ObservedObject var viewModel: DateButtonViewModel
     
     let selected: String
     let year: Int
@@ -26,7 +26,7 @@ struct MonthButton: View {
     
     init(year: Int, month: Int, selected: String, monthNav: Binding<Int?>) {
         self._monthNav = monthNav
-        self._viewModel = StateObject(wrappedValue: DateButtonViewModel(year: year, month: month))
+        self._viewModel = ObservedObject(wrappedValue: DateButtonViewModel(year: year, month: month))
         
         self.selected = selected
         self.year = year
@@ -53,8 +53,8 @@ struct MonthButton: View {
                   .frame(width: buttonWidth, height: buttonHeight)
                   .background(RoundedRectangle(cornerRadius: buttonCorner, style: .continuous)
                                 .fill(active ? colors.getActiveColor(range: getRange()) : colors.LIGHT_BLUE_GRAY)
-                                .frame(width: buttonWidth, height: buttonHeight)
-                                .shadow(radius: 6, y: 6))
+                                .frame(width: buttonWidth, height: buttonHeight))
+                                //.shadow(radius: 6, y: 6))
     }
     
     func getRange() -> Range {

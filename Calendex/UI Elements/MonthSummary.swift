@@ -24,9 +24,9 @@ struct MonthSummary: View {
             SubBanner("Month Summary")
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
             MonthButtons(year: year, selected: selected, monthNav: $navMonth)
-            Spacer().frame(height: Spacing.SINGLE_SPACE)
+            Spacer().frame(height: Spacing.DOUBLE_SPACE)
             seperator()
-            Spacer().frame(height: Spacing.SINGLE_SPACE)
+            Spacer().frame(height: Spacing.DOUBLE_SPACE)
             DataButtons(selected: $selected)
         }.navigate(using: $navMonth, destination: makeMonth)
     }
@@ -38,7 +38,7 @@ struct MonthSummary: View {
     
     func seperator() -> some View {
         return Rectangle()
-            .fill(colors.LIGHT_BLUE_GRAY)
+            .fill(colors.DARK_GRAY)
             .frame(width: UIScreen.screenWidth * 0.85, height: 1)
     }
 }

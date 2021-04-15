@@ -14,9 +14,9 @@ struct TimeBar: View {
     var mid: BgTime
     var high: BgTime
     
-    var smallPadding: Int
-    
     let minPercent = 3
+    let spacePercent = 1
+    var totalPercent = 100
     let percentWidth = Dimensions.BASE_UNIT * 2
     let minBarWidth: CGFloat
     let maxBarWidth: CGFloat
@@ -26,15 +26,24 @@ struct TimeBar: View {
         self.low = BgTime(.low, time: low)
         self.mid = BgTime(.mid, time: mid)
         self.high = BgTime(.high, time: high)
-        self.smallPadding = 0
+        var smallPadding = 0
+        var spacePadding = -1
+        
+        for range in [low, mid, high] {
+            if range > 0 {
+                spacePadding += spacePercent
+            }
+        }
+        
+        self.totalPercent -= spacePadding
         
         self.minBarWidth = CGFloat(minPercent) * percentWidth
-        self.maxBarWidth = 100.0 * percentWidth - 2 * minBarWidth
+        self.maxBarWidth = CGFloat(totalPercent) * percentWidth - 2 * minBarWidth
         
         let paddedTimes = [self.low, self.mid, self.high].map {
             time -> BgTime in
                 if time.time > 0 && time.time < minPercent {
-                    self.smallPadding += minPercent - time.time
+                    smallPadding += minPercent - time.time
                     return BgTime(time.range, time: minPercent)
                 }
                 return time
@@ -47,11 +56,11 @@ struct TimeBar: View {
         let  maxRange = [self.low, self.mid, self.high].max { $0.time < $1.time }
         switch maxRange!.range {
         case .low:
-            self.low.time -= smallPadding
+            self.low.time -= smallPadding + spacePadding
         case .mid:
-            self.mid.time -= smallPadding
+            self.mid.time -= smallPadding + spacePadding
         case .high:
-            self.high.time -= smallPadding
+            self.high.time -= smallPadding + spacePadding
         }
     }
     
@@ -73,7 +82,7 @@ struct TimeBar: View {
         return VStack() {
             if (timeCovered == 0) {
                 buildStartCap(range)
-            } else if (timeCovered < 100 - minPercent) {
+            } else if (timeCovered < totalPercent - minPercent) {
                 buildBar(range, timeLeft: range.time, timeCovered: timeCovered)
             } else {
                 buildEndCap(range)
@@ -93,9 +102,9 @@ struct TimeBar: View {
     func buildBar(_ range: BgTime, timeLeft: Int, timeCovered: Int) -> some View {
         var barWidth: CGFloat
         
-        if (timeLeft >= 100 - minPercent * 2) {
+        if (timeLeft >= totalPercent - minPercent * 2) {
             barWidth = maxBarWidth
-        } else if ((timeCovered + timeLeft) == 100) {
+        } else if ((timeCovered + timeLeft) == totalPercent) {
             barWidth = percentWidth * CGFloat(timeLeft - minPercent)
         } else {
             barWidth = percentWidth * CGFloat(timeLeft)
@@ -110,12 +119,12 @@ struct TimeBar: View {
         
         return HStack(spacing: 0) {
             if (range.time == timeLeft) {
-                Spacer().frame(width: 3)
+                Spacer().frame(width: percentWidth * CGFloat(spacePercent))
             }
             Rectangle()
                 .fill(colors.getActiveColor(range: range.range))
                 .frame(width: barWidth, height: barHeight)
-            if ((timeCovered + timeLeft) == 100) {
+            if ((timeCovered + timeLeft) == totalPercent) {
                 buildEndCap(range)
             }
         }
@@ -125,7 +134,7 @@ struct TimeBar: View {
     func buildEndCap(_ range: BgTime) -> some View {
         return HStack(spacing: 0) {
             if range.time <= minPercent {
-                Spacer().frame(width: 3)
+                Spacer().frame(width: percentWidth * CGFloat(spacePercent))
             }
             cap(range.range, endCap: true)
         }

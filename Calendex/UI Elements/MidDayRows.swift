@@ -29,7 +29,7 @@ struct MidDayRows: View {
     }
     
     var body: some View {
-        ForEach(0..<dayCount/7) { i in
+        ForEach((0..<dayCount/7), id: \.self) { i in
             MidDayRow(year: year, month: month, offset: offset, row: i, selected: selected, navDay: _navDay)
         }
     }

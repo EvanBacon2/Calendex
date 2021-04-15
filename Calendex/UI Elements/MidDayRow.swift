@@ -27,7 +27,7 @@ struct MidDayRow: View {
     var body: some View {
         HStack(spacing: 0) {
             Spacer()
-            ForEach(1..<8) { i in
+            ForEach((1..<8), id: \.self) { i in
                 DayButton(year: year, month: month, day: index(i), selected: selected, navDay: _navDay)
                 Spacer()
             }

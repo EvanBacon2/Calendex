@@ -14,6 +14,9 @@ class Colors: ObservableObject {
     
     let DARK_GRAY = SwiftUI.Color.init(hue: 191.0 / 360, saturation: 5.0 / 100, brightness: 45.0 / 100)
     
+    let LIGHT_BOX = SwiftUI.Color.init(hue: 213.0 / 360, saturation: 6.0 / 100, brightness: 83.0 / 100)
+    let DARK_BOX = SwiftUI.Color.init(hue: 224.0 / 360, saturation: 20.0 / 100, brightness: 17.0 / 100)
+    
     private let LOW_1 = SwiftUI.Color.init(hue: 295.0 / 360, saturation: 47.0 / 100, brightness: 48.0 / 100)
     private let LOW_2 = SwiftUI.Color.init(hue: 270.0 / 360, saturation: 47.0 / 100, brightness: 48.0 / 100)
     private let LOW_3 = SwiftUI.Color.init(hue: 248.0 / 360, saturation: 47.0 / 100, brightness: 48.0 / 100)
@@ -87,6 +90,14 @@ class Colors: ObservableObject {
             ACTIVE_MID = newColor
         case .high:
             ACTIVE_HIGH = newColor
+        }
+    }
+    
+    func getBoxColor(_ scheme: ColorScheme) -> Color {
+        switch scheme {
+            case .light: return LIGHT_BOX
+            case .dark: return DARK_BOX
+            default: return LIGHT_BOX
         }
     }
 }

@@ -28,22 +28,39 @@ struct Month: View {
         
         self.viewModel = MonthViewModel(year: year, month: month)
         
-        self._activeTab = State(wrappedValue: month - viewModel.startMonth())
+        self._activeTab = State(wrappedValue: month)
+    }
+    
+    var swipe: some Gesture {
+        DragGesture(minimumDistance: 20.0, coordinateSpace: .local)
+            .onEnded { value in
+                print(value.translation)
+                
+                if value.translation.width > 0 && value.translation.height > -80 && value.translation.height < 80 {
+                    self.activeTab = activeTab > self.viewModel.startMonth() ? activeTab - 1 : activeTab
+                    print("left swipe")
+                }
+                else if value.translation.width < 0 && value.translation.height > -80 && value.translation.height < 80 {
+                    self.activeTab = activeTab < self.viewModel.endMonth() ? activeTab + 1 : activeTab
+                    print("right swipe")
+                }
+                else {
+                    print("no clue")
+                }
+            }
     }
     
     var body: some View {
-            VStack(spacing: 0) {
-                OverheadBanner(months[viewModel.startMonth() + activeTab - 1])
-                TabView(selection: $activeTab) {
-                    ForEach(0..<viewModel.nMonths()) { i in
-                        ScrollView {
-                            MonthInfo(year: self.year, month: viewModel.startMonth() + i)
-                        }
-                    }
-                }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                settingsLink()
-            }.navigationBarTitle("\(month)", displayMode: .inline)
-             .navigationBarItems(trailing: SettingsButton($settingsActive))
+        VStack(spacing: 0) {
+            OverheadBanner(months[activeTab - 1])
+            ScrollView {
+                MonthInfo(year: self.year, month: activeTab)
+                    .onTapGesture { }
+                    .gesture(swipe)
+            }
+            settingsLink()
+        }.navigationBarTitle("", displayMode: .inline)
+         .navigationBarItems(trailing: SettingsButton($settingsActive))
     }
     
     func settingsLink() -> NavigationLink<EmptyView, Settings> {

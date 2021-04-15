@@ -28,7 +28,7 @@ struct TopDayRow: View {
     var body: some View {
         HStack(spacing: 0) {
             Spacer()
-            ForEach(1..<8) { i in
+            ForEach((1..<8), id: \.self) { i in
                 if (i < offset) {
                     DayButtonFiller()
                 } else {

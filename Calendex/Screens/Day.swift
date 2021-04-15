@@ -25,21 +25,38 @@ struct Day: View {
         self.month = month
         self.day = day
         self.viewModel = DayViewModel(year: year, month: month, day: day)
-        self._activeTab = State(wrappedValue: day - viewModel.startDay())
+        self._activeTab = State(wrappedValue: day)
+    }
+    
+    var swipe: some Gesture {
+        DragGesture(minimumDistance: 30.0, coordinateSpace: .local)
+            .onEnded { value in
+                print(value.translation)
+                
+                if value.translation.width > 0 && value.translation.height > -80 && value.translation.height < 80 {
+                    self.activeTab = activeTab > self.viewModel.startDay() ? activeTab - 1 : activeTab
+                    print("left swipe")
+                }
+                else if value.translation.width < 0 && value.translation.height > -80 && value.translation.height < 80 {
+                    self.activeTab = activeTab < self.viewModel.endDay() ? activeTab + 1 : activeTab
+                    print("right swipe")
+                }
+                else {
+                    print("no clue")
+                }
+            }
     }
     
     var body: some View {
         VStack(spacing: 0) {
-            OverheadBanner("\(viewModel.startDay() + activeTab)")
-            TabView(selection: $activeTab) {
-                ForEach(0..<viewModel.nDays()) { i in
-                    ScrollView {
-                        DayInfo(year: self.year, month: self.month, day: viewModel.startDay() + i)
-                    }
-                }
-            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            OverheadBanner("\(activeTab)")
+            ScrollView {
+                DayInfo(year: self.year, month: self.month, day: activeTab)
+                    .onTapGesture { }
+                    .gesture(swipe)
+            }
             settingsLink()
-        }.navigationBarTitle("\(day)", displayMode: .inline)
+        }.navigationBarTitle("", displayMode: .inline)
          .navigationBarItems(trailing: SettingsButton($settingsActive))
     }
     

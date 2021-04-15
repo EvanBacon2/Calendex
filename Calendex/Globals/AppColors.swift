@@ -49,23 +49,25 @@ struct AppColors {
     
     static func getActiveColor(range: Range) -> Color {
         switch range {
-        case .low:
-            return ACTIVE_LOW
-        case .mid:
-            return ACTIVE_MID
-        case .high:
-            return ACTIVE_HIGH
+            case .low: return ACTIVE_LOW
+            case .mid: return ACTIVE_MID
+            case .high: return ACTIVE_HIGH
         }
     }
     
     static func setActiveColor(range: Range, newColor: Color) {
         switch range {
-        case .low:
-            ACTIVE_LOW = newColor
-        case .mid:
-            ACTIVE_MID = newColor
-        case .high:
-            ACTIVE_HIGH = newColor
+            case .low: ACTIVE_LOW = newColor
+            case .mid: ACTIVE_MID = newColor
+            case .high: ACTIVE_HIGH = newColor
+        }
+    }
+    
+    static func backgroundColor(_ scheme: ColorScheme) -> Color {
+        switch scheme {
+            case .light: return Color.white
+            case .dark: return Color.black
+            default: return Color.white
         }
     }
 }

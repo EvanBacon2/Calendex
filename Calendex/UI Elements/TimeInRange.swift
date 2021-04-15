@@ -55,7 +55,11 @@ struct TimeInRange: View {
         VStack(spacing: 0) {
             SubBanner("Time in Range")
             Spacer().frame(height: Spacing.TRIPLE_SPACE)
-            TimeBar(low, mid, high)
+            if (low == 0 && mid == 0 && high == 0) {
+                EmptyTimeBar()
+            } else {
+                TimeBar(low, mid, high)
+            }
             Spacer().frame(height: Spacing.TRIPLE_SPACE)
             RangeFields(low: low, lowLessThanOne: lowLessThanOne,
                         mid: mid, midLessThanOne: midLessThanOne,

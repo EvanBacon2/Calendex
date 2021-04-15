@@ -14,30 +14,49 @@ struct Year: View {
     @EnvironmentObject var goals: Goals
     
     @State var settingsActive: Bool = false
-    @State var activeTab: Int = 0
+    @State var activeTab: Int
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: AppColors.DARK_GRAY]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     
         self._metaData = FetchRequest(fetchRequest: Fetches.fetchMetaData())
+        self._activeTab = State(wrappedValue: 2015)
+    }
+    
+    var swipe: some Gesture {
+        DragGesture(minimumDistance: 20.0, coordinateSpace: .local)
+            .onEnded { value in
+                print(value.translation)
+                
+                if value.translation.width > 0 && value.translation.height > -80 && value.translation.height < 80 {
+                    self.activeTab = activeTab > self.metaData.first!.startYear ? activeTab - 1 : activeTab
+                    print("left swipe")
+                }
+                else if value.translation.width < 0 && value.translation.height > -80 && value.translation.height < 80 {
+                    self.activeTab = activeTab < self.metaData.first!.endYear ? activeTab + 1 : activeTab
+                    print("right swipe")
+                }
+                else {
+                    print("no clue")
+                }
+            }
     }
     
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
-                    Section(header: OverheadBanner("\(metaData.first!.startYear + activeTab)")) {
-                        TabView(selection: $activeTab) {
-                            ForEach(0..<nYears()) { i in
-                                YearInfo(year: metaData.first!.startYear + i).tag(i)
-                            }
-                        }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                    Section(header: OverheadBanner("\(activeTab)")) {
+                        YearInfo(year: activeTab)
+                            .onTapGesture { }
+                            .gesture(swipe)
                     }
                 }
                 settingsLink()
             }.navigationBarTitle("Welcome")
              .navigationBarItems(trailing: SettingsButton($settingsActive))
+            .background(SwiftUI.Color.init(hue: 191.0 / 360, saturation: 0.0 / 100, brightness: 8.0 / 100))
         }
     }
     

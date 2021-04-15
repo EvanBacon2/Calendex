@@ -13,7 +13,7 @@ struct DayButton: View {
     
     @Binding var navDay: Int?
     
-    @StateObject var viewModel: DateButtonViewModel
+    @ObservedObject var viewModel: DateButtonViewModel
     
     let day: Int
     let selected: String
@@ -23,7 +23,7 @@ struct DayButton: View {
     init(year: Int, month: Int, day: Int, selected: String, navDay: Binding<Int?>) {
         self._navDay = navDay
         
-        self._viewModel = StateObject(wrappedValue: DateButtonViewModel(year: year, month: month, day: day))
+        self._viewModel = ObservedObject(wrappedValue: DateButtonViewModel(year: year, month: month, day: day))
         
         self.day = day
         self.selected = selected

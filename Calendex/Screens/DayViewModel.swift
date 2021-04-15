@@ -41,6 +41,10 @@ class DayViewModel: ObservableObject {
         return self.year == metaData!.startYear && self.month == metaData!.startMonth ? metaData!.startDay : 1
     }
     
+    func endDay() -> Int {
+        return self.year == metaData!.endYear && self.month == metaData!.endMonth ? metaData!.endDay : self.days
+    }
+    
     func nDays() -> Int {
         if (self.year > metaData!.startYear ||
            (self.year == metaData!.startYear && self.month > metaData!.startMonth)) &&

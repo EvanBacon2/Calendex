@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct Distribution: View {
-    let distribution: [DistributionRange_Entity]
+    @EnvironmentObject var colors: Colors
     
-    init(distribution: [DistributionRange_Entity]) {
+    let distribution: [CGFloat]
+    
+    init(distribution: [CGFloat]) {
         self.distribution = distribution
     }
     var body: some View {

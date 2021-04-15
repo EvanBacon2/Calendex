@@ -42,7 +42,6 @@ struct ColorPicker: View {
             HStack() {
                 Text(label)
                     .font(.subheadline)
-                    .foregroundColor(Color.black)
             }.frame(height: circleDiameter)
             ZStack() {
                 VStack() {

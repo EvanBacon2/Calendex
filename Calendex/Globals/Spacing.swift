@@ -14,7 +14,7 @@ struct Spacing {
     
     static let TRIPLE_SPACE = SINGLE_SPACE * 3
     
-    static let HEADER_MARGIN = SINGLE_SPACE * 1.5
+    static let HEADER_MARGIN = DOUBLE_SPACE * 1.5
 }
 
 

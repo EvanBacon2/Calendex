@@ -32,6 +32,10 @@ class MonthViewModel {
         return self.year == metaData!.startYear ? metaData!.startMonth : 1
     }
     
+    func endMonth() -> Int {
+        return self.year == metaData!.endYear ? metaData!.endMonth : 12
+    }
+    
     func nMonths() -> Int {
         if self.year > metaData!.startYear && self.year < metaData!.endYear {
             return 12

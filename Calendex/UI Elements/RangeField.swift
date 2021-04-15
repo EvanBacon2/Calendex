@@ -14,6 +14,7 @@ enum FieldSize {
 }
 
 struct RangeField: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var colors: Colors
     
     let range: Range
@@ -80,14 +81,14 @@ struct RangeField: View {
         return RoundedRectangle(cornerRadius: fieldR, style: .continuous)
             .frame(width: ghostW * activeWscale,
                    height: ghostH * activeHScale)
-            .foregroundColor(.white)
+            .foregroundColor(colors.getBoxColor(colorScheme))
     }
     
     func divider() -> some View {
         return Rectangle()
             .frame(width: dividerW * activeWscale,
                    height: fieldH * activeHScale)
-            .foregroundColor(.white)
+            .foregroundColor(colors.getBoxColor(colorScheme))
     }
 }
 

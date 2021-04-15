@@ -26,10 +26,10 @@ struct DaySummary: View {
             DowBanner()
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
             DayButtons(year: year, month: month, selected: selected, navDay: $navDay)
-            Spacer().frame(height: Spacing.SINGLE_SPACE)
+            Spacer().frame(height: Spacing.DOUBLE_SPACE)
             Rectangle()
-                .fill(colors.LIGHT_BLUE_GRAY)
-                .frame(width: UIScreen.screenWidth * 0.85, height: 1).padding(.bottom, Spacing.SINGLE_SPACE)
+                .fill(colors.DARK_GRAY)
+                .frame(width: UIScreen.screenWidth * 0.85, height: 1).padding(.bottom, Spacing.DOUBLE_SPACE)
             DataButtons(selected: $selected)
         }.navigate(using: $navDay, destination: makeDay)
     }

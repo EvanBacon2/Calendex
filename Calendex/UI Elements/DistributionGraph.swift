@@ -16,9 +16,9 @@ struct DistributionGraph: View {
     
     let baseAngleOffset = 15.0
     
-    init(distribution: [DistributionRange_Entity]) {
-        self.distribution = distribution.map { $0.value * 100}
-        self.ceiling = self.distribution.max()!
+    init(distribution: [CGFloat]) {
+        self.distribution = distribution
+        self.ceiling = self.distribution.max() ?? 0
     }
     
     var body: some View {

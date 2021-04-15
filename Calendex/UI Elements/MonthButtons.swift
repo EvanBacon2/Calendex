@@ -25,12 +25,12 @@ struct MonthButtons: View {
     var body: some View {
         VStack(spacing: UIScreen.screenWidth * 0.018) {
             HStack(spacing: UIScreen.screenWidth * 0.018) {
-                ForEach(1..<7) { i in
+                ForEach((1..<7), id: \.self) { i in
                     MonthButton(year: year, month: i, selected: selected, monthNav: _monthNav)
                 }
             }
             HStack(spacing: UIScreen.screenWidth * 0.018) {
-                ForEach(7..<13) { i in
+                ForEach((7..<13), id: \.self) { i in
                     MonthButton(year: year, month: i, selected: selected, monthNav: _monthNav)
                 }
             }

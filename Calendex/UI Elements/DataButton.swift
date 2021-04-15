@@ -31,8 +31,8 @@ struct DataButton: View {
                 .frame(width: buttonWidth, height: buttonHeight)
                 .background(RoundedRectangle(cornerRadius: buttonCorner)
                     .fill(selected == label ? colors.ACCENT_COLOR : colors.LIGHT_BLUE_GRAY)
-                    .frame(width: buttonWidth, height: buttonHeight)
-                    .shadow(radius: 6, y: 6))
+                    .frame(width: buttonWidth, height: buttonHeight))
+                    //.shadow(radius: 6, y: 6))
         }
     }
 }
