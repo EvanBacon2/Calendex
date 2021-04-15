@@ -9,16 +9,16 @@ import CoreData
 import Foundation
 import SwiftUI
 
-class DayViewModel: ObservableObject {
-    let coreContext = PersistenceController.shared.container.viewContext
+class DayViewModel: ObservableObject, DateShellViewModel {
+    private let coreContext = PersistenceController.shared.container.viewContext
     
-    var metaData: Meta_Entity? = nil
+    private var metaData: Meta_Entity? = nil
     
-    let year: Int
-    let month: Int
-    let day: Int
+    private let year: Int
+    private let month: Int
+    private let day: Int
     
-    let days: Int
+    private let days: Int
     
     init(year: Int, month: Int, day: Int) {
         do {
@@ -37,15 +37,19 @@ class DayViewModel: ObservableObject {
         self.days = cal.range(of: .day, in: .month, for: date)!.count
     }
     
-    func startDay() -> Int {
+    func getTitle(date: Int) -> String {
+        return "\(date)"
+    }
+    
+    func startDate() -> Int {
         return self.year == metaData!.startYear && self.month == metaData!.startMonth ? metaData!.startDay : 1
     }
     
-    func endDay() -> Int {
+    func endDate() -> Int {
         return self.year == metaData!.endYear && self.month == metaData!.endMonth ? metaData!.endDay : self.days
     }
     
-    func nDays() -> Int {
+    func nDates() -> Int {
         if (self.year > metaData!.startYear ||
            (self.year == metaData!.startYear && self.month > metaData!.startMonth)) &&
            (self.year < metaData!.endYear ||

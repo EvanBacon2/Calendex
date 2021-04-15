@@ -22,14 +22,14 @@ struct Login: View {
     
     var body: some View {
         if let meta = metaData.first, meta.setupComplete {
-            Year()
+            DateShell()
         } else {
             if (viewModel.authFlag) {
                 signInButton()
             } else if (viewModel.accessFlag) {
                 Loading()
             } else if (viewModel.finishFlag) {
-                Year()
+                DateShell()
             } else {
                 EmptyView()
             }

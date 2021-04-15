@@ -34,7 +34,7 @@ struct DaySummary: View {
     
     @ViewBuilder
     func makeDay(for day: Int) -> some View {
-        Day(year: year, month: month, day: day)
+        DateShell(year: year, month: month, day: day)
     }
 }
 

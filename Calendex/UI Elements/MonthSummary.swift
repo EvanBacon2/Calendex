@@ -31,7 +31,7 @@ struct MonthSummary: View {
     
     @ViewBuilder
     func makeMonth(for month: Int) -> some View {
-        Month(year: year, month: month)
+        DateShell(year: year, month: month)
     }
     
     func seperator() -> some View {

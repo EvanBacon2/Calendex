@@ -9,6 +9,9 @@ import CoreData
 import Foundation
 import SwiftUI
 
-class DateShellViewModel: ObservableObject {
-    
+protocol DateShellViewModel {
+    func getTitle(date: Int) -> String
+    func startDate() -> Int
+    func endDate() -> Int
+    func nDates() -> Int
 }

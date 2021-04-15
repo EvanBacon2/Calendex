@@ -8,23 +8,57 @@
 import SwiftUI
 
 struct DateShell: View {
-    @FetchRequest var metaData: FetchedResults<Meta_Entity>
+    let viewModel: DateShellViewModel
+    
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var colors: Colors
     
     @State var settingsActive: Bool = false
     @State var activeTab: Int
     
-    let year: Int
-    let month: Int
-    let day: Int
+    private let year: Int
+    private let month: Int
+    private let day: Int
+    private let dateType: DateType
+    
+    private enum DateType {
+        case year
+        case month
+        case day
+    }
+    
+    init() {
+        self.viewModel = YearViewModel()
+        
+        self.year = viewModel.startDate()
+        self.month = -1
+        self.day = -1
+        self.dateType = .year
+        
+        self._activeTab = State(wrappedValue: viewModel.startDate())
+    }
     
     init(year: Int = -1, month: Int = -1, day: Int = -1) {
         self.year = year
         self.month = month
         self.day = day
-    }
-    
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        if month == -1 && day == -1 {
+            self.dateType = .year
+            self._activeTab = State(wrappedValue: year)
+        } else if day == -1 {
+            self.dateType = .month
+            self._activeTab = State(wrappedValue: month)
+        } else {
+            self.dateType = .day
+            self._activeTab = State(wrappedValue: day)
+        }
+        
+        switch self.dateType {
+            case .day: self.viewModel = DayViewModel(year: year, month: month, day: day)
+            case .month: self.viewModel = MonthViewModel(year: year, month: month)
+            case .year: self.viewModel = YearViewModel()
+        }
     }
     
     var swipe: some Gesture {
@@ -33,17 +67,53 @@ struct DateShell: View {
                 print(value.translation)
                 
                 if value.translation.width > 0 && value.translation.height > -80 && value.translation.height < 80 {
-                    self.activeTab = activeTab > self.metaData.first!.startYear ? activeTab - 1 : activeTab
+                    self.activeTab = activeTab > viewModel.startDate() ? activeTab - 1 : activeTab
                     print("left swipe")
                 }
                 else if value.translation.width < 0 && value.translation.height > -80 && value.translation.height < 80 {
-                    self.activeTab = activeTab < self.metaData.first!.endYear ? activeTab + 1 : activeTab
+                    self.activeTab = activeTab < viewModel.endDate() ? activeTab + 1 : activeTab
                     print("right swipe")
                 }
                 else {
                     print("no clue")
                 }
             }
+    }
+    
+    var body: some View {
+        if dateType == .year {
+            NavigationView {
+                contents()
+            }
+        } else {
+            contents()
+        }
+    }
+    
+    func contents() -> some View {
+        return VStack(spacing: 0) {
+            OverheadBanner(viewModel.getTitle(date: activeTab))
+            ScrollView {
+                switch dateType {
+                    case .year:
+                        YearInfo(year: activeTab)
+                            .gesture(swipe)
+                    case .month:
+                        MonthInfo(year: self.year, month: activeTab)
+                            .gesture(swipe)
+                    case .day:
+                        DayInfo(year: self.year, month: self.month, day: activeTab)
+                            .gesture(swipe)
+                }
+            }
+            settingsLink()
+        }.navigationBarTitle("", displayMode: .inline)
+         .navigationBarItems(trailing: SettingsButton($settingsActive))
+         .background(colors.backgroundColor(colorScheme))
+    }
+    
+    func settingsLink() -> NavigationLink<EmptyView, Settings> {
+        return NavigationLink(destination: Settings(), isActive: $settingsActive) { EmptyView() }
     }
 }
 

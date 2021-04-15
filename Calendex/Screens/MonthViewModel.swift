@@ -9,13 +9,15 @@ import CoreData
 import Foundation
 import SwiftUI
 
-class MonthViewModel {
-    let coreContext = PersistenceController.shared.container.viewContext
+class MonthViewModel: ObservableObject, DateShellViewModel {
+    private let coreContext = PersistenceController.shared.container.viewContext
     
-    var metaData: Meta_Entity? = nil
+    private var metaData: Meta_Entity? = nil
     
-    let year: Int
-    let month: Int
+    private let year: Int
+    private let month: Int
+    
+    let bannerTitles: [String]
     
     init(year: Int, month: Int) {
         do {
@@ -26,17 +28,23 @@ class MonthViewModel {
         
         self.year = year
         self.month = month
+        
+        self.bannerTitles = ["January", "Febuary", "March", "April", "May", "June",
+                             "July", "August", "September", "October", "November", "December"]
     }
     
-    func startMonth() -> Int {
+    func getTitle(date: Int) -> String {
+        return bannerTitles[date - 1]
+    }
+    func startDate() -> Int {
         return self.year == metaData!.startYear ? metaData!.startMonth : 1
     }
     
-    func endMonth() -> Int {
+    func endDate() -> Int {
         return self.year == metaData!.endYear ? metaData!.endMonth : 12
     }
     
-    func nMonths() -> Int {
+    func nDates() -> Int {
         if self.year > metaData!.startYear && self.year < metaData!.endYear {
             return 12
         } else if self.year == metaData!.startYear {

@@ -22,7 +22,6 @@
 		CD3AA7EF259830750087ACF1 /* CalendexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA7EE259830750087ACF1 /* CalendexUITests.swift */; };
 		CD63025925B4A1ED003A6AA2 /* OverheadBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63025825B4A1ED003A6AA2 /* OverheadBanner.swift */; };
 		CD63025E25B4A253003A6AA2 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63025D25B4A253003A6AA2 /* AppColors.swift */; };
-		CD63026625B51E20003A6AA2 /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63026525B51E20003A6AA2 /* Year.swift */; };
 		CD63026E25B5FBD8003A6AA2 /* ScreenTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63026D25B5FBD8003A6AA2 /* ScreenTitle.swift */; };
 		CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63027225B60A5A003A6AA2 /* MonthButton.swift */; };
 		CD63027825B6116A003A6AA2 /* DataButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63027725B6116A003A6AA2 /* DataButton.swift */; };
@@ -35,7 +34,6 @@
 		CD6302AA25BE621F003A6AA2 /* DistributionRangeMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6302A925BE621E003A6AA2 /* DistributionRangeMarker.swift */; };
 		CD6302AF25BE6487003A6AA2 /* DistributionRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6302AE25BE6487003A6AA2 /* DistributionRange.swift */; };
 		CD6302B425BE6F41003A6AA2 /* MonthButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6302B325BE6F41003A6AA2 /* MonthButtons.swift */; };
-		CD6302C425C00571003A6AA2 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6302C325C00571003A6AA2 /* Month.swift */; };
 		CD6302C925C00604003A6AA2 /* DowBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6302C825C00604003A6AA2 /* DowBanner.swift */; };
 		CD6CCAC425CFCE4A00B256AA /* SliderRuler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCAC325CFCE4A00B256AA /* SliderRuler.swift */; };
 		CD6CCAC925D0BD9B00B256AA /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCAC825D0BD9B00B256AA /* Spacing.swift */; };
@@ -102,6 +100,7 @@
 		CD9D30EA2628248800F948F1 /* DistributionYAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30E92628248800F948F1 /* DistributionYAxis.swift */; };
 		CD9D30EF2628262900F948F1 /* DateShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30EE2628262900F948F1 /* DateShell.swift */; };
 		CD9D30F7262829D100F948F1 /* DateShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30F6262829D100F948F1 /* DateShellViewModel.swift */; };
+		CD9D30FC26282F3C00F948F1 /* YearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30FB26282F3C00F948F1 /* YearViewModel.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -109,7 +108,6 @@
 		CDA22BA925C05E08004D0CF2 /* BottomDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22BA825C05E08004D0CF2 /* BottomDayRow.swift */; };
 		CDA22BAE25C06060004D0CF2 /* MidDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22BAD25C06060004D0CF2 /* MidDayRow.swift */; };
 		CDA22BB625C0685D004D0CF2 /* DayButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22BB525C0685D004D0CF2 /* DayButtons.swift */; };
-		CDA22BBB25C0DB1C004D0CF2 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22BBA25C0DB1C004D0CF2 /* Day.swift */; };
 		CDA22BD325C7E22A004D0CF2 /* DayChartBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22BD225C7E22A004D0CF2 /* DayChartBackground.swift */; };
 		CDA22BD825C7E689004D0CF2 /* LowRangeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22BD725C7E689004D0CF2 /* LowRangeBackground.swift */; };
 		CDA22BE025C7E8CE004D0CF2 /* MidRangeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22BDF25C7E8CE004D0CF2 /* MidRangeBackground.swift */; };
@@ -165,7 +163,6 @@
 		CD3AA7F0259830750087ACF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD63025825B4A1ED003A6AA2 /* OverheadBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverheadBanner.swift; sourceTree = "<group>"; };
 		CD63025D25B4A253003A6AA2 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
-		CD63026525B51E20003A6AA2 /* Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
 		CD63026D25B5FBD8003A6AA2 /* ScreenTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTitle.swift; sourceTree = "<group>"; };
 		CD63027225B60A5A003A6AA2 /* MonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthButton.swift; sourceTree = "<group>"; };
 		CD63027725B6116A003A6AA2 /* DataButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataButton.swift; sourceTree = "<group>"; };
@@ -178,7 +175,6 @@
 		CD6302A925BE621E003A6AA2 /* DistributionRangeMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionRangeMarker.swift; sourceTree = "<group>"; };
 		CD6302AE25BE6487003A6AA2 /* DistributionRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionRange.swift; sourceTree = "<group>"; };
 		CD6302B325BE6F41003A6AA2 /* MonthButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthButtons.swift; sourceTree = "<group>"; };
-		CD6302C325C00571003A6AA2 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		CD6302C825C00604003A6AA2 /* DowBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DowBanner.swift; sourceTree = "<group>"; };
 		CD6CCAC325CFCE4A00B256AA /* SliderRuler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderRuler.swift; sourceTree = "<group>"; };
 		CD6CCAC825D0BD9B00B256AA /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
@@ -245,6 +241,7 @@
 		CD9D30E92628248800F948F1 /* DistributionYAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionYAxis.swift; sourceTree = "<group>"; };
 		CD9D30EE2628262900F948F1 /* DateShell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateShell.swift; sourceTree = "<group>"; };
 		CD9D30F6262829D100F948F1 /* DateShellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateShellViewModel.swift; sourceTree = "<group>"; };
+		CD9D30FB26282F3C00F948F1 /* YearViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewModel.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -252,7 +249,6 @@
 		CDA22BA825C05E08004D0CF2 /* BottomDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomDayRow.swift; sourceTree = "<group>"; };
 		CDA22BAD25C06060004D0CF2 /* MidDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidDayRow.swift; sourceTree = "<group>"; };
 		CDA22BB525C0685D004D0CF2 /* DayButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtons.swift; sourceTree = "<group>"; };
-		CDA22BBA25C0DB1C004D0CF2 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		CDA22BD225C7E22A004D0CF2 /* DayChartBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayChartBackground.swift; sourceTree = "<group>"; };
 		CDA22BD725C7E689004D0CF2 /* LowRangeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowRangeBackground.swift; sourceTree = "<group>"; };
 		CDA22BDF25C7E8CE004D0CF2 /* MidRangeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidRangeBackground.swift; sourceTree = "<group>"; };
@@ -538,11 +534,8 @@
 			children = (
 				CD6CCC5F25F462AC00B256AA /* Login.swift */,
 				CD08F1A9260D9EAC00FD3235 /* Loading.swift */,
-				CD63026525B51E20003A6AA2 /* Year.swift */,
 				CD9D30A0261D88FD00F948F1 /* YearInfo.swift */,
-				CD6302C325C00571003A6AA2 /* Month.swift */,
 				CD9D30B2261EC95D00F948F1 /* MonthInfo.swift */,
-				CDA22BBA25C0DB1C004D0CF2 /* Day.swift */,
 				CD9D30BF261F278B00F948F1 /* DayInfo.swift */,
 				CDA22C1925CE77F6004D0CF2 /* Settings.swift */,
 				CD9D30EE2628262900F948F1 /* DateShell.swift */,
@@ -558,6 +551,7 @@
 				CD9D30B7261F1DB300F948F1 /* MonthViewModel.swift */,
 				CD9D30C4261F2B1700F948F1 /* DayViewModel.swift */,
 				CD9D30F6262829D100F948F1 /* DateShellViewModel.swift */,
+				CD9D30FB26282F3C00F948F1 /* YearViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -896,7 +890,6 @@
 				CD6302B425BE6F41003A6AA2 /* MonthButtons.swift in Sources */,
 				CDFE64322607D83600986423 /* StatsRequest.swift in Sources */,
 				CD6CCC0325EB8B8800B256AA /* Bg_Info_Entity+CoreDataClass.swift in Sources */,
-				CD63026625B51E20003A6AA2 /* Year.swift in Sources */,
 				CD6CCB7925DC763800B256AA /* Time.swift in Sources */,
 				CD6CCACE25D0C01000B256AA /* ScreenHeader.swift in Sources */,
 				CD63025925B4A1ED003A6AA2 /* OverheadBanner.swift in Sources */,
@@ -911,7 +904,6 @@
 				CD6CCB6925DC593000B256AA /* Metric.swift in Sources */,
 				CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */,
 				CDA22BFA25C80AF5004D0CF2 /* DayChart.swift in Sources */,
-				CD6302C425C00571003A6AA2 /* Month.swift in Sources */,
 				CD6CCB1625D4CCC200B256AA /* SliderThumb.swift in Sources */,
 				CD6CCBFC25EB8B8800B256AA /* Measures_Entity+CoreDataProperties.swift in Sources */,
 				CDA22BD825C7E689004D0CF2 /* LowRangeBackground.swift in Sources */,
@@ -927,6 +919,7 @@
 				CD6CCBC125DF263D00B256AA /* ColorPickerMenu.swift in Sources */,
 				CD08F1852609A3C800FD3235 /* DataRange.swift in Sources */,
 				CD08F1A5260BD56E00FD3235 /* DateEgvRequest.swift in Sources */,
+				CD9D30FC26282F3C00F948F1 /* YearViewModel.swift in Sources */,
 				CDA22BD325C7E22A004D0CF2 /* DayChartBackground.swift in Sources */,
 				CD6CCBDE25EA25A500B256AA /* AnimatableCustomFontModifier.swift in Sources */,
 				CDFE64252607D81100986423 /* SignInRequest.swift in Sources */,
@@ -944,7 +937,6 @@
 				CD9D30522612F32600F948F1 /* BSSetup.swift in Sources */,
 				CD6CCC4D25EDF9A700B256AA /* Date_Info_Entity+CoreDataProperties.swift in Sources */,
 				CD9D30F7262829D100F948F1 /* DateShellViewModel.swift in Sources */,
-				CDA22BBB25C0DB1C004D0CF2 /* Day.swift in Sources */,
 				CD63027325B60A5A003A6AA2 /* MonthButton.swift in Sources */,
 				CD9D30B3261EC95D00F948F1 /* MonthInfo.swift in Sources */,
 				CD6CCC6825F4BD4800B256AA /* LoginViewModel.swift in Sources */,
