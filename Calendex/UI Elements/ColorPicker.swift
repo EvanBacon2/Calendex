@@ -13,8 +13,7 @@ struct ColorPicker: View {
     @Binding var toggleAvailable: Bool
     
     @State private var toggled: Bool = false
-    @State private var pickerOffset: CGFloat = 40.0
-    @State private var pickerScale: CGFloat = 0.0
+    @State private var pickerOpacity: CGFloat = 0.0
     
     var circleDiameter = UIScreen.screenWidth * 0.1
     
@@ -44,15 +43,12 @@ struct ColorPicker: View {
                     .font(.subheadline)
             }.frame(height: circleDiameter)
             ZStack() {
-                VStack() {
-                    activeColorButton()
-                    Spacer()
-                }
+                activeColorButton()
                 ColorPickerMenu(range: range, alignment: alignment, togglePicker: { () -> Void in togglePicker() })
-                    .offset(y: pickerOffset)
-                    .scaleEffect(pickerScale)
+                    .offset(y: 60.0)
+                    .opacity(Double(pickerOpacity))
                     .animation(.easeOut(duration: 0.2))
-            }.frame(height: UIScreen.screenHeight * 0.23)
+            }.frame(height: circleDiameter)
         }
     }
     
@@ -62,13 +58,13 @@ struct ColorPicker: View {
                 .fill(colors.activeColor(range: range))
                 .frame(width: circleDiameter,
                        height: circleDiameter)
-        }
+        }.frame(width: circleDiameter,
+                height: circleDiameter)
     }
     
     func togglePicker() -> Void {
         if (toggleAvailable || toggled) {
-            pickerOffset = pickerOffset == 40.0 ? 0.0 : 40.0
-            pickerScale = pickerScale == 1.0 ? 0.0 : 1.0
+            pickerOpacity = pickerOpacity == 1.0 ? 0.0 : 1.0
             toggled.toggle()
             toggleAvailable.toggle()
         }

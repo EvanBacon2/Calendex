@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ColorPickerMenu: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var colors: Colors
     
     let togglePicker: () -> Void
@@ -43,12 +44,12 @@ struct ColorPickerMenu: View {
     
     func pickerBox() -> some View {
         return VStack(spacing: 0) {
-            PickerBoxTriangle()
-                .fill(AppColors.LIGHT_BLUE_GRAY)
+            /*PickerBoxTriangle()
+                .fill(colors.boxColor(colorScheme))
                 .frame(width: circleDiameter / 3,
-                       height: circleDiameter / 3)
+                       height: circleDiameter / 3)*/
             RoundedRectangle(cornerRadius: 5)
-                .fill(AppColors.LIGHT_BLUE_GRAY)
+                .fill(colors.boxColor(colorScheme))
                 .frame(width: ((circleDiameter + circleSpacing) * CGFloat(AppColors.RANGE_COLOR_OPTIONS)) + circleSpacing,
                        height: circleDiameter + circleSpacing * 2)
                 .fixedSize()

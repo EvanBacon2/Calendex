@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DataButton: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var colors: Colors
     
     @Binding var selected: String
@@ -27,14 +28,15 @@ struct DataButton: View {
             selected = label
         }) {
             Text(self.label)
-                .foregroundColor(selected == label ? Color.white : AppColors.DARK_GRAY)
+                .foregroundColor(selected == label ? Color.white : colors.fillerTextColor(colorScheme))
                 .frame(width: buttonWidth, height: buttonHeight)
                 .background(RoundedRectangle(cornerRadius: buttonCorner)
-                    .fill(selected == label ? AppColors.ACCENT_COLOR : AppColors.LIGHT_BLUE_GRAY)
+                    .fill(selected == label ? AppColors.ACCENT_COLOR : colors.fillerButtonColor(colorScheme))
                     .frame(width: buttonWidth, height: buttonHeight))
-                    //.shadow(radius: 6, y: 6))
         }
     }
+    
+    
 }
 
 struct DataButton_Previews: PreviewProvider {

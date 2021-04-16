@@ -19,11 +19,17 @@ struct MonthInfo: View {
     var body: some View {
         LazyVStack(spacing: 0) {
             Spacer().frame(height: Spacing.HEADER_MARGIN)
-            DaySummary(year: viewModel.dateInfo?.year ?? 0, month: viewModel.dateInfo?.month ?? 0)
+            UIBox {
+                DaySummary(year: viewModel.dateInfo?.year ?? 0, month: viewModel.dateInfo?.month ?? 0)
+            }
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
-            TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
+            UIBox {
+                TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
+            }
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
-            Distribution(distribution: viewModel.dateInfo?.date_info?.distribution?.map { $0.value * 100 } ?? viewModel.emptyDistribution)
+            UIBox {
+                Distribution(distribution: viewModel.dateInfo?.date_info?.distribution?.map { $0.value * 100 } ?? viewModel.emptyDistribution)
+            }
             Spacer()
         }.padding(.bottom, Spacing.DOUBLE_SPACE)
     }

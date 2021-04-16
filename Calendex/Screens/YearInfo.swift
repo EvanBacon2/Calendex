@@ -42,6 +42,7 @@ struct YearInfo: View {
 
 struct YearInfo_Previews: PreviewProvider {
     static var previews: some View {
-        YearInfo(year: 2016).environmentObject(Goals())
+        //YearInfo(year: 2016).environmentObject(Goals())
+        EmptyView()
     }
 }

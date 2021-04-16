@@ -85,4 +85,20 @@ class Colors: ObservableObject {
             default: return AppColors.LIGHT_BOX
         }
     }
+    
+    func fillerTextColor(_ scheme: ColorScheme) -> Color {
+        switch scheme {
+            case .light: return AppColors.DARK_GRAY
+            case.dark: return AppColors.LIGHT_GRAY
+            default: return AppColors.DARK_GRAY
+        }
+    }
+    
+    func fillerButtonColor(_ scheme: ColorScheme) -> Color {
+        switch scheme {
+            case .light: return AppColors.LIGHT_BLUE_GRAY
+            case.dark: return AppColors.DARK_BLUE_GRAY
+            default: return AppColors.LIGHT_BLUE_GRAY
+        }
+    }
 }

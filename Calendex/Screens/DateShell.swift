@@ -12,7 +12,7 @@ struct DateShell: View {
     
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var colors: Colors
-    
+
     @State var settingsActive: Bool = false
     @State var activeTab: Int
     
@@ -36,6 +36,7 @@ struct DateShell: View {
         self.dateType = .year
         
         self._activeTab = State(wrappedValue: viewModel.startDate())
+        let startYear = self.year
     }
     
     init(year: Int = -1, month: Int = -1, day: Int = -1) {
@@ -81,12 +82,14 @@ struct DateShell: View {
     }
     
     var body: some View {
-        if dateType == .year {
-            NavigationView {
-                contents()
+        Group {
+            if dateType == .year {
+                NavigationView {
+                    contents().background(colors.backgroundColor(colorScheme))
+                }
+            } else {
+                contents().background(colors.backgroundColor(colorScheme))
             }
-        } else {
-            contents()
         }
     }
     
@@ -109,7 +112,7 @@ struct DateShell: View {
             settingsLink()
         }.navigationBarTitle("", displayMode: .inline)
          .navigationBarItems(trailing: SettingsButton($settingsActive))
-         .background(colors.backgroundColor(colorScheme))
+         .frame(width: UIScreen.screenWidth)
     }
     
     func settingsLink() -> NavigationLink<EmptyView, Settings> {
@@ -121,5 +124,33 @@ struct DateShell_Previews: PreviewProvider {
     static var previews: some View {
         //Date()
         EmptyView()
+    }
+}
+
+extension NavigationLink where Label == EmptyView {
+    init?<Value>(
+        _ binding: Binding<Value?>,
+        @ViewBuilder destination: (Value) -> Destination
+    ) {
+        guard let value = binding.wrappedValue else {
+            return nil
+        }
+
+        let isActive = Binding(
+            get: { true },
+            set: { newValue in if !newValue { binding.wrappedValue = nil } }
+        )
+
+        self.init(destination: destination(value), isActive: isActive, label: EmptyView.init)
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func navigate<Value, Destination: View>(
+        using binding: Binding<Value?>,
+        @ViewBuilder destination: (Value) -> Destination
+    ) -> some View {
+        background(NavigationLink(binding, destination: destination))
     }
 }

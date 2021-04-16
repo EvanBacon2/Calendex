@@ -67,7 +67,7 @@ struct GoalSlider: View {
     
     func getPositionBinding(binding: Binding<Int>) -> Binding<CGFloat> {
         return Binding(get: { return self.convertMetricToWidth(val: binding.wrappedValue) - self.thumbAdjustment },
-                       set: {_,_ in })
+                       set: {_ in })
     }
     
     func getValueBinding(binding: Binding<Int>) -> Binding<CGFloat> {

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SliderThumb: View {
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var colors: Colors
+    
     @Binding var val: CGFloat
     @Binding private var sliderPos: CGFloat
     
@@ -47,10 +50,9 @@ struct SliderThumb: View {
                 selected = true
                 
                 let newSliderPos = startPos + gesture.translation.width
-                
                 if (newSliderPos >= lowThreshold &&
                         newSliderPos <= highThreshold) {
-                    self.val = checkBounds(newSliderPos)
+                    val = checkBounds(newSliderPos)
                     prevDelta = gesture.translation.width
                     prevDelta -= shaveDelta(sliderPos)
                 }
@@ -58,12 +60,43 @@ struct SliderThumb: View {
                 startPos = sliderPos
                 prevDelta = 0.0
                 selected = false
+                
                 withAnimation(Animation.default) {
                     fontSize = 14
                     topOff = Dimensions.BASE_UNIT * -6
                     bottomOff = Dimensions.BASE_UNIT * 6
                 }
             }
+    }
+    
+    var body: some View {
+        VStack(spacing: 2) {
+            if (textOnTop) {
+                thumbCaption(top: true)
+            }
+            Rectangle()
+                .fill(AppColors.LIGHT_BLUE_GRAY)
+                .frame(width: Dimensions.BASE_UNIT * 3,
+                       height: Dimensions.BASE_UNIT * 11)
+                .offset(x: self.sliderPos, y: textOnTop ? -1.0 : 1.0)
+                //.gesture(sliderDrag)
+            if (!textOnTop) {
+                thumbCaption(top: false)
+            }
+        }.frame(width: Dimensions.BASE_UNIT * 9, height: Dimensions.BASE_UNIT * 33)
+        .gesture(sliderDrag)
+    }
+    
+    func thumbCaption(top: Bool) -> some View {
+        let offset: CGFloat = top ? topOff : bottomOff
+        
+        return Text("\(Int(self.val))")
+                .foregroundColor(colors.fillerTextColor(colorScheme))
+                .animatableFont(name: "San Francisco", size: fontSize)
+                .offset(y: offset)
+                .offset(x: self.sliderPos)
+                .fixedSize()
+                .frame(height: 1.0)
     }
     
     func checkBounds(_ newPos: CGFloat) -> CGFloat {
@@ -84,35 +117,6 @@ struct SliderThumb: View {
         } else {
             return 0.0
         }
-    }
-    
-    var body: some View {
-        VStack(spacing: 1) {
-            if (textOnTop) {
-                thumbCaption(top: true)
-            }
-            Rectangle()
-                .fill(AppColors.LIGHT_BLUE_GRAY)
-                .frame(width: Dimensions.BASE_UNIT * 3,
-                       height: Dimensions.BASE_UNIT * 11)
-                .offset(x: self.sliderPos)
-                .gesture(sliderDrag)
-            if (!textOnTop) {
-                thumbCaption(top: false)
-            }
-        }
-    }
-    
-    func thumbCaption(top: Bool) -> some View {
-        let offset: CGFloat = top ? topOff : bottomOff
-        
-        return Text("\(Int(self.val))")
-                .foregroundColor(AppColors.DARK_GRAY)
-                .animatableFont(name: "San Francisco", size: fontSize)
-                .offset(y: offset)
-                .offset(x: self.sliderPos)
-                .fixedSize()
-                .frame(height: 1.0)
     }
 }
 

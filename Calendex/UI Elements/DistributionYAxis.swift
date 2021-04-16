@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DistributionYAxis: View {
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var colors: Colors
+    
     let ceiling: CGFloat
     
     init(ceiling: CGFloat) {
@@ -18,15 +21,15 @@ struct DistributionYAxis: View {
         VStack() {
             Text("\(Int(round(ceiling)))")
                 .font(.footnote)
-                .foregroundColor(AppColors.DARK_GRAY)
+                .foregroundColor(colors.fillerTextColor(colorScheme))
             Spacer()
             Text("0")
                 .font(.footnote)
-                .foregroundColor(AppColors.DARK_GRAY)
+                .foregroundColor(colors.fillerTextColor(colorScheme))
         }.frame(height: UIScreen.screenHeight * 0.1)
         VStack() {
             Rectangle()
-                .fill(AppColors.LIGHT_BLUE_GRAY)
+                .fill(colors.fillerButtonColor(colorScheme))
                 .frame(width: UIScreen.screenHeight * 0.004,
                        height: UIScreen.screenHeight * 0.1)
                 Spacer()

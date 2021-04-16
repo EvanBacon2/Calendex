@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DayButton: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
@@ -46,10 +47,10 @@ struct DayButton: View {
         
         return Text("\(day)")
             .font(.callout)
-            .foregroundColor(active ? Color.white : AppColors.DARK_GRAY)
+            .foregroundColor(active ? Color.white : colors.fillerTextColor(colorScheme))
             .frame(width: buttonLength, height: buttonLength)
             .background(RoundedRectangle(cornerRadius: buttonCorner)
-                            .fill(active ? colors.activeColor(range: getRange()) : AppColors.LIGHT_BLUE_GRAY)
+                            .fill(active ? colors.activeColor(range: getRange()) : colors.fillerButtonColor(colorScheme))
                             .frame(width: buttonLength, height: buttonLength))
     }
     

@@ -19,7 +19,7 @@ struct PointGraph: View {
             ForEach(0..<values.count, id: \.self) { i in
                 ChartPoint(x: values[i].1, y: values[i].0)
             }
-        }.frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight * 0.4 + UIScreen.screenHeight * 0.012)
+        }.frame(width: UIScreen.screenWidth * 0.85, height: UIScreen.screenHeight * 0.4 + UIScreen.screenHeight * 0.012)
     }
 }
 

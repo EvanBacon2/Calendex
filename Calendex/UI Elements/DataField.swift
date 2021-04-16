@@ -14,6 +14,7 @@ enum Field: String {
 }
 
 struct DataField: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
@@ -29,9 +30,9 @@ struct DataField: View {
     }
     
     var body: some View {
-        VStack(spacing: UIScreen.screenHeight * 0.002) {
+        VStack(spacing: Spacing.SINGLE_SPACE) {
             Text(data.rawValue)
-                .foregroundColor(AppColors.DARK_GRAY)
+                .foregroundColor(colors.fillerTextColor(colorScheme))
             Text("\(value) ml")
                 .foregroundColor(textColor())
                 .frame(width: buttonWidth, height: buttonHeight)
@@ -42,11 +43,11 @@ struct DataField: View {
     }
     
     func textColor() -> Color {
-        return data == .AVG ? AppColors.LIGHT_BLUE_GRAY : AppColors.DARK_GRAY
+        return data == .AVG ? AppColors.LIGHT_GRAY : colors.fillerTextColor(colorScheme)
     }
     
     func buttonColor() -> Color {
-        return data == .AVG ? colors.activeColor(range: getRange()) : AppColors.LIGHT_BLUE_GRAY
+        return data == .AVG ? colors.activeColor(range: getRange()) : colors.fillerButtonColor(colorScheme)
     }
     
     func getRange() -> Range {

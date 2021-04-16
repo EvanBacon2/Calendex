@@ -27,13 +27,19 @@ struct DayInfo: View {
             Spacer().frame(height: Spacing.HEADER_MARGIN)
             DayChart(points: chartViewModel.points)
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
-            DayQuickData(min: viewModel.dateInfo?.info?.measures?.min ?? -1,
-                         max: viewModel.dateInfo?.info?.measures?.max ?? -1,
-                         avg: Int(viewModel.dateInfo?.info?.measures?.mean ?? -1.0))
+            UIBox {
+                DayQuickData(min: viewModel.dateInfo?.info?.measures?.min ?? -1,
+                             max: viewModel.dateInfo?.info?.measures?.max ?? -1,
+                             avg: Int(viewModel.dateInfo?.info?.measures?.mean ?? -1.0))
+            }
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
-            TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
+            UIBox {
+                TimeInRange(low: getRange(.low), mid: getRange(.mid), high: getRange(.high))
+            }
             Spacer().frame(height: Spacing.DOUBLE_SPACE)
-            Distribution(distribution: viewModel.dateInfo?.date_info?.distribution?.map { CGFloat($0.value * 100) } ?? viewModel.emptyDistribution)
+            UIBox {
+                Distribution(distribution: viewModel.dateInfo?.date_info?.distribution?.map { CGFloat($0.value * 100) } ?? viewModel.emptyDistribution)
+            }
         }.padding(.bottom, Spacing.DOUBLE_SPACE)
     }
     

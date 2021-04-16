@@ -19,7 +19,7 @@ struct MidRangeBackground: View {
     var body: some View {
         Rectangle()
             .fill(colors.activeColor(range: .mid))
-            .frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight * height)
+            .frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * height)
     }
 }
 

@@ -41,8 +41,24 @@ class DateInfoViewModel: ObservableObject {
         DateInfoViewModel.fetchDate(year: year, month: month, day: day, datePub: fetchSubject)
     }
     
+    init() {
+        self.year = -1
+        self.month = -1
+        self.day = -1
+        
+        print("info init \(year), \(month), \(day)")
+        DateInfoViewModel.privateContext.parent = DateButtonViewModel.coreContext
+        cancellables.append(fetchSubject
+                                .receive(on: RunLoop.main)
+                                .sink { info in
+                                    self.dateInfo = info
+                                })
+    }
+    
     func setDate(year: Int = -1, month: Int = -1, day: Int = -1) {
-        DateInfoViewModel.fetchDate(year: year, month: month, day: day, datePub: fetchSubject)
+        if year != self.year || month != self.month || day != self.day {
+            DateInfoViewModel.fetchDate(year: year, month: month, day: day, datePub: fetchSubject)
+        }
     }
     
     static private func fetchDate(year: Int, month: Int, day: Int, datePub: PassthroughSubject<Date_Info_Entity?, Never>) {

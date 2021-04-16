@@ -17,7 +17,7 @@ struct DayChartBackground: View {
     }
     
     var body: some View {
-        VStack(spacing: UIScreen.screenHeight * 0.006) {
+        VStack(spacing: UIScreen.screenHeight * 0.004) {
             HighRangeBackground(cutoff: highCutoff)
             MidRangeBackground(lowCutoff: lowCutoff, highCutoff: highCutoff)
             LowRangeBackground(cutoff: lowCutoff)

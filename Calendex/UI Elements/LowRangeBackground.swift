@@ -19,10 +19,10 @@ struct LowRangeBackground: View {
         ZStack(alignment: .top) {
             Rectangle()
                 .fill(colors.activeColor(range: .low))
-                .frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight * height / 2)
+                .frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * height / 2)
             RoundedRectangle(cornerRadius: UIScreen.screenHeight * 0.0125)
                 .fill(colors.activeColor(range: .low))
-                .frame(width: UIScreen.screenWidth * 0.8 , height: UIScreen.screenHeight * height)
+                .frame(width: UIScreen.screenWidth * 0.9 , height: UIScreen.screenHeight * height)
         }
     }
 }

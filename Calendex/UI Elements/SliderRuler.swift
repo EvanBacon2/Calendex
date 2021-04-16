@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SliderRuler: View {
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var colors: Colors
+    
     var markings: [Int]
     var rulerRange: CGFloat
     var rulerWidth: CGFloat
@@ -29,7 +32,7 @@ struct SliderRuler: View {
             }.frame(width: rulerWidth)
             
             RoundedRectangle(cornerRadius: 5)
-                .fill(AppColors.LIGHT_BLUE_GRAY)
+                .fill(rulerColor())
                 .frame(width: rulerWidth, height: Dimensions.BASE_UNIT * 2)
             
             HStack(spacing: 0) {
@@ -46,18 +49,34 @@ struct SliderRuler: View {
     func rulerText(text: String) -> some View {
         return Text(text)
             .font(.callout)
-            .foregroundColor(AppColors.DARK_GRAY)
+            .foregroundColor(textColor())
             .fixedSize()
             .frame(width: 1.0)
     }
     
     func rulerMarking() -> some View {
         return RoundedRectangle(cornerRadius: 5)
-            .fill(AppColors.LIGHT_BLUE_GRAY)
+            .fill(rulerColor())
             .frame(width: Dimensions.BASE_UNIT *  2)
             .fixedSize()
             .frame(width: 1.0,
                    height: UIScreen.screenHeight * 0.010)
+    }
+    
+    func textColor() -> Color{
+        switch colorScheme {
+            case .light: return AppColors.DARK_GRAY
+            case .dark: return AppColors.LIGHT_BLUE_GRAY
+            default: return AppColors.DARK_GRAY
+        }
+    }
+    
+    func rulerColor() -> Color {
+        switch colorScheme {
+            case .light: return AppColors.LIGHT_BLUE_GRAY
+            case .dark: return AppColors.DARK_GRAY
+            default: return AppColors.DARK_GRAY
+        }
     }
     
     func rulerSpace(unitWidth: Int) -> some View {

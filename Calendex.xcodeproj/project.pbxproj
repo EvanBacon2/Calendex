@@ -668,8 +668,8 @@
 		CDA22BFE25C80B70004D0CF2 /* Day Chart */ = {
 			isa = PBXGroup;
 			children = (
-				CD9D30D526269F6700F948F1 /* ViewModels */,
 				CD9D30D426269F5700F948F1 /* Views */,
+				CD9D30D526269F6700F948F1 /* ViewModels */,
 			);
 			name = "Day Chart";
 			sourceTree = "<group>";
