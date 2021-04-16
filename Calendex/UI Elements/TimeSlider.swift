@@ -16,7 +16,7 @@ struct TimeSlider: View {
             Spacer().frame(height: UIScreen.screenHeight * 0.015)
             SliderRuler(markings: [0, 25, 50, 75, 100])
             Spacer().frame(height: UIScreen.screenHeight * 0.05)
-            GoalSlider(sliderWidth: UIScreen.screenWidth * 0.85, sliderHeight: UIScreen.screenHeight * 0.0115, metric: Time(goals: _goals))
+            NewGoalSlider(sliderWidth: UIScreen.screenWidth * 0.85, sliderHeight: UIScreen.screenHeight * 0.0115, metric: Time(goals: _goals))
         }
     }
 }

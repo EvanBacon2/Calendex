@@ -14,9 +14,11 @@ protocol Metric {
     
     var thumbPadding: Int { get }
     
-    var activeRanges: Array<Range> { get }
+    var activeRanges: [Range] { get }
     
-    func getMetrics() -> Array<Binding<Int>>
+    func getMetrics() -> [Binding<Int>]
     
     func getMetricVal(range: Range) -> Int
+    
+    func getMetricVal(range: Range, vals: [Int]) -> Int
 }

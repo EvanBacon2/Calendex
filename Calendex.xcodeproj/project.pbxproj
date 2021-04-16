@@ -101,6 +101,8 @@
 		CD9D30EF2628262900F948F1 /* DateShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30EE2628262900F948F1 /* DateShell.swift */; };
 		CD9D30F7262829D100F948F1 /* DateShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30F6262829D100F948F1 /* DateShellViewModel.swift */; };
 		CD9D30FC26282F3C00F948F1 /* YearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30FB26282F3C00F948F1 /* YearViewModel.swift */; };
+		CD9D31122629981700F948F1 /* MultiSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D31112629981700F948F1 /* MultiSlider.swift */; };
+		CD9D31172629A40600F948F1 /* NewGoalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D31162629A40600F948F1 /* NewGoalSlider.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -242,6 +244,8 @@
 		CD9D30EE2628262900F948F1 /* DateShell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateShell.swift; sourceTree = "<group>"; };
 		CD9D30F6262829D100F948F1 /* DateShellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateShellViewModel.swift; sourceTree = "<group>"; };
 		CD9D30FB26282F3C00F948F1 /* YearViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewModel.swift; sourceTree = "<group>"; };
+		CD9D31112629981700F948F1 /* MultiSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSlider.swift; sourceTree = "<group>"; };
+		CD9D31162629A40600F948F1 /* NewGoalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalSlider.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -497,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				CD6CCB2C25D531EF00B256AA /* GoalSlider.swift */,
+				CD9D31162629A40600F948F1 /* NewGoalSlider.swift */,
 				CD6CCB1525D4CCC200B256AA /* SliderThumb.swift */,
 				CD6CCB6825DC593000B256AA /* Metric.swift */,
 				CD6CCB7025DC5B9300B256AA /* Average.swift */,
@@ -506,6 +511,7 @@
 				CD6CCB9225DCAC4400B256AA /* AverageSlider.swift */,
 				CD6CCB9725DEA59C00B256AA /* TimeSlider.swift */,
 				CD6CCB9C25DEA7D000B256AA /* DeviationSlider.swift */,
+				CD9D31112629981700F948F1 /* MultiSlider.swift */,
 			);
 			name = GoalSlider;
 			sourceTree = "<group>";
@@ -875,6 +881,7 @@
 				CD6CCB7125DC5B9300B256AA /* Average.swift in Sources */,
 				CDA22BF525C807A6004D0CF2 /* PointGraph.swift in Sources */,
 				CD6CCBFB25EB8B8800B256AA /* Measures_Entity+CoreDataClass.swift in Sources */,
+				CD9D31122629981700F948F1 /* MultiSlider.swift in Sources */,
 				CD63027825B6116A003A6AA2 /* DataButton.swift in Sources */,
 				CD9D30C5261F2B1700F948F1 /* DayViewModel.swift in Sources */,
 				CD63025E25B4A253003A6AA2 /* AppColors.swift in Sources */,
@@ -945,6 +952,7 @@
 				CD6CCB9325DCAC4400B256AA /* AverageSlider.swift in Sources */,
 				CD6CCBFD25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift in Sources */,
 				CD6CCAE025D0C35200B256AA /* DataButtons.swift in Sources */,
+				CD9D31172629A40600F948F1 /* NewGoalSlider.swift in Sources */,
 				CDA22BF025C80719004D0CF2 /* ChartPoint.swift in Sources */,
 				CD08F17B26096B2400FD3235 /* Stats.swift in Sources */,
 				CD6CCC5B25EF43E300B256AA /* Fetches.swift in Sources */,

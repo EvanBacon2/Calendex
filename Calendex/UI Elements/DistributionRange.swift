@@ -11,17 +11,21 @@ struct DistributionRange: View {
     @EnvironmentObject var colors: Colors
     @EnvironmentObject var goals: Goals
     
-    let barWidth = UIScreen.screenWidth * 0.016
-    var values: [CGFloat]
+    let values: [CGFloat]
     let length: CGFloat
     let range: Range
     let ceiling: CGFloat
+    
+    let barWidth = UIScreen.screenWidth * 0.016
+    let rangeWidth: CGFloat
     
     init(_ values: [CGFloat], _ range: Range, _ ceiling: CGFloat) {
         self.values = values
         self.length = CGFloat(self.values.count)
         self.range = range
         self.ceiling = ceiling < 5.0 ? 5.0 : ceiling
+        
+        self.rangeWidth = length > 0 ? barWidth * length + (length - 1) * Dimensions.BASE_UNIT : 0
     }
     
     var body: some View {
@@ -40,7 +44,7 @@ struct DistributionRange: View {
     func rangeUnderline() -> some View {
         return RoundedRectangle(cornerRadius: 10)
                     .fill(colors.activeColor(range: range))
-            .frame(width: barWidth * length + (length - 1) * Dimensions.BASE_UNIT, height: UIScreen.screenHeight * 0.004)
+            .frame(width: rangeWidth, height: UIScreen.screenHeight * 0.004)
     }
 }
 

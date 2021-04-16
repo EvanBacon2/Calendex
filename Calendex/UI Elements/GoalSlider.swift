@@ -10,6 +10,8 @@ import SwiftUI
 struct GoalSlider: View {
     @EnvironmentObject var colors: Colors
     
+    @State var fakeMetricVals: [Int]
+    
     //Slider Fields
     let sliderWidth: CGFloat
     let sliderHeight: CGFloat
@@ -32,6 +34,7 @@ struct GoalSlider: View {
         self.sliderHeight = sliderHeight
         
         self.metric = metric
+        self._fakeMetricVals = State(wrappedValue: metric.getMetrics().map { $0.wrappedValue })
         
         self.dragLimit = self.sliderWidth / 2
         self.thumbAdjustment = dragLimit
@@ -56,18 +59,14 @@ struct GoalSlider: View {
             }
             ZStack() {
                 ForEach(0..<metric.activeRanges.count - 1) { [self] i in
-                    SliderThumb(startPos: getPositionBinding(binding: metric.getMetrics()[i]),
+                    SliderThumb(startPos: getFakePosBinding(i),
                                 lowThreshold: i == 0 ? -dragLimit : thumbPosition(index: i - 1) + thumbPaddingWidth,
                                 highThreshold: i == metric.activeRanges.count - 2 ? dragLimit : thumbPosition(index: i + 1) - thumbPaddingWidth,
-                                val: getValueBinding(binding: metric.getMetrics()[i]), textOnTop: i % 2 == 0)
+                                val: getFakeValBinding(i),
+                                realVal: getValueBinding(binding: metric.getMetrics()[i]), textOnTop: i % 2 == 0)
                 }
             }
         }
-    }
-    
-    func getPositionBinding(binding: Binding<Int>) -> Binding<CGFloat> {
-        return Binding(get: { return self.convertMetricToWidth(val: binding.wrappedValue) - self.thumbAdjustment },
-                       set: {_ in })
     }
     
     func getValueBinding(binding: Binding<Int>) -> Binding<CGFloat> {
@@ -75,8 +74,18 @@ struct GoalSlider: View {
                        set: { (newValue) in binding.wrappedValue = self.convertWidthToMetric(width: newValue) })
     }
     
+    func getFakePosBinding(_ i: Int) -> Binding<CGFloat> {
+        return Binding(get: { return self.convertMetricToWidth(val: fakeMetricVals[i]) - self.thumbAdjustment },
+                       set: {_ in })
+    }
+    
+    func getFakeValBinding(_ i: Int) -> Binding<CGFloat> {
+        return Binding(get: { return CGFloat(fakeMetricVals[i]) },
+                       set: { newVal in fakeMetricVals[i] = self.convertWidthToMetric(width: newVal) })
+    }
+    
     func thumbPosition(index: Int) -> CGFloat {
-        return getPositionBinding(binding: metric.getMetrics()[index]).wrappedValue
+        return getFakePosBinding(index).wrappedValue
     }
     
     func getBar(range: Range, width: CGFloat) -> some View {
@@ -110,7 +119,7 @@ struct GoalSlider: View {
     }
     
     func calcWidth(range: Range) -> CGFloat {
-        return convertMetricToWidth(val: metric.getMetricVal(range: range))
+        return convertMetricToWidth(val: metric.getMetricVal(range: range, vals: fakeMetricVals))
     }
     
     func convertMetricToWidth(val: Int) -> CGFloat {
