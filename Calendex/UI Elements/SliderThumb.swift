@@ -35,11 +35,8 @@ struct SliderThumb: View {
         self.lowThreshold = lowThreshold
         self.highThreshold = highThreshold
         
-        print("low \(lowThreshold)")
-        print("high \(highThreshold)")
-        
         self.textOnTop = textOnTop
-        self._textOffset = State(wrappedValue: textOnTop ? Dimensions.BASE_UNIT * -6 : Dimensions.BASE_UNIT * 6)
+        self._textOffset = State(wrappedValue: textOnTop ? Dimensions.BASE_UNIT * -2 : Dimensions.BASE_UNIT * 2)
     }
     
     var sliderDrag: some Gesture {
@@ -58,7 +55,7 @@ struct SliderThumb: View {
                 selected = false
                 withAnimation(Animation.default) {
                     fontSize = 14
-                    textOffset = textOnTop ? Dimensions.BASE_UNIT * -6 : Dimensions.BASE_UNIT * 6
+                    textOffset = textOnTop ? Dimensions.BASE_UNIT * -2 : Dimensions.BASE_UNIT * 2
                 }
             }
     }
@@ -74,6 +71,9 @@ struct SliderThumb: View {
                        height: Dimensions.BASE_UNIT * 11)
                 .offset(x: self.sliderPos, y: textOnTop ? -1.0 : 1.0)
                 .gesture(sliderDrag)
+                .fixedSize()
+                .frame(width: Dimensions.BASE_UNIT * 9,
+                       height: Dimensions.BASE_UNIT * 22)
             if (!textOnTop) {
                 thumbCaption(top: false)
             }

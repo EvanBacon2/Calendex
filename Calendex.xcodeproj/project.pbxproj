@@ -46,7 +46,6 @@
 		CD6CCB0625D10E3B00B256AA /* DayQuickData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB0525D10E3B00B256AA /* DayQuickData.swift */; };
 		CD6CCB1125D1481300B256AA /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB1025D1481300B256AA /* Dimensions.swift */; };
 		CD6CCB1625D4CCC200B256AA /* SliderThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB1525D4CCC200B256AA /* SliderThumb.swift */; };
-		CD6CCB2D25D531EF00B256AA /* GoalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB2C25D531EF00B256AA /* GoalSlider.swift */; };
 		CD6CCB3625D53CAA00B256AA /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB3525D53CAA00B256AA /* Goals.swift */; };
 		CD6CCB6925DC593000B256AA /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB6825DC593000B256AA /* Metric.swift */; };
 		CD6CCB7125DC5B9300B256AA /* Average.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CCB7025DC5B9300B256AA /* Average.swift */; };
@@ -102,7 +101,7 @@
 		CD9D30F7262829D100F948F1 /* DateShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30F6262829D100F948F1 /* DateShellViewModel.swift */; };
 		CD9D30FC26282F3C00F948F1 /* YearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D30FB26282F3C00F948F1 /* YearViewModel.swift */; };
 		CD9D31122629981700F948F1 /* MultiSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D31112629981700F948F1 /* MultiSlider.swift */; };
-		CD9D31172629A40600F948F1 /* NewGoalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D31162629A40600F948F1 /* NewGoalSlider.swift */; };
+		CD9D31172629A40600F948F1 /* GoalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9D31162629A40600F948F1 /* GoalSlider.swift */; };
 		CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9425C04A3A004D0CF2 /* DayButton.swift */; };
 		CDA22B9A25C04A4F004D0CF2 /* DayButtonFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */; };
 		CDA22B9F25C05D4D004D0CF2 /* TopDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */; };
@@ -189,7 +188,6 @@
 		CD6CCB0525D10E3B00B256AA /* DayQuickData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayQuickData.swift; sourceTree = "<group>"; };
 		CD6CCB1025D1481300B256AA /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		CD6CCB1525D4CCC200B256AA /* SliderThumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderThumb.swift; sourceTree = "<group>"; };
-		CD6CCB2C25D531EF00B256AA /* GoalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSlider.swift; sourceTree = "<group>"; };
 		CD6CCB3525D53CAA00B256AA /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
 		CD6CCB6825DC593000B256AA /* Metric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metric.swift; sourceTree = "<group>"; };
 		CD6CCB7025DC5B9300B256AA /* Average.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Average.swift; sourceTree = "<group>"; };
@@ -245,7 +243,7 @@
 		CD9D30F6262829D100F948F1 /* DateShellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateShellViewModel.swift; sourceTree = "<group>"; };
 		CD9D30FB26282F3C00F948F1 /* YearViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewModel.swift; sourceTree = "<group>"; };
 		CD9D31112629981700F948F1 /* MultiSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSlider.swift; sourceTree = "<group>"; };
-		CD9D31162629A40600F948F1 /* NewGoalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalSlider.swift; sourceTree = "<group>"; };
+		CD9D31162629A40600F948F1 /* GoalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSlider.swift; sourceTree = "<group>"; };
 		CDA22B9425C04A3A004D0CF2 /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 		CDA22B9925C04A4F004D0CF2 /* DayButtonFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonFiller.swift; sourceTree = "<group>"; };
 		CDA22B9E25C05D4D004D0CF2 /* TopDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDayRow.swift; sourceTree = "<group>"; };
@@ -500,13 +498,9 @@
 		CD6CCB8E25DCA58C00B256AA /* GoalSlider */ = {
 			isa = PBXGroup;
 			children = (
-				CD6CCB2C25D531EF00B256AA /* GoalSlider.swift */,
-				CD9D31162629A40600F948F1 /* NewGoalSlider.swift */,
+				CD9D31242629CCF000F948F1 /* Metrics */,
+				CD9D31162629A40600F948F1 /* GoalSlider.swift */,
 				CD6CCB1525D4CCC200B256AA /* SliderThumb.swift */,
-				CD6CCB6825DC593000B256AA /* Metric.swift */,
-				CD6CCB7025DC5B9300B256AA /* Average.swift */,
-				CD6CCB7825DC763800B256AA /* Time.swift */,
-				CD6CCB7D25DC765000B256AA /* Deviation.swift */,
 				CD6CCAC325CFCE4A00B256AA /* SliderRuler.swift */,
 				CD6CCB9225DCAC4400B256AA /* AverageSlider.swift */,
 				CD6CCB9725DEA59C00B256AA /* TimeSlider.swift */,
@@ -619,6 +613,17 @@
 				CD9D30782619B3BF00F948F1 /* DayChartViewModel.swift */,
 			);
 			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		CD9D31242629CCF000F948F1 /* Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				CD6CCB6825DC593000B256AA /* Metric.swift */,
+				CD6CCB7025DC5B9300B256AA /* Average.swift */,
+				CD6CCB7825DC763800B256AA /* Time.swift */,
+				CD6CCB7D25DC765000B256AA /* Deviation.swift */,
+			);
+			name = Metrics;
 			sourceTree = "<group>";
 		};
 		CDA22BBF25C7DEA9004D0CF2 /* Day Summary */ = {
@@ -952,7 +957,7 @@
 				CD6CCB9325DCAC4400B256AA /* AverageSlider.swift in Sources */,
 				CD6CCBFD25EB8B8800B256AA /* Distribution_Entity+CoreDataClass.swift in Sources */,
 				CD6CCAE025D0C35200B256AA /* DataButtons.swift in Sources */,
-				CD9D31172629A40600F948F1 /* NewGoalSlider.swift in Sources */,
+				CD9D31172629A40600F948F1 /* GoalSlider.swift in Sources */,
 				CDA22BF025C80719004D0CF2 /* ChartPoint.swift in Sources */,
 				CD08F17B26096B2400FD3235 /* Stats.swift in Sources */,
 				CD6CCC5B25EF43E300B256AA /* Fetches.swift in Sources */,
@@ -978,7 +983,6 @@
 				CD6CCBE425EB40B600B256AA /* BloodSugar.xcdatamodeld in Sources */,
 				CD6CCB1125D1481300B256AA /* Dimensions.swift in Sources */,
 				CDA22B9525C04A3A004D0CF2 /* DayButton.swift in Sources */,
-				CD6CCB2D25D531EF00B256AA /* GoalSlider.swift in Sources */,
 				CD9D3063261457B500F948F1 /* RangeField.swift in Sources */,
 				CD9D30C0261F278B00F948F1 /* DayInfo.swift in Sources */,
 				CD9D30B8261F1DB300F948F1 /* MonthViewModel.swift in Sources */,
