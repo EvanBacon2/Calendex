@@ -16,7 +16,7 @@ struct DistributionRangeMarker: View {
     let angleShift: Double
     
     let markerW = UIScreen.screenHeight * 0.004
-    let markerH = UIScreen.screenHeight * 0.024
+    let markerH = UIScreen.screenHeight * 0.018
     
     init(_ val: String, angleOffset: Double) {
         self.val = val
@@ -32,7 +32,8 @@ struct DistributionRangeMarker: View {
                     .fill(colors.fillerButtonColor(colorScheme))
                     .frame(width: markerW, height: markerH)
                     .rotationEffect(.radians(angleOffset))
-            }.frame(height: UIScreen.screenHeight * 0.126)
+                    .offset(x: CGFloat(angleShift))
+            }.frame(height: UIScreen.screenHeight * 0.134)
             Text(val)
                 .font(.title3)
                 .fixedSize()
