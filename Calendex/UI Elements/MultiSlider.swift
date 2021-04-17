@@ -93,18 +93,15 @@ struct MultiSlider: View {
     }
     
     private func getSection(section: Int) -> some View {
-        let startVal = section == 0 ? rangeStart : values[section - 1].wrappedValue
-        let endVal = section == values.count ? rangeEnd : values[section].wrappedValue
-        
         return HStack(spacing: 0) {
-            if (startVal == rangeStart) {
+            if (section == 0) {
                 barCap(endCap: false)
             }
             Rectangle()
                 .fill(valueColors[section])
                 .frame(width: sectionWidth(section),
                        height: sliderHeight)
-            if (endVal == rangeEnd) {
+            if (section == values.count) {
                 barCap(endCap: true)
             }
         }

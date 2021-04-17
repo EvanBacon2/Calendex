@@ -41,8 +41,6 @@ struct DistributionGraph: View {
     }
     
     func lowVals() -> [CGFloat] {
-        print("test")
-        
         return Array(distribution[0..<index(goals.lowBgThreshold)])
     }
     

@@ -31,7 +31,6 @@ class DateInfoViewModel: ObservableObject {
         self.month = month
         self.day = day
         
-        print("info init \(year), \(month), \(day)")
         DateInfoViewModel.privateContext.parent = DateButtonViewModel.coreContext
         cancellables.append(fetchSubject
                                 .receive(on: RunLoop.main)
@@ -46,7 +45,6 @@ class DateInfoViewModel: ObservableObject {
         self.month = -1
         self.day = -1
         
-        print("info init \(year), \(month), \(day)")
         DateInfoViewModel.privateContext.parent = DateButtonViewModel.coreContext
         cancellables.append(fetchSubject
                                 .receive(on: RunLoop.main)

@@ -36,7 +36,6 @@ struct DateShell: View {
         self.dateType = .year
         
         self._activeTab = State(wrappedValue: viewModel.startDate())
-        let startYear = self.year
     }
     
     init(year: Int = -1, month: Int = -1, day: Int = -1) {
